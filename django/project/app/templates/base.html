@@ -1,0 +1,267 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>测试平台(开发中)</title>
+    {% csrf_token %}
+    <!--icheck-->
+    <!--   <link href="{% static 'js/iCheck/skins/minimal/minimal.css' %}" rel="stylesheet">
+  <link href="{% static 'js/iCheck/skins/square/square.css' %}" rel="stylesheet">
+  <link href="{% static 'js/iCheck/skins/square/red.css' %}" rel="stylesheet">
+  <link href="{% static 'js/iCheck/skins/square/blue.css' %}" rel="stylesheet"> -->
+    <!--dashboard calendar-->
+    <link href="{% static 'css/clndr.css' %}" rel="stylesheet">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="{% static 'js/morris-chart/morris.css' %}">
+    <!--common-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <style type="text/css">
+    .main-content {
+        z-index: 1050;
+        position: absolute;
+    }
+    
+    canvas {
+        z-index: -1;
+        position: absolute;
+    }
+    
+    .col-lg-2 {
+        opacity: 0.8;
+    }
+    </style>
+</head>
+
+<body class="sticky-header">
+    <section>
+        <!-- left side start-->
+        <div class="left-side sticky-left-side">
+            <!--logo and iconic logo start-->
+            <div class="logo">
+                <a href="/index"><img src="{% static 'images/logo.png' %}" alt=""></a>
+            </div>
+            <div class="logo-icon text-center">
+                <a href="/index"><img src="{% static 'images/logo_icon.png' %}" alt=""></a>
+            </div>
+            <!--logo and iconic logo end-->
+            <div class="left-side-inner">
+                <!-- visible to small devices only -->
+                <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                    <div class="media logged-user">
+                        <img alt="" src="{% static 'images/photos/user-avatar.png' %}" class="media-object">
+                        <div class="media-body">
+                            <h4><a href="#">John Doe</a></h4>
+                            <span>"Hello There..."</span>
+                        </div>
+                    </div>
+                    <h5 class="left-nav-title">Account Information</h5>
+                    <ul class="nav nav-pills nav-stacked custom-nav">
+                        <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                    </ul>
+                </div>
+                <!--sidebar nav start-->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li class="active"><a href="/index"><i class="fa fa-home"></i> <span>主页</span></a></li>
+                    <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>功能</span></a>
+                        <ul class="sub-menu-list">
+                            <li><a href="/test">test</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/login"><i class="fa fa-sign-in"></i> <span>登陆页面</span></a></li>
+                </ul>
+                <!--sidebar nav end-->
+            </div>
+        </div>
+        <!-- left side end-->
+        <!-- main content start-->
+        <div class="main-content">
+            <!-- header section start-->
+            <div class="header-section">
+                <!--toggle button start-->
+                <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+                <!--toggle button end-->
+                <!--search start-->
+                <!--             <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form> -->
+                <!--search end-->
+                <!--notification menu start -->
+<!-- <div class="menu-right">
+    <ul class="notification-menu">
+        <li>
+            <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <img src="{% static 'images/photos/user-avatar.png' %}" alt="" /> John Doe
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
+                <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+ -->
+                <!--notification menu end -->
+            </div>
+            <canvas id="canvas"></canvas>
+            <script>
+            //宇宙特效
+            "use strict";
+            var canvas = document.getElementById('canvas'),
+                ctx = canvas.getContext('2d'),
+                w = canvas.width = window.innerWidth,
+                h = canvas.height = window.innerHeight,
+
+                hue = 217,
+                stars = [],
+                count = 0,
+                maxStars = 160; //星星数量
+
+            var canvas2 = document.createElement('canvas'),
+                ctx2 = canvas2.getContext('2d');
+            canvas2.width = 100;
+            canvas2.height = 100;
+            var half = canvas2.width / 2,
+                gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+            gradient2.addColorStop(0.025, '#CCC');
+            gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+            gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+            gradient2.addColorStop(1, 'transparent');
+
+            ctx2.fillStyle = gradient2;
+            ctx2.beginPath();
+            ctx2.arc(half, half, half, 0, Math.PI * 2);
+            ctx2.fill();
+
+            // End cache
+
+            function random(min, max) {
+                if (arguments.length < 2) {
+                    max = min;
+                    min = 0;
+                }
+
+                if (min > max) {
+                    var hold = max;
+                    max = min;
+                    min = hold;
+                }
+
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function maxOrbit(x, y) {
+                var max = Math.max(x, y),
+                    diameter = Math.round(Math.sqrt(max * max + max * max));
+                return diameter / 2;
+                //星星移动范围，值越大范围越小，
+            }
+
+            var Star = function() {
+
+                this.orbitRadius = random(maxOrbit(w, h));
+                this.radius = random(60, this.orbitRadius) / 8;
+                //星星大小
+                this.orbitX = w / 2;
+                this.orbitY = h / 2;
+                this.timePassed = random(0, maxStars);
+                this.speed = random(this.orbitRadius) / 50000;
+                //星星移动速度
+                this.alpha = random(2, 10) / 10;
+
+                count++;
+                stars[count] = this;
+            }
+
+            Star.prototype.draw = function() {
+                var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+                    y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+                    twinkle = random(10);
+
+                if (twinkle === 1 && this.alpha > 0) {
+                    this.alpha -= 0.05;
+                } else if (twinkle === 2 && this.alpha < 1) {
+                    this.alpha += 0.05;
+                }
+
+                ctx.globalAlpha = this.alpha;
+                ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+                this.timePassed += this.speed;
+            }
+
+            for (var i = 0; i < maxStars; i++) {
+                new Star();
+            }
+
+            function animation() {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.globalAlpha = 0.5; //尾巴
+                ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
+                ctx.fillRect(0, 0, w, h)
+
+                ctx.globalCompositeOperation = 'lighter';
+                for (var i = 1, l = stars.length; i < l; i++) {
+                    stars[i].draw();
+                };
+
+                window.requestAnimationFrame(animation);
+            }
+
+            animation();
+            </script>
+            {% block content %}{% endblock %}
+        </div>
+        <!-- main content end-->
+    </section>
+    <script src="{% static 'js/lucky.js' %}"></script>
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.9.2.custom.min.js' %}"></script>
+    <!-- <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script> -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- <script src="{% static 'js/modernizr.min.js' %}"></script> -->
+    <script src="{% static 'js/jquery.nicescroll.js' %}"></script>
+    <!--easy pie chart-->
+    <script src="{% static 'js/easypiechart/jquery.easypiechart.js' %}"></script>
+    <script src="{% static 'js/easypiechart/easypiechart-init.js' %} "></script>
+    <!--Sparkline Chart-->
+    <script src="{% static 'js/sparkline/jquery.sparkline.js' %}"></script>
+    <script src="{% static 'js/sparkline/sparkline-init.js' %}"></script>
+    <!--icheck -->
+    <script src="{% static 'js/iCheck/jquery.icheck.js' %}"></script>
+    <script src="{% static 'js/icheck-init.js' %}"></script>
+    <!-- jQuery Flot Chart-->
+    <script src="{% static 'js/flot-chart/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/flot-chart/jquery.flot.tooltip.js' %}"></script>
+    <script src="{% static 'js/flot-chart/jquery.flot.resize.js' %}"></script>
+    <!--Morris Chart-->
+    <script src="{% static 'js/morris-chart/morris.js' %}"></script>
+    <script src="{% static 'js/morris-chart/raphael-min.js' %}"></script>
+    <!--Calendar-->
+    <script src="{% static 'js/calendar/clndr.js' %}"></script>
+    <script src="{% static 'js/calendar/evnt.calendar.init.js' %}"></script>
+    <script src="{% static 'js/calendar/moment-2.2.1.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <!--common scripts for all pages-->
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <!--Dashboard Charts-->
+    <!-- <script src="{% static 'js/dashboard-chart-init.js' %}"></script> -->
+</body>
+
+</html>
