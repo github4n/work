@@ -11,7 +11,7 @@ import logging
 import unittest
 import gevent
 from gevent import monkey
-from lib2 import generate_cookies
+from common import generate_cookies
 monkey.patch_all()
 
 

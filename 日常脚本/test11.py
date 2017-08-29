@@ -1,11 +1,12 @@
-import common
-import  requests
-#
-data ={'channel':11,
-       'content':'2',
-       'notice':'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW',
-       'province':19,
-       'city':268,
-       'gid':32 }
-r = requests.post('http://lxy.new.huomaotv.com.cn/myroom/editRoomInfo',data=data,cookies=common.generate_cookies(1522), headers={'X-Requested-With': 'XMLHttpRequest'})
-print(r.text)
+data = ['abc',['a','b','c'],('a','b','c')]
+
+
+for i in data:
+    i *= 2
+    print(i[3])
+
+langs = {"Python", "Java", "Perl"}
+langs2 = {"Python", "PHP", "C#"}
+langs3 = {"Lisp", "PHP", "Perl"}
+langs4 = langs.difference(langs2, langs3)
+print(langs4)

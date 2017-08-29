@@ -11,7 +11,7 @@ from gevent import monkey
 monkey.patch_all()
 
 
-url = 'http://gml.new.huomaotv.com.cn/ti7/lottery'
+url = 'http://lxy.new.huomaotv.com.cn/csgo/lottery'
 
 r_list = []
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from common import generate_cookies
+from common import generate_cookies,redis_inst
 import requests
 import random
 import time
@@ -35,7 +35,7 @@ def bet1(uid, period, res_items):
         odds = res_items[item]['odds']
         # 期号 赔率 选项 下注额
         data = dict(period=period, odds=odds, item=item,
-                    amount=100, cid=cid)
+                    amount=1, cid=cid)
         res = requests.post(url2, data=data, cookies=generate_cookies(uid))
         logging.info('下注{}'.format(data))
         logging.info(res.json())
@@ -69,17 +69,17 @@ def test():
 
 cid = '2'
 domain = 'http://lxy.new.huomaotv.com.cn'
-# domain = 'http://lxy.new.huomaotv.com.cn'
 url1 = domain + '/smallgame/join/xync?cid=2&is_app=0'
 url2 = domain + '/smallgame/bet?is_app=0'
 user = range(3060, 3160)
-# user = (4153, 4153)
-# user = [1522 for i in range(1, 100)]
+# user = [1522]*100
+# for i in user:
+#     redis_inst.zincrby('hm_user_seed',i,1000000)
+# exit()
 n = 1
 while True:
     logging.info('第{}次：'.format(n))
     test()
     time.sleep(10)
-#     n = n + 1
-# for i in user:
-#     set_money(i, 0, 99999999)
+    n = n + 1
+
