@@ -6,7 +6,7 @@ import unittest
 import sys
 sys.path.append('../')
 from lib import assert_res, generate_report, request, cmp_dict, name_func_new
-from lib2 import mysql_inst, redis_inst, generate_room, generate_user, add_dmk, del_dmk, set_money, get_money, get_dmk, hash_table
+from common.common import Common
 from config import superuid
 import time
 import json
@@ -30,7 +30,7 @@ fz = room_data['fz_id']
 cid = room_data['cid']
 cid2 = room_data2['cid']
 user_ids = user_data['user_ids']
-
+common = Common()
 
 class TestMsg(unittest.TestCase):
     '''基础功能判断'''
@@ -80,6 +80,7 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_08(self):
         '''注册时间'''
+        redis_inst = common.REDIS_INST
         user = user_ids[5]
         # 设置用户注册时间
         regtime = int(time.time())

@@ -11,7 +11,7 @@ import logging
 import unittest
 import gevent
 from gevent import monkey
-from common import generate_cookies
+from common.common import Common
 monkey.patch_all()
 
 
@@ -43,9 +43,9 @@ def request(interface_name, user, **kw):
         data[key] = value
     # 判断请求方式
     if method == 'get':
-        res = requests.get(domain + url, params=data, cookies=generate_cookies(user))
+        res = requests.get(domain + url, params=data, cookies=Common.generate_cookies(user))
     elif method == 'post':
-        res = requests.post(domain + url, data=data, cookies=generate_cookies(user))
+        res = requests.post(domain + url, data=data, cookies=Common.generate_cookies(user))
     else:
         logging.error('请求方式BUG')
     try:

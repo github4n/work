@@ -1,0 +1,193 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <canvas id="canvas"></canvas>
+    <script src="{% static 'js/lucky.js' %}"></script>
+    <style type="text/css">
+    .main-content {
+        z-index: 1050;
+        position: absolute;
+    }
+
+    canvas {
+        z-index: -1;
+        position: absolute;
+    }
+
+    .col-lg-2 {
+        opacity: 0.8;
+    }
+
+</style>
+</head>
+<body>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">在这里添加一些文本</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                设置money
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="set_money_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name_money" placeholder="UID/用户名">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="xd" placeholder="仙豆">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="coin" placeholder="猫币">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="bean" placeholder="猫豆">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('set_money')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                绑定手机
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="bd_sj_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name_sj" placeholder="UID/用户名">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('bd_sj')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                快速注册
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="zc_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name_zc" placeholder="UID/用户名">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('zc')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                申请主播
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="sq_zb_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name_sq_zb" placeholder="UID/用户名">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('sq_zb')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                线上流同步线下
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="update_stream_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="room_xs" placeholder="线上房间号">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="room_xx" placeholder="线下房间号">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('update_stream')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                修改房间直播状态
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="update_stat_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="rooms" placeholder="房间号(多个用,隔开)">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="status" placeholder="直播状态1/0">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('update_stat')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                修改房间类型
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="update_roomlx_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="rooms" placeholder="房间cid">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="status" placeholder="0普通，1横板娱乐，2竖版娱乐">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('update_roomlx')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -20,5 +20,7 @@ from app import views as app_views
 urlpatterns = [
     url(r'^$', app_views.index),
     url(r'^index$', app_views.index),
+    url(r'^new_web/$', app_views.new_web),
+    url(r'^new_web/([a-zA-Z0-9_]*)$', app_views.new_web),
     url(r'^admin', admin.site.urls),
 ]

@@ -1,46 +1,56 @@
 from django.shortcuts import render
-from django.http import StreamingHttpResponse
+from django.http import StreamingHttpResponse, HttpResponse
 from .forms import TestForm
-import common
+from common.common import Common
+
+common = Common()
 
 
 def index(request):
-    dictfun = {'set_money': set_money,
-               'bd_sj': bd_sj,
-               'zc': zc,
-               'sq_zb': sq_zb,
-               'update_stream': update_stream,
-               'phone_fy': phone_fy,
-               'phone_sl': phone_sl,
-               'phone_sd': phone_sd,
-               'updatestat': updatestat,
-               'update_roomlx': update_roomlx,
-               }
+    fun_dict = {'set_money': set_money,
+                'bd_sj': bd_sj,
+                'zc': zc,
+                'sq_zb': sq_zb,
+                'update_stream': update_stream,
+                'phone_fy': phone_fy,
+                'phone_sl': phone_sl,
+                'phone_sd': phone_sd,
+                'updatestat': updatestat,
+                'update_roomlx': update_roomlx,
+                }
     if request.method == 'POST':
         form = TestForm(request.POST)
         print(form.errors)
         method = request.GET.get('method')
-        method = dictfun.get(method)
-        if method:
-            res = method(request)
+        method = fun_dict.get(method)
+        res = method(request) if method else False
         return render(request, 'index.html', {'form': form, 'res': res})
     else:
         form = TestForm()
         return render(request, 'index.html', {'form': form})
 
 
+def new_web(request, method=''):
+    if method == '':
+        return render(request, 'new_web.html')
+    else:
+        # 字符串转函数表达式
+        print(method)
+        return eval(method)(request)
+
+
 def set_money(request):
     name = request.POST.get('name_money')
     xd = request.POST.get('xd', 0)
-    mb = request.POST.get('mb', 0)
-    md = request.POST.get('md', 0)
+    coin = request.POST.get('coin', 0)
+    bean = request.POST.get('bean', 0)
     uid = common.find_uid(name)
     if uid:
         common.set_xd(uid, xd)
-        common.set_money(uid, mb, md)
-        return {'msg': '设置成功'}
+        common.set_money(uid, coin, bean)
+        return HttpResponse('设置成功')
     else:
-        return {'msg': '请输入正确的UID/用户名'}
+        return HttpResponse('请输入正确的UID/用户名')
 
 
 def bd_sj(request):
@@ -48,28 +58,25 @@ def bd_sj(request):
     uid = common.find_uid(name)
     if uid:
         common.bd_sj(uid)
-        return {'msg': '绑定成功'}
+        return HttpResponse('绑定成功')
     else:
-        return {'msg': '请输入正确的UID/用户名'}
+        return HttpResponse('请输入正确的UID/用户名')
 
 
 def zc(request):
     name = request.POST.get('name_zc')
     uid = common.zc(name)
-    if uid:
-        return {'msg': '成功\tuid:' + str(uid) + '\t密码1'}
-    else:
-        return {'msg': '注册失败'}
+    return HttpResponse('成功\tuid:' + str(uid) + '\t密码1') if uid else HttpResponse('注册失败')
 
 
 def sq_zb(request):
-    name = request.POST.get('name_sqzb')
+    name = request.POST.get('name_sq_zb')
     uid = common.find_uid(name)
     res = common.sq_zb(uid)
     if uid and res:
-        return {'msg': '申请成功'}
+        return HttpResponse('申请成功')
     else:
-        return {'msg': '申请失败'}
+        return HttpResponse('申请失败')
 
 
 def update_stream(request):
@@ -125,6 +132,7 @@ def updatestat(request):
 
 def download(request):
     file_name = request.GET['name']
+
     def file_iterator(file_name, chunk_size=512):
         file_name = '/home/lucky/share/django/project/app/files/' + file_name
         with open(file_name, 'rb') as f:

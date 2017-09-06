@@ -1,12 +1,7 @@
-data = ['abc',['a','b','c'],('a','b','c')]
+import sys
+sys.path.append('../')
+from common.common import Common
 
-
-for i in data:
-    i *= 2
-    print(i[3])
-
-langs = {"Python", "Java", "Perl"}
-langs2 = {"Python", "PHP", "C#"}
-langs3 = {"Lisp", "PHP", "Perl"}
-langs4 = langs.difference(langs2, langs3)
-print(langs4)
+common = Common()
+name = common.zc('asf4334')
+print(name)
