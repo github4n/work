@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # @Date    : 2017-07-27 10:49:33
 # @Author  : lixingyun
-# 注册用户返回uid,或登录返回uid
 import time
 import pymysql
 import hashlib
@@ -16,14 +15,18 @@ from lxml import etree
 URL = 'http://qa.new.huomaotv.com.cn'
 URL_API = 'http://qaapi.new.huomaotv.com.cn'
 DOMAIN = '.huomaotv.com.cn'
+# 线上地址
+URL_ONLINE = 'https://www.huomao.com'
+ADMIN_URL_ONLINE = 'http://bii3c.huomao.com'
 # 后台url
 ADMIN_URL = 'http://qaadmin.new.huomaotv.com.cn'
 # 后台cookies
 ADMIN_COOKIES = {'huomaotvcheckcode': 'SQJ5', 'adminId': '33', 'adminAccount': 'root', 'adminNick': 'root', 'adminUserId': '0',
                  'adminLoginTime': '1473220408', 'adminToken': 'bd2c21cb89ada618b16170504ad9f84d'}
 # 线上后台cookies
-ADMIN_COOKIES_ONLINE = {'huomaotvcheckcode': 'LR6A', 'adminId': '7', 'adminAccount': 'lxy', 'adminNick': '%E6%9D%8E%E5%B9%B8%E8%BF%90',
-                        'adminUserId': '1870709', 'adminLoginTime': '1474620118', 'adminToken': 'deab64750163288434cccfa4f5229ef1'}
+ADMIN_COOKIES_ONLINE = {'adminId': '7', 'adminAccount': 'lxy', 'adminNick': '%E6%9D%8E%E5%B9%B8%E8%BF%90',
+                        'adminUserId': '1870709', 'adminLoginTime': '1504756354', 'adminToken': '66897400739a15c9c6453a6e68b71e1d'}
+
 # 用户默认密码
 USER_PWD = '1'
 # 数据库配置
@@ -40,10 +43,22 @@ class Common():
     def __init__(self, *args, **kwargs):
         # redis连接
         self.REDIS_INST = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
-        # 数据库连接
-        self.MYSQL_INST = pymysql.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD, port=DB_PORT, charset='utf8')
+        self._conn()
+
+    def _conn(self):
+        try:
+            # 数据库连接
+            self.MYSQL_INST = pymysql.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD, port=DB_PORT, charset='utf8')
+            return True
+        except:
+            return False
 
     def execute_sql(self, db, sql):
+        try:
+            self.MYSQL_INST.ping()
+        except Exception as e:
+            print('数据库重连中{}'.format(e))
+            self._conn()
         self.MYSQL_INST.select_db(db)
         cur = self.MYSQL_INST.cursor()
         cur.execute(sql)
@@ -74,18 +89,19 @@ class Common():
                    'user_2c691ee7b8307f7fadc5c2c9349dbd7b': ts}
         return cookies
 
-    # 输入uid或用户名返回uid
+    # 查找UID
     def find_uid(self, name):
-        if name and str(name).isdigit():
-            return name
+        tb_name = 'username_' + self.hash_table(name)
+        sql = 'SELECT uid FROM {} WHERE username = "{}"'.format(tb_name, name)
+        data = self.execute_sql('hm_user', sql)
+        if data:
+            return {'code': 100, 'status': True, 'msg': data[0]}
         else:
-            tb_name = 'username_' + self.hash_table(name)
-            sql = 'SELECT uid FROM {} WHERE username = "{}"'.format(tb_name, name)
-            data = self.execute_sql('hm_user', sql)
-            return data[0] if data is not None else data
+            return {'code': 101, 'status': False, 'msg': '没找到'}
 
     # 设置仙豆
     def set_xd(self, uid, xd):
+        xd = 0 if not xd else xd
         return self.REDIS_INST.set('hm_free_bean_{}'.format(uid), int(xd) if xd else 0)
 
     # 获取仙豆
@@ -93,7 +109,9 @@ class Common():
         return self.REDIS_INST.get('hm_free_bean_{}'.format(uid))
 
     # 设置用户猫币，猫豆
-    def set_money(self, uid, coin=0, bean=0):
+    def set_money(self, uid, coin, bean):
+        coin = 0 if not coin else coin
+        bean = 0 if not bean else bean
         tb_name = 'money_' + self.hash_table(uid)
         sql = 'SELECT coin,bean FROM {} WHERE uid = {}'.format(tb_name, uid)
         data = self.execute_sql('hm_money', sql)
@@ -104,7 +122,7 @@ class Common():
             sql_update = 'UPDATE {} SET coin = {}, bean = {} WHERE uid = {}'.format(tb_name, coin, bean, uid)
             return self.execute_sql('hm_money', sql_update)
         else:
-            sql_insert = "INSERT INTO  %s(uid,coin,bean,ts) values(%s,%s,%s,%s)" % (tb_name, uid, coin, bean, int(time.time()))
+            sql_insert = "INSERT INTO  {}(uid,coin,bean,ts) values({},{},{},{})".format(tb_name, uid, coin, bean, int(time.time()))
             return self.execute_sql('hm_money', sql_insert)
 
     # 获取用户余额
@@ -123,7 +141,8 @@ class Common():
 
     # 获取弹幕卡
     def get_dmk(self, uid):
-        sql = "SELECT sum(num) FROM user_bag_{} WHERE uid={} and expire_time >{} and bag_id=100001 ".format(self.hash_table(uid), uid, int(time.time()))
+        sql = "SELECT sum(num) FROM user_bag_{} WHERE uid={} and expire_time >{} and bag_id=100001 ".format(self.hash_table(uid), uid,
+                                                                                                            int(time.time()))
         return self.execute_sql('hm_user_bag', sql)[0]
 
     # 删除弹幕卡
@@ -133,21 +152,25 @@ class Common():
 
     # 绑定手机号
     def bd_sj(self, uid):
-        url1 = URL + '/test/uum/' + str(uid) + '/' + str(15800000000 + int(uid))
-        res = requests.get(url1, cookies=self.generate_cookies(uid))
-        if res.status_code == 200:
-            return True
+        if uid:
+            url1 = URL + '/test/uum/' + str(uid) + '/' + str(15800000000 + int(uid))
+            res = requests.get(url1, cookies=self.generate_cookies(uid))
+            if res.status_code == 200:
+                return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
+            else:
+                return {'code': 901, 'status': False, 'msg': '绑定手机号失败'}
         else:
-            return False
+            return {'code': 902, 'status': False, 'msg': '绑定手机号失败'}
 
     # 注册用户返回uid,或登录返回uid
     def zc(self, username):
         r = requests.post(URL + '/user/lucky_reg',
                           data={'nick_name': username, 'user_pwd': USER_PWD, 'username': username, 'key': 'huomao_lucky'})
         if r.json()['code'] != '100':
-            return False
+            return {'code': 900, 'status': False, 'msg': '注册失败'}
         else:
-            return r.json()['data']['uid']
+            return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(r.json()['data']['uid'])}
+
 
     # 申请直播并通过
     def sq_zb(self, uid):
@@ -156,7 +179,7 @@ class Common():
             uid = str(uid)
             res = requests.get(URL + '/member/checkUsersIdentify', cookies=self.generate_cookies(uid))
             if res.json()['data']['isAnchor'] is True:
-                return False
+                return {'code': 900, 'status': False, 'msg': '已是主播'}
             else:
                 self.bd_sj(uid)
                 time.sleep(1)
@@ -174,18 +197,15 @@ class Common():
                 uidid = etree.HTML(res.text).xpath('//tr[2]/td[1]')[0].text
                 res = requests.post(ADMIN_URL + '/index.php/anchor/submitVerify',
                                     data={'status': '1', 'is_push': '1', 'reason': '', 'id': uidid}, cookies=ADMIN_COOKIES)
-                self.MYSQL_INST.select_db('hm_contents')
-                cur = self.MYSQL_INST.cursor()
-                sql = "SELECT id,room_number FROM hm_channel WHERE uid = '%s'" % (uid)
-                cur.execute(sql)
-                data = cur.fetchone()
-                cur.close()
-                self.MYSQL_INST.commit()
-                return data
-        else:
-            return False
 
-    def update_stream(self, cids, stat):
+                sql = "SELECT id,room_number FROM hm_channel WHERE uid = '{}'".format(uid)
+                data = self.execute_sql('hm_contents', sql)
+                return {'code': 100, 'status': True, 'msg': '申请成功\tcid:{}\t房间号:{}'.format(data[0],data[1])}
+        else:
+            return {'code': 901, 'status': False, 'msg': '申请失败'}
+
+    # 更新房间状态
+    def update_stat(self, cids, stat):
         if cids and stat:
             cids = str(cids)
             cids = cids.split(",")
@@ -194,10 +214,26 @@ class Common():
                     data = {'is_live': stat,
                             'cid': cids,
                             }
-                    requests.get(url + '/plugs/updateRoomLiveStat', params=data)
-            return True
+                    requests.get(URL + '/plugs/updateRoomLiveStat', params=data)
+            return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
-            return False
+            return {'code': 101, 'status': False, 'msg': '修改失败'}
+
+    # 线上流同步线下
+    def update_stream(self, room_xs, room_xx):
+        try:
+            res = requests.post(ADMIN_URL_ONLINE + '/channel/getChannelList', data={'keyWord': 'roomNum', 'keyContent': room_xs, 'page': 1},
+                                cookies=ADMIN_COOKIES)
+            stream = etree.HTML(res.text).xpath('//*[@id="matchTable"]/tr[2]/td[2]')[0].text
+            print(stream)
+            r = self.execute_sql('hm_contents', "UPDATE  hm_channel SET  stream = '{}' WHERE room_number = {}".format(stream, room_xx))
+            print(r)
+            anchor = self.execute_sql('hm_contents', "SELECT uid from hm_channel  WHERE room_number = {}".format(room_xx))[0]
+            print(anchor)
+            self.REDIS_INST.hset('hm_channel_anchor_{}'.format(anchor), 'stream', '"' + stream + '"')
+            return {'code': 100, 'status': True, 'msg': '成功'}
+        except:
+            return {'code': 900, 'status': False, 'msg': '失败'}
 
     # 修改密码
     def update_password(self, uid, password):
@@ -217,35 +253,30 @@ class Common():
 
     # 修改房间类型0普通，1横板娱乐，2竖版娱乐
     def update_roomlx(self, room_number, status):
-        conn = pymysql.connect(host=host, user=user, passwd=passwd, db='hm_contents', port=port, charset=charset)
-        cur = mysql_inst.cursor()  # 获取一个游标
-        cur.execute("SELECT uid,id from hm_channel  WHERE room_number = %s", room_number)
-        data = cur.fetchone()
-        uid = data[0]
-        cid = data[1]
-        if status == 0:
-            sql = "UPDATE hm_channel SET is_entertainment='{}' WHERE room_number = {}".format('no', room_number)
-            cur.execute(sql)
-            mysql_inst.commit()
-            r.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('no'))
-            return True
-        elif status == 1:
-            sql = "UPDATE hm_channel SET is_entertainment='{}' WHERE room_number = {}".format('yes', room_number)
-            cur.execute(sql)
-            mysql_inst.commit()
-            r.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
-            r.set('hm_pushstream_type_{}'.format(cid), 1)  # 2手机 1PC
-            return True
-        elif status == 2:
-            sql = "UPDATE hm_channel SET is_entertainment='{}' WHERE room_number = {}".format('yes', room_number)
-            cur.execute(sql)
-            mysql_inst.commit()
-            r.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
-            r.set('hm_pushstream_type_{}'.format(cid), 2)  # 2手机 1PC
-            r.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)  # 2竖屏 1横屏
-            return True
+        if room_number and status or status == '0':
+            data = self.execute_sql('hm_contents', "SELECT uid,id from hm_channel  WHERE room_number = {}".format(room_number))
+            uid = data[0]
+            cid = data[1]
+            if status == '0':
+                sql = "UPDATE hm_channel SET is_entertainment='{}' WHERE room_number = {}".format('no', room_number)
+                self.execute_sql('hm_contents', sql)
+                self.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('no'))
+            elif status == '1':
+                sql = "UPDATE hm_channel SET is_entertainment='{}' WHERE room_number = {}".format('yes', room_number)
+                self.execute_sql('hm_contents', sql)
+                self.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
+                self.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)  # 2手机 1PC
+            elif status == '2':
+                sql = "UPDATE hm_channel SET is_entertainment='{}' WHERE room_number = {}".format('yes', room_number)
+                self.execute_sql('hm_contents', sql)
+                self.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
+                self.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)  # 2手机 1PC
+                self.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)  # 2竖屏 1横屏
+            else:
+                return {'code': 101, 'status': False, 'msg': '修改失败'}
+            return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
-            return False
+            return {'code': 102, 'status': False, 'msg': '修改失败'}
 
     def generate_name(self, casename):
         return '{}{}'.format(casename, int(time.time()))

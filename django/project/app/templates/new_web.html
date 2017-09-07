@@ -4,11 +4,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>测试平台</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <canvas id="canvas"></canvas>
+    <!--<canvas id="canvas"></canvas>-->
     <script src="{% static 'js/lucky.js' %}"></script>
     <style type="text/css">
     .main-content {
@@ -44,7 +44,24 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
+<div class="col-lg-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                查找UID
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="find_uid_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="用户名">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('find_uid')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="col-lg-2">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -56,7 +73,7 @@
             <form id="set_money_form" role="form">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name_money" placeholder="UID/用户名">
+                    <input type="text" class="form-control" name="uid" placeholder="UID">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="xd" placeholder="仙豆">
@@ -83,7 +100,7 @@
             <form id="bd_sj_form" role="form">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name_sj" placeholder="UID/用户名">
+                    <input type="text" class="form-control" name="uid" placeholder="UID">
                 </div>
                 <button type="button" class="btn btn-default" onclick="request('bd_sj')">提交</button>
             </form>
@@ -119,7 +136,7 @@
             <form id="sq_zb_form" role="form">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name_sq_zb" placeholder="UID/用户名">
+                    <input type="text" class="form-control" name="uid" placeholder="UID">
                 </div>
                 <button type="button" class="btn btn-default" onclick="request('sq_zb')">提交</button>
             </form>
@@ -179,7 +196,7 @@
             <form id="update_roomlx_form" role="form">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="rooms" placeholder="房间cid">
+                    <input type="text" class="form-control" name="room_number" placeholder="房间号(room_number)">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="status" placeholder="0普通，1横板娱乐，2竖版娱乐">
