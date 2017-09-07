@@ -22,13 +22,15 @@ def find_uid(request):
 
 def set_money(request):
     uid = request.POST.get('uid')
-    xd = request.POST.get('xd')
-    coin = request.POST.get('coin')
-    bean = request.POST.get('bean')
-    common.set_xd(uid, xd)
-    common.set_money(uid, coin, bean)
-    return JsonResponse({'msg': '成功'})
-
+    if uid:
+        xd = request.POST.get('xd')
+        coin = request.POST.get('coin')
+        bean = request.POST.get('bean')
+        common.set_xd(uid, xd)
+        common.set_money(uid, coin, bean)
+        return JsonResponse({'msg': '成功'})
+    else:
+        return JsonResponse({'msg': '失败'})
 
 def bd_sj(request):
     uid = request.POST.get('uid')
