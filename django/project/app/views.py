@@ -70,6 +70,19 @@ def update_roomlx(request):
     return JsonResponse(res)
 
 
+def init_fans(request):
+    uid = request.POST.get('uid')
+    res = common.init_fans(uid)
+    return JsonResponse(res)
+
+
+def update_password(request):
+    uid = request.POST.get('uid')
+    password = request.POST.get('password')
+    res = common.update_password(uid, password)
+    return JsonResponse(res)
+
+
 def download(request):
     file_name = request.GET['name']
 

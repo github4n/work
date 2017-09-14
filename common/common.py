@@ -50,9 +50,9 @@ REDIS_KEYS = {
     'fans':
         [
             'hm_loveliness_fan_lv_news_{uid}_{cid}',  # 房间粉丝等级
+            'hm_level_first_channel_{cid}_{uid}',  # 用户房间首次1级
             'hm_level_six_{uid}',  # 用户是否首次6级
             'hm_level_first_{uid}',  # 用户是否首次1级
-            'hm_level_first_channel_{cid}_{uid}',  # 用户房间首次1级
             'hm_fans_platform_{uid}',  #
             'hm_more_six_platform_list_{uid}',  #
             'hm_XIAN_1000_GIFT'  # 是否送爱心已得到粉丝值
@@ -246,6 +246,7 @@ class Common():
         data = json.loads(self.REDIS_INST.get('hm_' + uid))
         data['password'] = newpassword
         self.REDIS_INST.set('hm_' + uid, json.dumps(data))
+        return {'code': 100, 'status': True, 'msg': '成功'}
 
     # 修改房间类型0普通，1横板娱乐，2竖版娱乐
     def update_roomlx(self, room_number, status):
@@ -364,23 +365,25 @@ class Common():
         return res
 
     # 初始化粉丝
-    def init_fans(self, uid, cid):
+    def init_fans(self, uid):
+        uid = str(uid)
         self.loveliness('del', uid)
         fan_keys = REDIS_KEYS['fans']
-        # print(fan_keys[0:6])
-        for key in fan_keys[0:6]:
-            # print(key.format_map({'uid': uid, 'cid': cid}))
-            self.REDIS_INST.delete(key.format_map({'uid': uid, 'cid': cid}))
+        keys = []
+        for key in fan_keys[0:2]:
+            keys.extend(self.REDIS_INST.keys(key.format_map({'uid': uid, 'cid': '*'})))
+        for key in fan_keys[2:6]:
+            keys.append(key.format_map({'uid': uid}))
+        for key in keys:
+            self.REDIS_INST.delete(key)
         # 删除已获取爱心粉丝值用户
         key = REDIS_KEYS['fans'][6]
         data = json.loads(self.REDIS_INST.get(key))
-        uids = data.get(str(cid))
-        if uids:
-            if uid in uids:
-                index = uids.index(str(uid))
-                print(index)
-                uids.pop(index)
-                self.REDIS_INST.set(key, json.dumps(data))
+        for key,value in data.items():
+            if uid in value:
+                data[key].remove(uid)
+        self.REDIS_INST.set(key, json.dumps(data))
+        return {'msg': '成功'}
 
     def subscribe(self, uid):
         key = REDIS_KEYS['subscribe'].format_map({'uid': uid})

@@ -32,6 +32,14 @@ function request(method){
             url = '/new_web/find_uid';
             data = $("#find_uid_form").serialize()
             break;
+        case 'init_fans':
+            url = '/new_web/init_fans'
+            data = $("#init_fans_form").serialize()
+            break;
+        case 'update_password':
+            url = '/new_web/update_password'
+            data = $("#update_password_form").serialize()
+            break;
     }
     $.ajax({
         type: "POST",
