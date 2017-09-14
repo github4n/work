@@ -55,7 +55,7 @@ def request(interface_name, user, **kw):
             real_res = json.loads(res.text[1:-1])
         except Exception:
             real_res = res.text
-    logging.debug('数据准备{}'.format(real_res))
+    # logging.debug('数据准备{}'.format(real_res))
     return [real_res, url, method, name, str(data)]
 
 
@@ -65,7 +65,7 @@ def assert_res(f, interface_name, user, exp_res, ver=False,**kw):
     # 实际结果判断方式
     res = request(interface_name, user, **kw)
     real_res = res[0]
-    logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
+    # logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
     # 判断请求结果是否包含预期结果
     try:
         cmp_dict(exp_res, real_res)
@@ -77,7 +77,10 @@ def assert_res(f, interface_name, user, exp_res, ver=False,**kw):
         result = False
         bz = str(e)
         report_data['test_failed'] += 1
-        logging.error('用例{},失败:{}\n预期:{}\n实际:{}'.format(f.f_code.co_consts[0], e, exp_res, real_res))
+        logging.error('用例{},失败:{}'.format(f.f_code.co_consts[0], e))
+        logging.error('预期:{}'.format(exp_res))
+        logging.error('实际:{}'.format(real_res))
+        logging.error('实际json:{}'.format(json.dumps(real_res)))
     if result and ver:
         if  ver():
             logging.debug('二次验证成功')
@@ -98,7 +101,7 @@ def assert_res(f, interface_name, user, exp_res, ver=False,**kw):
            "bz": bz}
     print(report_data['report_res'])
     report_data['report_res'].append(res)
-
+    return real_res
 
 # 如何执行测试用例
 def exec_case(datas, run_type={}):

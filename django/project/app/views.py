@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import StreamingHttpResponse, HttpResponse, JsonResponse
-from .forms import TestForm
 from common.common import Common
 
 common = Common()
@@ -91,6 +90,11 @@ def download(request):
     return response
 
 
+
+def set_cookies(request):
+    response = HttpResponse('test')
+    response.set_cookie('cookies_test','test',domain='.huomaotv.com.cn')
+    return response
 
     # def phone_fy(request):
     #     cid = request.POST.get('cid_fy')

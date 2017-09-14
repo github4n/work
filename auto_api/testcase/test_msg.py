@@ -4,10 +4,11 @@
 # @Author  : lixingyun
 import unittest
 import sys
+
 sys.path.append('../')
 from lib import assert_res, generate_report, request, cmp_dict, name_func_new
 from common.common import Common
-from config import superuid
+from config import superuid, interface
 import time
 import json
 
@@ -16,7 +17,7 @@ import json
 1.禁言在gag中判断,房管在roomadmin判断
 2.5还有问题
 '''
-
+common = Common()
 '''数据准备'''
 # generate_room('msg')
 # generate_user('msg', 20, True)
@@ -30,7 +31,9 @@ fz = room_data['fz_id']
 cid = room_data['cid']
 cid2 = room_data2['cid']
 user_ids = user_data['user_ids']
-common = Common()
+exp_dict = interface['msg']['exp_dict']
+redis_inst = common.REDIS_INST
+
 
 class TestMsg(unittest.TestCase):
     '''基础功能判断'''
@@ -42,45 +45,33 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_02(self):
         '''发言为空'''
-        user = user_ids[0]
-        exp = {'code': 202, 'status': False, 'message': '消息不能为空'}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid, data='')
+        assert_res(sys._getframe(), 'msg', user_ids[0], exp_dict['null'], cid=cid, data='')
 
     def test_msg_03(self):
         '''普通用户弹幕'''
-        user = user_ids[1]
-        exp = {'code': 200, 'data': {'chat_code': 100001, 'msg_type': 'msg'}}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid)
+        assert_res(sys._getframe(), 'msg', user_ids[1], exp_dict['normal'], cid=cid)
 
     def test_msg_04(self):
         '''字数限制'''
-        test_data = '01234567890123456789012345678901234567890123456789'
-        user = user_ids[2]
-        exp = {'code': 206, 'status': False, 'message': '您的发言已超出字符限制了~'}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid, data=test_data)
+        length_data = '01234567890123456789012345678901234567890123456789'
+        assert_res(sys._getframe(), 'msg', user_ids[2], exp_dict['length'], cid=cid, data=length_data)
 
     def test_msg_05(self):
         '''敏感词'''
-        user = user_ids[3]
-        exp = {'code': 206, 'status': False, 'message': '敏感词'}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid, data='火猫超管')
+        assert_res(sys._getframe(), 'msg', user_ids[3], exp_dict['sensitive_words'], cid=cid, data='习近平')
 
     def test_msg_06(self):
         '''发言间隔'''
         user = user_ids[4]
-        exp = {'status': False, 'code': 204, 'message': '你发言太快！'}
         request('msg', user, cid=cid)
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid)
+        assert_res(sys._getframe(), 'msg', user, exp_dict['time'], cid=cid)
 
     def test_msg_07(self):
         '''未绑定手机'''
-        user = user_ids[-1]
-        exp = {'code': 2031, 'status': False, 'message': '绑定手机号即可发言'}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid)
+        assert_res(sys._getframe(), 'msg', user_ids[-1], exp_dict['no_phone'], cid=cid)
 
     def test_msg_08(self):
         '''注册时间'''
-        redis_inst = common.REDIS_INST
         user = user_ids[5]
         # 设置用户注册时间
         regtime = int(time.time())
@@ -97,55 +88,53 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_09(self):
         '''房主'''
-        user = fz
-        exp = {'code': 200, 'data': {'chat_code': 100001, 'msg_type': 'msg', 'msg_content': {'is_zb': 1}}}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid)
+        assert_res(sys._getframe(), 'msg', fz, exp_dict['fz'], cid=cid)
 
     @unittest.skip('')
     def test_msg_10(self):
         '''超管'''
-        user = superuid
         exp = {'code': 206, 'status': False, 'message': '敏感词'}
-        assert_res(sys._getframe(), 'msg', user, exp, cid=cid)
+        assert_res(sys._getframe(), 'msg', superuid, exp, cid=cid)
 
     '''彩色弹幕逻辑'''
 
     def test_msg_11(self):
         '''弹幕卡足，余额足时，发言彩色弹幕'''
         user = user_ids[6]
-        add_dmk(user)
-        set_money(user, 1)
-        exp = {'code': 200, 'data': {'chat_code': 100001, 'msg_type': 'msg', 'msg_content': {'color': {'color_mobile': True}}}}
+        common.add_dmk(user)
+        common.set_money(user, 1)
+        exp = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
 
         def ver():
-            return get_dmk(user) == 0 and get_money(user) == 1
+            return common.get_dmk(user) == 0 and common.get_money(user)['coin'] == 1
 
         assert_res(sys._getframe(), 'msg', user, exp, ver=ver, color_barrage=1, cid=cid)
-        del_dmk(user)
+
+        common.del_dmk(user)
 
     def test_msg_12(self):
         '''弹幕卡足，余额不足时，发言彩色弹幕'''
         user = user_ids[7]
-        add_dmk(user)
-        exp = {'code': 200, 'data': {'chat_code': 100001, 'msg_type': 'msg', 'msg_content': {'color': {'color_mobile': True}}}}
+        common.add_dmk(user)
+        exp = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
 
         def ver():
-            return get_dmk(user) == 0
+            return common.get_dmk(user) == 0
 
         assert_res(sys._getframe(), 'msg', user, exp, ver=ver, color_barrage=1, cid=cid)
-        del_dmk(user)
+        common.del_dmk(user)
 
     def test_msg_13(self):
         '''弹幕卡不足，余额足时，发言彩色弹幕'''
         user = user_ids[8]
-        set_money(user, 1)
-        exp = {'code': 200, 'data': {'chat_code': 100001, 'msg_type': 'msg', 'msg_content': {'color': {'color_mobile': True}}}}
+        common.set_money(user, 1)
+        exp = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
 
         def ver():
-            return get_money(user) == 0
+            return common.get_money(user)['coin'] == 0
 
         assert_res(sys._getframe(), 'msg', user, exp, ver=ver, color_barrage=1, cid=cid)
-        del_dmk(user)
+        common.del_dmk(user)
 
     def test_msg_14(self):
         '''弹幕卡不足，余额不足时，发言彩色弹幕'''
@@ -159,23 +148,18 @@ class TestMsg(unittest.TestCase):
         dmk_time = int(time.time())
         expire_time1 = dmk_time + 100
         expire_time2 = dmk_time + 200
-        add_dmk(user, expire_time=expire_time1)
-        add_dmk(user, expire_time=expire_time2)
-        exp = {'code': 200, 'data': {'chat_code': 100001, 'msg_type': 'msg', 'msg_content': {'color': {'color_mobile': True}}}}
+        common.add_dmk(user, expire_time=expire_time1)
+        common.add_dmk(user, expire_time=expire_time2)
+        exp = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '1', 'msg': '测试弹幕'}}}
 
         def ver():
-            mysql_inst.select_db('hm_user_bag')
-            cur = mysql_inst.cursor()
-            sql = "SELECT num FROM user_bag_{} WHERE uid={} and expire_time ={}".format(hash_table(user), user, expire_time1)
-            cur.execute(sql)
-            mysql_inst.commit()
-            data = cur.fetchone()[0]  # cur.fetchall()
-            cur.close()
-            if data == 0:
+            sql = "SELECT num FROM user_bag_{} WHERE uid={} and expire_time ={}".format(common.hash_table(user), user, expire_time1)
+            data = common.execute_sql('hm_user_bag', sql)
+            if data[0] == 0:
                 return True
 
         assert_res(sys._getframe(), 'msg', user, exp, ver=ver, color_barrage=1, cid=cid)
-        del_dmk(user)
+        common.del_dmk(user)
 
 
 # # 粉丝逻辑
@@ -235,6 +219,6 @@ class TestMsg(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
-    suite.addTest(TestMsg('test_msg_08'))
+    suite.addTest(TestMsg('test_msg_15'))
     runner = unittest.TextTestRunner()
     runner.run(suite)

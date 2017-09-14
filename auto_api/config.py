@@ -7,6 +7,7 @@
 import time
 import logging
 
+
 ENVIRONMENT = 'test'
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%Y/%m/%d %I:%M:%S %p',
@@ -14,7 +15,7 @@ logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelnam
                     # filename='test.log',
                     filemode='w')
 # 请求的域名
-domain = 'http://qa.new.huomaotv.com.cn/'
+domain = 'http://lxy.new.huomaotv.com.cn/'
 # domain = 'https://www.huomao.com/'
 # 测试用例路径
 # if platform.system() == 'Linux':
@@ -36,22 +37,38 @@ superuid = '1870709'
 interface = {'msg': {'name': '发言',
                      'url': '/chatnew/msg',
                      'method': 'post',
-                     'data': {'data': '测试弹幕',
-                              'cid': 2,
-                              'color_barrage': '',
-                              'guard_barrage': '',
-                              'isAdminPrivateChat': ''
-                              }
+                     'data': {
+                         'data': '测试弹幕',
+                         'cid': 2,
+                         'color_barrage': '',
+                         'guard_barrage': '',
+                         'isAdminPrivateChat': ''
+                     },
+                     'exp_dict': {
+                         'null': {'code': 202, 'status': False, 'message': '消息不能为空'},
+                         'normal': {'code': 200, 'data': {}},
+                         'length': {'code': 206, 'status': False, 'message': '您的发言已超出字符限制了~'},
+                         'sensitive_words': {'code': 271, 'status': False, 'message': '发言包含敏感词，请重新输入'},
+                         'time': {'status': False, 'code': 204, 'message': '你发言太快！'},
+                         'no_phone': {'code': 2031, 'status': False, 'message': '绑定手机号即可发言'},
+                         'fz': {'code': 200, 'data': {'extend': {'is_zb': '1'}}},
+                     },
                      },
              'gift': {'name': '送礼',
-                     'url': '/chatnew/sendGift',
-                     'method': 'get',
-                     'data': {'cid': 2,
-                              'gift': '',
-                              't_count': 1,
-                              'isbag': 0
-                              }
-                     },
+                      'url': '/chatnew/sendGift',
+                      'method': 'get',
+                      'data': {'cid': 2,
+                               'gift': 0,
+                               't_count': 1,
+                               'isbag': 0
+                               },
+                      'exp_dict': {
+                          'insufficient_xd': {'message': '您剩余的仙豆数量不足！', 'status': False, 'code': 118},
+                          'not_active': {'status': False, 'message': '礼物未激活', 'code': 211},
+                          'anchor':{'status': False, 'code': 219, 'message': '自己不能给自己送礼物'},
+
+                      },
+                      },
              'gag': {'name': '禁言',
                      'url': '/myroom/setCommChannelGag',
                      'method': 'post',

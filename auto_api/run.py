@@ -4,4 +4,4 @@
 # @Author  : lixingyun
 from lib import run_case
 
-run_case('test_msg.py')
+run_case('test_gift.py')

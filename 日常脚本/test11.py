@@ -3,5 +3,7 @@ sys.path.append('../')
 from common.common import Common
 
 common = Common()
-name = common.update_stream(3785, 1)
-print(name)
+# name = common.loveliness('set',3865,2,0)
+# name2 = common.loveliness('set', 3865,100,100)
+# print(name2)
+common.init_fans(1522, 15)
