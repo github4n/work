@@ -212,7 +212,7 @@ def case3():
     print('时间消耗{}'.format(time.time() - t1))
 
 
-case3()
+# case3()
 js(2, 1522)
 # # case4:结束并发
 # def case4():

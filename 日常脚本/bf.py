@@ -7,8 +7,10 @@ import threading
 import asyncio
 import random
 import aiohttp
-from common import generate_cookies, set_money
+from common.common import Common
 
+
+generate_cookies = Common.generate_cookies
 a = 0
 n = 0
 m = 0
@@ -22,6 +24,7 @@ def generate_fun(fun_type=False):
                 pass
 
     def request(url, data={}, uid=False):
+        data['data'] = '测试弹幕{}'.format(random.random())
         res = requests.get(url, params=data, cookies=generate_cookies(uid))
         try:
             print(res.json())
@@ -60,20 +63,20 @@ gift_url = '/chatnew/sendGift'
 gift_data = {'msg_type': 'gift',
              'data': 'gift',
              'pos': 1,
-             'cid': 15,
-             'gift': 5,
+             'cid': 2,
+             'gift': 16,
              't_count': 1,
              'msg_send_type': 'gift'}
 msg_url = '/chatnew/msg'
 msg_data = {'data': '测试弹幕',
             'cid': 2,
-            'color_barrage': 1,
+            'color_barrage': 0,
             'guard_barrage': '',
             'isAdminPrivateChat': ''}
 
 
-uids = range(5253, 5263)
-# uids = [1522]*200
+# uids = range(3060, 3075)
+uids = [5469]*100
 url = domain + gift_url
 # url = 'http://wanjn.new.huomaotv.com.cn/abcdef/abcdef.json?cur_page=web_channeldetailnew&cid=985'
 data = gift_data
@@ -82,15 +85,19 @@ data = gift_data
 # exit()
 
 cids = [x for x in range(10, 21)] + [2]
-# cids = [29]
-for cid in cids:
-    gifts = [7,8]
-    data['cid'] = cid #random.choice(cids)
-    data['gift'] =random.choice(gifts)
+
+
+    # gifts = [7,8]
+    # data['cid'] = cid #random.choice(cids)
+    # data['gift'] =random.choice(gifts)
+while True:
+    data['cid'] = 2  #random.choice(cids)
     run('gevent', generate_fun(), uids, url, data)
+    break
 # while True:
 #     run('gevent', generate_fun(), uids, url, data)
 #     time.sleep(10)
     # time.sleep(2)
 # run('async', generate_fun(True), uids, url, data)
 # run('thread', generate_fun(), uids, url, data)
+

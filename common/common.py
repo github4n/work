@@ -153,7 +153,7 @@ class Common():
     # 绑定手机号
     def bd_sj(self, uid):
         if uid:
-            url1 = URL + '/test/uum/' + str(uid) + '/' + str(15800000000 + int(uid))
+            url1 = '{}/test/uum/{}/{}'.format(URL, uid,15800000000 + int(uid))
             res = requests.get(url1, cookies=self.generate_cookies(uid))
             if res.status_code == 200:
                 return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
