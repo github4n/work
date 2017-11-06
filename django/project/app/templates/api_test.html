@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<script>
+function show(){
+document.getElementById("div1").style.display="";
+//alert(document.getElementById("div").style.display)
+}
+function hidden(){
+document.getElementById("div1").style.display="none";
+//alert(document.getElementById("div").style.display)
+}
+</script>
+
+<button type="button" class="btn btn-default" onclick=show()>添加接口</button>
+<div  class="col-lg-2" id = "div1">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                查找UID
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form id="find_uid_form" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="用户名">
+                </div>
+                <button type="button" class="btn btn-default" onclick="request('find_uid')">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -13,6 +13,8 @@ from lxml import etree
 from common.db.user import Userbase, Userinfo
 from common.db.money import Money, MoneyPay, MoneyChannelIncome
 from common.db.contents import HmChannel, HmGag, HmLoveliness
+from common.db.user_bag import UserBag
+from peewee import fn
 
 # 网站url
 URL = 'http://qa.new.huomaotv.com.cn'
@@ -62,23 +64,39 @@ REDIS_KEYS = {
 
 
 class Common():
-    def __init__(self, *args, **kwargs):
-        # redis连接
-        self.REDIS_INST = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
+    # redis连接
+    REDIS_INST = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
 
-    def execute_sql(self, db, sql):
-        # 数据库连接
-        MYSQL_INST = pymysql.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD, port=DB_PORT, db=db, charset='utf8')
-        cur = MYSQL_INST.cursor()
-        cur.execute(sql)
-        data = cur.fetchone()
-        cur.close()
-        MYSQL_INST.commit()
-        MYSQL_INST.close()
-        return data
+    def __init__(self, *args, **kwargs):
+        pass
+
+    # def execute_sql(self, db, sql):
+    #     # 数据库连接
+    #     MYSQL_INST = pymysql.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD, port=DB_PORT, db=db, charset='utf8')
+    #     cur = MYSQL_INST.cursor()
+    #     cur.execute(sql)
+    #     data = cur.fetchone()
+    #     cur.close()
+    #     MYSQL_INST.commit()
+    #     MYSQL_INST.close()
+    #     return data
+
+    # 移动端加密方式
+    @staticmethod
+    def encrypt(data):
+        SECRET_KEY_MOBILE = "EU*T*)*(#23ssdfd"
+        value = ''
+        for key in sorted(data.keys(), reverse=True):
+            value += str(data[key])
+        m = hashlib.md5()
+        value = (value + SECRET_KEY_MOBILE).encode('utf-8')
+        m.update(value)
+        md5s = m.hexdigest()
+        return md5s
 
     # hash分表查询
-    def hash_table(self, s, num=32):
+    @staticmethod
+    def hash_table(s, num=32):
         s = ('hm_db_{}'.format(s)).encode('utf-8')
         m = hashlib.md5()
         m.update(s)
@@ -100,7 +118,8 @@ class Common():
         return cookies
 
     # 查找UID
-    def find_uid(self, username):
+    @staticmethod
+    def find_uid(username):
         u = Userbase.select(Userbase.uid).where(Userbase.name == username).first()
         if u:
             return {'code': 100, 'status': True, 'msg': u.uid}
@@ -108,16 +127,19 @@ class Common():
             return {'code': 101, 'status': False, 'msg': '没找到'}
 
     # 设置仙豆
-    def set_xd(self, uid, xd):
+    @staticmethod
+    def set_xd(uid, xd):
         xd = 0 if not xd else xd
-        return self.REDIS_INST.set('hm_free_bean_{}'.format(uid), int(xd) if xd else 0)
+        return Common.REDIS_INST.set('hm_free_bean_{}'.format(uid), int(xd) if xd else 0)
 
     # 获取仙豆
-    def get_xd(self, uid):
-        return self.REDIS_INST.get('hm_free_bean_{}'.format(uid))
+    @staticmethod
+    def get_xd(uid):
+        return Common.REDIS_INST.get('hm_free_bean_{}'.format(uid))
 
     # 设置用户猫币，猫豆
-    def set_money(self, uid, coin=0, bean=0):
+    @staticmethod
+    def set_money(uid, coin=0, bean=0):
         coin = 0 if not coin else coin
         bean = 0 if not bean else bean
         money = Money.select().where(Money.uid == uid).first()
@@ -128,42 +150,60 @@ class Common():
             return Money.create(uid=uid, coin=coin, bean=bean, ts=timestamp)
 
     # 获取用户余额
-    def get_money(self, uid):
+    @staticmethod
+    def get_money(uid):
         money = Money.select().where(Money.uid == uid).first()
         return {'coin': money.coin, 'bean': money.bean}
 
     # 添加弹幕卡
-    def add_dmk(self, uid, add_time=int(time.time()), expire_time=int(time.time()) + 10000, num=1):
-        sql = "INSERT INTO user_bag_{} values(NULL,{},'{}',{},{},{},{},{},{})".format(self.hash_table(uid), uid, 'admin_33', 100001, add_time,
-                                                                                      expire_time,
-                                                                                      num, 2, num)
-        return self.execute_sql('hm_user_bag', sql)
+    @staticmethod
+    def add_dmk(uid, add_time=int(time.time()), expire_time=int(time.time()) + 10000, num=1):
+        UserBag.create(uid=uid, get_way='admin_33', bag=100001, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
+        return
+        # sql = "INSERT INTO user_bag_{} values(NULL,{},'{}',{},{},{},{},{},{})".format(Common.hash_table(uid), uid, 'admin_33', 100001, add_time,
+        #                                                                               expire_time,
+        #                                                                               num, 2, num)
+        # return self.execute_sql('hm_user_bag', sql)
 
     # 获取弹幕卡
-    def get_dmk(self, uid):
-        sql = "SELECT sum(num) FROM user_bag_{} WHERE uid={} and expire_time >{} and bag_id=100001 ".format(self.hash_table(uid), uid,
-                                                                                                            int(time.time()))
-        return self.execute_sql('hm_user_bag', sql)[0]
+    @staticmethod
+    def get_dmk(uid):
+        u = UserBag.select(fn.Sum(UserBag.num)).where(
+            (UserBag.uid == uid) & (UserBag.expire_time > int(time.time())) & (UserBag.bag == 100001)).first()
+        return u.num
+        # sql = "SELECT sum(num) FROM user_bag_{} WHERE uid={} and expire_time >{} and bag_id=100001 ".format(self.hash_table(uid), uid,
+        #                                                                                                     int(time.time()))
+        # return self.execute_sql('hm_user_bag', sql)[0]
+
+    # 获取用户特定时间弹幕卡数量
+    @staticmethod
+    def get_time_dmk(uid, dmk_time):
+        u = UserBag.select(fn.Sum(UserBag.num)).where((UserBag.uid == uid) & (UserBag.expire_time == dmk_time)).first()
+        return u.num
+
+
 
     # 删除弹幕卡
-    def del_dmk(self, uid):
-        sql = "DELETE FROM user_bag_{} WHERE uid={}".format(self.hash_table(uid), uid)
-        return self.execute_sql('hm_user_bag', sql)
+    @staticmethod
+    def del_dmk(uid):
+        UserBag.delete().where(UserBag.uid == uid).execute()
+        return
+        # sql = "DELETE FROM user_bag_{} WHERE uid={}".format(self.hash_table(uid), uid)
+        # return self.execute_sql('hm_user_bag', sql)
 
     # 绑定手机号
-    def bd_sj(self, uid):
-        if uid:
-            url1 = '{}/test/uum/{}/{}'.format(URL, uid,15800000000 + int(uid))
-            res = requests.get(url1, cookies=self.generate_cookies(uid))
-            if res.status_code == 200:
-                return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
-            else:
-                return {'code': 901, 'status': False, 'msg': '绑定手机号失败'}
-        else:
-            return {'code': 902, 'status': False, 'msg': '绑定手机号失败'}
+    @staticmethod
+    def bd_sj(uid, mobileareacode='+86'):
+        mobile = 15800000000 + int(uid)
+        Userbase.update(mobile=mobile, mobileareacode=mobileareacode).where(Userbase.uid == uid).execute()
+        key = 'hm_userbaseinfo_{}'.format(uid)
+        Common.REDIS_INST.hset(key, 'mobile', mobile)
+        Common.REDIS_INST.hset(key, 'mobileareacode', mobileareacode)
+        return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
 
     # 注册用户返回uid,或登录返回uid
-    def zc(self, username):
+    @staticmethod
+    def zc(username):
         r = requests.post(URL + '/user/lucky_reg',
                           data={'nick_name': username, 'user_pwd': USER_PWD, 'username': username, 'key': 'huomao_lucky'})
         if r.json()['code'] != '100':
@@ -173,15 +213,16 @@ class Common():
             return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': uid}
 
     # 申请直播并通过
-    def sq_zb(self, uid):
+    @staticmethod
+    def sq_zb(uid):
         # 判断uid是否是主播
         if uid:
             uid = str(uid)
-            res = requests.get(URL + '/member/checkUsersIdentify', cookies=self.generate_cookies(uid))
+            res = requests.get(URL + '/member/checkUsersIdentify', cookies=Common.generate_cookies(uid))
             if res.json()['data']['isAnchor'] is True:
                 return {'code': 900, 'status': False, 'msg': '已是主播'}
             else:
-                self.bd_sj(uid)
+                Common.bd_sj(uid)
                 time.sleep(1)
                 data = {'true_name': '测试号',
                         'sex': '1',
@@ -191,7 +232,7 @@ class Common():
                         'card_pic': 'http://img.new.huomaotv.com.cn/upload/web/images/defaultimgs/0dc10ab4d7bda309e3095298ca689573/20160907110242mnxsySdt.png',
                         'qq': '100' + uid,
                         'agreement': '1'}
-                res = requests.post(URL + '/anchor/submitApply', data=data, cookies=self.generate_cookies(uid),
+                res = requests.post(URL + '/anchor/submitApply', data=data, cookies=Common.generate_cookies(uid),
                                     headers={'X-Requested-With': 'XMLHttpRequest'})
                 res = requests.get(ADMIN_URL + '/anchor/lists', params={'field': 'uid', 'keyword': uid}, cookies=ADMIN_COOKIES)
                 uidid = etree.HTML(res.text).xpath('//tr[2]/td[1]')[0].text
@@ -204,14 +245,17 @@ class Common():
             return {'code': 901, 'status': False, 'msg': '申请失败'}
 
     # 更新房间状态
-    def update_stat(self, cids, stat):
+    @staticmethod
+    def update_stat(cids, stat):
         if cids and stat:
             cids = str(cids)
             cids = cids.split(",")
             for cid in cids:
+                channel = HmChannel.select().where(HmChannel.room_number == cid).first()
+                cid = channel.id
                 if cid:
                     data = {'is_live': stat,
-                            'cid': cids,
+                            'cid': cid,
                             }
                     requests.get(URL + '/plugs/updateRoomLiveStat', params=data)
             return {'code': 100, 'status': True, 'msg': '修改成功'}
@@ -219,7 +263,8 @@ class Common():
             return {'code': 101, 'status': False, 'msg': '修改失败'}
 
     # 线上流同步线下
-    def update_stream(self, room_xs, room_xx):
+    @staticmethod
+    def update_stream(room_xs, room_xx):
         try:
             res = requests.post(ADMIN_URL_ONLINE + '/channel/getChannelList', data={'keyWord': 'roomNum', 'keyContent': room_xs, 'page': 1},
                                 cookies=ADMIN_COOKIES)
@@ -228,13 +273,14 @@ class Common():
             HmChannel.update(stream=stream).where(HmChannel.room_number == room_xx).execute()
             # 获取主播uid
             channel = HmChannel.select().where(HmChannel.room_number == room_xx).first()
-            self.REDIS_INST.hset('hm_channel_anchor_{}'.format(channel.uid), 'stream', '"' + stream + '"')
+            Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(channel.uid), 'stream', '"' + stream + '"')
             return {'code': 100, 'status': True, 'msg': '成功'}
         except:
             return {'code': 900, 'status': False, 'msg': '失败'}
 
     # 修改密码
-    def update_password(self, uid, password):
+    @staticmethod
+    def update_password(uid, password):
         # 生产密码
         uid = str(uid)
         m = hashlib.md5()
@@ -243,54 +289,57 @@ class Common():
         # 更新表
         Userinfo.update(password=newpassword).where(Userinfo.uid == uid).execute()
         # 更新redis
-        data = json.loads(self.REDIS_INST.get('hm_' + uid))
+        data = json.loads(Common.REDIS_INST.get('hm_' + uid))
         data['password'] = newpassword
-        self.REDIS_INST.set('hm_' + uid, json.dumps(data))
+        Common.REDIS_INST.set('hm_' + uid, json.dumps(data))
         return {'code': 100, 'status': True, 'msg': '成功'}
 
     # 修改房间类型0普通，1横板娱乐，2竖版娱乐
-    def update_roomlx(self, room_number, status):
+    @staticmethod
+    def update_roomlx(room_number, status):
         if room_number and status or status == '0':
             channel = HmChannel.select().where(HmChannel.room_number == room_number).first()
             uid = channel.uid
             cid = channel.id
             if status == '0':
                 HmChannel.update(is_entertainment='no').where(HmChannel.room_number == room_number).execute()
-                self.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('no'))
+                Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('no'))
             elif status == '1':
                 HmChannel.update(is_entertainment='yes').where(HmChannel.room_number == room_number).execute()
-                self.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
-                self.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)  # 2手机 1PC
+                Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)  # 2手机 1PC
             elif status == '2':
                 HmChannel.update(is_entertainment='yes').where(HmChannel.room_number == room_number).execute()
-                self.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
-                self.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)  # 2手机 1PC
-                self.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)  # 2竖屏 1横屏
+                Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)  # 2手机 1PC
+                Common.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)  # 2竖屏 1横屏
             else:
                 return {'code': 101, 'status': False, 'msg': '修改失败'}
             return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
             return {'code': 102, 'status': False, 'msg': '修改失败'}
 
-    def generate_name(self, casename):
+    @staticmethod
+    def generate_name(casename):
         return '{}{}'.format(casename, int(time.time()))
 
     # 测试数据生成 1个房间，房主，房管fg数默认0
-    def generate_room(self, casename, fg=0):
+    @staticmethod
+    def generate_room(casename, fg=0):
         uids = []
         names = []
         for i in range(0, fg + 1):
-            name = self.generate_name(casename)
+            name = Common.generate_name(casename)
             names.append(name)
-            uid = self.zc(name)['uid']
-            self.bd_sj(uid)
+            uid = Common.zc(name)['uid']
+            Common.bd_sj(uid)
             uids.append(uid)
             time.sleep(1)
-        res = self.sq_zb(uids[0])['data']
+        res = Common.sq_zb(uids[0])['data']
         cid = res[0]
         room_number = res[1]
         for i in range(0, fg):
-            requests.post(URL + '/myroom/setRoomAdministrator', data={'username': names[i + 1]}, cookies=self.generate_cookies(uids[0]))
+            requests.post(URL + '/myroom/setRoomAdministrator', data={'username': names[i + 1]}, cookies=Common.generate_cookies(uids[0]))
         if fg > 0:
             data = {'fz_id': uids[0], 'fz_name': names[0],
                     'fg_id': uids[1:], 'fg_name': names[1:],
@@ -300,26 +349,35 @@ class Common():
                     'cid': cid, 'room_number': room_number}
         else:
             data = False
-        logging.debug(data)
+        print(data)
+        logging.info(data)
         return data
 
-    def generate_user(self, casename, user=1, phone=False):
+    @staticmethod
+    def generate_user(casename, user=1, phone=False):
         uids = []
         names = []
         for i in range(0, user):
-            name = self.generate_name(casename)
+            name = Common.generate_name(casename)
             names.append(name)
-            uid = self.zc(name)['uid']
+            uid = Common.zc(name)['uid']
             if phone:
-                self.bd_sj(uid)
+                Common.bd_sj(uid)
             uids.append(uid)
             time.sleep(1)
         data = {'user_ids': uids, 'user_names': names}
         logging.debug(data)
         return data
 
+    @staticmethod
+    def gag(uid, ban_uid, cid, type='0'):
+        data = dict(cid=cid, uid=uid,status=0,nickname='测试',text='测试')
+        res = requests.get(URL+'/myroom/setCommChannelGag',params=data,cookies=Common.generate_cookies(ban_uid))
+        logging.info(res.json())
+
     # 初始化禁言数据
-    def init_gag(self, user_data, room_data):
+    @staticmethod
+    def init_gag(user_data, room_data):
         HmGag.delete().where(1 == 1).execute()
         fz = room_data.get('fz_id', 0)
         fg = room_data.get('fg_id', 0)
@@ -327,20 +385,23 @@ class Common():
         users.append(fz)
         users.extend(fg)
         for user in users:
-            redis_inst.delete('hm_gag_user_{}'.format(user))
-        redis_inst.delete('hm_gag_channel_{}'.format(room_data.get('cid', 0)))
+            Common.REDIS_INST.delete('hm_gag_user_{}'.format(user))
+        Common.REDIS_INST.delete('hm_gag_channel_{}'.format(room_data.get('cid', 0)))
 
     # 获取经验值
-    def get_experience(self, uid):
+    @staticmethod
+    def get_experience(uid):
         u = Userbase.select().where(Userbase.uid == uid).first()
         return u.get_experience, u.anchor_experience
 
     # 获取送礼记录
-    def get_money_pay(self, uid):
+    @staticmethod
+    def get_money_pay(uid):
         return MoneyPay.select().where(MoneyPay.uid == uid).count()
 
     # 获取收礼记录
-    def get_money_income(self, uid, type=0):
+    @staticmethod
+    def get_money_income(uid, type=0):
         if type == 1:
             m = MoneyChannelIncome.delete().where(MoneyChannelIncome.uid == uid).execute()
         elif type == 2:
@@ -351,7 +412,8 @@ class Common():
         return m
 
     # 获取/修改/删除粉丝值
-    def loveliness(self, type, uid, cid=0, score=0):
+    @staticmethod
+    def loveliness(type, uid, cid=0, score=0):
         if type == 'get':
             res = HmLoveliness.select().where(HmLoveliness.uid == uid and HmLoveliness.cid == cid).first().score
         elif type == 'set':
@@ -365,32 +427,33 @@ class Common():
         return res
 
     # 初始化粉丝
-    def init_fans(self, uid):
+    @staticmethod
+    def init_fans(uid):
         uid = str(uid)
-        self.loveliness('del', uid)
+        Common.loveliness('del', uid)
         fan_keys = REDIS_KEYS['fans']
         keys = []
         for key in fan_keys[0:2]:
-            keys.extend(self.REDIS_INST.keys(key.format_map({'uid': uid, 'cid': '*'})))
+            keys.extend(Common.REDIS_INST.keys(key.format_map({'uid': uid, 'cid': '*'})))
         for key in fan_keys[2:6]:
             keys.append(key.format_map({'uid': uid}))
         for key in keys:
-            self.REDIS_INST.delete(key)
+            Common.REDIS_INST.delete(key)
         # 删除已获取爱心粉丝值用户
         key = REDIS_KEYS['fans'][6]
-        data = json.loads(self.REDIS_INST.get(key))
-        for key,value in data.items():
+        data = json.loads(Common.REDIS_INST.get(key))
+        for key, value in data.items():
             if uid in value:
                 data[key].remove(uid)
-        self.REDIS_INST.set(key, json.dumps(data))
+                Common.REDIS_INST.set(key, json.dumps(data))
         return {'msg': '成功'}
 
-    def subscribe(self, uid):
+    def subscribe(uid):
         key = REDIS_KEYS['subscribe'].format_map({'uid': uid})
-        subscribe_data = self.REDIS_INST.get(key)
+        subscribe_data = Common.REDIS_INST.get(key)
         subscribe_data = json.loads(subscribe_data)
         data = {}
         for i in range(1, 211):
             data[i] = []
         subscribe_data['subsList'] = data
-        self.REDIS_INST.set(key, json.dumps(subscribe_data))
+        Common.REDIS_INST.set(key, json.dumps(subscribe_data))

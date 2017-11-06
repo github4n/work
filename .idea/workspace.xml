@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://U:/auto_api/testcase/test_gift.py" line="54" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="36b18b5b-3a8e-469c-b9d5-4a36c066b458" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +14,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bf.py" pinned="false" current-in-tab="true">
-        <entry file="file://U:/日常脚本/bf.py">
+      <file leaf-file-name="msg_web.py" pinned="false" current-in-tab="false">
+        <entry file="file://Y:/auto_api/testcase/msg_web.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="56" column="47" lean-forward="false" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
+            <state relative-caret-position="321">
+              <caret line="100" column="72" lean-forward="true" selection-start-line="100" selection-start-column="72" selection-end-line="100" selection-end-column="72" />
+              <folding>
+                <element signature="e#125#140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lib.py" pinned="false" current-in-tab="true">
+        <entry file="file://Y:/auto_api/lib.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+              <folding>
+                <element signature="e#103#118#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
+        <entry file="file://Y:/auto_api/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -39,36 +60,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>with</find>
-      <find>find</find>
-      <find>rfind</find>
-      <find>pop</find>
-      <find>update_roomlx</find>
-      <find>Redis</find>
-      <find>bootstrap</find>
-      <find>jquery</find>
-      <find>common</find>
-      <find>get_experience</find>
-      <find>format_map</find>
-      <find>Database</find>
-      <find>HmSignin201608</find>
-      <find>HmSignin</find>
-      <find>UnknownField</find>
-      <find>get</find>
-      <find>Userbase1</find>
-      <find>Userbase1(</find>
-      <find>SelectQuery</find>
-      <find>Channel</find>
-      <find>room_</find>
-      <find>UserI</find>
-      <find>hmgag</find>
-      <find>Moneypay</find>
       <find>MoneyChanel</find>
       <find>hm_loveliness</find>
       <find>dir</find>
       <find>进入直播间</find>
       <find>bd_sj</find>
+      <find>for</find>
+      <find>Userbase</find>
+      <find>common</find>
+      <find>assert_res</find>
+      <find>sorted</find>
+      <find>sort</find>
+      <find>domain</find>
+      <find>logging</find>
+      <find>print</find>
+      <find>run_case</find>
+      <find>request</find>
+      <find>cid2</find>
+      <find>HTMLTestRunner</find>
+      <find>HTMLTestRunner.</find>
+      <find>assert_</find>
+      <find>header_row</find>
+      <find>Start Time</find>
+      <find>Unit Test Report</find>
+      <find>show</find>
+      <find>Show</find>
+      <find>result</find>
+      <find>Summary</find>
+      <find>div class='testcase'</find>
+      <find>print(</find>
+      <find>desc</find>
     </findStrings>
+    <replaceStrings>
+      <replace>self</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="U:/" />
@@ -81,25 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="U:/日常脚本/测试抽奖.py" />
-        <option value="U:/日常脚本/smallgame.py" />
-        <option value="U:/日常脚本/example.log" />
-        <option value="U:/auto_api/lib2.py" />
-        <option value="U:/日常脚本/报告模板" />
-        <option value="U:/common.py" />
-        <option value="U:/django/project/app/templates/index.html" />
-        <option value="U:/django/project/app/templates/base.html" />
-        <option value="U:/django/project/project/urls.py" />
-        <option value="U:/auto_api/testcase/test_msg.py" />
-        <option value="U:/auto_api/lib.py" />
-        <option value="U:/auto_api/config.py" />
-        <option value="U:/auto_api/run.py" />
-        <option value="U:/auto_api/testcase/test_gift.py" />
-        <option value="U:/auto_api/db.py" />
-        <option value="U:/auto_api/test.py" />
-        <option value="U:/auto_api/orm.py" />
-        <option value="U:/common/orm.py" />
-        <option value="U:/common/db/db_user.py" />
         <option value="[kingshard] CONSOLE - kingshard" />
         <option value="U:/common/config.py" />
         <option value="U:/common/db/config.py" />
@@ -109,17 +115,48 @@
         <option value="U:/common/db/__init__.py" />
         <option value="U:/common/test.py" />
         <option value="U:/common/db/user.py" />
-        <option value="U:/日常脚本/test.py" />
         <option value="U:/common/db/money.py" />
         <option value="U:/common/db/contents.py" />
-        <option value="U:/django/project/app/views.py" />
-        <option value="U:/django/project/app/templates/new_web.html" />
         <option value="U:/django/project/app/static/js/lucky.js" />
-        <option value="U:/日常脚本/竞猜/竞猜脚本并发.py" />
         <option value="U:/日常脚本/reids操作.py" />
-        <option value="U:/common/common.py" />
-        <option value="U:/日常脚本/test11.py" />
+        <option value="U:/日常脚本/竞猜/竞猜脚本并发.py" />
         <option value="U:/日常脚本/bf.py" />
+        <option value="U:/socket/1.py" />
+        <option value="U:/socket/client.py" />
+        <option value="U:/socket/server.py" />
+        <option value="U:/django/project/app/templates/index.html" />
+        <option value="U:/django/project/app/views.py" />
+        <option value="U:/django/project/project/urls.py" />
+        <option value="U:/日常脚本/test11.py" />
+        <option value="U:/locust/load_test.py" />
+        <option value="U:/django/project/app/templates/new_web.html" />
+        <option value="U:/django/project/app/templates/api_test.html" />
+        <option value="U:/django/project/app/templates/base.html" />
+        <option value="U:/auto_api/run.py" />
+        <option value="U:/日常脚本/测试抽奖.py" />
+        <option value="U:/日常脚本/test.py" />
+        <option value="U:/common/common.py" />
+        <option value="U:/日常脚本/test2.py" />
+        <option value="U:/日常脚本/threading.py" />
+        <option value="U:/日常脚本/msg.py" />
+        <option value="Y:/日常脚本/threading.py" />
+        <option value="Y:/日常脚本/线程.py" />
+        <option value="Y:/日常脚本/msg.py" />
+        <option value="Y:/日常脚本/test.py" />
+        <option value="Y:/日常脚本/reids操作.py" />
+        <option value="Y:/日常脚本/bf.py" />
+        <option value="Y:/common/dbs/user_bag_db.py" />
+        <option value="Y:/common/db/user.py" />
+        <option value="Y:/common/db/user_bag.py" />
+        <option value="Y:/common/db/33.py" />
+        <option value="Y:/auto_api/testcase/test_msg.py" />
+        <option value="Y:/auto_api/run.py" />
+        <option value="Y:/auto_api/config.py" />
+        <option value="Y:/日常脚本/test11.py" />
+        <option value="Y:/common/common.py" />
+        <option value="Y:/auto_api/HTMLTestRunner.py" />
+        <option value="Y:/auto_api/lib.py" />
+        <option value="Y:/auto_api/testcase/msg_web.py" />
       </list>
     </option>
   </component>
@@ -130,11 +167,11 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-7" />
-    <option name="y" value="1" />
-    <option name="width" value="1292" />
-    <option name="height" value="925" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-36" />
+    <option name="y" value="22" />
+    <option name="width" value="1932" />
+    <option name="height" value="1007" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -156,37 +193,30 @@
           <expand>
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="U:" type="462c0819:PsiDirectoryNode" />
+              <item name="Y:" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="U:" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="Y:" type="462c0819:PsiDirectoryNode" />
+              <item name="auto_api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="U:" type="462c0819:PsiDirectoryNode" />
-              <item name="日常脚本" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="U:" type="462c0819:PsiDirectoryNode" />
-              <item name="日常脚本" type="462c0819:PsiDirectoryNode" />
-              <item name="竞猜" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="last_opened_file_path" value="U:/" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="last_opened_file_path" value="Y:/" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="redis&#9;ACTION&#9;ActivateRedisServersToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Y:/common/db/user_bag.py&#10;redis&#9;ACTION&#9;ActivateRedisServersToolWindow" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -198,15 +228,18 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="U:\auto_api\testcase" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Y:\auto_api" />
+      <recent name="Y:\auto_api\testcase" />
+      <recent name="Y:\auto_api\testcase\web" />
       <recent name="U:\common\dbs" />
       <recent name="U:\日常脚本" />
-      <recent name="U:\common\db" />
-      <recent name="U:\common" />
-      <recent name="U:\auto_api\dbs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Y:\auto_api\testcase" />
+      <recent name="Y:\auto_api\testcase\web" />
+      <recent name="Y:\auto_api\testcase\api" />
+      <recent name="U:\auto_api\testcase" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -221,41 +254,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bf">
-    <configuration name="竞猜脚本并发" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="U:/日常脚本/竞猜" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="U" />
-      <option name="SCRIPT_NAME" value="U:/日常脚本/竞猜/竞猜脚本并发.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="bf" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="U:/日常脚本" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="U" />
-      <option name="SCRIPT_NAME" value="U:/日常脚本/bf.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.run">
     <configuration name="common" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -263,29 +262,46 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="U:/common" />
+      <option name="WORKING_DIRECTORY" value="Y:/common" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="U" />
-      <option name="SCRIPT_NAME" value="U:/common/common.py" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:/common/common.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="reids操作" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="msg_web" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="U:/日常脚本" />
+      <option name="WORKING_DIRECTORY" value="Y:/auto_api/testcase" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="U" />
-      <option name="SCRIPT_NAME" value="U:/日常脚本/reids操作.py" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:/auto_api/testcase/msg_web.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="Y:/auto_api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:/auto_api/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -297,30 +313,47 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="U:/日常脚本" />
+      <option name="WORKING_DIRECTORY" value="Y:/日常脚本" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="U" />
-      <option name="SCRIPT_NAME" value="U:/日常脚本/test11.py" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:/日常脚本/test11.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="test_msg" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="Y:/auto_api/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:\auto_api\testcase\msg_w.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.common" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test11" />
-      <item index="2" class="java.lang.String" itemvalue="Python.bf" />
-      <item index="3" class="java.lang.String" itemvalue="Python.竞猜脚本并发" />
-      <item index="4" class="java.lang.String" itemvalue="Python.reids操作" />
+      <item index="0" class="java.lang.String" itemvalue="Python.test_msg" />
+      <item index="1" class="java.lang.String" itemvalue="Python.run" />
+      <item index="2" class="java.lang.String" itemvalue="Python.msg_web" />
+      <item index="3" class="java.lang.String" itemvalue="Python.common" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test11" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.bf" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test11" />
-        <item index="2" class="java.lang.String" itemvalue="Python.reids操作" />
-        <item index="3" class="java.lang.String" itemvalue="Python.竞猜脚本并发" />
-        <item index="4" class="java.lang.String" itemvalue="Python.common" />
+        <item index="0" class="java.lang.String" itemvalue="Python.run" />
+        <item index="1" class="java.lang.String" itemvalue="Python.msg_web" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test11" />
+        <item index="3" class="java.lang.String" itemvalue="Python.common" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_msg" />
       </list>
     </recent_temporary>
   </component>
@@ -341,11 +374,11 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_gift_py - 2017.09.08 at 15h 07m 32s.xml">
-      <configuration name="Unittests in test_gift.py" configurationId="tests" />
+    <history-entry file="Unittests_for_test_msg_TestMsg - 2017.11.01 at 10h 53m 08s.xml">
+      <configuration name="Unittests for test_msg.TestMsg" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_gift_py - 2017.09.08 at 15h 07m 38s.xml">
-      <configuration name="Unittests in test_gift.py" configurationId="tests" />
+    <history-entry file="Unittests_for_test_msg_TestMsg - 2017.11.01 at 10h 53m 15s.xml">
+      <configuration name="Unittests for test_msg.TestMsg" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_test_gift_py - 2017.09.08 at 15h 08m 13s.xml">
       <configuration name="Unittests in test_gift.py" configurationId="tests" />
@@ -382,20 +415,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-36" y="22" width="1932" height="1007" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31902552" sideWeight="0.7127352" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19189766" sideWeight="0.16614583" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47547975" sideWeight="0.83385414" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23915592" sideWeight="0.17615013" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18222722" sideWeight="0.82384986" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20302714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04477612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39814815" sideWeight="0.48400232" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3955224" sideWeight="0.48400232" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -403,7 +438,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Redis Servers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="false" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="643" y="234" width="633" height="572" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -417,273 +451,346 @@
           <properties exception="BaseException" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://U:/auto_api/testcase/test_msg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1252">
-          <caret line="110" column="61" lean-forward="false" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="4722" column="32" lean-forward="false" selection-start-line="4722" selection-start-column="25" selection-end-line="4722" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/auto_api/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/auto_api/testcase/test_roomadmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/auto_api/lib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="db://[kingshard] SESSION BROWSER - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="redis://IedisURI?type=Explorer&amp;label=db.huomaotv.com.cn&amp;host=db.huomaotv.com.cn&amp;port=6379&amp;password=&amp;timestamp=1505297322507&amp;nodeHost=db.huomaotv.com.cn&amp;nodePort=6379" />
-    <entry file="file://U:/auto_api/testcase/test_gift.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="845">
-          <caret line="50" column="23" lean-forward="false" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-          <folding>
-            <element signature="e#136#151#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/auto_api/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/common/dbs/__init__.py">
+    <entry file="file://U:/auto_api/testcase/test_msg.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/lxml/etree/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/db/orm.py" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="file://U:/common/db/db_contents.py" />
-    <entry file="file://U:/common/db/db_user.py" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="db://[kingshard] CONSOLE - kingshard" />
-    <entry file="file://U:/auto_api/config.py">
+    <entry file="file://C:/Python35/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="67" column="91" lean-forward="false" selection-start-line="67" selection-start-column="91" selection-end-line="67" selection-end-column="91" />
+        <state relative-caret-position="163">
+          <caret line="1143" column="8" lean-forward="false" selection-start-line="1143" selection-start-column="8" selection-end-line="1143" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/__init__.py">
+    <entry file="file://U:/日常脚本/test2.py" />
+    <entry file="file://U:/日常脚本/bf.py" />
+    <entry file="file://U:/common/common.py" />
+    <entry file="file://U:/日常脚本/test.py" />
+    <entry file="file://U:/日常脚本/test11.py" />
+    <entry file="file://U:/日常脚本/threading.py" />
+    <entry file="file://U:/日常脚本/msg.py" />
+    <entry file="file://Y:/日常脚本/threading.py" />
+    <entry file="file://Y:/日常脚本/线程.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="370">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/db/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/common/db/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/common/db/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="10" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/pip/_vendor/distlib/wheel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3056">
-          <caret line="202" column="8" lean-forward="false" selection-start-line="202" selection-start-column="8" selection-end-line="202" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/sqlalchemy/orm/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6544">
-          <caret line="3010" column="8" lean-forward="false" selection-start-line="3010" selection-start-column="8" selection-end-line="3010" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/common/dbs/db_user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="2062" column="0" lean-forward="false" selection-start-line="2062" selection-start-column="0" selection-end-line="2069" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/common/db/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/common/dbs/money_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="660" column="0" lean-forward="false" selection-start-line="660" selection-start-column="0" selection-end-line="679" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/QQEIM Files/3001249719/FileRecv/ks.yaml">
+    <entry file="file://Y:/日常脚本/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/dbs/db.py">
+    <entry file="file://Y:/日常脚本/reids操作.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="1037" column="0" lean-forward="false" selection-start-line="1037" selection-start-column="0" selection-end-line="1050" selection-end-column="9" />
+        <state relative-caret-position="520">
+          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/db/contents.py">
+    <entry file="file://Y:/日常脚本/msg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="59" column="33" lean-forward="false" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/user_bag_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="954" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-160">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/dbs/money_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/dbs/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/dbs/user_bag_db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
-          <caret line="90" column="18" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="18" />
+          <caret line="547" column="34" lean-forward="true" selection-start-line="547" selection-start-column="34" selection-end-line="547" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/contents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1482">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/money.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Python35/Lib/site-packages/peewee.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="2783" column="8" lean-forward="false" selection-start-line="2783" selection-start-column="8" selection-end-line="2783" selection-end-column="8" />
+        <state relative-caret-position="-722">
+          <caret line="2986" column="8" lean-forward="false" selection-start-line="2986" selection-start-column="8" selection-end-line="2986" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/db/money.py">
+    <entry file="file://Y:/common/db/33.py" />
+    <entry file="file://C:/Python35/Lib/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="14" />
+        <state relative-caret-position="713">
+          <caret line="205" column="0" lean-forward="false" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/sqlalchemy/sql/ddl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/redis/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="846" column="11" lean-forward="true" selection-start-line="846" selection-start-column="11" selection-end-line="846" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/django/project/app/static/js/lucky.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/django/project/app/templates/new_web.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/django/project/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/日常脚本/竞猜/竞猜脚本并发.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="214" column="9" lean-forward="true" selection-start-line="214" selection-start-column="9" selection-end-line="214" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/日常脚本/竞猜/重置竞猜状态.py">
+    <entry file="file://C:/Python35/Lib/urllib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/日常脚本/reids操作.py">
+    <entry file="file://C:/Python35/Lib/site-packages/django/http/request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        <state relative-caret-position="204">
+          <caret line="493" column="8" lean-forward="false" selection-start-line="493" selection-start-column="8" selection-end-line="493" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/common/common.py">
+    <entry file="file://Y:/日常脚本/bf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/日常脚本/test11.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/日常脚本/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/日常脚本/bf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="56" column="47" lean-forward="false" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
+        <state relative-caret-position="424">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/api/msg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3060">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/unittest/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="337" column="0" lean-forward="false" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/msg_w.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="37" column="61" lean-forward="false" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/test_gag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/site-packages/requests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#870#884#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="47" column="22" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="47" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="228" column="4" lean-forward="false" selection-start-line="228" selection-start-column="4" selection-end-line="228" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/msg_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2040">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="375" column="32" lean-forward="true" selection-start-line="375" selection-start-column="32" selection-end-line="375" selection-end-column="32" />
+          <folding>
+            <element signature="e#102#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/user_bag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/日常脚本/test11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcaseresult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3380">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/1509933886result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/selenium/autotest/begin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="e#23#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="817" column="4" lean-forward="false" selection-start-line="817" selection-start-column="4" selection-end-line="817" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/unittest/result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="57" column="8" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+          <folding>
+            <element signature="e#26#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="811" column="8" lean-forward="false" selection-start-line="811" selection-start-column="8" selection-end-line="811" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/HTMLTestRunner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6361">
+          <caret line="487" column="37" lean-forward="true" selection-start-line="487" selection-start-column="37" selection-end-line="487" selection-end-column="37" />
+          <folding>
+            <element signature="e#3215#3230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/msg_web.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="100" column="72" lean-forward="true" selection-start-line="100" selection-start-column="72" selection-end-line="100" selection-end-column="72" />
+          <folding>
+            <element signature="e#125#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+          <folding>
+            <element signature="e#103#118#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

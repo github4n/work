@@ -7,12 +7,11 @@ sys.path.append('../..')
 from common.db.money import Money
 from common.common import Common
 from common.db.contents import HmChannel,HmGag
-# from db import config
-# u = Money.select().where(Money.uid=='1522').first()
-# u = Userbase.select().where(Userbase.name=='')
-# print(u.uid)
+import redis
 
-# channel = HmChannel.select().where(HmChannel.uid=='1522').first()
-# print(channel)
+r = redis.Redis(host='10.10.23.12', port=6379, db=0, decode_responses=True)
 
-HmGag.delete().where(1==1).execute()
+res = r.keys('*hm_channel_views*')
+for k in res:
+    r.delete(k)
+# print(res)

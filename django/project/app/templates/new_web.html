@@ -1,33 +1,4 @@
-{% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>测试平台</title>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!--<canvas id="canvas"></canvas>-->
-    <script src="{% static 'js/lucky.js' %}"></script>
-    <style type="text/css">
-    .main-content {
-        z-index: 1050;
-        position: absolute;
-    }
-
-    canvas {
-        z-index: -1;
-        position: absolute;
-    }
-
-    .col-lg-2 {
-        opacity: 0.8;
-    }
-
-</style>
-</head>
-<body>
+{% extends "base.html" %} {% block content %}
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -246,5 +217,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock %}

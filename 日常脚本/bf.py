@@ -9,7 +9,7 @@ import random
 import aiohttp
 from common.common import Common
 
-
+common = Common()
 generate_cookies = Common.generate_cookies
 a = 0
 n = 0
@@ -57,15 +57,16 @@ def run(run_type, f, uids, url, data={}):
     print('耗时: {}'.format(time.time() - start))
 
 
-domain = 'http://lxy.new.huomaotv.com.cn'
-ti7_url = '/ti7/seckill?time=1501469340'
+domain = 'http://qa.new.huomaotv.com.cn'
+ti7_url = 'http://lxy.new.huomaotv.com.cn/active/buyGiftAndBadge'
 gift_url = '/chatnew/sendGift'
 gift_data = {'msg_type': 'gift',
              'data': 'gift',
              'pos': 1,
-             'cid': 2,
-             'gift': 16,
+             'cid': 15,
+             'gift': 8, #50,8
              't_count': 1,
+             # 'isbag':1,
              'msg_send_type': 'gift'}
 msg_url = '/chatnew/msg'
 msg_data = {'data': '测试弹幕',
@@ -75,13 +76,13 @@ msg_data = {'data': '测试弹幕',
             'isAdminPrivateChat': ''}
 
 
-# uids = range(3060, 3075)
-uids = [5469]*100
+uids = range(3060, 3178)
+# uids = [1522]*100
 url = domain + gift_url
 # url = 'http://wanjn.new.huomaotv.com.cn/abcdef/abcdef.json?cur_page=web_channeldetailnew&cid=985'
 data = gift_data
 # for uid in uids:
-#     set_money(uid, 999999, 999999)
+#     common.set_money(uid, 999999, 999999)
 # exit()
 
 cids = [x for x in range(10, 21)] + [2]
@@ -90,10 +91,11 @@ cids = [x for x in range(10, 21)] + [2]
     # gifts = [7,8]
     # data['cid'] = cid #random.choice(cids)
     # data['gift'] =random.choice(gifts)
-while True:
-    data['cid'] = 2  #random.choice(cids)
-    run('gevent', generate_fun(), uids, url, data)
-    break
+
+data['cid'] = 11
+    # data['t_count'] = random.randint(1, 200)
+run('gevent', generate_fun(), uids, url, data)
+
 # while True:
 #     run('gevent', generate_fun(), uids, url, data)
 #     time.sleep(10)

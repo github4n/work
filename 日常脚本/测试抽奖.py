@@ -4,20 +4,20 @@
 # @Author  : lixingyun
 
 import requests
-from common import generate_cookies
+from common.common import Common
 import time
 import gevent
 from gevent import monkey
 monkey.patch_all()
 
-
+common = Common()
 url = 'http://lxy.new.huomaotv.com.cn/csgo/lottery'
 
 r_list = []
 
 
 def f(uid):
-    r = requests.get(url, cookies=generate_cookies(uid))
+    r = requests.get(url, cookies=common.generate_cookies(uid))
     try:
         r_list.append(r.json()['data']['goods_name'] + str(r.json()['data']['unit']))
     except Exception as e:
@@ -26,7 +26,7 @@ def f(uid):
 
 
 t1 = time.time()
-events = [gevent.spawn(f, i) for i in range(3060, 3560)]
+events = [gevent.spawn(f, i) for i in [1522]*100]
 gevent.joinall(events)
 print('时间消耗{}'.format(time.time() - t1))
 print(r_list)

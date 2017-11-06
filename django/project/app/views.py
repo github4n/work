@@ -5,6 +5,10 @@ from common.common import Common
 common = Common()
 
 
+def api_test(request):
+    return render(request, 'api_test.html')
+
+
 def new_web(request, method=''):
     if method == '':
         return render(request, 'new_web.html')

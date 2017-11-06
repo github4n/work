@@ -18,13 +18,19 @@ redis_inst = Common().REDIS_INST
 # r.rename('hm_guard_raffle_once_2017-06-07_3853','hm_guard_raffle_once_2017-06-06_3853')
 # res = r.set('hm_pushstream_type_20', 2) 2手机，1pc
 # res = r.set('hm_mobile_screenType_outdoor_20', 2) # 2竖 1横
-res = redis_inst.get('hm_goddessUserSign_july_5455')
+
+#
+# for i in range(3060, 3170):
+#     redis_inst.delete('hm_goddess_badge_gift:{}'.format(i))
+
+
+res = redis_inst.get('hm_goddessUserSign_October_5529')
 data = json.loads(res)
 print(data)
-
+# exit()
 data['continuitySign'] = 5
-data['signInfo'] = {'20170921': True, '20170920': True, '20170919': True, '20170918': True, '20170917': True}
-redis_inst.set('hm_goddessUserSign_july_5455', json.dumps(data))
+data['signInfo'] = {'20171025': True, '20171024': True,'20171023': True,'20171022': True, '20171026': True}
+redis_inst.set('hm_goddessUserSign_October_5529', json.dumps(data))
 exit()
 # res = r.set('hm_mobile_screenType_outdoor_100', 2)
 

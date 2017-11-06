@@ -7,15 +7,15 @@
 import time
 import logging
 
-
 ENVIRONMENT = 'test'
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%Y/%m/%d %I:%M:%S %p',
-                    level=logging.DEBUG,
+                    level=logging.INFO,
                     # filename='test.log',
                     filemode='w')
 # 请求的域名
-domain = 'http://lxy.new.huomaotv.com.cn/'
+domain_web = 'http://lxy.new.huomaotv.com.cn'
+domain_api = 'http://lxyapi.new.huomaotv.com.cn'
 # domain = 'https://www.huomao.com/'
 # 测试用例路径
 # if platform.system() == 'Linux':
@@ -36,15 +36,18 @@ superuid = '1870709'
 # 接口信息
 interface = {'msg': {'name': '发言',
                      'url': '/chatnew/msg',
+                     'url_api': '/chatnew/msg',
                      'method': 'post',
                      'data': {
                          'data': '测试弹幕',
                          'cid': 2,
                          'color_barrage': '',
                          'guard_barrage': '',
-                         'isAdminPrivateChat': ''
+                         'isAdminPrivateChat': '',
+                         'is_hotWord': '',
                      },
                      'exp_dict': {
+                         'unlogin': {'status': False, 'code': '101', 'data': [], 'message': '未登录'},
                          'null': {'code': 202, 'status': False, 'message': '消息不能为空'},
                          'normal': {'code': 200, 'data': {}},
                          'length': {'code': 206, 'status': False, 'message': '您的发言已超出字符限制了~'},
@@ -65,7 +68,7 @@ interface = {'msg': {'name': '发言',
                       'exp_dict': {
                           'insufficient_xd': {'message': '您剩余的仙豆数量不足！', 'status': False, 'code': 118},
                           'not_active': {'status': False, 'message': '礼物未激活', 'code': 211},
-                          'anchor':{'status': False, 'code': 219, 'message': '自己不能给自己送礼物'},
+                          'anchor': {'status': False, 'code': 219, 'message': '自己不能给自己送礼物'},
 
                       },
                       },

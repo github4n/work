@@ -19,8 +19,9 @@ from app import views as app_views
 
 urlpatterns = [
     url(r'^$', app_views.new_web),
-    url(r'^index/$', app_views.new_web),
+    url(r'^api_test/$', app_views.api_test),
     url(r'^new_web/$', app_views.new_web),
+    url(r'^index/$', app_views.new_web),
     url(r'^new_web/([a-zA-Z0-9_]*)$', app_views.new_web),
     url(r'^admin', admin.site.urls),
 ]

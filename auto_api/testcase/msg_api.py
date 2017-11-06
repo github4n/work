@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Date    : 2017-07-24 18:27:48
 # @Author  : lixingyun
+# @notice  : 禁言在gag中判断,房管在roomadmin判断,5还有问题
 import unittest
 import sys
 
@@ -12,12 +13,6 @@ from config import superuid, interface
 import time
 import json
 
-'''
-注意：
-1.禁言在gag中判断,房管在roomadmin判断
-2.5还有问题
-'''
-common = Common()
 '''数据准备'''
 # generate_room('msg')
 # generate_user('msg', 20, True)
@@ -32,20 +27,19 @@ cid = room_data['cid']
 cid2 = room_data2['cid']
 user_ids = user_data['user_ids']
 exp_dict = interface['msg']['exp_dict']
-redis_inst = common.REDIS_INST
+redis_inst = Common.REDIS_INST
 
 
 class TestMsg(unittest.TestCase):
     '''基础功能判断'''
 
-    @unittest.skip('')
     def test_msg_01(self):
         '''未登录发言'''
-        assert_res(sys._getframe(), 'msg', '', '')
+        assert_res(sys._getframe(), 'msg',exp_dict['unlogin'])
 
     def test_msg_02(self):
         '''发言为空'''
-        assert_res(sys._getframe(), 'msg', user_ids[0], exp_dict['null'], cid=cid, data='')
+        assert_res(sys._getframe(), 'msg', exp_dict['null'], uid = user_ids[0], cid=cid, data='')
 
     def test_msg_03(self):
         '''普通用户弹幕'''
@@ -219,6 +213,6 @@ class TestMsg(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
-    suite.addTest(TestMsg('test_msg_15'))
+    suite.addTest(TestMsg('test_msg_01'))
     runner = unittest.TextTestRunner()
     runner.run(suite)

@@ -177,7 +177,7 @@ class Template_mixin(object):
     2: 'error',
     }
 
-    DEFAULT_TITLE = 'Unit Test Report'
+    DEFAULT_TITLE = 'API自动化测试报告'
     DEFAULT_DESCRIPTION = ''
 
     # ------------------------------------------------------------------------
@@ -414,10 +414,10 @@ a.popup_link:hover {
     #
 
     REPORT_TMPL = """
-<p id='show_detail_line'>Show
-<a href='javascript:showCase(0)'>Summary</a>
-<a href='javascript:showCase(1)'>Failed</a>
-<a href='javascript:showCase(2)'>All</a>
+<p id='show_detail_line'>视图
+<a href='javascript:showCase(0)'>总览</a>
+<a href='javascript:showCase(1)'>失败</a>
+<a href='javascript:showCase(2)'>全部</a>
 </p>
 <table id='result_table'>
 <colgroup>
@@ -429,7 +429,7 @@ a.popup_link:hover {
 <col align='right' />
 </colgroup>
 <tr id='header_row'>
-    <td>Test Group/Test case</td>
+    <td>测试模块/测试用例</td>
     <td>Count</td>
     <td>Pass</td>
     <td>Fail</td>
@@ -484,10 +484,10 @@ a.popup_link:hover {
 </tr>
 """ # variables: (tid, Class, style, desc, status)
 
-
+# 模板已修改
     REPORT_TEST_NO_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
-    <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
+    <td class='%(style)s'><div class='testcase'><a target ='_blank' href= %(resquest_url)s>%(desc)s</a></div></td>
     <td colspan='5' align='center'>%(status)s</td>
 </tr>
 """ # variables: (tid, Class, style, desc, status)
@@ -664,9 +664,9 @@ class HTMLTestRunner(Template_mixin):
         else:
             status = 'none'
         return [
-            ('Start Time', startTime),
-            ('Duration', duration),
-            ('Status', status),
+            ('开始时间', startTime),
+            ('执行耗时', duration),
+            ('状态', status),
         ]
 
 
@@ -788,6 +788,8 @@ class HTMLTestRunner(Template_mixin):
             desc = desc,
             script = script,
             status = self.STATUS[n],
+            # by lxy 把请求url从测试实例传到报告模板中
+            resquest_url = t.resquest_url
         )
         rows.append(row)
         if not has_output:

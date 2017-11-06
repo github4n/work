@@ -4,14 +4,18 @@
 # @Author  : lixingyun
 
 import requests
+from  urllib import parse
 import json
 import xlsxwriter
-from config import domain, report_data, interface
+from config import domain_web, report_data, interface, domain_api
 import logging
 import unittest
+import HTMLTestRunner
+import time
 import gevent
 from gevent import monkey
 from common.common import Common
+
 monkey.patch_all()
 
 
@@ -32,20 +36,31 @@ def cmp_dict(dict1, dict2):
 
 
 # 请求返回接口信息
-def request(interface_name, user, **kw):
-    interface_value = interface.get(interface_name)
-    url = interface_value.get('url')
-    method = interface_value.get('method')
-    data = interface_value.get('data').copy()
-    name = interface_value.get('name')
-    # 穿参数赋值给新的data
-    for key, value in kw.items():
-        data[key] = value
+def request(self):
+    # 获取接口信息
+    method = self.method
+    url = self.url
+    data = self.data
+    name = self.name
+
+    # 判断是否有登录用户,是的话web否则api
+    if hasattr(self, 'user'):
+        cookies = Common.generate_cookies(self.user)
+        domain = domain_web
+    else:
+        cookies = {}
+        domain = domain_api
+
+    self.resquest_url = domain + url + '?' + parse.urlencode(data)
+
+    logging.info('请求数据:{}\n{}'.format(data, self.resquest_url))
+
     # 判断请求方式
+    headers = {'X-Requested-With': 'XMLHttpRequest'}
     if method == 'get':
-        res = requests.get(domain + url, params=data, cookies=Common.generate_cookies(user))
+        res = requests.get(domain + url, params=data, cookies=cookies, headers=headers)
     elif method == 'post':
-        res = requests.post(domain + url, data=data, cookies=Common.generate_cookies(user))
+        res = requests.post(domain + url, data=data, cookies=cookies, headers=headers)
     else:
         logging.error('请求方式BUG')
     try:
@@ -60,10 +75,11 @@ def request(interface_name, user, **kw):
 
 
 # 首次验证并生成测试报告数据
-def assert_res(f, interface_name, user, exp_res, ver=False,**kw):
+def assert_res(self):
+    exp_res = self.exp_res
     report_data['test_sum'] += 1
     # 实际结果判断方式
-    res = request(interface_name, user, **kw)
+    res = request(self)
     real_res = res[0]
     # logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
     # 判断请求结果是否包含预期结果
@@ -72,36 +88,35 @@ def assert_res(f, interface_name, user, exp_res, ver=False,**kw):
         report_data['test_success'] += 1
         result = True
         bz = ''
-        logging.debug('比较成功')
+        logging.info('{}比较成功'.format(self._testMethodName))
     except Exception as e:
         result = False
         bz = str(e)
         report_data['test_failed'] += 1
-        logging.error('用例{},失败:{}'.format(f.f_code.co_consts[0], e))
-        logging.error('预期:{}'.format(exp_res))
-        logging.error('实际:{}'.format(real_res))
-        logging.error('实际json:{}'.format(json.dumps(real_res)))
-    if result and ver:
-        if  ver():
-            logging.debug('二次验证成功')
+        logging.error('用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self._testMethodDoc, e, exp_res, real_res, json.dumps(real_res)))
+        self.assertTrue(False, '失败')
+    if result and hasattr(self, 'ver'):
+        if self.ver():
+            logging.info('二次验证成功')
         else:
             result = '二次验证失败'
             logging.error('二次验证失败')
     # 把结果添加到报告list中
-    res = {"case_id": f.f_code.co_name,
-           "case_des": f.f_code.co_consts[0],
+    res = {"case_id": self._testMethodName,
+           "case_des": self._testMethodDoc,
            "name": res[3],
            "method": res[2],
            "url": res[1],
-           "user":user,
+           "user": self.user,
            "data": res[4],
            "exp_res": str(exp_res),
            "real_res": str(real_res),
            "result": result,
            "bz": bz}
-    print(report_data['report_res'])
+    # print(report_data['report_res'])
     report_data['report_res'].append(res)
     return real_res
+
 
 # 如何执行测试用例
 def exec_case(datas, run_type={}):
@@ -197,7 +212,7 @@ def generate_report():
 
     worksheet2.merge_range('A1:K1', '测试详情', format_center2)
     data2 = {
-        'A2': '用例ID', 'B2': '用例描述', 'C2': '接口名称', 'D2': '请求方式', 'E2': 'URL', 'F2':'登录用户UID','G2': '参数', 'H2': '预期值', 'I2': '实际值',
+        'A2': '用例ID', 'B2': '用例描述', 'C2': '接口名称', 'D2': '请求方式', 'E2': 'URL', 'F2': '登录用户UID', 'G2': '参数', 'H2': '预期值', 'I2': '实际值',
         'J2': '测试结果', 'K2': '备注'
     }
     for key, value in data2.items():
@@ -205,7 +220,7 @@ def generate_report():
     report_data['report_res'].sort(key=lambda k: (k.get('case_id', 0)))
     for item in report_data['report_res']:
         excel1 = {'A': item["case_id"], 'B': item["case_des"], 'C': item["name"], 'D': item["method"],
-                  'E': item["url"],'F':item["user"],
+                  'E': item["url"], 'F': item["user"],
                   'G': item["data"], 'H': item["exp_res"], 'I': item["real_res"], 'J': item["result"],
                   'K': item['bz']}
         for key, value in excel1.items():
@@ -213,18 +228,27 @@ def generate_report():
     workbook.close()
 
 
-def run_case(pattern='test_*.py', report=1):
+def run_case(pattern='*.py', report=1):
     test_dir = './testcase'
+    filename = './result/{}result.html'.format(int(time.time()))
+    fp = open(filename, "wb")
     discover = unittest.defaultTestLoader.discover(test_dir, pattern=pattern)
-    events = []
-    runner = unittest.TextTestRunner()
-    for testsuites in discover:
-        for testsuite in testsuites:
-            for test in testsuite:
-                events.append(gevent.spawn(runner.run, test))
-    gevent.joinall(events)
-    if report:
-        generate_report()
+    # 定义测试报告
+    runner = HTMLTestRunner.HTMLTestRunner(stream=fp)
+    # 运行测试用例
+    runner.run(discover)
+    # 普通报告
+    # runner = unittest.TextTestRunner()
+    # runner.run(discover)
+    # 协程执行
+    # events = []
+    # for testsuites in discover:
+    #     for testsuite in testsuites:
+    #         for test in testsuite:
+    #             events.append(gevent.spawn(runner.run, test))
+    # gevent.joinall(events)
+    # if report:
+    #     generate_report()
 
 
 def name_func_new(func, num, p):
