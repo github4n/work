@@ -462,7 +462,7 @@ a.popup_link:hover {
 
     REPORT_TEST_WITH_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
-    <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
+    <td class='%(style)s'><div class='testcase'><a target ='_blank' href= %(resquest_url)s>%(desc)s</a></div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -629,7 +629,7 @@ class HTMLTestRunner(Template_mixin):
         self.stopTime = datetime.datetime.now()
         self.generateReport(test, result)
         # print >> sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime)
-        print(sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime))
+        print(sys.stderr, '耗时: %s' % (self.stopTime-self.startTime))
         return result
 
 
@@ -778,9 +778,10 @@ class HTMLTestRunner(Template_mixin):
 
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             id = tid,
+            # 减少输出
             output = saxutils.escape(str(uo)+ue),
+            # output= t.info
         )
-
         row = tmpl % dict(
             tid = tid,
             Class = (n == 0 and 'hiddenRow' or 'none'),
@@ -791,6 +792,7 @@ class HTMLTestRunner(Template_mixin):
             # by lxy 把请求url从测试实例传到报告模板中
             resquest_url = t.resquest_url
         )
+
         rows.append(row)
         if not has_output:
             return

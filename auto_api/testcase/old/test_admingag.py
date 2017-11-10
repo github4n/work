@@ -6,7 +6,7 @@ import sys
 sys.path.append('../')
 import unittest
 import logging
-from lib import assert_res, request, cmp_dict
+from  lib import assert_res, request, cmp_dict
 from lib2 import generate_room, generate_user, init_gag
 from config import superuid, report_data, interface
 

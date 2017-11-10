@@ -7,7 +7,7 @@ import requests
 from  urllib import parse
 import json
 import xlsxwriter
-from config import domain_web, report_data, interface, domain_api
+from config import domain_web,domain_api, interface,report_data
 import logging
 import unittest
 import HTMLTestRunner
@@ -38,16 +38,16 @@ def cmp_dict(dict1, dict2):
 # 请求返回接口信息
 def request(self):
     # 获取接口信息
-    method = self.method
     url = self.url
+    method = self.method
     data = self.data
     name = self.name
-
-    # 判断是否有登录用户,是的话web否则api
-    if hasattr(self, 'user'):
+    # 判断环境
+    if 'api' not in self._testMethodName:
         cookies = Common.generate_cookies(self.user)
         domain = domain_web
     else:
+        data['uid'] = self.user
         cookies = {}
         domain = domain_api
 
@@ -88,19 +88,21 @@ def assert_res(self):
         report_data['test_success'] += 1
         result = True
         bz = ''
-        logging.info('{}比较成功'.format(self._testMethodName))
+        logging.info('{}验证成功'.format(self._testMethodName))
     except Exception as e:
         result = False
         bz = str(e)
         report_data['test_failed'] += 1
-        logging.error('用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self._testMethodDoc, e, exp_res, real_res, json.dumps(real_res)))
-        self.assertTrue(False, '失败')
+        self.info = '用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self._testMethodDoc, e, exp_res, real_res, json.dumps(real_res))
+        # logging.error(self.info)
+        self.assertTrue(False, self.info)
     if result and hasattr(self, 'ver'):
         if self.ver():
             logging.info('二次验证成功')
         else:
             result = '二次验证失败'
             logging.error('二次验证失败')
+            self.assertTrue(False, '二次验证失败')
     # 把结果添加到报告list中
     res = {"case_id": self._testMethodName,
            "case_des": self._testMethodDoc,
@@ -113,7 +115,6 @@ def assert_res(self):
            "real_res": str(real_res),
            "result": result,
            "bz": bz}
-    # print(report_data['report_res'])
     report_data['report_res'].append(res)
     return real_res
 
@@ -228,7 +229,7 @@ def generate_report():
     workbook.close()
 
 
-def run_case(pattern='*.py', report=1):
+def run_case(pattern='*.py'):
     test_dir = './testcase'
     filename = './result/{}result.html'.format(int(time.time()))
     fp = open(filename, "wb")

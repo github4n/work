@@ -49,7 +49,7 @@ function request(method){
         success: function(result) {
             $('.modal-body').text(result.msg);
             $('#myModal').modal('show');
-            setTimeout(function(){$("#myModal").modal("hide")},1500);
+//            setTimeout(function(){$("#myModal").modal("hide")},20000);
         }
     });
 }

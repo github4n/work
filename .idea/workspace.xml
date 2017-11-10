@@ -14,31 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="msg_web.py" pinned="false" current-in-tab="false">
-        <entry file="file://Y:/auto_api/testcase/msg_web.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="100" column="72" lean-forward="true" selection-start-line="100" selection-start-column="72" selection-end-line="100" selection-end-column="72" />
-              <folding>
-                <element signature="e#125#140#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lib.py" pinned="false" current-in-tab="true">
-        <entry file="file://Y:/auto_api/lib.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
-              <folding>
-                <element signature="e#103#118#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://Y:/auto_api/run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
@@ -60,17 +36,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MoneyChanel</find>
-      <find>hm_loveliness</find>
-      <find>dir</find>
-      <find>进入直播间</find>
-      <find>bd_sj</find>
-      <find>for</find>
-      <find>Userbase</find>
-      <find>common</find>
-      <find>assert_res</find>
-      <find>sorted</find>
-      <find>sort</find>
       <find>domain</find>
       <find>logging</find>
       <find>print</find>
@@ -88,11 +53,23 @@
       <find>result</find>
       <find>Summary</find>
       <find>div class='testcase'</find>
-      <find>print(</find>
       <find>desc</find>
+      <find>fail</find>
+      <find>failCase</find>
+      <find>print(</find>
+      <find>ENVIRONMENT</find>
+      <find>test_msg_</find>
+      <find>common</find>
+      <find>get_loveliness</find>
+      <find>where</find>
+      <find>generate_user</find>
+      <find>resquest_url</find>
+      <find>gag</find>
+      <find>gag(</find>
     </findStrings>
     <replaceStrings>
       <replace>self</replace>
+      <replace>test_msg_api_</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -106,19 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="[kingshard] CONSOLE - kingshard" />
-        <option value="U:/common/config.py" />
-        <option value="U:/common/db/config.py" />
-        <option value="U:/common/__init__.py" />
-        <option value="U:/common/db/test.py" />
-        <option value="U:/common/dbs/user.py" />
-        <option value="U:/common/db/__init__.py" />
-        <option value="U:/common/test.py" />
-        <option value="U:/common/db/user.py" />
-        <option value="U:/common/db/money.py" />
-        <option value="U:/common/db/contents.py" />
-        <option value="U:/django/project/app/static/js/lucky.js" />
-        <option value="U:/日常脚本/reids操作.py" />
         <option value="U:/日常脚本/竞猜/竞猜脚本并发.py" />
         <option value="U:/日常脚本/bf.py" />
         <option value="U:/socket/1.py" />
@@ -150,13 +114,26 @@
         <option value="Y:/common/db/user_bag.py" />
         <option value="Y:/common/db/33.py" />
         <option value="Y:/auto_api/testcase/test_msg.py" />
-        <option value="Y:/auto_api/run.py" />
-        <option value="Y:/auto_api/config.py" />
-        <option value="Y:/日常脚本/test11.py" />
-        <option value="Y:/common/common.py" />
         <option value="Y:/auto_api/HTMLTestRunner.py" />
-        <option value="Y:/auto_api/lib.py" />
         <option value="Y:/auto_api/testcase/msg_web.py" />
+        <option value="Y:/django/project/app/static/js/lucky.js" />
+        <option value="Y:/auto_api/testcase/msg.py" />
+        <option value="Y:/auto_api/testcase/msg_api.py" />
+        <option value="Y:/common/db/config.py" />
+        <option value="Y:/common/db/money.py" />
+        <option value="Y:/auto_api/testcase/gift_web.py" />
+        <option value="Y:/日常脚本/test11.py" />
+        <option value="Y:/auto_api/testcase/web_gift.py" />
+        <option value="Y:/auto_api/testcase/web_msg.py" />
+        <option value="Y:/auto_api/testcase/web_setroomadmin.py" />
+        <option value="Y:/auto_api/testcase/web_roomadmin.py" />
+        <option value="Y:/auto_api/lib.py" />
+        <option value="Y:/common/common.py" />
+        <option value="Y:/auto_api/config.py" />
+        <option value="Y:/auto_api/testcase/web_gag.py" />
+        <option value="Y:/auto_api/testcase/test_delgag.py" />
+        <option value="Y:/auto_api/testcase/test_admingag.py" />
+        <option value="Y:/auto_api/run.py" />
       </list>
     </option>
   </component>
@@ -167,9 +144,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-36" />
-    <option name="y" value="22" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-18" />
+    <option name="y" value="159" />
     <option name="width" value="1932" />
     <option name="height" value="1007" />
   </component>
@@ -194,11 +171,6 @@
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
               <item name="Y:" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Y:" type="462c0819:PsiDirectoryNode" />
-              <item name="auto_api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
@@ -229,11 +201,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Y:\auto_api\testcase\old" />
       <recent name="Y:\auto_api" />
       <recent name="Y:\auto_api\testcase" />
       <recent name="Y:\auto_api\testcase\web" />
       <recent name="U:\common\dbs" />
-      <recent name="U:\日常脚本" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="Y:\auto_api\testcase" />
@@ -255,40 +227,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.run">
-    <configuration name="common" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="Y:/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Y" />
-      <option name="SCRIPT_NAME" value="Y:/common/common.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="msg_web" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="Y:/auto_api/testcase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Y" />
-      <option name="SCRIPT_NAME" value="Y:/auto_api/testcase/msg_web.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -306,24 +244,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="test11" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="Y:/日常脚本" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Y" />
-      <option name="SCRIPT_NAME" value="Y:/日常脚本/test11.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="test_msg" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="web_gag" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -335,25 +256,76 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Y" />
-      <option name="SCRIPT_NAME" value="Y:\auto_api\testcase\msg_w.py" />
+      <option name="SCRIPT_NAME" value="Y:/auto_api/testcase/web_gag.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="web_roomadmin (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="Y:/auto_api/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:/auto_api/testcase/web_roomadmin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="web_roomadmin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="Y:/auto_api/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:\auto_api\testcase\web_roomadmin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="web_setroomadmin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="Y:/auto_api/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Y" />
+      <option name="SCRIPT_NAME" value="Y:\auto_api\testcase\web_roomadmin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.test_msg" />
-      <item index="1" class="java.lang.String" itemvalue="Python.run" />
-      <item index="2" class="java.lang.String" itemvalue="Python.msg_web" />
-      <item index="3" class="java.lang.String" itemvalue="Python.common" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test11" />
+      <item index="0" class="java.lang.String" itemvalue="Python.run" />
+      <item index="1" class="java.lang.String" itemvalue="Python.web_roomadmin" />
+      <item index="2" class="java.lang.String" itemvalue="Python.web_setroomadmin" />
+      <item index="3" class="java.lang.String" itemvalue="Python.web_roomadmin (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.web_gag" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.run" />
-        <item index="1" class="java.lang.String" itemvalue="Python.msg_web" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test11" />
-        <item index="3" class="java.lang.String" itemvalue="Python.common" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test_msg" />
+        <item index="1" class="java.lang.String" itemvalue="Python.web_gag" />
+        <item index="2" class="java.lang.String" itemvalue="Python.web_roomadmin (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.web_setroomadmin" />
+        <item index="4" class="java.lang.String" itemvalue="Python.web_roomadmin" />
       </list>
     </recent_temporary>
   </component>
@@ -415,22 +387,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-36" y="22" width="1932" height="1007" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31902552" sideWeight="0.7127352" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23915592" sideWeight="0.17615013" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20575693" sideWeight="0.19166666" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18222722" sideWeight="0.82384986" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42537314" sideWeight="0.80833334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20302714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04477612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20260416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20575693" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3955224" sideWeight="0.48400232" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3955224" sideWeight="0.47760418" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -451,31 +423,11 @@
           <properties exception="BaseException" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="59" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://U:/auto_api/testcase/test_msg.py" />
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/lxml/etree/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="1143" column="8" lean-forward="false" selection-start-line="1143" selection-start-column="8" selection-end-line="1143" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://U:/日常脚本/test2.py" />
-    <entry file="file://U:/日常脚本/bf.py" />
-    <entry file="file://U:/common/common.py" />
-    <entry file="file://U:/日常脚本/test.py" />
-    <entry file="file://U:/日常脚本/test11.py" />
     <entry file="file://U:/日常脚本/threading.py" />
     <entry file="file://U:/日常脚本/msg.py" />
     <entry file="file://Y:/日常脚本/threading.py" />
@@ -483,13 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/日常脚本/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -507,24 +452,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/common/db/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/user_bag_db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="34" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="954" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/common/db/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="10" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -546,30 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="547" column="34" lean-forward="true" selection-start-line="547" selection-start-column="34" selection-end-line="547" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/common/db/contents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1482">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/common/db/money.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/peewee.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-722">
-          <caret line="2986" column="8" lean-forward="false" selection-start-line="2986" selection-start-column="8" selection-end-line="2986" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -628,14 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/auto_api/testcase/test_gag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python35/Lib/site-packages/requests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-380">
@@ -646,52 +545,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/auto_api/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="47" column="22" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="47" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="228" column="4" lean-forward="false" selection-start-line="228" selection-start-column="4" selection-end-line="228" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/auto_api/testcase/msg_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2040">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/common/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="375" column="32" lean-forward="true" selection-start-line="375" selection-start-column="32" selection-end-line="375" selection-end-column="32" />
-          <folding>
-            <element signature="e#102#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://Y:/common/db/user_bag.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/日常脚本/test11.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -730,20 +587,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="817" column="4" lean-forward="false" selection-start-line="817" selection-start-column="4" selection-end-line="817" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python35/Lib/unittest/result.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="57" column="8" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
           <folding>
-            <element signature="e#26#35#0" expanded="true" />
+            <element signature="e#26#35#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -756,12 +605,329 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python35/Lib/xml/sax/saxutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://Y:/auto_api/HTMLTestRunner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6361">
-          <caret line="487" column="37" lean-forward="true" selection-start-line="487" selection-start-column="37" selection-end-line="487" selection-end-column="37" />
+        <state relative-caret-position="251">
+          <caret line="780" column="18" lean-forward="true" selection-start-line="780" selection-start-column="18" selection-end-line="780" selection-end-column="18" />
           <folding>
             <element signature="e#3215#3230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/web_msg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/django/project/app/static/js/lucky.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/msg_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1560">
+          <caret line="29" column="52" lean-forward="true" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+          <folding>
+            <element signature="e#1855#1956#0" expanded="false" />
+            <element signature="e#1997#2148#0" expanded="false" />
+            <element signature="e#2189#2236#0" expanded="false" />
+            <element signature="e#2277#2504#0" expanded="false" />
+            <element signature="e#2545#2724#0" expanded="false" />
+            <element signature="e#2765#3001#0" expanded="false" />
+            <element signature="e#3042#3168#0" expanded="false" />
+            <element signature="e#3209#3789#0" expanded="false" />
+            <element signature="e#3830#4036#0" expanded="false" />
+            <element signature="e#4095#4144#0" expanded="false" />
+            <element signature="e#4185#4235#0" expanded="false" />
+            <element signature="e#4299#4362#0" expanded="false" />
+            <element signature="e#4421#4825#0" expanded="false" />
+            <element signature="e#4831#4859#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="2850" column="8" lean-forward="false" selection-start-line="2850" selection-start-column="8" selection-end-line="2850" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/contents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="97" column="7" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/site-packages/peewee.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="4220" column="28" lean-forward="false" selection-start-line="4220" selection-start-column="20" selection-end-line="4220" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1313743207/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/db/money.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/日常脚本/test11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/日常脚本/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#104#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/common/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="408" column="36" lean-forward="true" selection-start-line="408" selection-start-column="36" selection-end-line="408" selection-end-column="36" />
+          <folding>
+            <element signature="e#102#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/test_delgag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/old/test_admingag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/web_roomadmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#93#108#0" expanded="true" />
+            <element signature="e#330#788#0" expanded="false" />
+            <element signature="e#337#676#0" expanded="false" />
+            <element signature="e#853#1125#0" expanded="false" />
+            <element signature="e#1163#1565#0" expanded="false" />
+            <element signature="e#1615#4196#0" expanded="false" />
+            <element signature="e#1640#1987#0" expanded="false" />
+            <element signature="e#2051#2153#0" expanded="false" />
+            <element signature="e#2199#2379#0" expanded="false" />
+            <element signature="e#2444#2641#0" expanded="false" />
+            <element signature="e#2706#2975#0" expanded="false" />
+            <element signature="e#3040#3252#0" expanded="false" />
+            <element signature="e#3298#3527#0" expanded="false" />
+            <element signature="e#3573#3771#0" expanded="false" />
+            <element signature="e#3839#4131#0" expanded="false" />
+            <element signature="e#4165#4196#0" expanded="false" />
+            <element signature="e#4246#6327#0" expanded="false" />
+            <element signature="e#4271#4617#0" expanded="false" />
+            <element signature="e#4681#4783#0" expanded="false" />
+            <element signature="e#4829#5015#0" expanded="false" />
+            <element signature="e#5080#5328#0" expanded="false" />
+            <element signature="e#5761#6029#0" expanded="false" />
+            <element signature="e#6075#6262#0" expanded="false" />
+            <element signature="e#6361#6510#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/web_msg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding>
+            <element signature="e#115#130#0" expanded="true" />
+            <element signature="e#413#668#0" expanded="false" />
+            <element signature="e#733#1275#0" expanded="false" />
+            <element signature="e#1883#1987#0" expanded="false" />
+            <element signature="e#2024#2184#0" expanded="false" />
+            <element signature="e#2221#2379#0" expanded="false" />
+            <element signature="e#2435#2569#0" expanded="false" />
+            <element signature="e#2625#2855#0" expanded="false" />
+            <element signature="e#2910#3092#0" expanded="false" />
+            <element signature="e#3150#3428#0" expanded="false" />
+            <element signature="e#3487#3616#0" expanded="false" />
+            <element signature="e#3674#4186#0" expanded="false" />
+            <element signature="e#4243#4452#0" expanded="false" />
+            <element signature="e#4510#4642#0" expanded="false" />
+            <element signature="e#4679#4812#0" expanded="false" />
+            <element signature="e#4818#4838#0" expanded="false" />
+            <element signature="e#5013#5530#0" expanded="false" />
+            <element signature="e#5536#5560#0" expanded="false" />
+            <element signature="e#7314#7850#0" expanded="false" />
+            <element signature="e#7887#8198#0" expanded="false" />
+            <element signature="e#8235#8428#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/web_gift.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1431">
+          <caret line="282" column="0" lean-forward="false" selection-start-line="282" selection-start-column="0" selection-end-line="284" selection-end-column="24" />
+          <folding>
+            <element signature="e#142#157#0" expanded="true" />
+            <element signature="e#304#337#0" expanded="false" />
+            <element signature="e#389#556#0" expanded="false" />
+            <element signature="e#621#1703#0" expanded="false" />
+            <element signature="e#1718#2048#0" expanded="false" />
+            <element signature="e#2514#2673#0" expanded="false" />
+            <element signature="e#2711#2878#0" expanded="false" />
+            <element signature="e#2916#3018#0" expanded="false" />
+            <element signature="e#3073#3193#0" expanded="false" />
+            <element signature="e#3231#3445#0" expanded="false" />
+            <element signature="e#3483#4039#0" expanded="false" />
+            <element signature="e#4045#4070#0" expanded="false" />
+            <element signature="e#4256#4608#0" expanded="false" />
+            <element signature="e#4646#4851#0" expanded="false" />
+            <element signature="e#4908#5075#0" expanded="false" />
+            <element signature="e#5113#5672#0" expanded="false" />
+            <element signature="e#5729#5926#0" expanded="false" />
+            <element signature="e#5964#6345#0" expanded="false" />
+            <element signature="e#6384#6756#0" expanded="false" />
+            <element signature="e#6794#7631#0" expanded="false" />
+            <element signature="e#7687#8006#0" expanded="false" />
+            <element signature="e#8061#8184#0" expanded="false" />
+            <element signature="e#8222#8520#0" expanded="false" />
+            <element signature="e#8577#8880#0" expanded="false" />
+            <element signature="e#8937#9283#0" expanded="false" />
+            <element signature="e#9321#9790#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/auto_api/testcase/web_gag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="380" column="24" lean-forward="true" selection-start-line="380" selection-start-column="24" selection-end-line="380" selection-end-column="24" />
+          <folding>
+            <element signature="e#102#117#0" expanded="true" />
+            <element signature="e#334#619#0" expanded="false" />
+            <element signature="e#684#1642#0" expanded="false" />
+            <element signature="e#1650#2349#0" expanded="false" />
+            <element signature="e#2387#2678#0" expanded="false" />
+            <element signature="e#2719#7398#0" expanded="false" />
+            <element signature="e#2744#3169#0" expanded="false" />
+            <element signature="e#3224#3326#0" expanded="false" />
+            <element signature="e#3363#3470#0" expanded="false" />
+            <element signature="e#3507#3675#0" expanded="false" />
+            <element signature="e#3733#3861#0" expanded="false" />
+            <element signature="e#3898#4032#0" expanded="false" />
+            <element signature="e#4069#4189#0" expanded="false" />
+            <element signature="e#4226#4349#0" expanded="false" />
+            <element signature="e#4405#4649#0" expanded="false" />
+            <element signature="e#4686#4829#0" expanded="false" />
+            <element signature="e#4866#4995#0" expanded="false" />
+            <element signature="e#5032#5164#0" expanded="false" />
+            <element signature="e#5220#5450#0" expanded="false" />
+            <element signature="e#5487#5721#0" expanded="false" />
+            <element signature="e#5758#5873#0" expanded="false" />
+            <element signature="e#5910#6028#0" expanded="false" />
+            <element signature="e#6034#6059#0" expanded="false" />
+            <element signature="e#7442#11791#0" expanded="false" />
+            <element signature="e#7467#7889#0" expanded="false" />
+            <element signature="e#7947#8049#0" expanded="false" />
+            <element signature="e#8089#8196#0" expanded="false" />
+            <element signature="e#8236#8404#0" expanded="false" />
+            <element signature="e#8469#8760#0" expanded="false" />
+            <element signature="e#8800#9077#0" expanded="false" />
+            <element signature="e#9117#9401#0" expanded="false" />
+            <element signature="e#9464#9752#0" expanded="false" />
+            <element signature="e#9792#10091#0" expanded="false" />
+            <element signature="e#10131#10414#0" expanded="false" />
+            <element signature="e#10454#10745#0" expanded="false" />
+            <element signature="e#10808#11083#0" expanded="false" />
+            <element signature="e#11123#11409#0" expanded="false" />
+            <element signature="e#11449#11726#0" expanded="false" />
+            <element signature="e#11760#11791#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -771,26 +937,6 @@
         <state relative-caret-position="140">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/auto_api/testcase/msg_web.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="100" column="72" lean-forward="true" selection-start-line="100" selection-start-column="72" selection-end-line="100" selection-end-column="72" />
-          <folding>
-            <element signature="e#125#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/auto_api/lib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="93" column="19" lean-forward="true" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
-          <folding>
-            <element signature="e#103#118#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
