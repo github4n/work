@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from common import generate_cookies,redis_inst
+import sys
+sys.path.append('../..')
+from common.common import Common
 import requests
 import random
 import time
@@ -10,13 +12,13 @@ monkey.patch_all()
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%Y/%m/%d %I:%M:%S %p',
                     level=logging.INFO,
-                    filename='example.log',
+                    # filename='example.log',
                     filemode='w')
 
 
 def getc():
     try:
-        res = requests.post(url1, cookies=generate_cookies(1522))
+        res = requests.post(url1, cookies=Common.generate_cookies(1522))
         # 期数
         period = res.json()['item_maps']['period']
         # 选项集合
@@ -35,8 +37,8 @@ def bet1(uid, period, res_items):
         odds = res_items[item]['odds']
         # 期号 赔率 选项 下注额
         data = dict(period=period, odds=odds, item=item,
-                    amount=1, cid=cid)
-        res = requests.post(url2, data=data, cookies=generate_cookies(uid))
+                    amount=10, cid=cid)
+        res = requests.post(url2, data=data, cookies=Common.generate_cookies(uid))
         logging.info('下注{}'.format(data))
         logging.info(res.json())
     except Exception as e:
@@ -45,7 +47,7 @@ def bet1(uid, period, res_items):
 
 def bet2(uid):
     try:
-        res = requests.post(url1, cookies=generate_cookies(uid))
+        res = requests.post(url1, cookies=Common.generate_cookies(uid))
         logging.info('join{}'.format(res.json()))
     except Exception as e:
         logging.exception(e)

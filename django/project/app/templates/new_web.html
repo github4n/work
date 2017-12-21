@@ -144,8 +144,30 @@
                     <input type="text" class="form-control" name="room_number" placeholder="房间号(room_number)">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="status" placeholder="0普通，1横板娱乐，2竖版娱乐">
+                    <input type="text" class="form-control" name="status" placeholder="开播类型">
+                    <!--<div class="input-group-btn">-->
+                        <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
+                            <!--下拉菜单-->
+                            <!--<span class="caret"></span>-->
+                        <!--</button>-->
+                        <!--<ul class="dropdown-menu pull-right">-->
+                            <!--<li><a href="#">功能</a></li>-->
+                            <!--<li><a href="#">另一个功能</a></li>-->
+                            <!--<li><a href="#">其他</a></li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li><a href="#">分离的链接</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>&lt;!&ndash; /btn-group &ndash;&gt;-->
                 </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">0:PC非娱乐</li>
+                    <li class="list-group-item">1:PC娱乐</li>
+                    <li class="list-group-item">2:手机非娱乐横屏</li>
+                    <li class="list-group-item">3:手机非娱乐竖屏</li>
+                    <li class="list-group-item">4:手机娱乐横屏</li>
+                    <li class="list-group-item">5:手机娱乐竖屏</li>
+                </ul>
                 <button type="button" class="btn btn-default" onclick="request('update_roomlx')">提交</button>
             </form>
         </div>

@@ -11,7 +11,7 @@ from gevent import monkey
 monkey.patch_all()
 
 common = Common()
-url = 'http://lxy.new.huomaotv.com.cn/csgo/lottery'
+url = 'http://lxy.new.huomaotv.com.cn/active/play_raffle?app=smallgame'
 
 r_list = []
 
@@ -19,9 +19,11 @@ r_list = []
 def f(uid):
     r = requests.get(url, cookies=common.generate_cookies(uid))
     try:
-        r_list.append(r.json()['data']['goods_name'] + str(r.json()['data']['unit']))
+        print(r.json())
+        r_list.append(r.json()['info']['goods_name'] + str(r.json()['info']['unit']))
     except Exception as e:
-        print(e)
+        # print(e)
+        print(r.json())
         pass
 
 

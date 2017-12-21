@@ -24,5 +24,7 @@ def cookies(uid):
 
 
 file = open(filepath + r'\testjmeter.txt', 'w', encoding='utf-8')
-for uid in range(3060, 3160):
-    file.writelines(cookies(uid) + '\n')
+# for uid in range(3060, 3160):
+#     file.writelines(cookies(uid) + '\n')
+for i in range(0, 500):
+    file.writelines(cookies('3865') + '\n')

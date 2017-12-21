@@ -1,12 +1,15 @@
 import gevent
 from gevent import monkey
-
+from multiprocessing import Process
+import multiprocessing
 monkey.patch_all()
 import time
 import requests
+import grequests
 import hashlib
+import json
 import sys
-
+from  urllib import parse
 sys.path.append('../')
 from common.common import Common
 
@@ -18,7 +21,7 @@ zbuid = '1522'
 zzuid = '3866'
 xzuid = '3865'
 url = 'http://qa.new.huomaotv.com.cn'
-
+s = requests.Session()
 
 # 开盘
 def open_guess(cid, uid):
@@ -39,7 +42,7 @@ def open_guess(cid, uid):
     data = res.json()
     print('开盘****************:{}'.format(data))
     # 返回订单号
-    return data['data']['1']['md']
+    return data['data']['1']['xd']
 
 
 # 结束盘口。num序号0，1，2，choice选项1，2. 退庄是3.
@@ -54,13 +57,13 @@ def close_guess(cid, uid, choice1='', choice2='', choice3=''):
 
 # 坐庄
 def banker(cid, order_id, uid, odds='1'):
-    data = {'choice_name': '主题1选项1',  # 选项名
+    data = {'choice_name': '测试主题1选项1',  # 选项名
             'title': '0',  # 竞猜序号
             'cid': cid,  # 房间号
             'odds': odds,  # 赔率
-            'money_type': '2',  # 1仙豆 2猫豆
+            'money_type': '1',  # 1仙豆 2猫豆
             'order_id': order_id,  # 订单号
-            'money': '1000',  # 坐庄金额
+            'money': '200',  # 坐庄金额
             'choice': '1'}  # 选项序号
     res = requests.get(url + '/guess/banker', params=data, cookies=common.generate_cookies(uid))
     print('坐庄****************:{}'.format(res.json()))
@@ -80,7 +83,7 @@ def back_banker(cid, order_id, uid):
 
 # 下注
 def bet(cid, zzuid, xzuid, order_id):
-    data = {'choice_title': '主题1选项1',  # 选项名
+    data = {'choice_title': '测试主题1选项1',  # 选项名
             'title': '0',  # 竞猜序号
             'cid': cid,  # 房间号
             'banker_uid': zzuid,  # 坐庄uid
@@ -88,13 +91,39 @@ def bet(cid, zzuid, xzuid, order_id):
             'banker_choice': '1',  # 坐庄选项
             'odds': '1',  # 赔率
             'pos': '0',
-            'money_type': '2',  # 1仙豆 2猫豆
+            'money_type': '1',  # 1仙豆 2猫豆
             'order_id': order_id,
             'money': '10',  # 下注额
             'bet_index': '3',
             'order_flag': 'false'}  # 选项序号
-    res = requests.get(url + '/Guess/bet', params=data, cookies=common.generate_cookies(xzuid))
-    print('下注****************:{}'.format(res.json()))
+    # print(parse.urlencode(data))
+    # res = requests.get(url + '/Guess/bet', params=data, cookies=common.generate_cookies(xzuid))
+    s.get('http://qa.new.huomaotv.com.cn/plugs/getCacheTime')
+    # print('下注****************:{}'.format(res.json()))
+
+
+
+# 下注
+def bet2(cid, zzuid, xzuid, order_id):
+    data = {'choice_title': '测试主题1选项1',  # 选项名
+            'title': '0',  # 竞猜序号
+            'cid': cid,  # 房间号
+            'banker_uid': zzuid,  # 坐庄uid
+            'bet_choice': '1',  # 下注选项
+            'banker_choice': '1',  # 坐庄选项
+            'odds': '1',  # 赔率
+            'pos': '0',
+            'money_type': '1',  # 1仙豆 2猫豆
+            'order_id': order_id,
+            'money': '10',  # 下注额
+            'bet_index': '3',
+            'order_flag': 'false'}  # 选项序号
+    # print(parse.urlencode(data))
+    return grequests.get('http://qa.new.huomaotv.com.cn/plugs/getCacheTime')
+    # print('下注****************:{}'.format(res.json()))
+
+
+
 
 
 # 流局
@@ -102,6 +131,57 @@ def lj():
     res = requests.get(url + '/guess/timeoutEndGuess')
     print(res.text)
 
+
+# close_guess(cid, zbuid, '2', '2', '2')
+# exit()
+
+
+# close_guess(cid, zbuid, '1', '1', '1')
+# bet(cid, zzuid, xzuid, order_id)
+
+order_id = 1511761916152210
+# print(order_id)
+# banker(cid, order_id, zzuid, odds='1')
+def test1(order_id=order_id):
+    events = []
+    for i in range(0, 200):
+        events.append(gevent.spawn(bet, cid, zzuid, xzuid, order_id))
+    gevent.joinall(events)
+
+
+t1 = time.time()
+test1()
+print((time.time() - t1))
+
+# t1 = time.time()
+# tasks = []
+# for i in range(0, 4000):
+#     res = bet2(cid, zzuid, xzuid, order_id)
+#     tasks.append(res)
+# # print((time.time() - t1))
+# res = grequests.map(tasks)
+# print((time.time() - t1))
+# for i in res:
+#     print(json.loads(i._content.decode()))
+
+
+
+# if __name__ == '__main__':
+#     t1 = time.time()
+#     order_id = open_guess(cid, zbuid)
+#     banker(cid, order_id, zzuid, odds='1')
+#     for i in range(0, 8):
+#         print(i)
+#         p = Process(target=test1, args=(order_id,))
+#         # p.daemon = True
+#         p.start()
+#         p.join()
+#     # pool = multiprocessing.Pool(processes=2)
+#     # for i in range(0, 2):
+#     #     pool.apply_async(test1,(order_id,))
+#     # pool.close()
+#     # pool.join()
+#     print(time.time() - t1)
 # # 流局修改redis和请求
 # def lj1(cid):
 #     r = redis.Redis(host='192.168.23.14', port=6379, db=0)

@@ -12,6 +12,7 @@ import calendar
 import json
 import logging
 from lxml import etree
+from urllib import parse
 from common.db.user import Userbase, Userinfo
 from common.db.money import Money, MoneyPay, MoneyChannelIncome
 from common.db.contents import HmChannel, HmGag, HmLoveliness
@@ -118,7 +119,8 @@ class Common():
         value = (value + SECRET_KEY_MOBILE).encode('utf-8')
         m.update(value)
         md5s = m.hexdigest()
-        return md5s
+        datas = parse.urlencode(data)
+        return '?' + datas + '&token=' + md5s
 
     # hash分表查询
     @staticmethod
@@ -147,6 +149,7 @@ class Common():
     @staticmethod
     def find_uid(username):
         u = Userbase.select(Userbase.uid).where(Userbase.name == username).first()
+        print(u)
         if u:
             return {'code': 100, 'status': True, 'msg': u.uid}
         else:
@@ -161,7 +164,7 @@ class Common():
     # 获取仙豆
     @staticmethod
     def get_xd(uid):
-        return Common.REDIS_INST.get('hm_free_bean_{}'.format(uid))
+        return int(Common.REDIS_INST.get('hm_free_bean_{}'.format(uid)))
 
     # 设置用户猫币，猫豆
     @staticmethod
@@ -318,28 +321,59 @@ class Common():
         Common.REDIS_INST.set('hm_' + uid, json.dumps(data))
         return {'code': 100, 'status': True, 'msg': '成功'}
 
-    # 修改房间类型0普通，1横板娱乐，2竖版娱乐
+    # 修改昵称
+    @staticmethod
+    def update_nick_name(uid, nick_name):
+        uid = str(uid)
+        # 更新redis
+        data = json.loads(Common.REDIS_INST.get('hm_' + uid))
+        data['nickname'] = nick_name
+        Common.REDIS_INST.set('hm_' + uid, json.dumps(data))
+        return {'code': 100, 'status': True, 'msg': '成功'}
+
+    # 修改房间类型0普通，1横板娱乐，2竖版娱乐,hm_pushstream_type_{cid}  1PC 2手机 ,hm_mobile_screenType_outdoor_{cid} 1横屏 2竖屏
     @staticmethod
     def update_roomlx(room_number, status):
+        def update_yl(data='no'):
+            HmChannel.update(is_entertainment=data).where(HmChannel.room_number == room_number).execute()
+            Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps(data))
+            return 1
+
         if room_number and status or status == '0':
             channel = HmChannel.select().where(HmChannel.room_number == room_number).first()
             uid = channel.uid
             cid = channel.id
             if status == '0':
-                HmChannel.update(is_entertainment='no').where(HmChannel.room_number == room_number).execute()
-                Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('no'))
+                # PC直播,非娱乐直播间
+                update_yl()
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)
             elif status == '1':
-                HmChannel.update(is_entertainment='yes').where(HmChannel.room_number == room_number).execute()
-                Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
-                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)  # 2手机 1PC
+                # PC直播,娱乐直播间
+                update_yl('yes')
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)
             elif status == '2':
-                HmChannel.update(is_entertainment='yes').where(HmChannel.room_number == room_number).execute()
-                Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps('yes'))
-                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)  # 2手机 1PC
-                Common.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)  # 2竖屏 1横屏
+                # 手机直播,非娱乐,横屏
+                update_yl()
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
+                Common.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 1)
+            elif status == '3':
+                # 手机直播,非娱乐,竖屏
+                update_yl()
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
+                Common.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)
+            elif status == '4':
+                # 手机直播,娱乐,横屏
+                update_yl('yes')
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
+                Common.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 1)
+            elif status == '5':
+                # 手机直播,娱乐,竖屏
+                update_yl('yes')
+                Common.REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
+                Common.REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)
             else:
                 return {'code': 101, 'status': False, 'msg': '修改失败'}
-            return {'code': 100, 'status': True, 'msg': '修改成功'}
+            return {'code': 100, 'status': True, 'msg': '修改成功2'}
         else:
             return {'code': 102, 'status': False, 'msg': '修改失败'}
 
@@ -411,9 +445,6 @@ class Common():
             data = dict(cid=cid, uid=uid, status=status, nickname='测试', text='测试')
             res = requests.get(URL + '/myroom/setCommChannelGag', params=data, cookies=Common.generate_cookies(ban_uid))
             logging.info(res.json())
-
-
-
 
     @staticmethod
     def del_fg(cid):
