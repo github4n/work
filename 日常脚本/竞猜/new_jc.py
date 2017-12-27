@@ -9,7 +9,7 @@ from nose_parameterized import parameterized
 import requests
 import time
 import logging
-from case import case_lists, period_lists
+from case import banker_case_lists, gamble_case_lists
 from common.common import Common
 
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
@@ -30,7 +30,7 @@ ADMIN_COOKIES = {'huomaotvcheckcode': 'SQJ5', 'adminId': '33', 'adminAccount': '
 # 创建盘口
 def create(**kw):
     data = {
-        'guess_type': 'anchor',  # 竞猜类型,anchor:主播,其他:赛事
+        'guess_type': 'match',  # 竞猜类型,anchor:主播,match:赛事
         'match_id_or_room_number': '4685',  # 比赛ID/房间号
         'play_type': 'gamble',  # 竞猜玩法,对赌:gamble,坐庄:banker
         'title': '赛事对赌竞猜测试',  # 竞猜标题
@@ -82,35 +82,24 @@ def settlement(**kw):
         logging.info('结算' + res2.text)
     except:
         logging.info('超时')
-    logging.info('结算选项:{}结果:{}'.format(data['win_option'],res.json()))
+    logging.info('结算选项:{}结果:{}'.format(data['win_option'], res.json()))
 
 
-# 格式化测试数据
-def format_data(period_lists):
-    case_lists = []
-    for i in period_lists:
-        list_dict = []
-        list_dict.append(i)
-        tuple_dict = tuple(list_dict)
-        case_lists.append(tuple_dict)
-    return case_lists
-
-    # logging.info(case_lists)
+def new_name_func(func, num, p):
+    # base_name = func.__name__
+    # name_suffix = "_%s" % (num, )
+    # if len(p.args) > 0 and isinstance(p.args[0], str):
+    #     name_suffix += "_" + parameterized.to_safe_name(p.args[0])
+    # return base_name + name_suffix
+    return func.__name__ + '_' + p.args[0]
 
 
-'''赛事竞猜,对冲竞猜'''
-
-
-class TestGuess(unittest.TestCase):
-    case_lists = format_data(period_lists)
-
-    def setUp(self):
-        pass
-
-    @parameterized.expand(case_lists)
-    def test(self, kw):
+# 赛事竞猜,对冲竞猜
+class TestGuessGamble(unittest.TestCase):
+    @parameterized.expand(gamble_case_lists, name_func=new_name_func)
+    def test(self,name, kw):
         # 开盘
-        period = create()
+        period = create(guess_type='match', play_type='gamble')
         # 下注
         data = []
         for key, value in kw.items():
@@ -126,39 +115,28 @@ class TestGuess(unittest.TestCase):
                     bet(uid=uid, period=period, chose=key, coin_type='cat_bean', amount=amounts[0])
                     # self.assertEqual(Common.get_money(uid)['bean'], md - amount, '猫豆未扣除')
         # 结算
-        settlement(period=period, option=kw['res'])
+        if 'A' in name:
+            option = 'option_A'
+        elif 'B' in name:
+            option = 'option_B'
+        elif 'L' in name:
+            option = 'loss'
+        else:
+            option = 'dogfall'
+        # 结算
+        settlement(period=period, option=option)
         # 验证结果
         for uid, xd, md, exp in data:
             self.assertEqual(Common.get_xd(uid), xd + exp, '仙豆结算错误')
             self.assertEqual(Common.get_money(uid)['bean'], md + exp, '猫豆结算错误')
 
-    def tearDown(self):
-        pass
 
-
-'''赛事竞猜,坐庄竞猜'''
-
-
-def new_name_func(func, num, p):
-    # base_name = func.__name__
-    # name_suffix = "_%s" % (num, )
-    # if len(p.args) > 0 and isinstance(p.args[0], str):
-    #     name_suffix += "_" + parameterized.to_safe_name(p.args[0])
-    # return base_name + name_suffix
-    return func.__name__ + '_' + p.args[0]
-
-
-class TestGuess1(unittest.TestCase):
-    # case_lists = format_data(period_lists3)
-    # print(case_lists)
-
-    def setUp(self):
-        pass
-
-    @parameterized.expand(case_lists, name_func=new_name_func)
+# 赛事竞猜,坐庄竞猜
+class TestGuessBanker(unittest.TestCase):
+    @parameterized.expand(banker_case_lists, name_func=new_name_func)
     def test(self, name, kw):
         # 开盘
-        period = create(play_type='banker')
+        period = create(guess_type='match', play_type='banker')
         # 用户先循环坐庄再下注
         punters = ['banker', 'buyer']
         data = {}
@@ -207,19 +185,15 @@ class TestGuess1(unittest.TestCase):
             self.assertEqual(Common.get_xd(uid), xd + exp, '仙豆结算错误{}'.format(uid))
             self.assertEqual(Common.get_money(uid)['bean'], md + exp, '猫豆结算错误{}'.format(uid))
 
-    def tearDown(self):
-        pass
-
-
 
 if __name__ == '__main__':
     # 执行文件下所有用例
     # unittest.main()
     # 执行指定类下的所有用例
-    suite = unittest.TestSuite(unittest.makeSuite(TestGuess1))
+    suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
     # 执行单个用例
     # suite = unittest.TestSuite()
-    # suite.addTest(TestGuess1('test_D3'))
+    # suite.addTest(TestGuessGamble('test_A1'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
 
