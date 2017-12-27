@@ -9,7 +9,7 @@ from nose_parameterized import parameterized
 import requests
 import time
 import logging
-from case import case_lists,period_lists
+from case import case_lists, period_lists
 from common.common import Common
 
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
@@ -82,7 +82,7 @@ def settlement(**kw):
         logging.info('结算' + res2.text)
     except:
         logging.info('超时')
-    logging.info('结算{}'.format(res.json()))
+    logging.info('结算选项:{}结果:{}'.format(data['win_option'],res.json()))
 
 
 # 格式化测试数据
@@ -193,7 +193,15 @@ class TestGuess1(unittest.TestCase):
                                         self.assertEqual(Common.get_money(uid)['bean'], md - amounts[0], '猫豆未扣除')
 
         # 结算
-        settlement(period=period, option=kw['res'])
+        if 'A' in name:
+            option = 'option_A'
+        elif 'B' in name:
+            option = 'option_B'
+        elif 'L' in name:
+            option = 'loss'
+        else:
+            option = 'dogfall'
+        settlement(period=period, win_option=option)
         # 验证结果
         for uid, (xd, md, exp) in data.items():
             self.assertEqual(Common.get_xd(uid), xd + exp, '仙豆结算错误{}'.format(uid))
@@ -203,13 +211,21 @@ class TestGuess1(unittest.TestCase):
         pass
 
 
+
 if __name__ == '__main__':
-    suite = unittest.TestSuite()
-    suite.addTest(TestGuess1('test_20'))
+    # 执行文件下所有用例
+    # unittest.main()
+    # 执行指定类下的所有用例
+    suite = unittest.TestSuite(unittest.makeSuite(TestGuess1))
+    # 执行单个用例
+    # suite = unittest.TestSuite()
+    # suite.addTest(TestGuess1('test_D3'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
 
-# unittest.main()
+
+
+
 
 # test_dir = './'
 # discover = unittest.defaultTestLoader.discover(test_dir, pattern='new_jc.py')

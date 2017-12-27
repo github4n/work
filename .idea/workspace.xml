@@ -14,32 +14,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="new_jc.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="new_jc.py" pinned="false" current-in-tab="true">
         <entry file="file://Y:/日常脚本/竞猜/new_jc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+            <state relative-caret-position="176">
+              <caret line="212" column="0" lean-forward="true" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <element signature="e#164#179#0" expanded="true" />
-                <element signature="e#998#1618#0" expanded="false" />
-                <element signature="e#1658#2269#0" expanded="false" />
-                <element signature="e#2303#2921#0" expanded="false" />
-                <element signature="e#2969#3192#0" expanded="false" />
-                <element signature="e#3253#4544#0" expanded="false" />
-                <element signature="e#3398#4506#0" expanded="false" />
-                <marker date="1514273264749" expanded="false" signature="4597:4871" ph="..." />
+                <element signature="e#999#1619#0" expanded="false" />
+                <element signature="e#1659#2270#0" expanded="false" />
+                <element signature="e#2304#2949#0" expanded="false" />
+                <element signature="e#2997#3220#0" expanded="false" />
+                <element signature="e#3281#4572#0" expanded="false" />
+                <element signature="e#4630#4899#0" expanded="false" />
+                <element signature="e#5146#8289#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="case.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="case.py" pinned="false" current-in-tab="false">
         <entry file="file://Y:/日常脚本/竞猜/case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="393" column="0" lean-forward="true" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
               <folding>
                 <element signature="e#304#7325#0" expanded="false" />
+                <element signature="e#7423#11690#0" expanded="false" />
+                <element signature="e#11706#15897#0" expanded="false" />
+                <element signature="e#15913#19993#0" expanded="false" />
+                <element signature="e#20009#24089#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -213,6 +217,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -244,8 +250,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -563,12 +567,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31902552" sideWeight="0.7127352" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25373134" sideWeight="0.26875" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25373134" sideWeight="0.73125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18336888" sideWeight="0.271875" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18336888" sideWeight="0.728125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.6231964" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14427084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3944563" sideWeight="0.46927083" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -595,32 +599,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="68" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://Y:/django/project/app/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/django/project/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/auto_api/testcase/web_gag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="380" column="24" lean-forward="true" selection-start-line="380" selection-start-column="24" selection-end-line="380" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://Y:/auto_api/testcase/web_roomadmin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -840,13 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python35/Lib/unittest/suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-678">
-          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://Y:/日常脚本/smallgame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -907,7 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="299" column="18" lean-forward="false" selection-start-line="299" selection-start-column="18" selection-end-line="299" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,33 +905,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="396" column="0" lean-forward="false" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/unittest/runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-587">
+          <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/日常脚本/竞猜/new_jc.py">
+    <entry file="file://C:/Python35/Lib/unittest/loader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-          <folding>
-            <element signature="e#164#179#0" expanded="true" />
-            <element signature="e#998#1618#0" expanded="false" />
-            <element signature="e#1658#2269#0" expanded="false" />
-            <element signature="e#2303#2921#0" expanded="false" />
-            <element signature="e#2969#3192#0" expanded="false" />
-            <element signature="e#3253#4544#0" expanded="false" />
-            <element signature="e#3398#4506#0" expanded="false" />
-            <marker date="1514273264749" expanded="false" signature="4597:4871" ph="..." />
-          </folding>
+        <state relative-caret-position="-2053">
+          <caret line="233" column="8" lean-forward="false" selection-start-line="233" selection-start-column="8" selection-end-line="233" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/unittest/suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4264">
+          <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/unittest/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://Y:/日常脚本/竞猜/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="393" column="0" lean-forward="true" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
           <folding>
             <element signature="e#304#7325#0" expanded="false" />
+            <element signature="e#7423#11690#0" expanded="false" />
+            <element signature="e#11706#15897#0" expanded="false" />
+            <element signature="e#15913#19993#0" expanded="false" />
+            <element signature="e#20009#24089#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/日常脚本/竞猜/new_jc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="212" column="0" lean-forward="true" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+          <folding>
+            <element signature="e#164#179#0" expanded="true" />
+            <element signature="e#999#1619#0" expanded="false" />
+            <element signature="e#1659#2270#0" expanded="false" />
+            <element signature="e#2304#2949#0" expanded="false" />
+            <element signature="e#2997#3220#0" expanded="false" />
+            <element signature="e#3281#4572#0" expanded="false" />
+            <element signature="e#4630#4899#0" expanded="false" />
+            <element signature="e#5146#8289#0" expanded="false" />
           </folding>
         </state>
       </provider>
