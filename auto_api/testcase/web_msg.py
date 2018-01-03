@@ -81,13 +81,13 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_02(self):
         '''参数必填检验-未传data'''
-        self.exp_res = {'code': 202, 'status': False, 'message': '消息不能为空'}
+        self.exp_res = {'code': '202', 'status': False, 'message': '消息不能为空'}
         self.user = user[0]['uid']
         self.data['data'] = ''
 
     def test_msg_03(self):
         '''参数必填检验-未传cid'''
-        self.exp_res = {'code': 1001, 'status': False, 'message': '房间不存在'}
+        self.exp_res = {'code': '1001', 'status': False, 'message': '房间不存在'}
         self.user = user[0]['uid']
         self.data['cid'] = ''
 
@@ -102,7 +102,7 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_05(self):
         '''业务-字数限制'''
-        self.exp_res = self.exp_res_api = {'code': 206, 'status': False, 'message': '您的发言已超出字符限制了~'}
+        self.exp_res = self.exp_res_api = {'code': '206', 'status': False, 'message': '您的发言已超出字符限制了~'}
         self.user = user[2]['uid']
         self.data['data'] = '01234567890123456789012345678901234567890123456789'
 
@@ -110,7 +110,7 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_06(self):
         '''业务-敏感词'''
-        self.exp_res = self.exp_res_api = {'code': 271, 'status': False, 'message': '发言包含敏感词，请重新输入'}
+        self.exp_res = self.exp_res_api = {'code': '271', 'status': False, 'message': '发言包含敏感词，请重新输入'}
         self.user = user[3]['uid']
         self.data['data'] = '习近平'
 
@@ -118,7 +118,7 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_07(self):
         '''业务-发言间隔'''
-        self.exp_res = {'status': False, 'code': 204, 'message': '你发言太快！'}
+        self.exp_res = {'status': False, 'code': '204', 'message': '你发言太快！'}
         self.user = user[4]['uid']
         # 设置发言时间,服务器时间和本地时间有误差,所以用服务器时间
         msg_time = Common.get_linux_time()
@@ -128,14 +128,14 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_08(self):
         '''业务-未绑定手机'''
-        self.exp_res = {'code': 2031, 'status': False, 'message': '绑定手机号即可发言'}
+        self.exp_res = {'code': '2031', 'status': False, 'message': '绑定手机号即可发言'}
         self.user = user2[0]['uid']
 
     '''业务-注册时间判断'''
 
     def test_msg_09(self):
         '''业务-注册时间判断'''
-        self.exp_res = {'code': 2018, 'status': False, 'message': '您刚来,还得2分钟才能发言~'}
+        self.exp_res = {'code': '2018', 'status': False, 'message': '您刚来,还得2分钟才能发言~'}
         self.user = user[5]['uid']
         # 设置用户注册时间
         user_info_key = 'hm_{}'.format(self.user)
@@ -150,7 +150,7 @@ class TestMsg(unittest.TestCase):
 
     def test_msg_10(self):
         '''业务-用户被禁言'''
-        self.exp_res = {'status': False, 'code': 203, 'message': '抱歉,您已被禁言!详情请咨询客服!'}
+        self.exp_res = {'status': False, 'code': '203', 'message': '抱歉,您已被禁言!详情请咨询客服!'}
         self.user = user[6]['uid']
         Common.gag(self.user, room['anchor']['uid'], room['room']['cid'])
 

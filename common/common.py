@@ -545,3 +545,11 @@ class Common():
             data[i] = []
         subscribe_data['subsList'] = data
         Common.REDIS_INST.set(key, json.dumps(subscribe_data))
+
+
+    def is_json(data):
+        try:
+            json.loads(data)
+        except ValueError:
+            return False
+        return True

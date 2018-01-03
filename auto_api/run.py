@@ -4,4 +4,4 @@
 # @Author  : lixingyun
 from lib import run_case
 
-run_case('web_*.py')
+run_case('web_msg.py')

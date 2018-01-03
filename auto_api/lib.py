@@ -60,6 +60,7 @@ def request(self):
     if method == 'get':
         res = requests.get(domain + url, params=data, cookies=cookies, headers=headers)
     elif method == 'post':
+        print(data)
         res = requests.post(domain + url, data=data, cookies=cookies, headers=headers)
     else:
         logging.error('请求方式BUG')

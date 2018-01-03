@@ -9,7 +9,7 @@ from nose_parameterized import parameterized
 import requests
 import time
 import logging
-from case import banker_case_lists, gamble_case_lists
+from guess_case import banker_case_lists, gamble_case_lists
 from common.common import Common
 
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
@@ -42,9 +42,20 @@ def create(**kw):
         if key in data:
             data[key] = kw.get(key)
     res = requests.post(ADMIN_URL + '/guessnew/create_save', data=data, cookies=ADMIN_COOKIES)
-    period = res.json()['period']
-    logging.info('开盘{},{}'.format(period, res.json()))
-    return period
+    try:
+        period = res.json()['period']
+        logging.info('开盘{},{}'.format(period, res.json()))
+        return period
+    except:
+        logging.info(res.text)
+
+
+# 更新状态
+def update_status(period, status):
+    # res = requests.post(ADMIN_URL + '/guessnew/update_status', data=dict(period=period, status=status), cookies=ADMIN_COOKIES)
+    res = requests.post(ADMIN_URL + '/guessnew/update_status/' + str(period) + '/' + str(status), cookies=ADMIN_COOKIES)
+    logging.info('{}:{}'.format(status, res.json()))
+    # return period
 
 
 # 普通下注,坐庄,下注
@@ -60,16 +71,37 @@ def bet(uid, **kw):
     for key in kw:
         if key in data:
             data[key] = kw.get(key)
-    res = requests.get(URL + '/guessnew/bet', params=data, cookies=Common.generate_cookies(uid))
-    logging.info('用户{}'.format(uid) + '操作类型{punter}:期号{period}选项{chose}货币类型{coin_type}金额{amount}赔率{banker_odds}'.format_map(data) + str(res.json()))
 
+    res = requests.get(URL + '/guessnew/bet', params=data, cookies=Common.generate_cookies(uid))
+    try:
+        res = res.json()
+        res_info = '用户{}'.format(uid) + '操作类型{punter}:期号{period}选项{chose}货币类型{coin_type}金额{amount}赔率{banker_odds}'.format_map(data) + str(res)
+        logging.info(res_info)
+        if data['punter'] == 'banker':
+            return res['data']['banker']['order_id']
+    except ValueError:
+        logging.info(res.text)
+
+
+# 修改庄
+def change_banker(uid, period, id, banker_odds='', type_='revoke'):
+    data = {
+        'period': period,  # 期号
+        'id': id,
+        'banker_odds': banker_odds,
+    }
+    res = requests.get(URL + '/guessnew/changeBanker/' + type_, params=data, cookies=Common.generate_cookies(uid))
+    if type_=='revoke':
+        logging.info('撤庄{}'.format(res.json()))
+    else:
+        logging.info('修改庄{}'.format(res.json()))
 
 # 结算
 def settlement(**kw):
     data = {
-        'cid': '2',  # 房间号
+        'cid': '',  # 房间号
         'period': '',  # 期号
-        'win_option': 'option_A'  # 开奖结果option_A,option_B,loss流局,dogfall平局
+        'win_option': ''  # 开奖结果option_A,option_B,loss流局,dogfall平局
     }
     for key in kw:
         if key in data:
@@ -97,7 +129,8 @@ def new_name_func(func, num, p):
 # 赛事竞猜,对冲竞猜
 class TestGuessGamble(unittest.TestCase):
     @parameterized.expand(gamble_case_lists, name_func=new_name_func)
-    def test(self,name, kw):
+    def test(self, name, kw):
+        logging.info('用例:' + name + '开始')
         # 开盘
         period = create(guess_type='match', play_type='gamble')
         # 下注
@@ -124,17 +157,19 @@ class TestGuessGamble(unittest.TestCase):
         else:
             option = 'dogfall'
         # 结算
-        settlement(period=period, option=option)
+        settlement(period=period, win_option=option)
         # 验证结果
         for uid, xd, md, exp in data:
             self.assertEqual(Common.get_xd(uid), xd + exp, '仙豆结算错误')
             self.assertEqual(Common.get_money(uid)['bean'], md + exp, '猫豆结算错误')
+        logging.info('用例:' + name + '结束')
 
 
 # 赛事竞猜,坐庄竞猜
 class TestGuessBanker(unittest.TestCase):
     @parameterized.expand(banker_case_lists, name_func=new_name_func)
     def test(self, name, kw):
+        logging.info('用例:' + name + '开始')
         # 开盘
         period = create(guess_type='match', play_type='banker')
         # 用户先循环坐庄再下注
@@ -184,16 +219,17 @@ class TestGuessBanker(unittest.TestCase):
         for uid, (xd, md, exp) in data.items():
             self.assertEqual(Common.get_xd(uid), xd + exp, '仙豆结算错误{}'.format(uid))
             self.assertEqual(Common.get_money(uid)['bean'], md + exp, '猫豆结算错误{}'.format(uid))
+        logging.info('用例:' + name + '结束')
 
 
 if __name__ == '__main__':
     # 执行文件下所有用例
     # unittest.main()
     # 执行指定类下的所有用例
-    suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
+    # suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
     # 执行单个用例
-    # suite = unittest.TestSuite()
-    # suite.addTest(TestGuessGamble('test_A1'))
+    suite = unittest.TestSuite()
+    suite.addTest(TestGuessGamble('test_B1'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
 
@@ -202,6 +238,6 @@ if __name__ == '__main__':
 
 
 # test_dir = './'
-# discover = unittest.defaultTestLoader.discover(test_dir, pattern='new_jc.py')
+# discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')
 # for i in discover:
 #     print(i)

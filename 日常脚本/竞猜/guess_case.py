@@ -67,58 +67,58 @@ gamble_case_lists_B = [
 gamble_case_lists_L = [
     # 结算:流局
     # 当选项A有下注,B无下注,单
-    ('L1',{'option_A': {uids[0]: (100, 0)}, 'option_B': None}),
+    ('L1', {'option_A': {uids[0]: (100, 0)}, 'option_B': None}),
     # 当选项A有下注,B无下注,多
-    ('L2',{'option_A': {uids[0]: (100, 0), uids[1]: (100, 0)}, 'option_B': None}),
+    ('L2', {'option_A': {uids[0]: (100, 0), uids[1]: (100, 0)}, 'option_B': None}),
     # 当选项B有下注,A无下注,单
-    ('L3',{'option_A': None, 'option_B': {uids[0]: (100, 0)}}),
+    ('L3', {'option_A': None, 'option_B': {uids[0]: (100, 0)}}),
     # 当选项B有下注,A无下注,多
-    ('L4',{'option_A': None, 'option_B': {uids[0]: (100, 0), uids[1]: (100, 0)}}),
+    ('L4', {'option_A': None, 'option_B': {uids[0]: (100, 0), uids[1]: (100, 0)}}),
     # 当选项AB都有下注,两个用户,A:1,B:1
-    ('L5',{'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (1, 0)}}),
+    ('L5', {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (1, 0)}}),
     # 当选项AB都有下注,两个用户,A:1,B:10
-    ('L6',{'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (10, 0)}}),
+    ('L6', {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (10, 0)}}),
     # 当选项AB都有下注,两个用户,A:1,B:100
-    ('L7',{'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (100, 0)}}),
+    ('L7', {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (100, 0)}}),
     # 当选项AB都有下注,两个用户,A:10,B:100
-    ('L8',{'option_A': {uids[0]: (10, 0)}, 'option_B': {uids[1]: (100, 0)}}),
+    ('L8', {'option_A': {uids[0]: (10, 0)}, 'option_B': {uids[1]: (100, 0)}}),
     # 当选项AB都有下注,两个用户,A:1000,B:1000
-    ('L9',{'option_A': {uids[0]: (1000, 0)}, 'option_B': {uids[1]: (1000, 0)}}),
+    ('L9', {'option_A': {uids[0]: (1000, 0)}, 'option_B': {uids[1]: (1000, 0)}}),
     # 当选项AB都有下注,多个用户,A1:1,A2:1,B1:1,B2:1
-    ('L10',{'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (1, 0), '5527': (1, 0)}}),
+    ('L10', {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (1, 0), '5527': (1, 0)}}),
     # 当选项AB都有下注,多个用户,A1:1,A2:1,B1:10,B2:10
-    ('L11',{'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (10, 0), '5527': (10, 0)}}),
+    ('L11', {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (10, 0), '5527': (10, 0)}}),
     # 当选项AB都有下注,多个用户,A1:1,A2:1,B1:100,B2:100
-    ('L12',{'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (100, 0), '5527': (100, 0)}}),
+    ('L12', {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (100, 0), '5527': (100, 0)}}),
     # 当选项AB都有下注,多个用户,A1:10,A2:20,B1:100,B2:300
-    ('L13',{'option_A': {uids[0]: (10, 0), uids[1]: (20, 0)}, 'option_B': {'5526': (100, 0), '5527': (300, 0)}}), ]
+    ('L13', {'option_A': {uids[0]: (10, 0), uids[1]: (20, 0)}, 'option_B': {'5526': (100, 0), '5527': (300, 0)}}), ]
 gamble_case_lists_D = [
     # 当选项A有下注,B无下注,单
-    'D1',{'option_A': {uids[0]: (100, 0)}, 'option_B': None},
+    ('D1', {'option_A': {uids[0]: (100, 0)}, 'option_B': None}),
     # 当选项A有下注,B无下注,多
-    {'option_A': {uids[0]: (100, 0), uids[1]: (100, 0)}, 'option_B': None},
+    ('D2', {'option_A': {uids[0]: (100, 0), uids[1]: (100, 0)}, 'option_B': None}),
     # 当选项B有下注,A无下注,单
-    {'option_A': None, 'option_B': {uids[0]: (100, 0)}},
+    ('D3', {'option_A': None, 'option_B': {uids[0]: (100, 0)}}),
     # 当选项B有下注,A无下注,多
-    {'option_A': None, 'option_B': {uids[0]: (100, 0), uids[1]: (100, 0)}},
+    ('D4', {'option_A': None, 'option_B': {uids[0]: (100, 0), uids[1]: (100, 0)}}),
     # 当选项AB都有下注,两个用户,A:1,B:1
-    {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (1, 0)}},
+    ('D5', {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (1, 0)}}),
     # 当选项AB都有下注,两个用户,A:1,B:10
-    {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (10, 0)}},
+    ('D6', {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (10, 0)}}),
     # 当选项AB都有下注,两个用户,A:1,B:100
-    {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (100, 0)}},
+    ('D7', {'option_A': {uids[0]: (1, 0)}, 'option_B': {uids[1]: (100, 0)}}),
     # 当选项AB都有下注,两个用户,A:10,B:100
-    {'option_A': {uids[0]: (10, 0)}, 'option_B': {uids[1]: (100, 0)}},
+    ('D8', {'option_A': {uids[0]: (10, 0)}, 'option_B': {uids[1]: (100, 0)}}),
     # 当选项AB都有下注,两个用户,A:1000,B:1000
-    {'option_A': {uids[0]: (1000, 0)}, 'option_B': {uids[1]: (1000, 0)}},
+    ('D9', {'option_A': {uids[0]: (1000, 0)}, 'option_B': {uids[1]: (1000, 0)}}),
     # 当选项AB都有下注,多个用户,A1:1,A2:1,B1:1,B2:1
-    {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (1, 0), '5527': (1, 0)}},
+    ('D10', {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (1, 0), '5527': (1, 0)}}),
     # 当选项AB都有下注,多个用户,A1:1,A2:1,B1:10,B2:10
-    {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (10, 0), '5527': (10, 0)}},
+    ('D11', {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (10, 0), '5527': (10, 0)}}),
     # 当选项AB都有下注,多个用户,A1:1,A2:1,B1:100,B2:100
-    {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (100, 0), '5527': (100, 0)}},
+    ('D12', {'option_A': {uids[0]: (1, 0), uids[1]: (1, 0)}, 'option_B': {'5526': (100, 0), '5527': (100, 0)}}),
     # 当选项AB都有下注,多个用户,A1:10,A2:20,B1:100,B2:300
-    {'option_A': {uids[0]: (10, 0), uids[1]: (20, 0)}, 'option_B': {'5526': (100, 0), '5527': (300, 0)}}, ]
+    ('D13', {'option_A': {uids[0]: (10, 0), uids[1]: (20, 0)}, 'option_B': {'5526': (100, 0), '5527': (300, 0)}}), ]
 # 参数表示猫豆和仙豆同时(下注金额,预期收益,赔率),(下注金额,预期收益,实际下注金额)option_AB表示两个选项的下注buyer坐庄banker,
 banker_case_lists_A = [
     # 结算A
@@ -390,4 +390,4 @@ banker_case_lists_D = [
 ]
 
 banker_case_lists = banker_case_lists_A + banker_case_lists_B + banker_case_lists_L + banker_case_lists_D
-gamble_case_lists = gamble_case_lists_B  # + gamble_case_lists_B + gamble_case_lists_L + gamble_case_lists_D
+gamble_case_lists = gamble_case_lists_A + gamble_case_lists_B + gamble_case_lists_L + gamble_case_lists_D
