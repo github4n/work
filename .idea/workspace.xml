@@ -13,64 +13,7 @@
     <favorites_list name="U" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="guess.py" pinned="false" current-in-tab="false">
-        <entry file="file://Y:/日常脚本/竞猜/guess.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="112" column="62" lean-forward="false" selection-start-line="112" selection-start-column="44" selection-end-line="112" selection-end-column="62" />
-              <folding>
-                <element signature="e#164#179#0" expanded="true" />
-                <element signature="e#1017#1706#0" expanded="false" />
-                <element signature="e#1024#1358#0" expanded="false" />
-                <element signature="e#1752#2070#0" expanded="false" />
-                <element signature="e#4064#4333#0" expanded="false" />
-                <element signature="e#4394#5958#0" expanded="false" />
-                <element signature="e#6016#9367#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="guess_bf.py" pinned="false" current-in-tab="true">
-        <entry file="file://Y:/日常脚本/竞猜/guess_bf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-              <folding>
-                <element signature="e#93#164#0" expanded="true" />
-                <element signature="e#641#923#0" expanded="false" />
-                <element signature="e#964#1331#0" expanded="false" />
-                <element signature="e#1373#1785#0" expanded="false" />
-                <element signature="e#1829#2416#0" expanded="false" />
-                <element signature="e#2466#2774#0" expanded="false" />
-                <element signature="e#2827#3223#0" expanded="false" />
-                <element signature="e#3271#3676#0" expanded="false" />
-                <element signature="e#3722#4290#0" expanded="false" />
-                <element signature="e#4338#4920#0" expanded="false" />
-                <element signature="e#5044#5603#0" expanded="false" />
-                <element signature="e#5645#6205#0" expanded="false" />
-                <element signature="e#6249#6771#0" expanded="false" />
-                <element signature="e#6818#7111#0" expanded="false" />
-                <element signature="e#7177#7572#0" expanded="false" />
-                <element signature="e#7617#8013#0" expanded="false" />
-                <element signature="e#8060#8471#0" expanded="false" />
-                <element signature="e#8525#8903#0" expanded="false" />
-                <element signature="e#8960#9426#0" expanded="false" />
-                <element signature="e#9476#9924#0" expanded="false" />
-                <element signature="e#9975#10424#0" expanded="false" />
-                <element signature="e#10477#10941#0" expanded="false" />
-                <element signature="e#11000#11479#0" expanded="false" />
-                <element signature="e#11534#11995#0" expanded="false" />
-                <element signature="e#12051#12513#0" expanded="false" />
-                <element signature="e#12571#13048#0" expanded="false" />
-                <element signature="e#13091#13529#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -178,8 +121,8 @@
         <option value="Y:/日常脚本/竞猜/3.py" />
         <option value="Y:/日常脚本/test11.py" />
         <option value="Y:/common/common.py" />
-        <option value="Y:/日常脚本/竞猜/guess.py" />
         <option value="Y:/日常脚本/jmeter/生产测试文件.py" />
+        <option value="Y:/日常脚本/竞猜/guess.py" />
         <option value="Y:/日常脚本/竞猜/guess_bf.py" />
       </list>
     </option>
@@ -198,10 +141,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="39" />
     <option name="y" value="76" />
-    <option name="width" value="1831" />
+    <option name="width" value="1775" />
     <option name="height" value="968" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -249,12 +192,6 @@
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
               <item name="Y:" type="462c0819:PsiDirectoryNode" />
               <item name="日常脚本" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Y:" type="462c0819:PsiDirectoryNode" />
-              <item name="日常脚本" type="462c0819:PsiDirectoryNode" />
-              <item name="jmeter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
@@ -545,8 +482,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="39" y="76" width="1831" height="968" extended-state="1" />
-    <editor active="true" />
+    <frame x="39" y="76" width="1775" height="968" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -554,9 +490,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41364604" sideWeight="0.28177083" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.6231964" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24352941" sideWeight="0.7182292" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11176471" sideWeight="0.7182292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12837465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13246162" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39411765" sideWeight="0.46927083" order="3" side_tool="false" content_ui="tabs" />
@@ -583,7 +519,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="77" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -906,30 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Y:/common/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="552" column="26" lean-forward="true" selection-start-line="552" selection-start-column="26" selection-end-line="552" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://Y:/日常脚本/竞猜/guess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="112" column="62" lean-forward="false" selection-start-line="112" selection-start-column="44" selection-end-line="112" selection-end-column="62" />
-          <folding>
-            <element signature="e#164#179#0" expanded="true" />
-            <element signature="e#1017#1706#0" expanded="false" />
-            <element signature="e#1024#1358#0" expanded="false" />
-            <element signature="e#1752#2070#0" expanded="false" />
-            <element signature="e#4064#4333#0" expanded="false" />
-            <element signature="e#4394#5958#0" expanded="false" />
-            <element signature="e#6016#9367#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://Y:/日常脚本/jmeter/生产测试文件.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -938,38 +850,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://Y:/common/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="184" column="41" lean-forward="false" selection-start-line="184" selection-start-column="37" selection-end-line="184" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://Y:/日常脚本/竞猜/guess_bf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
             <element signature="e#93#164#0" expanded="true" />
-            <element signature="e#641#923#0" expanded="false" />
-            <element signature="e#964#1331#0" expanded="false" />
-            <element signature="e#1373#1785#0" expanded="false" />
-            <element signature="e#1829#2416#0" expanded="false" />
-            <element signature="e#2466#2774#0" expanded="false" />
-            <element signature="e#2827#3223#0" expanded="false" />
-            <element signature="e#3271#3676#0" expanded="false" />
-            <element signature="e#3722#4290#0" expanded="false" />
-            <element signature="e#4338#4920#0" expanded="false" />
-            <element signature="e#5044#5603#0" expanded="false" />
-            <element signature="e#5645#6205#0" expanded="false" />
-            <element signature="e#6249#6771#0" expanded="false" />
-            <element signature="e#6818#7111#0" expanded="false" />
-            <element signature="e#7177#7572#0" expanded="false" />
-            <element signature="e#7617#8013#0" expanded="false" />
-            <element signature="e#8060#8471#0" expanded="false" />
-            <element signature="e#8525#8903#0" expanded="false" />
-            <element signature="e#8960#9426#0" expanded="false" />
-            <element signature="e#9476#9924#0" expanded="false" />
-            <element signature="e#9975#10424#0" expanded="false" />
-            <element signature="e#10477#10941#0" expanded="false" />
-            <element signature="e#11000#11479#0" expanded="false" />
-            <element signature="e#11534#11995#0" expanded="false" />
-            <element signature="e#12051#12513#0" expanded="false" />
-            <element signature="e#12571#13048#0" expanded="false" />
-            <element signature="e#13091#13529#0" expanded="false" />
+            <element signature="e#369#479#0" expanded="false" />
+            <element signature="e#508#618#0" expanded="false" />
+            <element signature="e#649#871#0" expanded="false" />
+            <element signature="e#912#1052#0" expanded="false" />
+            <element signature="e#1082#1266#0" expanded="false" />
+            <element signature="e#1343#1659#0" expanded="false" />
+            <element signature="e#1720#2181#0" expanded="false" />
+            <element signature="e#2246#2757#0" expanded="false" />
+            <element signature="e#2828#3203#0" expanded="false" />
+            <element signature="e#3266#3650#0" expanded="false" />
+            <element signature="e#3716#4495#0" expanded="false" />
+            <element signature="e#4556#5339#0" expanded="false" />
+            <element signature="e#5401#5742#0" expanded="false" />
+            <element signature="e#5825#6482#0" expanded="false" />
+            <element signature="e#6553#7002#0" expanded="false" />
+            <element signature="e#7076#7624#0" expanded="false" />
+            <element signature="e#7695#8310#0" expanded="false" />
+            <element signature="e#8372#8896#0" expanded="false" />
+            <element signature="e#8971#9601#0" expanded="false" />
+            <element signature="e#9655#10157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Y:/日常脚本/竞猜/guess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#164#179#0" expanded="true" />
+            <element signature="e#1017#1706#0" expanded="false" />
+            <element signature="e#1024#1358#0" expanded="false" />
+            <element signature="e#1752#2070#0" expanded="false" />
+            <element signature="e#2110#2961#0" expanded="false" />
+            <element signature="e#3039#3390#0" expanded="false" />
+            <element signature="e#3421#4058#0" expanded="false" />
+            <element signature="e#4098#4367#0" expanded="false" />
+            <element signature="e#4428#5992#0" expanded="false" />
+            <element signature="e#6050#9401#0" expanded="false" />
           </folding>
         </state>
       </provider>

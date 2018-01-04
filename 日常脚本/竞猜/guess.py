@@ -77,7 +77,7 @@ def bet(uid, **kw):
         res = res.json()
         res_info = '用户{}'.format(uid) + '操作类型{punter}:期号{period}选项{chose}货币类型{coin_type}金额{amount}赔率{banker_odds}'.format_map(data) + str(res)
         logging.info(res_info)
-        if data['punter'] == 'banker':
+        if data['punter'] == 'banker' and res['status'] == 'success':
             return res['data']['banker']['order_id']
     except ValueError:
         logging.info(res.text)
@@ -91,10 +91,11 @@ def change_banker(uid, period, id, banker_odds='', type_='revoke'):
         'banker_odds': banker_odds,
     }
     res = requests.get(URL + '/guessnew/changeBanker/' + type_, params=data, cookies=Common.generate_cookies(uid))
-    if type_=='revoke':
+    if type_ == 'revoke':
         logging.info('撤庄{}'.format(res.json()))
     else:
         logging.info('修改庄{}'.format(res.json()))
+
 
 # 结算
 def settlement(**kw):
