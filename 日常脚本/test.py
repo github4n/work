@@ -3,25 +3,17 @@
 # Date   : 2017/9/13 19:59
 # Author : lixingyun
 import sys
+import json
 from  urllib import parse
+
 sys.path.append('../')
 from common.common import Common
-from gevent import monkey
-data ={'uid':461250,
-       'cid':1,
-       'time':1513843380,
-       'data':'222',
-       # 'ver':1000,
-       # 'refer':'ios',
-       # 'post_data':1,
-       # 'pf_ver':'11.0.3',
-       # 'mp_openid':'317f6bf302d88824ba07e88b9309289c',
-       # 'fr':'applestore',
-       # 'expires_time':1510302832,
-       # 'an':126,
-       # 'access_token':'252d74d74a6d7d440750e4036c16f53b',
-       }
-token = Common.encrypt(data)
-print(token)
 
-
+# a = Common.hash_table(1522)
+data = {'8': 0, '9': 0, '10': 1, '11': 1,
+        '12': 0, '13': 1, '14': 1, '15': 1,
+        '16': 0, '17': 1, '18': 1, '19': 1,
+        '20': 0, '21': 0, '22': 0}
+# r = Common.REDIS_INST.set('hm_springfestival:user:register:5724', json.dumps(data))
+r = Common.REDIS_INST.delete('hm_springfestival:user:register:5724')
+print(r)

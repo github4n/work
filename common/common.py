@@ -302,7 +302,8 @@ class Common():
             channel = HmChannel.select().where(HmChannel.room_number == room_xx).first()
             Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(channel.uid), 'stream', '"' + stream + '"')
             return {'code': 100, 'status': True, 'msg': '成功'}
-        except:
+        except Exception as msg:
+            print(msg)
             return {'code': 900, 'status': False, 'msg': '失败'}
 
     # 修改密码
@@ -547,9 +548,11 @@ class Common():
         Common.REDIS_INST.set(key, json.dumps(subscribe_data))
 
 
-    def is_json(data):
+    def try_json(data):
         try:
-            json.loads(data)
+            res = json.loads(data)
+            print(res)
+            return res
         except ValueError:
-            return False
-        return True
+            print(data)
+            return data

@@ -47,7 +47,7 @@ class TestGuessUserCreate(unittest.TestCase):
 
     '''参数必填检验'''
 
-    def test_guess_user_create_01(self):
+    def test_1(self):
         '''参数必填检验-未登录发言'''
         self.exp_res = {'status': False, 'code': '101', 'data': [], 'message': '未登录'}
         self.user = '1522'
@@ -91,6 +91,6 @@ class TestGuessUserBet(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
-    suite.addTest(TestGuessUserCreate('test_guess_user_create_01'))
+    suite.addTest(TestGuessUserCreate('test_1'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
