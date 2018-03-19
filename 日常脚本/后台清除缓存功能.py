@@ -16,9 +16,11 @@ cookies = {'huomaotvcheckcode': 'LR6A', 'adminId': '7', 'adminAccount': 'lxy',
 #   print(res)
 
 # 清除缓存
-urls = ['static/web/css/live-yz-h.css', 'static/web/css/live-yz.css', 'static/web/huodong/js/live.ui.js', 'static/web/js/common.js', 'static/web/js/live.ui.js']
+urls = ['/static/web/smallgame/images/farm/history/bbet'+str(i)+'.png' for i in range(1,20)]
+
 for url in urls:
-    url = 'https://www.huomao.com/' + url + '?v=177'
+    url = 'https://www.huomao.com/' + url
     res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=cookies, data={'url': url})
     res = res.json()
     print(res, url)
+    requests.get(url)

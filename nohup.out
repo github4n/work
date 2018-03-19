@@ -1,0 +1,532 @@
+[12/Mar/2018 03:35:26] "GET / HTTP/1.1" 200 11995
+[12/Mar/2018 03:35:26] "GET /static/js/lucky.js HTTP/1.1" 200 8941
+[12/Mar/2018 03:35:26] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[12/Mar/2018 03:35:26] "GET /static/js/jquery-1.10.2.min.js HTTP/1.1" 200 93107
+[12/Mar/2018 03:35:26] "GET /static/css/bootstrap.css HTTP/1.1" 200 121220
+Not Found: /favicon.ico
+[12/Mar/2018 03:35:26] "GET /favicon.ico HTTP/1.1" 404 2531
+[12/Mar/2018 03:39:35] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:39:35] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[12/Mar/2018 03:39:35] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[12/Mar/2018 03:39:35] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 03:39:35] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+Not Found: /favicon.ico
+[12/Mar/2018 03:39:36] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 03:40:34] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:34] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[12/Mar/2018 03:40:34] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[12/Mar/2018 03:40:34] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 03:40:34] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[12/Mar/2018 03:40:34] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 03:40:35] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:36] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:36] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:37] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:37] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:37] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:40:45] "POST /new_web/set_money HTTP/1.0" 200 23
+[12/Mar/2018 03:42:43] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:44:39] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:45:43] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:45:43] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:45:44] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:45:44] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:45:44] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:50:06] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 03:50:06] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[12/Mar/2018 03:50:06] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 03:50:06] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[12/Mar/2018 03:50:06] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+Not Found: /favicon.ico
+[12/Mar/2018 03:50:06] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 06:07:48] "GET / HTTP/1.0" 200 11995
+Not Found: /favicon.ico
+[12/Mar/2018 06:07:49] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 06:07:53] "POST /new_web/set_money HTTP/1.0" 200 23
+Not Found: /favicon.ico
+[12/Mar/2018 06:49:58] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 06:54:59] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 06:55:05] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+Not Found: /favicon.ico
+[12/Mar/2018 07:23:11] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 08:24:09] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 08:24:09] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 08:24:09] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 08:25:40] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 08:25:40] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[12/Mar/2018 08:25:40] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[12/Mar/2018 08:25:40] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 08:25:40] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[12/Mar/2018 08:34:18] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 09:24:18] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 09:26:18] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 09:31:47] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 09:37:02] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 09:37:02] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[12/Mar/2018 09:37:02] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[12/Mar/2018 09:37:02] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 09:37:02] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[12/Mar/2018 09:37:03] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 10:07:27] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 10:07:27] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[12/Mar/2018 10:07:27] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[12/Mar/2018 10:07:27] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 10:07:27] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+Not Found: /favicon.ico
+[12/Mar/2018 10:07:27] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /index
+[12/Mar/2018 10:07:30] "GET /index HTTP/1.0" 404 2525
+[12/Mar/2018 10:07:40] "POST /new_web/find_uid HTTP/1.0" 200 42
+[12/Mar/2018 10:34:15] "GET / HTTP/1.0" 200 11995
+[12/Mar/2018 10:34:15] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[12/Mar/2018 10:34:15] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[12/Mar/2018 10:34:15] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[12/Mar/2018 10:34:15] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[12/Mar/2018 10:34:15] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 10:34:17] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 10:35:39] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+Not Found: /favicon.ico
+[12/Mar/2018 10:45:32] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[12/Mar/2018 11:00:31] "GET /favicon.ico HTTP/1.0" 404 2543
+[12/Mar/2018 13:55:37] "POST /new_web/find_uid HTTP/1.0" 200 42
+[12/Mar/2018 13:56:21] "POST /new_web/find_uid HTTP/1.0" 200 42
+Not Found: /favicon.ico
+[13/Mar/2018 01:45:12] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[13/Mar/2018 01:59:22] "GET /favicon.ico HTTP/1.0" 404 2543
+[13/Mar/2018 02:21:24] "GET / HTTP/1.0" 200 11995
+[13/Mar/2018 02:21:24] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 304 0
+[13/Mar/2018 02:21:24] "GET /static/js/bootstrap.min.js HTTP/1.0" 304 0
+[13/Mar/2018 02:21:24] "GET /static/css/bootstrap.css HTTP/1.0" 304 0
+[13/Mar/2018 02:21:24] "GET /static/js/lucky.js HTTP/1.0" 304 0
+Not Found: /favicon.ico
+[13/Mar/2018 02:21:25] "GET /favicon.ico HTTP/1.0" 404 2543
+[13/Mar/2018 02:21:27] "POST /new_web/set_money HTTP/1.0" 200 23
+[13/Mar/2018 02:54:29] "POST /new_web/find_uid HTTP/1.0" 200 42
+[13/Mar/2018 05:34:39] "GET / HTTP/1.0" 200 11995
+[13/Mar/2018 05:34:42] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[13/Mar/2018 05:34:42] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[13/Mar/2018 05:34:42] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[13/Mar/2018 05:34:42] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[13/Mar/2018 05:34:45] "GET /favicon.ico HTTP/1.0" 404 2543
+[13/Mar/2018 05:35:10] "GET / HTTP/1.0" 200 11995
+Not Found: /favicon.ico
+[13/Mar/2018 06:31:15] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[13/Mar/2018 06:31:17] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[13/Mar/2018 06:31:17] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[13/Mar/2018 06:31:17] "GET /favicon.ico HTTP/1.0" 404 2543
+[13/Mar/2018 08:20:40] "GET / HTTP/1.0" 200 11995
+[13/Mar/2018 08:20:40] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[13/Mar/2018 08:20:40] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[13/Mar/2018 08:20:40] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[13/Mar/2018 08:20:40] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[13/Mar/2018 08:20:40] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[13/Mar/2018 09:25:26] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /favicon.ico
+[13/Mar/2018 10:40:03] "GET /favicon.ico HTTP/1.0" 404 2543
+[14/Mar/2018 02:05:37] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 02:05:37] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 304 0
+[14/Mar/2018 02:05:37] "GET /static/js/lucky.js HTTP/1.0" 304 0
+[14/Mar/2018 02:05:37] "GET /static/css/bootstrap.css HTTP/1.0" 304 0
+[14/Mar/2018 02:05:37] "GET /static/js/bootstrap.min.js HTTP/1.0" 304 0
+Not Found: /favicon.ico
+[14/Mar/2018 02:05:37] "GET /favicon.ico HTTP/1.0" 404 2543
+[14/Mar/2018 02:06:34] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 02:06:34] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[14/Mar/2018 02:06:34] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[14/Mar/2018 02:06:34] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[14/Mar/2018 02:06:34] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+Not Found: /favicon.ico
+[14/Mar/2018 02:06:34] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /index
+[14/Mar/2018 02:07:28] "GET /index HTTP/1.0" 404 2525
+[14/Mar/2018 02:07:51] "POST /new_web/zc HTTP/1.0" 200 65
+[14/Mar/2018 02:07:58] "POST /new_web/zc HTTP/1.0" 200 93
+[14/Mar/2018 02:09:26] "POST /new_web/zc HTTP/1.0" 200 93
+[14/Mar/2018 02:09:32] "POST /new_web/find_uid HTTP/1.0" 200 59
+[14/Mar/2018 02:09:36] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 02:09:36] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[14/Mar/2018 02:09:36] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[14/Mar/2018 02:09:36] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[14/Mar/2018 02:09:36] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[14/Mar/2018 02:09:36] "GET /favicon.ico HTTP/1.0" 404 2543
+[14/Mar/2018 02:09:39] "POST /new_web/zc HTTP/1.0" 200 65
+[14/Mar/2018 02:11:22] "POST /new_web/find_uid HTTP/1.0" 200 59
+[14/Mar/2018 02:11:24] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 02:11:29] "POST /new_web/find_uid HTTP/1.0" 200 59
+[14/Mar/2018 02:11:33] "POST /new_web/find_uid HTTP/1.0" 200 59
+[14/Mar/2018 02:11:40] "POST /new_web/zc HTTP/1.0" 200 93
+[14/Mar/2018 02:11:51] "POST /new_web/bd_sj HTTP/1.0" 200 82
+[14/Mar/2018 02:12:51] "POST /new_web/find_uid HTTP/1.0" 200 59
+[14/Mar/2018 02:13:11] "POST /new_web/set_money HTTP/1.0" 200 23
+[14/Mar/2018 02:24:26] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 02:24:26] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[14/Mar/2018 02:24:26] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[14/Mar/2018 02:24:26] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[14/Mar/2018 02:24:26] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+Not Found: /favicon.ico
+[14/Mar/2018 02:24:26] "GET /favicon.ico HTTP/1.0" 404 2543
+Not Found: /index
+[14/Mar/2018 02:24:47] "GET /index HTTP/1.0" 404 2525
+[14/Mar/2018 02:43:33] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[14/Mar/2018 02:52:18] "POST /new_web/sq_zb HTTP/1.0" 200 131
+[14/Mar/2018 02:59:47] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 02:59:57] "POST /new_web/init_fans HTTP/1.0" 200 23
+[14/Mar/2018 03:01:20] "POST /new_web/update_stat HTTP/1.0" 200 64
+[14/Mar/2018 03:02:07] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[14/Mar/2018 03:02:13] "POST /new_web/find_uid HTTP/1.0" 200 59
+[14/Mar/2018 03:02:55] "POST /new_web/update_stat HTTP/1.0" 200 64
+[14/Mar/2018 03:17:41] "POST /new_web/zc HTTP/1.0" 200 93
+[14/Mar/2018 03:17:49] "POST /new_web/bd_sj HTTP/1.0" 200 82
+[14/Mar/2018 03:20:17] "POST /new_web/update_stat HTTP/1.0" 200 64
+[14/Mar/2018 03:20:24] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[14/Mar/2018 03:21:39] "POST /new_web/update_stream HTTP/1.0" 200 53
+[14/Mar/2018 03:21:57] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[14/Mar/2018 03:32:05] "POST /new_web/update_stat HTTP/1.0" 200 64
+[14/Mar/2018 03:32:06] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 05:32:53] "POST /new_web/zc HTTP/1.0" 200 93
+[14/Mar/2018 05:33:03] "POST /new_web/bd_sj HTTP/1.0" 200 82
+[14/Mar/2018 08:23:09] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 08:23:30] "POST /new_web/set_money HTTP/1.0" 200 23
+[14/Mar/2018 10:44:56] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 10:44:56] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[14/Mar/2018 10:44:56] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[14/Mar/2018 10:44:56] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[14/Mar/2018 10:44:56] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[14/Mar/2018 10:44:56] "GET /favicon.ico HTTP/1.0" 404 2543
+[14/Mar/2018 10:45:26] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[14/Mar/2018 12:18:18] "GET / HTTP/1.0" 200 11995
+Not Found: /favicon.ico
+[14/Mar/2018 12:18:18] "GET /favicon.ico HTTP/1.0" 404 2543
+[14/Mar/2018 12:18:21] "POST /new_web/update_stream HTTP/1.0" 200 52
+[14/Mar/2018 12:18:39] "POST /new_web/update_stream HTTP/1.0" 200 52
+[14/Mar/2018 12:42:59] "GET / HTTP/1.0" 200 11995
+[14/Mar/2018 12:42:59] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[14/Mar/2018 12:42:59] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[14/Mar/2018 12:42:59] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[14/Mar/2018 12:42:59] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[14/Mar/2018 12:42:59] "GET /favicon.ico HTTP/1.0" 404 2543
+[14/Mar/2018 12:43:02] "POST /new_web/update_stat HTTP/1.0" 200 64
+[15/Mar/2018 01:34:03] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 304 0
+[15/Mar/2018 01:34:03] "GET /static/css/bootstrap.css HTTP/1.0" 304 0
+[15/Mar/2018 01:34:03] "GET /static/js/bootstrap.min.js HTTP/1.0" 304 0
+[15/Mar/2018 01:34:03] "GET /static/js/lucky.js HTTP/1.0" 304 0
+Not Found: /favicon.ico
+[15/Mar/2018 01:34:03] "GET /favicon.ico HTTP/1.0" 404 2543
+[15/Mar/2018 09:13:54] "GET / HTTP/1.0" 200 11995
+[15/Mar/2018 09:13:54] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 304 0
+[15/Mar/2018 09:13:54] "GET /static/js/bootstrap.min.js HTTP/1.0" 304 0
+[15/Mar/2018 09:13:54] "GET /static/js/lucky.js HTTP/1.0" 304 0
+[15/Mar/2018 09:13:54] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[15/Mar/2018 09:13:54] "GET /favicon.ico HTTP/1.0" 404 2543
+[15/Mar/2018 09:14:25] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[15/Mar/2018 10:11:43] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[15/Mar/2018 10:12:11] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[16/Mar/2018 02:27:21] "GET / HTTP/1.0" 200 11995
+[16/Mar/2018 02:27:21] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[16/Mar/2018 02:27:21] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[16/Mar/2018 02:27:21] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[16/Mar/2018 02:27:21] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[16/Mar/2018 02:27:22] "GET /favicon.ico HTTP/1.0" 404 2543
+[19/Mar/2018 06:48:21] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 06:48:21] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 304 0
+[19/Mar/2018 06:48:21] "GET /static/js/bootstrap.min.js HTTP/1.0" 304 0
+[19/Mar/2018 06:48:21] "GET /static/js/lucky.js HTTP/1.0" 304 0
+[19/Mar/2018 06:48:21] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[19/Mar/2018 06:48:21] "GET /favicon.ico HTTP/1.0" 404 2543
+[19/Mar/2018 07:03:19] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:04:29] "GET / HTTP/1.0" 200 12005
+[19/Mar/2018 07:04:30] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:04:31] "GET / HTTP/1.0" 200 12005
+[19/Mar/2018 07:04:31] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:04:38] "GET / HTTP/1.0" 200 12004
+[19/Mar/2018 07:04:38] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:04:39] "GET / HTTP/1.0" 200 12004
+[19/Mar/2018 07:04:39] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:04:52] "GET / HTTP/1.0" 200 11975
+[19/Mar/2018 07:04:52] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:05:04] "GET / HTTP/1.0" 200 12004
+[19/Mar/2018 07:05:04] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:05:11] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:05:11] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:05:16] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:05:16] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:05:34] "GET / HTTP/1.0" 200 11997
+[19/Mar/2018 07:05:39] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:05:40] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:05:44] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:05:47] "GET / HTTP/1.0" 200 11997
+[19/Mar/2018 07:05:54] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:06:24] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:06:31] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:06:44] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:06:57] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:10] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:12] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:12] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:12] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:12] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:30] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:31] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:07:31] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:01] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:01] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:01] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:43] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:43] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:43] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:10:44] "GET / HTTP/1.0" 200 11995
+Not Found: /index
+[19/Mar/2018 07:22:07] "GET /index HTTP/1.0" 404 2525
+Not Found: /favicon.ico
+[19/Mar/2018 07:22:07] "GET /favicon.ico HTTP/1.0" 404 2543
+[19/Mar/2018 07:22:09] "GET / HTTP/1.0" 200 11995
+[19/Mar/2018 07:22:09] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[19/Mar/2018 07:22:09] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[19/Mar/2018 07:22:09] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[19/Mar/2018 07:22:09] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /index
+[19/Mar/2018 07:22:10] "GET /index HTTP/1.0" 404 2525
+[19/Mar/2018 07:22:20] "GET /index/ HTTP/1.0" 200 11995
+[19/Mar/2018 07:22:53] "GET / HTTP/1.0" 200 12003
+[19/Mar/2018 07:22:54] "GET / HTTP/1.0" 200 12003
+[19/Mar/2018 07:22:55] "GET / HTTP/1.0" 200 12003
+[19/Mar/2018 07:22:55] "GET / HTTP/1.0" 200 12003
+[19/Mar/2018 07:22:55] "GET / HTTP/1.0" 200 12003
+[19/Mar/2018 07:22:55] "GET / HTTP/1.0" 200 12003
+[19/Mar/2018 07:24:37] "GET / HTTP/1.0" 200 12006
+[19/Mar/2018 07:25:16] "GET / HTTP/1.0" 200 12019
+[19/Mar/2018 07:25:17] "GET / HTTP/1.0" 200 12019
+[19/Mar/2018 07:25:25] "GET / HTTP/1.0" 200 12019
+[19/Mar/2018 07:25:31] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:32] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:32] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:36] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:41] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:42] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:42] "GET / HTTP/1.0" 200 12027
+[19/Mar/2018 07:25:59] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:00] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:00] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:01] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:01] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:01] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:01] "GET / HTTP/1.0" 200 12111
+[19/Mar/2018 07:26:50] "GET / HTTP/1.0" 200 12109
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 12, 2018 - 02:13:11
+Django version 2.0.3, using settings 'project.settings'
+Starting development server at http://10.10.23.14:9999/
+Quit the server with CONTROL-C.
+<common.db.user.Userbase object at 0x7f82314326d8>
+<common.db.user.Userbase object at 0x7f8232c91710>
+<common.db.user.Userbase object at 0x7f8232812630>
+<common.db.user.Userbase object at 0x7f823142a080>
+None
+None
+None
+None
+None
+1
+None
+list index out of range
+[19/Mar/2018 07:28:49] "GET / HTTP/1.0" 200 12108
+[19/Mar/2018 07:28:49] "GET / HTTP/1.0" 200 12108
+[19/Mar/2018 07:28:50] "GET / HTTP/1.0" 200 12108
+[19/Mar/2018 07:29:21] "GET / HTTP/1.0" 200 12158
+[19/Mar/2018 07:29:22] "GET / HTTP/1.0" 200 12158
+[19/Mar/2018 07:29:51] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:29:52] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:29:52] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:29:52] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:29:53] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:29:54] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:30:06] "GET / HTTP/1.0" 200 12561
+[19/Mar/2018 07:30:07] "GET / HTTP/1.0" 200 12561
+[19/Mar/2018 07:30:56] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:30:56] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:30:57] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:30:57] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:30:57] "GET / HTTP/1.0" 200 12552
+[19/Mar/2018 07:31:30] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:31] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:31] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:32] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:32] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:32] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:32] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:33] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:33] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:33] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:33] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:34] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:34] "GET / HTTP/1.0" 200 12464
+[19/Mar/2018 07:31:47] "GET / HTTP/1.0" 200 12815
+[19/Mar/2018 07:31:48] "GET / HTTP/1.0" 200 12815
+[19/Mar/2018 07:31:48] "GET / HTTP/1.0" 200 12815
+[19/Mar/2018 07:31:58] "GET / HTTP/1.0" 200 12463
+[19/Mar/2018 07:32:01] "POST /new_web/find_uid HTTP/1.0" 200 59
+[19/Mar/2018 07:32:26] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[19/Mar/2018 07:33:29] "GET / HTTP/1.0" 200 11426
+[19/Mar/2018 07:33:30] "GET / HTTP/1.0" 200 11426
+[19/Mar/2018 07:33:40] "GET / HTTP/1.0" 200 11383
+[19/Mar/2018 07:33:41] "GET / HTTP/1.0" 200 11383
+[19/Mar/2018 07:33:41] "GET / HTTP/1.0" 200 11383
+[19/Mar/2018 07:33:41] "GET / HTTP/1.0" 200 11383
+[19/Mar/2018 07:33:41] "GET / HTTP/1.0" 200 11383
+[19/Mar/2018 07:34:01] "GET / HTTP/1.0" 200 11339
+[19/Mar/2018 07:34:02] "GET / HTTP/1.0" 200 11339
+[19/Mar/2018 07:34:02] "GET / HTTP/1.0" 200 11339
+[19/Mar/2018 07:34:02] "GET / HTTP/1.0" 200 11339
+[19/Mar/2018 07:34:08] "GET / HTTP/1.0" 200 11339
+[19/Mar/2018 07:34:12] "GET / HTTP/1.0" 200 11339
+[19/Mar/2018 07:34:38] "GET / HTTP/1.0" 200 11320
+[19/Mar/2018 07:34:44] "GET / HTTP/1.0" 200 11320
+[19/Mar/2018 07:34:54] "GET / HTTP/1.0" 200 11320
+[19/Mar/2018 07:34:56] "GET / HTTP/1.0" 200 11320
+[19/Mar/2018 07:36:02] "GET / HTTP/1.0" 200 11213
+[19/Mar/2018 07:36:02] "GET / HTTP/1.0" 200 11213
+[19/Mar/2018 07:36:49] "GET / HTTP/1.0" 200 10804
+[19/Mar/2018 07:36:50] "GET / HTTP/1.0" 200 10804
+[19/Mar/2018 07:36:50] "GET / HTTP/1.0" 200 10804
+[19/Mar/2018 07:36:50] "GET / HTTP/1.0" 200 10804
+[19/Mar/2018 07:36:50] "GET / HTTP/1.0" 200 10804
+[19/Mar/2018 07:36:58] "GET / HTTP/1.0" 200 10803
+[19/Mar/2018 07:37:52] "GET / HTTP/1.0" 200 10393
+[19/Mar/2018 07:37:52] "GET / HTTP/1.0" 200 10393
+[19/Mar/2018 07:37:53] "GET / HTTP/1.0" 200 10393
+[19/Mar/2018 07:37:53] "GET / HTTP/1.0" 200 10393
+[19/Mar/2018 07:37:53] "GET / HTTP/1.0" 200 10393
+[19/Mar/2018 07:37:58] "GET / HTTP/1.0" 200 10393
+[19/Mar/2018 07:39:06] "GET / HTTP/1.0" 200 9881
+[19/Mar/2018 07:39:07] "GET / HTTP/1.0" 200 9881
+[19/Mar/2018 07:39:08] "GET / HTTP/1.0" 200 9881
+[19/Mar/2018 07:39:08] "GET / HTTP/1.0" 200 9881
+[19/Mar/2018 07:39:08] "GET / HTTP/1.0" 200 9881
+[19/Mar/2018 07:39:43] "GET / HTTP/1.0" 200 9928
+[19/Mar/2018 07:39:44] "GET / HTTP/1.0" 200 9928
+[19/Mar/2018 07:39:45] "GET / HTTP/1.0" 200 9928
+[19/Mar/2018 07:39:45] "GET / HTTP/1.0" 200 9928
+[19/Mar/2018 07:39:45] "GET / HTTP/1.0" 200 9928
+[19/Mar/2018 07:39:52] "GET / HTTP/1.0" 200 9933
+[19/Mar/2018 07:39:52] "GET / HTTP/1.0" 200 9933
+[19/Mar/2018 07:39:53] "GET / HTTP/1.0" 200 9933
+[19/Mar/2018 07:39:53] "GET / HTTP/1.0" 200 9933
+[19/Mar/2018 07:40:00] "GET / HTTP/1.0" 200 9934
+[19/Mar/2018 07:40:01] "GET / HTTP/1.0" 200 9934
+[19/Mar/2018 07:40:01] "GET / HTTP/1.0" 200 9934
+[19/Mar/2018 07:40:01] "GET / HTTP/1.0" 200 9934
+[19/Mar/2018 07:40:02] "GET / HTTP/1.0" 200 9934
+[19/Mar/2018 07:40:02] "GET / HTTP/1.0" 200 9934
+[19/Mar/2018 07:40:14] "GET / HTTP/1.0" 200 9920
+[19/Mar/2018 07:40:14] "GET / HTTP/1.0" 200 9920
+[19/Mar/2018 07:40:14] "GET / HTTP/1.0" 200 9920
+[19/Mar/2018 07:40:15] "GET / HTTP/1.0" 200 9920
+[19/Mar/2018 07:40:36] "GET / HTTP/1.0" 200 9920
+[19/Mar/2018 07:40:36] "GET / HTTP/1.0" 200 9920
+[19/Mar/2018 07:41:16] "GET / HTTP/1.0" 200 9496
+[19/Mar/2018 07:41:18] "GET / HTTP/1.0" 200 9496
+[19/Mar/2018 07:41:31] "GET / HTTP/1.0" 200 9452
+[19/Mar/2018 07:41:32] "GET / HTTP/1.0" 200 9452
+[19/Mar/2018 07:41:32] "GET / HTTP/1.0" 200 9452
+[19/Mar/2018 07:41:32] "GET / HTTP/1.0" 200 9452
+[19/Mar/2018 07:41:43] "GET / HTTP/1.0" 200 9452
+[19/Mar/2018 07:42:35] "GET / HTTP/1.0" 200 8842
+[19/Mar/2018 07:42:45] "GET / HTTP/1.0" 200 8801
+[19/Mar/2018 07:42:46] "GET / HTTP/1.0" 200 8801
+[19/Mar/2018 07:42:46] "GET / HTTP/1.0" 200 8801
+[19/Mar/2018 07:43:22] "GET / HTTP/1.0" 200 8663
+[19/Mar/2018 07:43:34] "GET / HTTP/1.0" 200 8643
+[19/Mar/2018 07:43:35] "GET / HTTP/1.0" 200 8643
+[19/Mar/2018 07:43:35] "GET / HTTP/1.0" 200 8643
+[19/Mar/2018 07:43:57] "GET / HTTP/1.0" 200 8673
+[19/Mar/2018 07:43:58] "GET / HTTP/1.0" 200 8673
+[19/Mar/2018 07:43:58] "GET / HTTP/1.0" 200 8673
+[19/Mar/2018 07:43:58] "GET / HTTP/1.0" 200 8673
+[19/Mar/2018 07:44:06] "GET / HTTP/1.0" 200 8649
+[19/Mar/2018 07:44:23] "GET / HTTP/1.0" 200 8566
+[19/Mar/2018 07:44:24] "GET / HTTP/1.0" 200 8566
+[19/Mar/2018 07:44:24] "GET / HTTP/1.0" 200 8566
+[19/Mar/2018 07:44:24] "GET / HTTP/1.0" 200 8566
+[19/Mar/2018 07:45:02] "GET / HTTP/1.0" 200 8525
+[19/Mar/2018 07:45:03] "GET / HTTP/1.0" 200 8525
+[19/Mar/2018 07:45:03] "GET / HTTP/1.0" 200 8525
+[19/Mar/2018 07:45:04] "GET / HTTP/1.0" 200 8525
+[19/Mar/2018 07:45:04] "GET / HTTP/1.0" 200 8525
+[19/Mar/2018 07:45:14] "GET / HTTP/1.0" 200 8526
+[19/Mar/2018 07:45:14] "GET /static/js/lucky.js HTTP/1.0" 200 8941
+[19/Mar/2018 07:45:14] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[19/Mar/2018 07:45:14] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[19/Mar/2018 07:45:14] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[19/Mar/2018 07:45:14] "GET /favicon.ico HTTP/1.0" 404 2543
+[19/Mar/2018 07:45:37] "GET / HTTP/1.0" 200 7948
+[19/Mar/2018 07:45:37] "GET / HTTP/1.0" 200 7948
+[19/Mar/2018 07:45:38] "GET / HTTP/1.0" 200 7948
+[19/Mar/2018 07:45:38] "GET / HTTP/1.0" 200 7948
+[19/Mar/2018 07:46:15] "GET / HTTP/1.0" 200 7582
+[19/Mar/2018 07:46:16] "GET / HTTP/1.0" 200 7582
+[19/Mar/2018 07:46:17] "GET / HTTP/1.0" 200 7582
+[19/Mar/2018 07:46:17] "GET / HTTP/1.0" 200 7582
+[19/Mar/2018 07:46:17] "GET / HTTP/1.0" 200 7582
+[19/Mar/2018 07:46:33] "GET / HTTP/1.0" 200 7538
+[19/Mar/2018 07:46:33] "GET / HTTP/1.0" 200 7538
+[19/Mar/2018 07:46:33] "GET / HTTP/1.0" 200 7538
+[19/Mar/2018 07:46:34] "GET / HTTP/1.0" 200 7538
+[19/Mar/2018 07:46:39] "GET / HTTP/1.0" 200 7538
+[19/Mar/2018 07:47:21] "GET / HTTP/1.0" 200 7114
+[19/Mar/2018 07:47:21] "GET / HTTP/1.0" 200 7114
+[19/Mar/2018 07:47:28] "GET / HTTP/1.0" 200 7114
+[19/Mar/2018 07:47:45] "GET / HTTP/1.0" 200 7070
+[19/Mar/2018 07:47:46] "GET / HTTP/1.0" 200 7070
+[19/Mar/2018 07:47:46] "GET / HTTP/1.0" 200 7070
+[19/Mar/2018 07:48:40] "GET / HTTP/1.0" 200 6507
+[19/Mar/2018 07:48:56] "GET / HTTP/1.0" 200 6399
+[19/Mar/2018 07:49:45] "GET / HTTP/1.0" 200 6531
+[19/Mar/2018 07:49:56] "GET / HTTP/1.0" 200 6487
+[19/Mar/2018 07:49:57] "GET / HTTP/1.0" 200 6487
+[19/Mar/2018 07:50:27] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:46] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:46] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:47] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:47] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:47] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:48] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:59] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:50:59] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:51:00] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:51:11] "GET / HTTP/1.0" 200 6486
+[19/Mar/2018 07:54:53] "GET / HTTP/1.0" 200 6828
+[19/Mar/2018 07:55:37] "GET / HTTP/1.0" 200 6903
+[19/Mar/2018 07:55:38] "GET / HTTP/1.0" 200 6903
+[19/Mar/2018 07:55:39] "GET / HTTP/1.0" 200 6903
+[19/Mar/2018 07:55:39] "GET / HTTP/1.0" 200 6903
+[19/Mar/2018 07:55:39] "GET / HTTP/1.0" 200 6903
+[19/Mar/2018 07:55:40] "GET / HTTP/1.0" 200 6903
+[19/Mar/2018 07:56:09] "POST /new_web/update_roomlx HTTP/1.0" 200 65

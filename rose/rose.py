@@ -5,24 +5,64 @@
 import unittest
 from nose_parameterized import parameterized
 import requests
+from gevent import monkey
+import gevent
 import time
 import logging
 from common.common import Common
-
+monkey.patch_all()
 DOMAIN = 'http://lxy.dev.rose.live'
 
 
 class TestPrivateShow(unittest.TestCase):
     def setUp(self):
+        pass
+
+    def test(self,i):
+        res = requests.get(DOMAIN + self.url, params = self.data, cookies = Common.generate_cookies(i))
+        Common.try_json(res.text)
+
+
+    def test1(self):
         self.url = '/PrivateShow/joinShow'
         self.data = {}
         # 主播房间号
         self.data['cid'] = '10'
-        # 参加模式 1 私聊 2群聊
-        self.data['showModel'] = '1'
+        res = requests.get(DOMAIN + self.url, params=self.data, cookies=Common.generate_cookies(5253)).text
+        Common.try_json(res)
 
-    def test(self):
-        res = requests.get(DOMAIN + self.url, params=self.data,cookies=Common.generate_cookies(1522)).text
+    def test11(self):
+        self.url = '/PrivateShow/joinShow'
+        self.data = {}
+        # 主播房间号
+        self.data['cid'] = '10'
+        events = []
+        for i in range(5524, 5624):
+            events.append(gevent.spawn(self.test,i))
+        gevent.joinall(events)
+
+    def test2(self):
+        self.url = '/PrivateShow/endShowByAll'
+        self.data = {}
+        # 主播房间号
+        self.data['cid'] = '10'
+        res = requests.get(DOMAIN + self.url, params=self.data, cookies=Common.generate_cookies(1522)).text
+        Common.try_json(res)
+
+    def test3(self):
+        self.url = '/PrivateShow/endShowByUid'
+        self.data = {}
+        # 主播房间号
+        self.data['cid'] = '10'
+        res = requests.get(DOMAIN + self.url, params=self.data, cookies=Common.generate_cookies(1522)).text
+        Common.try_json(res)
+
+    def test4(self):
+        self.url = '/PrivateShow/changeStatus'
+        self.data = {}
+        # 主播房间号
+        self.data['cid'] = '14'
+        res = requests.get(DOMAIN + self.url, params=self.data, cookies=Common.generate_cookies(1522)).text
         Common.try_json(res)
 
     def tearDown(self):
@@ -31,6 +71,6 @@ class TestPrivateShow(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
-    suite.addTest(TestPrivateShow('test'))
+    suite.addTest(TestPrivateShow('test2'))
     runner = unittest.TextTestRunner()
     runner.run(suite)

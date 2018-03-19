@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import StreamingHttpResponse, HttpResponse, JsonResponse
+# import sys
+# sys.path.append('/home/lxy/share/common')
 from common.common import Common
-
 common = Common()
 
 
@@ -11,7 +12,7 @@ def api_test(request):
 
 def new_web(request, method=''):
     if method == '':
-        return render(request, 'new_web.html')
+        return render(request, 'index.html')
     else:
         # 字符串转函数表达式
         return eval(method)(request)
