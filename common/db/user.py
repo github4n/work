@@ -19,6 +19,9 @@ class BaseModel(Model):
     class Meta:
         database = database
 
+class Uid(BaseModel):
+    id = BigIntegerField(primary_key=True)
+
 
 class UserName(BaseModel):
     uid = BigIntegerField(primary_key=True)
@@ -26,6 +29,7 @@ class UserName(BaseModel):
 
     class Meta:
         db_table = 'username'
+
 
 
 class Userbase(BaseModel):
@@ -54,3 +58,11 @@ class Userinfo(BaseModel):
 
     class Meta:
         db_table = 'userinfo'
+
+
+class Mobile(BaseModel):
+    mobile = CharField(primary_key=True)
+    uid = BigIntegerField()
+
+    class Meta:
+        db_table = 'mobile'

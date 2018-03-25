@@ -7,44 +7,18 @@
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!--<canvas id="canvas"></canvas>-->
     <script src="{% static 'js/lucky.js' %}"></script>
     <style type="text/css">
-    .main-content {
-        z-index: 1050;
-        position: absolute;
-    }
-
-    canvas {
-        z-index: -1;
-        position: absolute;
-    }
-
-    .col-lg-2 {
-        opacity: 0.8;
-    }
-
-
-
-
+        #content1,#content2,#content3,#content4
+        {
+        height:230px;
+        width:230px;
+        float:left;
+        margin-left:50px;
+        }
     </style>
 </head>
 <body>
-<h3>测试平台</h3>
-<!--<nav class="navbar navbar-default" role="navigation">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand" href="#">测试平台</a>-->
-        <!--</div>-->
-        <!--<div>-->
-            <!--<ul class="nav navbar-nav">-->
-                <!--<li><a href="/index/">基础测试</a></li>-->
-                <!--<li><a target=_blank href="http://10.10.2.37:8089/">性能测试</a></li>-->
-                <!--<li><a href="/api_test">接口测试</a></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
 {% block content %}{% endblock %}
 </body>
 </html>

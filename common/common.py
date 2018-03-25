@@ -13,7 +13,7 @@ import json
 import logging
 from lxml import etree
 from urllib import parse
-from common.db.user import Userbase, Userinfo
+from common.db.user import Userbase, Userinfo, Mobile,UserName,Uid
 from common.db.money import Money, MoneyPay, MoneyChannelIncome
 from common.db.contents import HmChannel, HmGag, HmLoveliness
 from common.db.user_bag import UserBag
@@ -122,13 +122,19 @@ class Common():
         datas = parse.urlencode(data)
         return '?' + datas + '&token=' + md5s
 
-    # hash分表查询
+    # md5
     @staticmethod
-    def hash_table(s, num=32):
-        s = ('hm_db_{}'.format(s)).encode('utf-8')
+    def md5(data):
+        s = str(data).encode('utf-8')
         m = hashlib.md5()
         m.update(s)
         md5s = m.hexdigest()
+        return md5s
+
+    # hash分表查询
+    @staticmethod
+    def hash_table(s, num=32):
+        md5s = Common.md5('hm_db_{}'.format(s))
         md5ss = int(md5s[1:3], 16) % num
         return str(md5ss)
 
@@ -221,23 +227,42 @@ class Common():
     # 绑定手机号
     @staticmethod
     def bd_sj(uid, mobileareacode='+86'):
-        mobile = 15800000000 + int(uid)
-        Userbase.update(mobile=mobile, mobileareacode=mobileareacode).where(Userbase.uid == uid).execute()
-        key = 'hm_userbaseinfo_{}'.format(uid)
-        Common.REDIS_INST.hset(key, 'mobile', mobile)
-        Common.REDIS_INST.hset(key, 'mobileareacode', mobileareacode)
-        return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
+        try:
+            mobile = 15800000000 + int(uid)
+            Mobile.create(mobile=mobile, uid=uid)
+            Userbase.update(mobile=mobile, mobileareacode=mobileareacode).where(Userbase.uid == uid).execute()
+            key = 'hm_userbaseinfo_{}'.format(uid)
+            Common.REDIS_INST.hset(key, 'mobile', mobile)
+            Common.REDIS_INST.hset(key, 'mobileareacode', mobileareacode)
+            key_mobile = 'hm_user_mobile_prefix:{}_{}'.format(mobileareacode, mobile)
+            Common.REDIS_INST.set(key_mobile, uid)
+            return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
+        except:
+            return {'code': 1001, 'status': True, 'msg': '绑定手机号失败'}
 
     # 注册用户返回uid,或登录返回uid
     @staticmethod
     def zc(username):
-        r = requests.post(URL + '/user/lucky_reg',
-                          data={'nick_name': username, 'user_pwd': USER_PWD, 'username': username, 'key': 'huomao_lucky'})
-        if r.json()['code'] != '100':
-            return {'code': 900, 'status': False, 'msg': '注册失败'}
-        else:
-            uid = r.json()['data']['uid']
-            return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
+        ret = {'code': 1001, 'status': False, 'msg': '注册失败'}
+        # r = requests.post(URL + '/user/lucky_reg',
+        #                   data={'nick_name': username, 'user_pwd': USER_PWD, 'username': username, 'key': 'huomao_lucky'})
+        # if r.json()['code'] != '100':
+        #     return {'code': 900, 'status': False, 'msg': '注册失败'}
+        # else:
+        #     uid = r.json()['data']['uid']
+        #     return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
+        # 验证用户名是否存在
+        key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(username))
+        if  Common.REDIS_INST.get(key_username) or  UserName.select().where(UserName.username == username).first():
+            return ret
+        # 创建uid
+        logger = logging.getLogger('peewee')
+        logger.setLevel(logging.DEBUG)
+        logger.addHandler(logging.StreamHandler())
+        Uid.insert({}).execute()
+
+
+
 
     # 申请直播并通过
     @staticmethod
@@ -546,7 +571,6 @@ class Common():
             data[i] = []
         subscribe_data['subsList'] = data
         Common.REDIS_INST.set(key, json.dumps(subscribe_data))
-
 
     def try_json(data):
         try:
