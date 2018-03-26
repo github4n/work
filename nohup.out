@@ -1158,3 +1158,42 @@ Quit the server with CONTROL-C.
 ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22264])
 ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', ['235235', '325235', 1522041259, 22264])
 [26/Mar/2018 05:15:29] "POST /new_web/set_money HTTP/1.0" 200 23
+[26/Mar/2018 05:21:17] "GET / HTTP/1.0" 200 8330
+[26/Mar/2018 05:21:17] "GET /static/js/lucky.js HTTP/1.0" 304 0
+[26/Mar/2018 06:07:09] "GET / HTTP/1.0" 200 8330
+Not Found: /favicon.ico
+[26/Mar/2018 06:07:11] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [5524])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['99999999', '99999999', 5524])
+[26/Mar/2018 08:30:08] "POST /new_web/set_money HTTP/1.0" 200 23
+[26/Mar/2018 09:13:06] "GET / HTTP/1.0" 200 8330
+Not Found: /favicon.ico
+[26/Mar/2018 09:13:06] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [959])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['1000', '50000', 959])
+[26/Mar/2018 09:13:37] "POST /new_web/set_money HTTP/1.0" 200 23
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [959])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['1000', '50000', 959])
+[26/Mar/2018 09:13:53] "POST /new_web/set_money HTTP/1.0" 200 23
+[26/Mar/2018 09:21:54] "GET / HTTP/1.0" 200 8330
+[26/Mar/2018 09:21:54] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[26/Mar/2018 09:21:54] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[26/Mar/2018 09:21:54] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[26/Mar/2018 09:21:54] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[26/Mar/2018 09:21:55] "GET /favicon.ico HTTP/1.0" 404 2543
+[26/Mar/2018 09:38:19] "GET / HTTP/1.0" 200 8330
+('UPDATE `hm_channel` SET `stream` = %s WHERE (`room_number` = %s)', ['buxKMY24084', 666666])
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [666666])
+[26/Mar/2018 09:39:15] "POST /new_web/update_stream HTTP/1.0" 200 52
+('UPDATE `hm_channel` SET `stream` = %s WHERE (`room_number` = %s)', ['buxKMY24084', 1])
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [1])
+[26/Mar/2018 09:39:54] "POST /new_web/update_stream HTTP/1.0" 200 52
+[26/Mar/2018 09:53:32] "GET / HTTP/1.0" 200 8330
+[26/Mar/2018 09:53:32] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[26/Mar/2018 09:53:32] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[26/Mar/2018 09:53:32] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[26/Mar/2018 09:53:32] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[26/Mar/2018 09:53:33] "GET /favicon.ico HTTP/1.0" 404 2543
+[26/Mar/2018 09:56:32] "GET / HTTP/1.0" 200 8330

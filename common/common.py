@@ -19,9 +19,9 @@ from common.db.contents import HmChannel, HmGag, HmLoveliness
 from common.db.user_bag import UserBag
 from peewee import fn
 
-logger = logging.getLogger('peewee')
-logger.setLevel(logging.DEBUG)
-logger.addHandler(logging.StreamHandler())
+# logger = logging.getLogger('peewee')
+# logger.setLevel(logging.DEBUG)
+# logger.addHandler(logging.StreamHandler())
 # 网站url
 URL = 'http://qa.new.huomaotv.com.cn'
 URL_API = 'http://qaapi.new.huomaotv.com.cn'
