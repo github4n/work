@@ -14,77 +14,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="peewee.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python35/Lib/site-packages/peewee.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6312">
-              <caret line="2913" column="15" lean-forward="false" selection-start-line="2913" selection-start-column="8" selection-end-line="2913" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="261" column="32" lean-forward="true" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
+            <state relative-caret-position="413">
+              <caret line="288" column="0" lean-forward="true" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
               <folding>
                 <element signature="e#102#113#0" expanded="true" />
-                <element signature="e#5534#5903#0" expanded="false" />
-                <element signature="e#5962#6072#0" expanded="false" />
-                <element signature="e#6206#6751#0" expanded="false" />
-                <element signature="e#6813#7313#0" expanded="false" />
-                <element signature="e#7398#7530#0" expanded="false" />
-                <element signature="e#7592#7802#0" expanded="false" />
-                <element signature="e#7901#8480#0" expanded="false" />
-                <element signature="e#9634#11403#0" expanded="false" />
-                <element signature="e#11471#12072#0" expanded="false" />
-                <element signature="e#12149#12961#0" expanded="false" />
-                <element signature="e#13034#13508#0" expanded="false" />
-                <element signature="e#13589#13839#0" expanded="false" />
-                <element signature="e#14017#16084#0" expanded="false" />
-                <element signature="e#16290#17217#0" expanded="false" />
-                <element signature="e#17298#17609#0" expanded="false" />
-                <element signature="e#17665#17831#0" expanded="false" />
-                <element signature="e#17901#18409#0" expanded="false" />
+                <element signature="e#5647#6016#0" expanded="false" />
+                <element signature="e#6075#6185#0" expanded="false" />
+                <element signature="e#6319#6864#0" expanded="false" />
+                <element signature="e#6926#7426#0" expanded="false" />
+                <element signature="e#7511#7643#0" expanded="false" />
+                <element signature="e#7705#7915#0" expanded="false" />
+                <element signature="e#8014#8593#0" expanded="false" />
+                <element signature="e#8758#10914#0" expanded="false" />
+                <element signature="e#10976#12745#0" expanded="false" />
+                <element signature="e#12813#13414#0" expanded="false" />
+                <element signature="e#13491#14303#0" expanded="false" />
+                <element signature="e#14376#14850#0" expanded="false" />
+                <element signature="e#14931#15181#0" expanded="false" />
+                <element signature="e#15359#17426#0" expanded="false" />
+                <element signature="e#17632#18559#0" expanded="false" />
+                <element signature="e#18640#18951#0" expanded="false" />
+                <element signature="e#19007#19173#0" expanded="false" />
+                <element signature="e#19243#19751#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django/project/app/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-              <folding>
-                <element signature="n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#1;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#1;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django/project/app/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lucky.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/django/project/app/static/js/lucky.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +47,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/日常脚本/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="180">
+              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="32" />
               <folding>
                 <element signature="e#94#104#0" expanded="true" />
               </folding>
@@ -113,9 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fail</find>
-      <find>failCase</find>
-      <find>print(</find>
       <find>ENVIRONMENT</find>
       <find>test_msg_</find>
       <find>common</find>
@@ -143,6 +95,9 @@
       <find>cree</find>
       <find>excu</find>
       <find>execute</find>
+      <find>decode_responses</find>
+      <find>zx</find>
+      <find>hmset</find>
     </findStrings>
     <replaceStrings>
       <replace>self</replace>
@@ -200,16 +155,16 @@
         <option value="$PROJECT_DIR$/rose/rose.py" />
         <option value="$PROJECT_DIR$/日常脚本/后台清除缓存功能.py" />
         <option value="$PROJECT_DIR$/django/project/app/templates/new_web.html" />
-        <option value="$PROJECT_DIR$/django/project/app/views.py" />
-        <option value="$PROJECT_DIR$/django/project/app/static/js/lucky.js" />
         <option value="$PROJECT_DIR$/django/project/app/templates/base.html" />
         <option value="$PROJECT_DIR$/日常脚本/test11.py" />
         <option value="$PROJECT_DIR$/django/project/app/templates/index.html" />
         <option value="$PROJECT_DIR$/日常脚本/支付回调/pay2.py" />
         <option value="$PROJECT_DIR$/common/dbs/db_user.py" />
         <option value="$PROJECT_DIR$/日常脚本/支付回调/pay.py" />
-        <option value="$PROJECT_DIR$/nohup.out" />
         <option value="$PROJECT_DIR$/common/db/user.py" />
+        <option value="$PROJECT_DIR$/django/project/app/static/js/lucky.js" />
+        <option value="$PROJECT_DIR$/django/project/app/views.py" />
+        <option value="$PROJECT_DIR$/nohup.out" />
         <option value="$PROJECT_DIR$/日常脚本/test.py" />
         <option value="$PROJECT_DIR$/common/common.py" />
       </list>
@@ -229,7 +184,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="254" />
     <option name="y" value="227" />
     <option name="width" value="1455" />
@@ -279,57 +234,7 @@
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
               <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
               <item name="django" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
@@ -339,11 +244,6 @@
             <path>
               <item name="U" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.5.0 (C:\Python35\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -612,9 +512,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.test (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.shortcuts" />
-        <item index="2" class="java.lang.String" itemvalue="Python.common (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.common" />
+        <item index="1" class="java.lang.String" itemvalue="Python.common" />
+        <item index="2" class="java.lang.String" itemvalue="Python.shortcuts" />
+        <item index="3" class="java.lang.String" itemvalue="Python.common (1)" />
         <item index="4" class="java.lang.String" itemvalue="Python.pay" />
       </list>
     </recent_temporary>
@@ -682,14 +582,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31902552" sideWeight="0.7127352" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41364604" sideWeight="0.28177083" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748401" sideWeight="0.7182292" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22921109" sideWeight="0.7182292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.6231964" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -732,7 +632,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://Y:/日常脚本/gift.py" />
     <entry file="file://Y:/日常脚本/msg.py" />
     <entry file="file://Y:/日常脚本/test11.py" />
     <entry file="file://Y:/auto_api/testcase/web_gag.py" />
@@ -956,14 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nohup.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/dbs/db_user.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -972,64 +863,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/db/user.py">
+    <entry file="file://$PROJECT_DIR$/django/project/app/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        <state relative-caret-position="360">
+          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/日常脚本/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="e#94#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/peewee.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6312">
-          <caret line="2913" column="15" lean-forward="false" selection-start-line="2913" selection-start-column="8" selection-end-line="2913" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django/project/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="261" column="32" lean-forward="true" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
-          <folding>
-            <element signature="e#102#113#0" expanded="true" />
-            <element signature="e#5534#5903#0" expanded="false" />
-            <element signature="e#5962#6072#0" expanded="false" />
-            <element signature="e#6206#6751#0" expanded="false" />
-            <element signature="e#6813#7313#0" expanded="false" />
-            <element signature="e#7398#7530#0" expanded="false" />
-            <element signature="e#7592#7802#0" expanded="false" />
-            <element signature="e#7901#8480#0" expanded="false" />
-            <element signature="e#9634#11403#0" expanded="false" />
-            <element signature="e#11471#12072#0" expanded="false" />
-            <element signature="e#12149#12961#0" expanded="false" />
-            <element signature="e#13034#13508#0" expanded="false" />
-            <element signature="e#13589#13839#0" expanded="false" />
-            <element signature="e#14017#16084#0" expanded="false" />
-            <element signature="e#16290#17217#0" expanded="false" />
-            <element signature="e#17298#17609#0" expanded="false" />
-            <element signature="e#17665#17831#0" expanded="false" />
-            <element signature="e#17901#18409#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1047,19 +885,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django/project/app/templates/base.html">
+    <entry file="file://C:/Python35/Lib/site-packages/peewee.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="-1241">
+          <caret line="4913" column="8" lean-forward="false" selection-start-line="4913" selection-start-column="8" selection-end-line="4913" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nohup.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19359">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/db/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="34" column="6" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django/project/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/django/project/app/static/js/lucky.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        <state relative-caret-position="220">
+          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/site-packages/redis/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="1899" column="23" lean-forward="true" selection-start-line="1899" selection-start-column="23" selection-end-line="1899" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日常脚本/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#94#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="288" column="0" lean-forward="true" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+          <folding>
+            <element signature="e#102#113#0" expanded="true" />
+            <element signature="e#5647#6016#0" expanded="false" />
+            <element signature="e#6075#6185#0" expanded="false" />
+            <element signature="e#6319#6864#0" expanded="false" />
+            <element signature="e#6926#7426#0" expanded="false" />
+            <element signature="e#7511#7643#0" expanded="false" />
+            <element signature="e#7705#7915#0" expanded="false" />
+            <element signature="e#8014#8593#0" expanded="false" />
+            <element signature="e#8758#10914#0" expanded="false" />
+            <element signature="e#10976#12745#0" expanded="false" />
+            <element signature="e#12813#13414#0" expanded="false" />
+            <element signature="e#13491#14303#0" expanded="false" />
+            <element signature="e#14376#14850#0" expanded="false" />
+            <element signature="e#14931#15181#0" expanded="false" />
+            <element signature="e#15359#17426#0" expanded="false" />
+            <element signature="e#17632#18559#0" expanded="false" />
+            <element signature="e#18640#18951#0" expanded="false" />
+            <element signature="e#19007#19173#0" expanded="false" />
+            <element signature="e#19243#19751#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

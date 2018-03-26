@@ -9,7 +9,7 @@ function request(method){
             data = $("#bd_sj_form").serialize()
             break;
         case 'zc':
-            url = '/new_web/zc';
+            url = '/new_web/register';
             data = $("#zc_form").serialize()
             break;
         case 'sq_zb':

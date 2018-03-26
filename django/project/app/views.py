@@ -42,9 +42,9 @@ def bd_sj(request):
     return JsonResponse(res)
 
 
-def zc(request):
+def register(request):
     name = request.POST.get('name_zc')
-    res = common.zc(name)
+    res = common.register(name)
     return JsonResponse(res)
 
 

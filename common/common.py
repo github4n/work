@@ -13,12 +13,15 @@ import json
 import logging
 from lxml import etree
 from urllib import parse
-from common.db.user import Userbase, Userinfo, Mobile,UserName,Uid
+from common.db.user import Userbase, Userinfo, Mobile, UserName, Uid
 from common.db.money import Money, MoneyPay, MoneyChannelIncome
 from common.db.contents import HmChannel, HmGag, HmLoveliness
 from common.db.user_bag import UserBag
 from peewee import fn
 
+logger = logging.getLogger('peewee')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
 # 网站url
 URL = 'http://qa.new.huomaotv.com.cn'
 URL_API = 'http://qaapi.new.huomaotv.com.cn'
@@ -242,8 +245,11 @@ class Common():
 
     # 注册用户返回uid,或登录返回uid
     @staticmethod
-    def zc(username):
-        ret = {'code': 1001, 'status': False, 'msg': '注册失败'}
+    def register(username):
+        password = Common.md5(USER_PWD)
+        img = ''
+        nickname = username+'nc'
+        ret = {'code': 1001, 'status': False, 'msg': '用户名已存在或注册失败'}
         # r = requests.post(URL + '/user/lucky_reg',
         #                   data={'nick_name': username, 'user_pwd': USER_PWD, 'username': username, 'key': 'huomao_lucky'})
         # if r.json()['code'] != '100':
@@ -253,16 +259,33 @@ class Common():
         #     return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
         # 验证用户名是否存在
         key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(username))
-        if  Common.REDIS_INST.get(key_username) or  UserName.select().where(UserName.username == username).first():
+        if Common.REDIS_INST.get(key_username) or UserName.select().where(UserName.username == username).first():
             return ret
         # 创建uid
-        logger = logging.getLogger('peewee')
-        logger.setLevel(logging.DEBUG)
-        logger.addHandler(logging.StreamHandler())
-        Uid.insert({}).execute()
-
-
-
+        uid = Uid().create().id
+        print(uid,Common.hash_table(uid))
+        # 插入userbase表
+        Userbase.create(uid=uid, name=username,email='',mobile='',openid='',weixin='',mobileareacode='')
+        # 插入username表
+        UserName.create(username=username, uid=uid)
+        # 插入userinfo表
+        Userinfo.create(uid=uid, password=password, img=img, lv=0)
+        # 设置username,redis缓存
+        Common.REDIS_INST.set(key_username,uid)
+        # 设置uid,redis缓存
+        data = dict(nickname=nickname,password=password,img=img,lv=0,regtime=int(time.time()))
+        Common.REDIS_INST.set('hm_{}'.format(uid),json.dumps(data))
+        # 设置nickname,redis缓存
+        Common.REDIS_INST.set('hm_nickname_{}'.format(Common.md5(nickname)),uid)
+        # 设置userbase,redis缓存:hm_userbaseinfo_{uid}
+        data = dict(uid=uid,name=username,email='',email_activate_stat=0,
+                    mobile='',openid='',weixin='',blog='',send_freebean=0,
+                    get_experience=0,anchor_experience=0,mobileareacode='')
+        # 不知道php为什么要json转义一层再存.
+        for key,value in data.items():
+            data[key] = json.dumps(value)
+        Common.REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid),data)
+        return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
 
     # 申请直播并通过
     @staticmethod

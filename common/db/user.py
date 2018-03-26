@@ -20,7 +20,7 @@ class BaseModel(Model):
         database = database
 
 class Uid(BaseModel):
-    id = BigIntegerField(primary_key=True)
+    id = BigIntegerField(primary_key=True,sequence=True)  # 一定这么写,才能返回id
 
 
 class UserName(BaseModel):

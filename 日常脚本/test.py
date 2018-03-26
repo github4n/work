@@ -7,6 +7,6 @@ import json
 from  urllib import parse
 from common.common import Common
 
-ret = Common.zc('lucky1111111110')
+ret = Common.register('test00708')
 # ret = Common.hash_table(15801218111)
 print(ret)
