@@ -134,6 +134,20 @@ class Common():
         md5s = m.hexdigest()
         return md5s
 
+    #多层字典转单层form
+    @staticmethod
+    def form_single_dict(data, key='', ret={}):
+        if isinstance(data, dict):
+            for key1, value1 in data.items():
+                key1s = str(key) + '[' + str(key1) + ']' if key else str(key1)
+                if isinstance(value1, dict):
+                    Common.form_single_dict(value1, key1s)
+                else:
+                    ret[key1s] = value1
+            return ret
+        else:
+            return False
+
     # hash分表查询
     @staticmethod
     def hash_table(s, num=32):
@@ -198,10 +212,6 @@ class Common():
     def add_dmk(uid, add_time=int(time.time()), expire_time=int(time.time()) + 10000, num=1):
         UserBag.create(uid=uid, get_way='admin_33', bag=100001, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
         return
-        # sql = "INSERT INTO user_bag_{} values(NULL,{},'{}',{},{},{},{},{},{})".format(Common.hash_table(uid), uid, 'admin_33', 100001, add_time,
-        #                                                                               expire_time,
-        #                                                                               num, 2, num)
-        # return self.execute_sql('hm_user_bag', sql)
 
     # 获取弹幕卡
     @staticmethod
@@ -209,9 +219,6 @@ class Common():
         u = UserBag.select(fn.Sum(UserBag.num)).where(
             (UserBag.uid == uid) & (UserBag.expire_time > int(time.time())) & (UserBag.bag == 100001)).first()
         return u.num
-        # sql = "SELECT sum(num) FROM user_bag_{} WHERE uid={} and expire_time >{} and bag_id=100001 ".format(self.hash_table(uid), uid,
-        #                                                                                                     int(time.time()))
-        # return self.execute_sql('hm_user_bag', sql)[0]
 
     # 获取用户特定时间弹幕卡数量
     @staticmethod
@@ -223,9 +230,6 @@ class Common():
     @staticmethod
     def del_dmk(uid):
         UserBag.delete().where(UserBag.uid == uid).execute()
-        return
-        # sql = "DELETE FROM user_bag_{} WHERE uid={}".format(self.hash_table(uid), uid)
-        # return self.execute_sql('hm_user_bag', sql)
 
     # 绑定手机号
     @staticmethod
@@ -248,7 +252,7 @@ class Common():
     def register(username):
         password = Common.md5(USER_PWD)
         img = ''
-        nickname = username+'nc'
+        nickname = username + 'nc'
         ret = {'code': 1001, 'status': False, 'msg': '用户名已存在或注册失败'}
         # r = requests.post(URL + '/user/lucky_reg',
         #                   data={'nick_name': username, 'user_pwd': USER_PWD, 'username': username, 'key': 'huomao_lucky'})
@@ -263,28 +267,28 @@ class Common():
             return ret
         # 创建uid
         uid = Uid().create().id
-        print(uid,Common.hash_table(uid))
+        print(uid, Common.hash_table(uid))
         # 插入userbase表
-        Userbase.create(uid=uid, name=username,email='',mobile='',openid='',weixin='',mobileareacode='')
+        Userbase.create(uid=uid, name=username, email='', mobile='', openid='', weixin='', mobileareacode='')
         # 插入username表
         UserName.create(username=username, uid=uid)
         # 插入userinfo表
         Userinfo.create(uid=uid, password=password, img=img, lv=0)
         # 设置username,redis缓存
-        Common.REDIS_INST.set(key_username,uid)
+        Common.REDIS_INST.set(key_username, uid)
         # 设置uid,redis缓存
-        data = dict(nickname=nickname,password=password,img=img,lv=0,regtime=int(time.time()))
-        Common.REDIS_INST.set('hm_{}'.format(uid),json.dumps(data))
+        data = dict(nickname=nickname, password=password, img=img, lv=0, regtime=int(time.time()))
+        Common.REDIS_INST.set('hm_{}'.format(uid), json.dumps(data))
         # 设置nickname,redis缓存
-        Common.REDIS_INST.set('hm_nickname_{}'.format(Common.md5(nickname)),uid)
+        Common.REDIS_INST.set('hm_nickname_{}'.format(Common.md5(nickname)), uid)
         # 设置userbase,redis缓存:hm_userbaseinfo_{uid}
-        data = dict(uid=uid,name=username,email='',email_activate_stat=0,
-                    mobile='',openid='',weixin='',blog='',send_freebean=0,
-                    get_experience=0,anchor_experience=0,mobileareacode='')
+        data = dict(uid=uid, name=username, email='', email_activate_stat=0,
+                    mobile='', openid='', weixin='', blog='', send_freebean=0,
+                    get_experience=0, anchor_experience=0, mobileareacode='')
         # 不知道php为什么要json转义一层再存.
-        for key,value in data.items():
+        for key, value in data.items():
             data[key] = json.dumps(value)
-        Common.REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid),data)
+        Common.REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
         return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
 
     # 申请直播并通过
@@ -292,10 +296,10 @@ class Common():
     def sq_zb(uid):
         # 判断uid是否是主播
         if uid:
-            uid = str(uid)
-            res = requests.get(URL + '/member/checkUsersIdentify', cookies=Common.generate_cookies(uid))
-            if res.json()['data']['isAnchor'] is True:
-                return {'code': 900, 'status': False, 'msg': '已是主播'}
+            # uid = str(uid)
+            anchor_key = 'hm_channel_anchor_{}'.format(uid)
+            if Common.REDIS_INST.hget(anchor_key,'id'):
+                return {'code': 1001, 'status': False, 'msg': '已是主播'}
             else:
                 Common.bd_sj(uid)
                 time.sleep(1)

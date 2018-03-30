@@ -13,7 +13,7 @@ import time
 import requests
 import json
 
-url = 'http://gate.huomao.com:7172' + '/1/push/room?rid=' + '2'
+url = 'http://gate.huomaotv.com.cn:7172' + '/1/push/room?rid=' + '2'
 data = {
     'time': '1507793926',
     'platform': '1',
@@ -69,7 +69,7 @@ def test():
     print(res.json())
 
 t1 = time.time()
-for i in range(1, 2):
+for i in range(1, 1000):
     test()
 t2 = time.time()
 print(t2-t1)

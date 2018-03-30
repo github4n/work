@@ -1197,3 +1197,237 @@ Not Found: /favicon.ico
 Not Found: /favicon.ico
 [26/Mar/2018 09:53:33] "GET /favicon.ico HTTP/1.0" 404 2543
 [26/Mar/2018 09:56:32] "GET / HTTP/1.0" 200 8330
+[26/Mar/2018 11:40:41] "GET / HTTP/1.0" 200 8330
+[26/Mar/2018 11:40:41] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[26/Mar/2018 11:40:41] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[26/Mar/2018 11:40:41] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[26/Mar/2018 11:40:41] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[26/Mar/2018 11:40:41] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [8057])
+('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), '8000', 1522041259, 8057])
+[26/Mar/2018 11:41:33] "POST /new_web/set_money HTTP/1.0" 200 23
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [5647])
+('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), '10000', 1522041259, 5647])
+[26/Mar/2018 11:42:25] "POST /new_web/set_money HTTP/1.0" 200 23
+[27/Mar/2018 03:44:27] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 03:44:27] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[27/Mar/2018 03:44:27] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[27/Mar/2018 03:44:27] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[27/Mar/2018 03:44:27] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[27/Mar/2018 03:44:28] "GET /favicon.ico HTTP/1.0" 404 2543
+[27/Mar/2018 03:44:28] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 05:44:40] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 05:55:25] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 05:58:11] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 06:52:26] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 06:52:26] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[27/Mar/2018 06:52:26] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[27/Mar/2018 06:52:26] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[27/Mar/2018 06:52:26] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[27/Mar/2018 06:52:27] "GET /favicon.ico HTTP/1.0" 404 2543
+[27/Mar/2018 06:52:34] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 06:52:34] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 06:52:35] "GET / HTTP/1.0" 200 8338
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [8070])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['1000', '1000', 8070])
+[27/Mar/2018 06:53:19] "POST /new_web/set_money HTTP/1.0" 200 23
+[27/Mar/2018 07:42:57] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 07:42:57] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[27/Mar/2018 07:42:57] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[27/Mar/2018 07:42:57] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[27/Mar/2018 07:42:57] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[27/Mar/2018 07:42:57] "GET /favicon.ico HTTP/1.0" 404 2543
+[27/Mar/2018 08:05:40] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:05:43] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[27/Mar/2018 08:05:43] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[27/Mar/2018 08:05:43] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[27/Mar/2018 08:05:43] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+Not Found: /favicon.ico
+[27/Mar/2018 08:05:47] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [830])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['yes', 830])
+[27/Mar/2018 08:06:05] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[27/Mar/2018 08:21:31] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:31] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[27/Mar/2018 08:21:31] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[27/Mar/2018 08:21:31] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[27/Mar/2018 08:21:31] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+Not Found: /favicon.ico
+[27/Mar/2018 08:21:31] "GET /favicon.ico HTTP/1.0" 404 2543
+[27/Mar/2018 08:21:33] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:34] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:34] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:35] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:36] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:36] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:36] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:37] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:37] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:38] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:39] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:39] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:40] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:40] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:21:40] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 08:22:24] "GET / HTTP/1.0" 200 8338
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['222666'])
+[27/Mar/2018 09:15:52] "POST /new_web/find_uid HTTP/1.0" 200 59
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['22266'])
+[27/Mar/2018 09:15:58] "POST /new_web/find_uid HTTP/1.0" 200 59
+('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15800022266', 22266])
+('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`uid` = %s)', ['15800022266', '+86', 22266])
+[27/Mar/2018 09:16:07] "POST /new_web/bd_sj HTTP/1.0" 200 82
+[27/Mar/2018 09:39:22] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 09:39:23] "GET /static/js/lucky.js HTTP/1.0" 304 0
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [8070])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['1111111', '1111111', 8070])
+[27/Mar/2018 09:39:41] "POST /new_web/set_money HTTP/1.0" 200 23
+('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS `t1` WHERE (`t1`.`username` = %s) LIMIT 1', ['zhouyang'])
+('INSERT INTO `uid` () VALUES ()', [])
+('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 'zhouyang', '', 22267, ''])
+('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [22267, 'zhouyang'])
+('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [22267, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+[27/Mar/2018 09:51:54] "POST /new_web/register HTTP/1.0" 200 95
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22267])
+('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', ['1111111', '1111111', 1522041259, 22267])
+[27/Mar/2018 09:52:16] "POST /new_web/set_money HTTP/1.0" 200 23
+('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15800022267', 22267])
+('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`uid` = %s)', ['15800022267', '+86', 22267])
+[27/Mar/2018 09:52:26] "POST /new_web/bd_sj HTTP/1.0" 200 82
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['22267'])
+[27/Mar/2018 09:53:37] "POST /new_web/find_uid HTTP/1.0" 200 59
+('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15800022267', 22267])
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22267])
+[27/Mar/2018 09:54:04] "POST /new_web/sq_zb HTTP/1.0" 200 131
+[27/Mar/2018 09:54:06] "POST /new_web/sq_zb HTTP/1.0" 200 65
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22267])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['1111111', '1111111', 22267])
+[27/Mar/2018 09:54:08] "POST /new_web/set_money HTTP/1.0" 200 23
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22267])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['99999', '99999', 22267])
+[27/Mar/2018 09:54:17] "POST /new_web/set_money HTTP/1.0" 200 23
+[27/Mar/2018 09:54:24] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 09:54:24] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[27/Mar/2018 09:54:24] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[27/Mar/2018 09:54:24] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[27/Mar/2018 09:54:24] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+Not Found: /favicon.ico
+[27/Mar/2018 09:54:24] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22267])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['99999', '99999', 22267])
+[27/Mar/2018 09:56:06] "POST /new_web/set_money HTTP/1.0" 200 23
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22267])
+('UPDATE `money` SET `bean` = %s, `coin` = %s WHERE (`uid` = %s)', ['99999', '99999', 22267])
+[27/Mar/2018 10:04:46] "POST /new_web/set_money HTTP/1.0" 200 23
+[27/Mar/2018 10:08:32] "GET / HTTP/1.0" 200 8338
+[27/Mar/2018 10:08:39] "POST /new_web/register HTTP/1.0" 200 108
+('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS `t1` WHERE (`t1`.`username` = %s) LIMIT 1', ['test00551'])
+('INSERT INTO `uid` () VALUES ()', [])
+('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 'test00551', '', 22268, ''])
+('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [22268, 'test00551'])
+('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [22268, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+[27/Mar/2018 10:08:44] "POST /new_web/register HTTP/1.0" 200 95
+[28/Mar/2018 02:06:37] "GET / HTTP/1.0" 200 8338
+[28/Mar/2018 02:06:37] "GET /static/js/lucky.js HTTP/1.0" 304 0
+Not Found: /favicon.ico
+[28/Mar/2018 02:06:38] "GET /favicon.ico HTTP/1.0" 404 2543
+[28/Mar/2018 03:30:21] "GET / HTTP/1.0" 200 8338
+[28/Mar/2018 03:30:21] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[28/Mar/2018 03:30:21] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[28/Mar/2018 03:30:21] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[28/Mar/2018 03:30:21] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[28/Mar/2018 03:30:22] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS `t1` WHERE (`t1`.`username` = %s) LIMIT 1', ['zxtest2'])
+('INSERT INTO `uid` () VALUES ()', [])
+('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 'zxtest2', '', 22269, ''])
+('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [22269, 'zxtest2'])
+('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [22269, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+[28/Mar/2018 03:30:39] "POST /new_web/register HTTP/1.0" 200 95
+[28/Mar/2018 03:31:20] "POST /new_web/register HTTP/1.0" 200 108
+('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15800022269', 22269])
+('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`uid` = %s)', ['15800022269', '+86', 22269])
+[28/Mar/2018 03:32:19] "POST /new_web/bd_sj HTTP/1.0" 200 82
+[28/Mar/2018 06:10:27] "GET / HTTP/1.0" 200 8338
+[28/Mar/2018 06:13:48] "GET / HTTP/1.0" 200 8338
+[29/Mar/2018 09:26:58] "GET / HTTP/1.0" 200 8338
+[29/Mar/2018 09:26:58] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 304 0
+[29/Mar/2018 09:26:58] "GET /static/js/lucky.js HTTP/1.0" 304 0
+[29/Mar/2018 09:26:58] "GET /static/css/bootstrap.css HTTP/1.0" 304 0
+[29/Mar/2018 09:26:58] "GET /static/js/bootstrap.min.js HTTP/1.0" 304 0
+Not Found: /favicon.ico
+[29/Mar/2018 09:26:59] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['aa123456'])
+[29/Mar/2018 09:27:06] "POST /new_web/find_uid HTTP/1.0" 200 42
+[29/Mar/2018 10:19:39] "GET / HTTP/1.0" 200 8338
+[29/Mar/2018 10:19:39] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[29/Mar/2018 10:19:39] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[29/Mar/2018 10:19:39] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[29/Mar/2018 10:19:39] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[30/Mar/2018 02:02:25] "GET / HTTP/1.0" 200 8338
+[30/Mar/2018 02:02:26] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[30/Mar/2018 02:02:26] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[30/Mar/2018 02:02:26] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[30/Mar/2018 02:02:26] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[30/Mar/2018 02:02:26] "GET /favicon.ico HTTP/1.0" 404 2543
+[30/Mar/2018 02:03:45] "GET / HTTP/1.0" 200 8338
+[30/Mar/2018 02:03:45] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[30/Mar/2018 02:03:45] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[30/Mar/2018 02:03:45] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[30/Mar/2018 02:03:45] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+Not Found: /favicon.ico
+[30/Mar/2018 02:03:45] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [326981])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['yes', 326981])
+[30/Mar/2018 02:04:24] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[30/Mar/2018 02:29:50] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[30/Mar/2018 02:30:29] "POST /new_web/set_money HTTP/1.0" 200 23
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [326981])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['yes', 326981])
+[30/Mar/2018 02:46:14] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [326981])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['yes', 326981])
+[30/Mar/2018 02:48:36] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[30/Mar/2018 03:02:34] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+[30/Mar/2018 03:25:17] "GET / HTTP/1.0" 200 8338
+[30/Mar/2018 03:25:18] "GET /static/js/lucky.js HTTP/1.0" 304 0
+Not Found: /favicon.ico
+[30/Mar/2018 03:25:19] "GET /favicon.ico HTTP/1.0" 404 2543
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['liyou53'])
+[30/Mar/2018 03:25:29] "POST /new_web/find_uid HTTP/1.0" 200 42
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['aa123456'])
+[30/Mar/2018 03:28:02] "POST /new_web/find_uid HTTP/1.0" 200 42
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [326981])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['yes', 326981])
+[30/Mar/2018 08:21:59] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [326981])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['no', 326981])
+[30/Mar/2018 08:22:24] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [326981])
+('UPDATE `hm_channel` SET `is_entertainment` = %s WHERE (`room_number` = %s)', ['yes', 326981])
+[30/Mar/2018 08:24:36] "POST /new_web/update_roomlx HTTP/1.0" 200 65
+[30/Mar/2018 08:56:22] "GET / HTTP/1.0" 200 8338
+[30/Mar/2018 08:56:22] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[30/Mar/2018 08:56:22] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[30/Mar/2018 08:56:22] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[30/Mar/2018 08:56:22] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+Not Found: /favicon.ico
+[30/Mar/2018 08:56:22] "GET /favicon.ico HTTP/1.0" 404 2543
+('UPDATE `hm_channel` SET `stream` = %s WHERE (`room_number` = %s)', ['ntFGRY', 1])
+('SELECT `t1`.`id`, `t1`.`addtime`, `t1`.`channel`, `t1`.`content`, `t1`.`del_time`, `t1`.`entertainment_time`, `t1`.`event_endtime`, `t1`.`event_starttime`, `t1`.`gid`, `t1`.`high_status`, `t1`.`image`, `t1`.`is_del`, `t1`.`is_entertainment`, `t1`.`is_event`, `t1`.`is_high`, `t1`.`is_index`, `t1`.`is_index_live`, `t1`.`is_index_top`, `t1`.`is_index_type`, `t1`.`is_live`, `t1`.`is_push`, `t1`.`is_replay`, `t1`.`is_sign`, `t1`.`is_sub`, `t1`.`is_tuijian`, `t1`.`is_zhuanma`, `t1`.`live_last_start_time`, `t1`.`logo`, `t1`.`note`, `t1`.`opusername`, `t1`.`percent`, `t1`.`room_number`, `t1`.`roomadmin_num`, `t1`.`sh_zt`, `t1`.`status`, `t1`.`stream`, `t1`.`stream_key`, `t1`.`superstar_info`, `t1`.`tag`, `t1`.`tel`, `t1`.`tj_pic`, `t1`.`tj_title`, `t1`.`uid`, `t1`.`updatetime`, `t1`.`username`, `t1`.`views` FROM `hm_channel` AS `t1` WHERE (`t1`.`room_number` = %s) LIMIT 1', [1])
+[30/Mar/2018 08:56:25] "POST /new_web/update_stream HTTP/1.0" 200 52
+[30/Mar/2018 08:56:53] "GET / HTTP/1.0" 200 8338
+[30/Mar/2018 08:56:53] "GET /static/css/bootstrap.css.map HTTP/1.0" 404 1701
+('SELECT `t1`.`uid` FROM `userbase` AS `t1` WHERE (`t1`.`name` = %s) LIMIT 1', ['test00551'])
+[30/Mar/2018 08:56:56] "POST /new_web/find_uid HTTP/1.0" 200 43
+('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15800022268', 22268])
+('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`uid` = %s)', ['15800022268', '+86', 22268])
+[30/Mar/2018 08:57:00] "POST /new_web/bd_sj HTTP/1.0" 200 82
+('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS `t1` WHERE (`t1`.`uid` = %s) LIMIT 1', [22268])
+('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', ['22268', '22268', 1522041259, 22268])
+[30/Mar/2018 08:57:04] "POST /new_web/set_money HTTP/1.0" 200 23

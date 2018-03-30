@@ -8,7 +8,7 @@ from websocket import create_connection
 import struct
 import threading
 
-ws = create_connection("ws://gate.huomaotv.com.cn:8090/sub")
+ws = create_connection("ws://gate-54.huomao.com:8090/sub")
 
 
 rawHeaderLen = 16
@@ -18,7 +18,7 @@ verOffset = 6
 opOffset = 8
 seqOffset = 12
 
-tokenBody = {"Uid": 0, "Rid": 2}
+tokenBody = {"Uid": 0, "Rid": 10519}
 token = bytes(json.dumps(tokenBody).encode())
 token_len = len(token)
 
@@ -51,8 +51,18 @@ while True:
     elif op == 3:
         print("receive: heartbeat")
     elif op == 5:
-        msg = json.loads((result[headerLen:packetLen]).decode())
-        print(msg)
+        msg = (result[headerLen:packetLen]).decode()
+        data = json.loads(msg)
+        # if data.get('code') != 900003:
+        #     if data.get('body'):
+        #         if data['body']['msg_type'] != 'MiniGame':
+        #             print(data['body']['msg_content']['content'])
+        print(msg[:50])
+
+
+
+
+
         # for offset in range(0, result.__len__(), packetLen):
         #     (packetLen, headerLen, ver) = struct.unpack_from('!ihh', result,offset)
         #     print(packetLen, headerLen, ver)
