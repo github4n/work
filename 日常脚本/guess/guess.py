@@ -9,7 +9,8 @@ from nose_parameterized import parameterized
 import requests
 import time
 import logging
-from guess_case import gamble_case_lists
+import sys
+from guess_case import gamble_case_lists, banker_case_lists
 from common.common import Common
 from urllib import parse
 import json
@@ -36,7 +37,7 @@ def create(**kw):
         'guess_type': 'match',  # 竞猜类型,anchor:主播,match:赛事
         'match_id_or_room_number': '4685',  # 比赛ID/房间号
         'play_type': 'gamble',  # 竞猜玩法,对赌:gamble,坐庄:banker
-        'title': '赛事对赌竞猜测试',  # 竞猜标题
+        'title': '赛事竞猜测试',  # 竞猜标题
         'opt_type': 'normal',  # 选项类型 normal,normal_3,normal_4,normal_5,money_line,ball
         'opt_items': {
             1: '选项1',
@@ -46,7 +47,7 @@ def create(**kw):
         'note': '',  # ??
     }
     for key, value in kw.items():
-        data['key'] = value
+        data[key] = value
     post_data = Common.form_single_dict(data)
     ret = requests.post(ADMIN_URL + '/guessnew/create_save', data=post_data, cookies=ADMIN_COOKIES).text
     try:
@@ -81,19 +82,18 @@ def bet(uid, **kw):
             },
         }
     }
-
     for key, value in kw.items():
         data['bet'][0][key] = value
     post_data = Common.form_single_dict(data)
     res = requests.post(URL + '/guessnew/betMore', data=post_data, cookies=Common.generate_cookies(uid))
-    ret = requests.get(URL + '/crontab/doBetTask').text
-    logging.info('下注队列执行结果：{}'.format(ret))
     try:
         res = res.json()
         res_info = '用户{}下注：数据{}返回{}'.format(uid, data, res)
         logging.info(res_info)
     except ValueError:
         logging.info(res.text)
+    ret = requests.get(URL + '/crontab/doBetTask').text
+    logging.info('下注队列执行结果：{}'.format(ret))
 
 
 # 坐庄
@@ -104,21 +104,21 @@ def banker(uid, **kw):
         'coin_type': 'free_bean',  # 货币类型仙豆free_bean,猫豆cat_bean
         'punter': 'banker',  # bet:普通下注,'banker':坐庄, 'buyer':买庄
         'banker_odds': '',  # 赔率
-        'chose': {  # 下注选项
-            0: {'chose': 1, 'amount': 100},
-            1: {'chose': 1, 'amount': 100},
-        },
+        'chose': '',  # 坐庄选项
+        'amount': '',
     }
+    for key, value in kw.items():
+        data[key] = value
     post_data = Common.form_single_dict(data)
     res = requests.post(URL + '/guessnew/banker', data=post_data, cookies=Common.generate_cookies(uid))
     try:
         res = res.json()
-        res_info = '用户{}数据{}返回{}'.format(uid, data, res)
+        res_info = '用户{}坐庄数据\n{}返回{}\n'.format(uid, data, res)
         logging.info(res_info)
-        if data['punter'] == 'banker' and res['status'] == 'success':
+        if res['status'] == 'success':
             return res['data']['banker']['order_id']
     except ValueError:
-        logging.info(res.text)
+        logging.error(res.text)
 
 
 # 修改庄
@@ -167,7 +167,7 @@ def new_name_func(func, num, p):
     # if len(p.args) > 0 and isinstance(p.args[0], str):
     #     name_suffix += "_" + parameterized.to_safe_name(p.args[0])
     # return base_name + name_suffix
-    return func.__name__ + '_' + p.args[0]
+    return func.__name__ + '_' + str(num + 1)
 
 
 # 赛事竞猜,对冲竞猜
@@ -211,63 +211,52 @@ class TestGuessGamble(unittest.TestCase):
         logging.info('用例:' + name + '结束')
 
 
-banker_case_lists = []
-
-
 # 赛事竞猜,坐庄竞猜
 class TestGuessBanker(unittest.TestCase):
     @parameterized.expand(banker_case_lists, name_func=new_name_func)
-    def test(self, name, kw):
-        logging.info('用例:' + name + '开始')
-        # 开盘
-        period = create(guess_type='match', play_type='banker')
-        # 用户先循环坐庄再下注
-        punters = ['banker', 'buyer']
-        data = {}
-        for punter in punters:
-            for key, value in kw.items():
-                if value is not None and key in ['option_A', 'option_B']:
-                    for punter_type, users in value.items():
-                        if punter_type == punter:
-                            for user in users:
-                                for uid, amounts in user.items():
-                                    xd = Common.get_xd(uid)  # 获取仙豆
-                                    md = Common.get_money(uid)['bean']  # 获取猫豆
-                                    # 获取首次用户的货币信息,预期货币信息,第二次读取不更新
-                                    if not data.get(uid):
-                                        data[uid] = (xd, md, amounts[1])
-                                    if punter == 'banker':
-                                        bet(uid=uid, period=period, chose=key, coin_type='free_bean', amount=amounts[0], punter=punter,
-                                            banker_odds=amounts[2])
-                                        self.assertEqual(Common.get_xd(uid), xd - amounts[0], '仙豆未扣除')
-                                        bet(uid=uid, period=period, chose=key, coin_type='cat_bean', amount=amounts[0], punter=punter,
-                                            banker_odds=amounts[2])
-                                        self.assertEqual(Common.get_money(uid)['bean'], md - amounts[0], '猫豆未扣除')
-                                    elif punter == 'buyer' and len(amounts) == 3:
-                                        bet(uid=uid, period=period, chose=key, coin_type='free_bean', amount=amounts[0], punter=punter)
-                                        self.assertEqual(Common.get_xd(uid), xd - amounts[2], '仙豆未扣除')
-                                        bet(uid=uid, period=period, chose=key, coin_type='cat_bean', amount=amounts[0], punter=punter)
-                                        self.assertEqual(Common.get_money(uid)['bean'], md - amounts[2], '猫豆未扣除')
-                                    else:
-                                        bet(uid=uid, period=period, chose=key, coin_type='free_bean', amount=amounts[0], punter=punter)
-                                        self.assertEqual(Common.get_xd(uid), xd - amounts[0], '仙豆未扣除')
-                                        bet(uid=uid, period=period, chose=key, coin_type='cat_bean', amount=amounts[0], punter=punter)
-                                        self.assertEqual(Common.get_money(uid)['bean'], md - amounts[0], '猫豆未扣除')
-
-        # 结算
-        if 'A' in name:
-            option = 'option_A'
-        elif 'B' in name:
-            option = 'option_B'
-        elif 'L' in name:
-            option = 'loss'
-        else:
-            option = 'dogfall'
-        settlement(period=period, win_option=option)
-        # 验证结果
-        for uid, (xd, md, exp) in data.items():
-            self.assertEqual(Common.get_xd(uid), xd + exp, '仙豆结算错误{}'.format(uid))
-            self.assertEqual(Common.get_money(uid)['bean'], md + exp, '猫豆结算错误{}'.format(uid))
+    def test(self, *args):
+        for res in [1, 2, -1, -2]:
+            logging.info('用例:{}结算选项{}开始'.format(sys._getframe().f_code.co_name, res) + '*' * 80)
+            # 开盘
+            period = create(guess_type='match', play_type='banker')
+            # 下注
+            money_data = []
+            for data in args:
+                # 获取用户的货币信息,预期货币信息
+                uid = data['uid']
+                xd = Common.get_xd(uid)  # 获取仙豆
+                md = Common.get_money(uid)['bean']  # 获取猫豆
+                if res == 1:
+                    exp = data['ret'][0]
+                elif res == 2:
+                    exp = data['ret'][1]
+                else:
+                    exp = data['ret'][2]
+                money_data.append((uid, xd, md, exp))
+                # 首先坐庄
+                banker_data = data.get('banker')
+                if banker_data:
+                    for chose, amount in banker_data.items():
+                        banker(data['uid'], period=period, coin_type='free_bean', chose=chose, amount=amount[0], banker_odds=amount[1])
+                        banker(data['uid'], period=period, coin_type='cat_bean', chose=chose, amount=amount[0], banker_odds=amount[1])
+                # 下注
+                buyer_data = data.get('buyer')
+                if buyer_data:
+                    choses = {}
+                    for chose, amount in buyer_data.items():
+                        i = 0
+                        choses[i] = {'chose': chose, 'amount': amount}
+                        i = i + 1
+                        bet(data['uid'], period=period, coin_type='free_bean', punter='buyer', chose=choses)
+                        # self.assertEqual(Common.get_xd(uid), xd - amount, '仙豆未扣除')
+                        bet(data['uid'], period=period, coin_type='cat_bean', punter='buyer', chose=choses)
+                        # self.assertEqual(Common.get_money(uid)['bean'], md - amount, '猫豆未扣除')
+            # 结算
+            settlement(period=period, win_option=res)
+            # 验证结果
+            for uid, xd, md, exp in money_data:
+                self.assertEqual(Common.get_xd(uid), xd + exp, uid + '仙豆结算错误')
+                self.assertEqual(Common.get_money(uid)['bean'], md + exp, uid + '猫豆结算错误')
         logging.info('用例:' + name + '结束')
 
 
@@ -278,7 +267,7 @@ if __name__ == '__main__':
     # suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
     # 执行单个用例
     suite = unittest.TestSuite()
-    suite.addTest(TestGuessGamble('test_13'))
+    suite.addTest(TestGuessBanker('test_6'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
 
@@ -286,7 +275,7 @@ if __name__ == '__main__':
 
 
 
-# test_dir = './'
-# discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')
-# for i in discover:
-#     print(i)
+    # test_dir = './'
+    # discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')
+    # for i in discover:
+    #     print(i)
