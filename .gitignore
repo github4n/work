@@ -1,2 +1,3 @@
 *.py[doc]
 *.pp
+*workspace.xml
