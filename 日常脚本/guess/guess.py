@@ -215,8 +215,9 @@ class TestGuessGamble(unittest.TestCase):
 class TestGuessBanker(unittest.TestCase):
     @parameterized.expand(banker_case_lists, name_func=new_name_func)
     def test(self, *args):
+        name = self._testMethodName
         for res in [1, 2, -1, -2]:
-            logging.info('用例:{}结算选项{}开始'.format(sys._getframe().f_code.co_name, res) + '*' * 80)
+            logging.info('用例:{}结算选项{}开始'.format(name, res) + '*' * 80)
             # 开盘
             period = create(guess_type='match', play_type='banker')
             # 下注
@@ -234,30 +235,40 @@ class TestGuessBanker(unittest.TestCase):
                     exp = data['ret'][2]
                 money_data.append((uid, xd, md, exp))
                 # 首先坐庄
-                banker_data = data.get('banker')
-                if banker_data:
-                    for chose, amount in banker_data.items():
+                banker_data_list = data.get('banker')
+                if banker_data_list and isinstance(banker_data_list, list):
+                    for banker_data in banker_data_list:
+                        for chose, amount in banker_data.items():
+                            banker(data['uid'], period=period, coin_type='free_bean', chose=chose, amount=amount[0], banker_odds=amount[1])
+                            banker(data['uid'], period=period, coin_type='cat_bean', chose=chose, amount=amount[0], banker_odds=amount[1])
+                elif banker_data_list:
+                    for chose, amount in banker_data_list.items():
                         banker(data['uid'], period=period, coin_type='free_bean', chose=chose, amount=amount[0], banker_odds=amount[1])
                         banker(data['uid'], period=period, coin_type='cat_bean', chose=chose, amount=amount[0], banker_odds=amount[1])
                 # 下注
                 buyer_data = data.get('buyer')
                 if buyer_data:
                     choses = {}
-                    for chose, amount in buyer_data.items():
+                    for chose, amounts in buyer_data.items():
+                        if isinstance(amounts,list):
+                            amount = amounts[0]
+                            r_amount = amounts[1]
+                        else:
+                            r_amount = amount = amounts
                         i = 0
                         choses[i] = {'chose': chose, 'amount': amount}
                         i = i + 1
                         bet(data['uid'], period=period, coin_type='free_bean', punter='buyer', chose=choses)
-                        # self.assertEqual(Common.get_xd(uid), xd - amount, '仙豆未扣除')
+                        self.assertEqual(Common.get_xd(uid), xd - r_amount, uid + '仙豆未扣除')
                         bet(data['uid'], period=period, coin_type='cat_bean', punter='buyer', chose=choses)
-                        # self.assertEqual(Common.get_money(uid)['bean'], md - amount, '猫豆未扣除')
+                        self.assertEqual(Common.get_money(uid)['bean'], md - r_amount, uid + '猫豆未扣除')
             # 结算
             settlement(period=period, win_option=res)
             # 验证结果
             for uid, xd, md, exp in money_data:
                 self.assertEqual(Common.get_xd(uid), xd + exp, uid + '仙豆结算错误')
                 self.assertEqual(Common.get_money(uid)['bean'], md + exp, uid + '猫豆结算错误')
-        logging.info('用例:' + name + '结束')
+            logging.info('用例:{}结算选项{}结束'.format(name, res) + '*' * 80)
 
 
 if __name__ == '__main__':
@@ -267,13 +278,9 @@ if __name__ == '__main__':
     # suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
     # 执行单个用例
     suite = unittest.TestSuite()
-    suite.addTest(TestGuessBanker('test_6'))
+    suite.addTest(TestGuessBanker('test_20'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
-
-
-
-
 
     # test_dir = './'
     # discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')
