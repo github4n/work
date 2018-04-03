@@ -334,9 +334,11 @@ class Common():
             for cid in cids:
                 channel = HmChannel.select().where(HmChannel.room_number == cid).first()
                 if channel:
+                    HmChannel.update(is_live=stat).where(HmChannel.room_number == cid).execute()
                     uid = channel.uid
                     key = 'hm_channel_views:{}'.format(uid)
                     Common.REDIS_INST2.hset(key, 'is_live', stat)
+                    Common.REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_live', json.dumps(stat))
             return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
             return {'code': 101, 'status': False, 'msg': '修改失败'}

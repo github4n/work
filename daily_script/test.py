@@ -8,6 +8,10 @@ from  urllib import parse
 
 
 from common.common import Common
+Common.REDIS_INST2.hset('hm_channel_views:962', 'is_live', 1)
+ret = Common.REDIS_INST2.hgetall('hm_channel_views:962')
 
-ret = Common.update_stat(326981,1)
+
+
+
 print(ret)
