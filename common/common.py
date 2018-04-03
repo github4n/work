@@ -40,6 +40,7 @@ ADMIN_COOKIES_ONLINE = {'adminId': '7', 'adminAccount': 'lxy', 'adminNick': '%E6
 
 # redis配置
 REDIS_HOST = 'db.huomaotv.com.cn'
+REDIS_HOST2 = '10.10.23.12'
 REDIS_PORT = 6379
 LINUX_HOST = '10.10.23.14'
 # 数据库配置
@@ -77,6 +78,7 @@ REDIS_KEYS = {
 class Common():
     # redis连接
     REDIS_INST = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
+    REDIS_INST2 = redis.Redis(host=REDIS_HOST2, port=REDIS_PORT, db=0, decode_responses=True)
 
     def __init__(self, *args, **kwargs):
         pass
@@ -134,7 +136,7 @@ class Common():
         md5s = m.hexdigest()
         return md5s
 
-    #多层字典转单层form
+    # 多层字典转单层form
     @staticmethod
     def form_single_dict(data, key='', ret={}):
         if isinstance(data, dict):
@@ -298,7 +300,7 @@ class Common():
         if uid:
             # uid = str(uid)
             anchor_key = 'hm_channel_anchor_{}'.format(uid)
-            if Common.REDIS_INST.hget(anchor_key,'id'):
+            if Common.REDIS_INST.hget(anchor_key, 'id'):
                 return {'code': 1001, 'status': False, 'msg': '已是主播'}
             else:
                 Common.bd_sj(uid)
@@ -331,12 +333,10 @@ class Common():
             cids = cids.split(",")
             for cid in cids:
                 channel = HmChannel.select().where(HmChannel.room_number == cid).first()
-                cid = channel.id
-                if cid:
-                    data = {'is_live': stat,
-                            'cid': cid,
-                            }
-                    requests.get(URL + '/plugs/updateRoomLiveStat', params=data)
+                if channel:
+                    uid = channel.uid
+                    key = 'hm_channel_views:{}'.format(uid)
+                    Common.REDIS_INST2.hset(key, 'is_live', stat)
             return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
             return {'code': 101, 'status': False, 'msg': '修改失败'}
