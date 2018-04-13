@@ -7,11 +7,8 @@ import json
 from  urllib import parse
 
 
-from common.common import Common
-Common.REDIS_INST2.hset('hm_channel_views:962', 'is_live', 1)
-ret = Common.REDIS_INST2.hgetall('hm_channel_views:962')
-
-
-
-
-print(ret)
+# from common.common import Common
+# for n in range(1,30):
+#     username = 'testroom'+ str(10 + n)
+#     ret = Common.REDIS_INST.set('hm_user_name_redis_prefix:{}'.format(Common.md5(username)),5253+n)
+#     print(ret)

@@ -6,12 +6,12 @@ from common.common import Common
 import requests
 import random
 
-for i in range(100):
+for i in range(1):
     try:
-        cid = random.randint(20, 100)
+        cid = 14#random.randint(20, 100)
         t_count = random.randint(100, 200)
         uid = random.randint(7000,7100)
-        res = requests.get('http://lxy.new.huomaotv.com.cn/chatnew/sendGift',params=dict(cid=cid,gift=56,t_count=t_count),cookies=Common.generate_cookies(uid))
+        res = requests.get('http://lxy.new.huomaotv.com.cn/chatnew/sendGift',params=dict(cid=cid,gift=8,t_count=t_count),cookies=Common.generate_cookies(uid))
         print(res.json())
     except:
         print(666)

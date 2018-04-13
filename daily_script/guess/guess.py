@@ -35,7 +35,7 @@ def create(**kw):
     Calculation()
     data = {
         'guess_type': 'match',  # 竞猜类型,anchor:主播,match:赛事
-        'match_id_or_room_number': '4685',  # 比赛ID/房间号
+        'match_id_or_room_number': '3',  # 比赛ID/房间号
         'play_type': 'gamble',  # 竞猜玩法,对赌:gamble,坐庄:banker
         'title': '赛事竞猜测试',  # 竞猜标题
         'opt_type': 'normal',  # 选项类型 normal,normal_3,normal_4,normal_5,money_line,ball
@@ -173,28 +173,30 @@ def new_name_func(func, num, p):
 # 赛事竞猜,对冲竞猜
 class TestGuessGamble(unittest.TestCase):
     @parameterized.expand(gamble_case_lists, name_func=new_name_func)
-    def test(self, name, kw):
+    def test(self, *args):
+        name = self._testMethodName
         for res in [1, 2, -1, -2]:
             logging.info('用例:{}结算选项{}开始'.format(name, res) + '*' * 80)
             # 开盘
             period = create(guess_type='match', play_type='gamble')
             # 下注
-            data = []
-            for uid, value in kw.items():
+            money_data = []
+            for data in args:
                 # 获取用户的货币信息,预期货币信息
+                uid = data['uid']
                 xd = Common.get_xd(uid)  # 获取仙豆
                 md = Common.get_money(uid)['bean']  # 获取猫豆
                 if res == 1:
-                    exp = value['ret'][0]
+                    exp = data['ret'][0]
                 elif res == 2:
-                    exp = value['ret'][1]
+                    exp = data['ret'][1]
                 else:
-                    exp = value['ret'][2]
-                data.append((uid, xd, md, exp))
+                    exp = data['ret'][2]
+                money_data.append((uid, xd, md, exp))
                 # 计算用户下注
                 choses = {}
-                for chose, amount in value.items():
-                    if chose != 'ret':
+                for chose, amount in data.items():
+                    if chose != 'ret' and chose != 'uid':
                         i = 0
                         choses[i] = {'chose': chose, 'amount': amount}
                         i = i + 1
@@ -205,7 +207,7 @@ class TestGuessGamble(unittest.TestCase):
             # 结算
             settlement(period=period, win_option=res)
             # 验证结果
-            for uid, xd, md, exp in data:
+            for uid, xd, md, exp in money_data:
                 self.assertEqual(Common.get_xd(uid), xd + exp, uid + '仙豆结算错误')
                 self.assertEqual(Common.get_money(uid)['bean'], md + exp, uid + '猫豆结算错误')
         logging.info('用例:' + name + '结束')
@@ -250,7 +252,7 @@ class TestGuessBanker(unittest.TestCase):
                 if buyer_data:
                     choses = {}
                     for chose, amounts in buyer_data.items():
-                        if isinstance(amounts,list):
+                        if isinstance(amounts, list):
                             amount = amounts[0]
                             r_amount = amounts[1]
                         else:
@@ -278,7 +280,7 @@ if __name__ == '__main__':
     # suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
     # 执行单个用例
     suite = unittest.TestSuite()
-    suite.addTest(TestGuessBanker('test_20'))
+    suite.addTest(TestGuessGamble('test_13'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
 
