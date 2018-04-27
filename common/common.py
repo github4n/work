@@ -269,7 +269,7 @@ class Common():
             return ret
         # 创建uid
         uid = Uid().create().id
-        print(uid, Common.hash_table(uid))
+        # print(uid, Common.hash_table(uid))
         # 插入userbase表
         Userbase.create(uid=uid, name=username, email='', mobile='', openid='', weixin='', mobileareacode='')
         # 插入username表

@@ -11,9 +11,9 @@ from  urllib import parse
 
 url = 'http://lxy.new.huomaotv.com.cn/notifypay/ainongScanNotify'
 data = {
-    'merOrderId': 2018012515132315223989298,  # 商户订单号
+    'merOrderId': 20180425185251227991115134,  # 商户订单号
     'respCode': 1001,  # 交易状态
-    'txnAmt': 1000,  # 交易金额
+    'txnAmt': 5000,  # 交易金额 分
     'succTime': 0,  # 通知的发送时间
     'merId': 0  # 没有支付宝或者微信账号，只有我们的商户号
 }

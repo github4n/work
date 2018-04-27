@@ -15,9 +15,9 @@ url = 'http://lxy.new.huomaotv.com.cn/NotifyPayment/callbackNotify/tmall'
 data = {
     'Shop':'10001',
     'PorductId':'catCoin',
-    'Account':'15800091111',
-    'OrderNo':'20180320_126610424',
-    'Amount':'20000',
+    'Account':'15800022799',
+    'OrderNo':'20180320_9912',
+    'Amount':'3000',
     # 'Signature':'eb1eb83930e8e2ac0e37f0082f8a0b75'
 }
 

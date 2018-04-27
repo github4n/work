@@ -4,6 +4,9 @@
 # Author : lixingyun
 import time
 
+URL = 'http://qa.new.huomaotv.com.cn/'
+
+
 def CookieLogin(uid, driver):
     ts = str(int(time.time()))
     ts2 = str(int(time.time()) + 4320000)

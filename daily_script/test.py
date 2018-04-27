@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Date   : 2017/9/13 19:59
+# Date   : 2018/4/26 18:58
 # Author : lixingyun
-import sys
-import json
-from  urllib import parse
+# Description :
+import time
+import datetime
+
+now = datetime.datetime.now()
+today = datetime.date.today()
+start_time = datetime.datetime(today.year, today.month, today.day, 23, 55, 0, 0)
+end_time = datetime.datetime(today.year, today.month, today.day, 0, 5, 0, 0)
+
+if now >= start_time or now <= end_time:
+    print(start_time, end_time)
 
 
-# from common.common import Common
-# for n in range(1,30):
-#     username = 'testroom'+ str(10 + n)
-#     ret = Common.REDIS_INST.set('hm_user_name_redis_prefix:{}'.format(Common.md5(username)),5253+n)
-#     print(ret)

@@ -42,28 +42,3 @@ class chat(unittest.TestCase):
         except:
             self.verificationErrors.insert(0, "错误")
 
-    # 异常弹框处理
-    def is_alert_present(self):
-        try:
-            self.driver.switch_to_alert()
-        except NoAlertPresentException:
-            return False
-        return True
-
-    # 关闭警告以及对得到文本框的处理
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally:
-            self.accept_next_alert = True
-
-    # 清理结果
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
