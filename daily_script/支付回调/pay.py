@@ -151,4 +151,4 @@ def tmallpay(trade_id, money):
     print(res.json())
 
 
-tmallpay(2018042815583115222828175, 3000)
+alipay(2018042815583115222828175, 3000)
