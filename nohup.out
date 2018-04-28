@@ -1198,3 +1198,85 @@ Not Found: /favicon.ico
 [27/Apr/2018 02:36:35] "GET /static/js/client.js HTTP/1.0" 200 5634
 Not Found: /favicon.ico
 [27/Apr/2018 02:36:35] "GET /favicon.ico HTTP/1.0" 404 2543
+[28/Apr/2018 02:07:24] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:24] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:24] "GET / HTTP/1.0" 200 8633
+Not Found: /favicon.ico
+[28/Apr/2018 02:07:24] "GET /favicon.ico HTTP/1.0" 404 2543
+[28/Apr/2018 02:07:25] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:25] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:25] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:25] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:26] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:26] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:26] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:26] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:30] "GET / HTTP/1.0" 200 8633
+[28/Apr/2018 02:07:30] "GET /static/css/bootstrap.css HTTP/1.0" 200 121220
+[28/Apr/2018 02:07:30] "GET /static/js/lucky.js HTTP/1.0" 200 1795
+[28/Apr/2018 02:07:30] "GET /static/js/bootstrap.min.js HTTP/1.0" 200 29110
+[28/Apr/2018 02:07:30] "GET /static/js/jquery-1.10.2.min.js HTTP/1.0" 200 93107
+[28/Apr/2018 02:07:30] "GET /static/js/client.js HTTP/1.0" 200 5634
+Not Found: /favicon.ico
+[28/Apr/2018 02:07:30] "GET /favicon.ico HTTP/1.0" 404 2543
+[28/Apr/2018 02:11:35] "POST /new_web/set_money HTTP/1.0" 200 23
+[28/Apr/2018 03:02:05] "POST /new_web/set_money HTTP/1.0" 200 23
+[28/Apr/2018 03:21:15] "GET / HTTP/1.0" 200 8633
+Internal Server Error: /new_web/set_money
+Traceback (most recent call last):
+  File "/usr/local/python3/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/python3/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lxy/share/django/project/app/views.py", line 18, in new_web
+    return eval(method)(request)
+  File "/home/lxy/share/django/project/app/views.py", line 34, in set_money
+    common.set_money(uid, coin, bean)
+  File "/home/lxy/share/common/common.py", line 199, in set_money
+    money = Money.select().where(Money.uid == uid).first()
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1451, in inner
+    return method(self, database, *args, **kwargs)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1691, in first
+    return self.peek(database, n=n)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1451, in inner
+    return method(self, database, *args, **kwargs)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1682, in peek
+    rows = self.execute(database)[:n]
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1451, in inner
+    return method(self, database, *args, **kwargs)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1522, in execute
+    return self._execute(database)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1676, in _execute
+    cursor = database.execute(self)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 2504, in execute
+    sql, params = ctx.sql(query).query()
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 523, in sql
+    return obj.__sql__(self)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1883, in __sql__
+    ctx.literal(' WHERE ').sql(self._where)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 523, in sql
+    return obj.__sql__(self)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1174, in __sql__
+    .sql(self.rhs))
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 527, in sql
+    return self.sql(Value(obj))
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 523, in sql
+    return obj.__sql__(self)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 1097, in __sql__
+    .value(self.value, self.converter))
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 537, in value
+    value = converter(value)
+  File "/usr/local/python3/lib/python3.6/site-packages/peewee.py", line 3616, in db_value
+    return value if value is None else self.coerce(value)
+ValueError: invalid literal for int() with base 10: 'testgmae10'
+[28/Apr/2018 03:21:18] "POST /new_web/set_money HTTP/1.0" 500 16660
+[28/Apr/2018 03:21:21] "POST /new_web/find_uid HTTP/1.0" 200 43
+[28/Apr/2018 03:21:24] "POST /new_web/set_money HTTP/1.0" 200 23
+[28/Apr/2018 05:44:17] "GET / HTTP/1.0" 200 8633
+Not Found: /favicon.ico
+[28/Apr/2018 05:44:17] "GET /favicon.ico HTTP/1.0" 404 2543
+[28/Apr/2018 05:44:22] "POST /new_web/set_money HTTP/1.0" 200 23
+Not Found: /favicon.ico
+[28/Apr/2018 08:15:31] "GET /favicon.ico HTTP/1.0" 404 2543
