@@ -245,9 +245,13 @@ class Common():
             Common.REDIS_INST.hset(key, 'mobileareacode', mobileareacode)
             key_mobile = 'hm_user_mobile_prefix:{}_{}'.format(mobileareacode, mobile)
             Common.REDIS_INST.set(key_mobile, uid)
-            return {'code': 100, 'status': True, 'msg': '绑定手机号成功'}
+            return {'code': 100, 'status': True, 'msg': '绑定手机号成功','mobile':mobile}
         except:
             return {'code': 1001, 'status': True, 'msg': '绑定手机号失败'}
+
+    @staticmethod
+    def add_mobile_yzm(mobile, yzm=123456):
+        Common.REDIS_INST.set('hm_plugs_mobile_post_{}'.format(mobile), yzm, 1800)
 
     # 注册用户返回uid,或登录返回uid
     @staticmethod

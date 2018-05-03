@@ -130,3 +130,16 @@ users = [
 for i in range(22682,22792):
     Common.set_money(i, 0, 1000000)
     Common.set_xd(i, 1000000)
+
+
+
+# for i in range(101):
+#     name = 'tuyu' + str(i)
+#     try:
+#         uid = Common.register(name)['uid']
+#         print(uid)
+#         Common.bd_sj(uid)
+#         Common.set_money(uid,999999,999999)
+#         Common.set_xd(uid, 99999999)
+#     except  Exception:
+#         print(Exception)
