@@ -4,7 +4,7 @@
 # @Author  : lixingyun
 
 import requests
-from common.common import Common
+from huomao.common import Common
 import time
 import gevent
 from gevent import monkey

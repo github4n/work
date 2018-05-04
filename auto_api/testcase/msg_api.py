@@ -10,7 +10,7 @@ import json
 
 sys.path.append('../')
 from lib import assert_res
-from common.common import Common
+from huomao.common import Common
 from config import superuid
 
 '''数据准备'''

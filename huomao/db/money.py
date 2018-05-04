@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 # Date   : 2017/9/14 12:15
 # Author : lixingyun
-import sys
-sys.path.append('..')
 from peewee import *
-from common.db.config import DB_CONFIG
+from .config import DB_CONFIG
 
 database = MySQLDatabase('hm_money', **DB_CONFIG)
 

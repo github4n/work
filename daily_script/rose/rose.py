@@ -9,7 +9,7 @@ from gevent import monkey
 import gevent
 import time
 import logging
-from common.common import Common
+from huomao.common import Common
 monkey.patch_all()
 DOMAIN = 'http://lxy.dev.rose.live'
 

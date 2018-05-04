@@ -9,8 +9,8 @@ import configparser
 import os
 
 sys.path.append('..')
-from common.common import Common
-from common.selenium import URL, CookieLogin
+from huomao.common import Common
+from huomao.selenium import URL, CookieLogin
 
 
 class ChatRoom(unittest.TestCase):

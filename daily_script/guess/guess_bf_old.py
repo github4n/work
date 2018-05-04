@@ -11,7 +11,7 @@ import json
 import sys
 from  urllib import parse
 sys.path.append('../')
-from common.common import Common
+from huomao.common import Common
 
 common = Common()
 
@@ -97,7 +97,7 @@ def bet(cid, zzuid, xzuid, order_id):
             'bet_index': '3',
             'order_flag': 'false'}  # 选项序号
     # print(parse.urlencode(data))
-    # res = requests.get(url + '/Guess/bet', params=data, cookies=common.generate_cookies(xzuid))
+    # res = requests.get(url + '/Guess/bet', params=data, cookies=huomao.generate_cookies(xzuid))
     s.get('http://qa.new.huomaotv.com.cn/plugs/getCacheTime')
     # print('下注****************:{}'.format(res.json()))
 

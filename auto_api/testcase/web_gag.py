@@ -7,7 +7,7 @@ import sys
 
 sys.path.append('../')
 from lib import *
-from common.common import Common
+from huomao.common import Common
 from config import super_uid
 
 # Common.generate_room('gag', 3)

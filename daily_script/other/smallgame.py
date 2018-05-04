@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 sys.path.append('../..')
-from common.common import Common
+from huomao.common import Common
 import requests
 import random
 import time

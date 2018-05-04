@@ -7,7 +7,7 @@ import requests
 import json
 from  urllib import parse
 
-from common.common import Common
+from huomao.common import Common
 
 data = {'is_opened': 1,
         'open_time': 1524041486,

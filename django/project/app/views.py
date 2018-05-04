@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import StreamingHttpResponse, HttpResponse, JsonResponse
-# import sys
-# sys.path.append('/home/lxy/share/common')
-from common.common import Common
-common = Common()
+from huomao.common import Common
+from huomao.user import User
+from huomao.channel import Channel
+from huomao.money import MoneyClass
 
+user = User()
+channel = Channel()
+money = MoneyClass()
 
 def api_test(request):
     return render(request, 'api_test.html')
@@ -20,7 +23,7 @@ def new_web(request, method=''):
 
 def find_uid(request):
     name = request.POST.get('name')
-    res = common.find_uid(name)
+    res = user.find_uid(name)
     return JsonResponse(res)
 
 
@@ -30,61 +33,61 @@ def set_money(request):
         xd = request.POST.get('xd')
         coin = request.POST.get('coin')
         bean = request.POST.get('bean')
-        common.set_xd(uid, xd)
-        common.set_money(uid, coin, bean)
+        money.set_xd(uid, xd)
+        money.set_money(uid, coin, bean)
         return JsonResponse({'msg': '成功'})
     else:
         return JsonResponse({'msg': '失败'})
 
 def bd_sj(request):
     uid = request.POST.get('uid')
-    res = common.bd_sj(uid)
+    res = user.bd_sj(uid)
     return JsonResponse(res)
 
 
 def register(request):
     name = request.POST.get('name_zc')
-    res = common.register(name)
+    res = user.register(name)
     return JsonResponse(res)
 
 
 def sq_zb(request):
     uid = request.POST.get('uid')
-    res = common.sq_zb(uid)
+    res = user.sq_zb(uid)
     return JsonResponse(res)
 
 
 def update_stream(request):
     room_xs = request.POST.get('room_xs')
     room_xx = request.POST.get('room_xx')
-    res = common.update_stream(room_xs, room_xx)
+    res = channel.update_stream(room_xs, room_xx)
     return JsonResponse(res)
 
 
 def update_stat(request):
     cids = request.POST.get('rooms')
     stat = request.POST.get('status')
-    res = common.update_stat(cids, stat)
+    res = channel.update_stat(cids, stat)
     return JsonResponse(res)
 
 
 def update_roomlx(request):
     room_number = request.POST.get('room_number')
     status = request.POST.get('status')
-    res = common.update_roomlx(room_number, status)
+    res = channel.update_roomlx(room_number, status)
     return JsonResponse(res)
 
 
 def init_fans(request):
     uid = request.POST.get('uid')
-    res = common.init_fans(uid)
+    res = Common.init_fans(uid)
     return JsonResponse(res)
 
 
 def update_password(request):
     uid = request.POST.get('uid')
     password = request.POST.get('password')
-    res = common.update_password(uid, password)
+    res = user.update_password(uid, password)
     return JsonResponse(res)
 
 
@@ -118,7 +121,7 @@ def set_cookies(request):
     #     cid = request.POST.get('cid_fy')
     #     data = request.POST.get('data_fy')
     #     uid = request.POST.get('uid_fy')
-    #     if common.phone_fy(cid, data, uid):
+    #     if Common.phone_fy(cid, data, uid):
     #         return {'msg': '成功'}
     #     else:
     #         return {'msg': '失败'}
@@ -131,7 +134,7 @@ def set_cookies(request):
     #     pos = request.POST.get('pos')
     #     gift = request.POST.get('giftid')
     #     print((cid, uid, t_count, pos, gift))
-    #     if common.phone_sl(cid, uid, t_count, pos, gift):
+    #     if Common.phone_sl(cid, uid, t_count, pos, gift):
     #         return {'msg': '成功'}
     #     else:
     #         return {'msg': '失败'}
@@ -140,7 +143,7 @@ def set_cookies(request):
     # def phone_sd(request):
     #     cid = request.POST.get('cid_sd')
     #     uid = request.POST.get('uid_sd')
-    #     if common.phone_sd(cid, uid):
+    #     if Common.phone_sd(cid, uid):
     #         return {'msg': '成功'}
     #     else:
     #         return {'msg': '失败'}

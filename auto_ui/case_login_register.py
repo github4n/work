@@ -9,8 +9,8 @@ import configparser
 import os
 
 sys.path.append('..')
-from common.common import Common
-from common.selenium import URL
+from huomao.common import Common
+from huomao.selenium import URL
 
 
 class LoginRegister(unittest.TestCase):

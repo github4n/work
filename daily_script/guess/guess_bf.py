@@ -3,7 +3,7 @@
 # Date   : 2018/1/2 10:05
 # Author : lixingyun
 from guess import create, bet, update_status, settlement, change_banker
-from common.common import Common
+from huomao.common import Common
 import gevent
 from gevent import monkey
 import random

@@ -11,7 +11,7 @@ import time
 import logging
 import sys
 from guess_case import gamble_case_lists, banker_case_lists
-from common.common import Common
+from huomao.common import Common
 from urllib import parse
 import json
 
@@ -38,13 +38,13 @@ def create(**kw):
         'match_id_or_room_number': '3',  # 比赛ID/房间号
         'play_type': 'gamble',  # 竞猜玩法,对赌:gamble,坐庄:banker
         'title': '赛事竞猜测试',  # 竞猜标题
-        'opt_type': 'normal',  # 选项类型 normal,normal_3,normal_4,normal_5,money_line,ball
+        'opt_type': '200001',  # 选项类型
         'opt_items': {
             1: '选项1',
             2: '选项2'
         },
         'expire': str(int(time.time())),  # 竞猜封盘时间
-        'note': '',  # ??
+        'note': 'test' + str(int(time.time())),  # ??
     }
     for key, value in kw.items():
         data[key] = value
@@ -72,12 +72,12 @@ def bet(uid, **kw):
         'bet': {
             0: {
                 'period': '111111',  # 期号
-                'opt_type': 'normal',  # 选项类型 normal,normal_3,normal_4,normal_5,money_line,ball
+                'opt_type': '200001',  # 选项类型
                 'coin_type': 'free_bean',  # 货币类型仙豆free_bean,猫豆cat_bean
                 'punter': 'bet',  # bet:普通下注,'banker':坐庄, 'buyer':买庄
                 'chose': {  # 下注选项
-                    0: {'chose': 1, 'amount': 100},
-                    1: {'chose': 1, 'amount': 100},
+                    0: {'chose': 1, 'amount': 100, 'now_odds': 0},
+                    1: {'chose': 1, 'amount': 100, 'now_odds': 0},
                 },
             },
         }
@@ -94,7 +94,7 @@ def bet(uid, **kw):
         logging.info(res.text)
     ret = requests.get(URL + '/crontab/doBetTask').text
     logging.info('下注队列执行结果：{}'.format(ret))
-
+    time.sleep(2)
 
 # 坐庄
 def banker(uid, **kw):
@@ -106,6 +106,7 @@ def banker(uid, **kw):
         'banker_odds': '',  # 赔率
         'chose': '',  # 坐庄选项
         'amount': '',
+        'third_id': 0,
     }
     for key, value in kw.items():
         data[key] = value
@@ -154,9 +155,9 @@ def settlement(**kw):
 def Calculation():
     try:
         res1 = requests.get(URL + '/crontab/guessNewCalculation')
-        # logging.info('结算 - 计算' + res1.text)
+        logging.info('结算 - 计算' + res1.text)
         res2 = requests.get(URL + '/crontab/guessNewSettlement')
-        # logging.info('结算 - 结算' + res2.text)
+        logging.info('结算 - 结算' + res2.text)
     except:
         logging.info('结算超时')
 
@@ -252,13 +253,11 @@ class TestGuessBanker(unittest.TestCase):
                 if buyer_data:
                     choses = {}
                     for chose, amounts in buyer_data.items():
-                        if isinstance(amounts, list):
-                            amount = amounts[0]
-                            r_amount = amounts[1]
-                        else:
-                            r_amount = amount = amounts
+                        amount = amounts[0]
+                        now_odds = amounts[1]
+                        r_amount = amounts[2] if len(amounts) == 3 else amount
                         i = 0
-                        choses[i] = {'chose': chose, 'amount': amount}
+                        choses[i] = {'chose': chose, 'amount': amount, 'now_odds': now_odds}
                         i = i + 1
                         bet(data['uid'], period=period, coin_type='free_bean', punter='buyer', chose=choses)
                         self.assertEqual(Common.get_xd(uid), xd - r_amount, uid + '仙豆未扣除')
@@ -277,10 +276,10 @@ if __name__ == '__main__':
     # 执行文件下所有用例
     # unittest.main()
     # 执行指定类下的所有用例
-    # suite = unittest.TestSuite(unittest.makeSuite(TestGuessGamble))
+    # suite = unittest.TestSuite(unittest.makeSuite(TestGuessBanker))
     # 执行单个用例
     suite = unittest.TestSuite()
-    suite.addTest(TestGuessGamble('test_13'))
+    suite.addTest(TestGuessBanker('test_19'))
     runner = unittest.TextTestRunner()
     runner.run(suite)
 

@@ -3,7 +3,7 @@
 # Date   : 2018/4/20 15:52
 # Author : lixingyun
 # Description :
-from common.common import Common
+from huomao.common import Common
 
 users = [
     'xiawei',

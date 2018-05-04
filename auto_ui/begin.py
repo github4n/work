@@ -6,15 +6,14 @@ import os
 
 if __name__ == "__main__":
     # 用例目录
-    filepath = os.getcwd()
-    listcase = filepath + r'\testcase'
+    listcase = os.getcwd()
 
     def creatsuitel():
         testunit = unittest.TestSuite()
         # discover 方法,加载目录下testcase
         discover = unittest.defaultTestLoader.discover(
             listcase,
-            pattern='case2*.py',
+            pattern='case*.py',
             top_level_dir=None
         )
         # discover 方法筛选出来的用例，循环添加到测试套件中
@@ -30,7 +29,7 @@ if __name__ == "__main__":
     # 取当前时间
     now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
     # 定义个报告存放路径，支持相对路径
-    filename = filepath + '\\result\\' + now + 'result.html'
+    filename = listcase + '\\' + now + 'result.html'
     fp = open(filename, "wb")
 
     # 定义测试报告

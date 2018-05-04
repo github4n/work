@@ -9,7 +9,7 @@ import json
 
 sys.path.append('../')
 from lib import assert_res, cmp_dict
-from common.common import Common
+from huomao.common import Common
 
 '''数据准备'''
 # Common.generate_room('ra', 6)

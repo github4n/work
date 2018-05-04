@@ -14,7 +14,7 @@ import HTMLTestRunner
 import time
 import gevent
 from gevent import monkey
-from common.common import Common
+from huomao.common import Common
 
 monkey.patch_all()
 

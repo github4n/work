@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Date   : 2018/1/30 11:09
 # Author : lixingyun
-# from common.common import Common
+# from huomao.huomao import Common
 #
 #
 # keys = Common.REDIS_INST.keys('*hm_EVERYDAYRECHARGE*')
