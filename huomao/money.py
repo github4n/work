@@ -4,9 +4,9 @@
 # Author : lixingyun
 # Description :
 import redis
-from .db.money import Money, MoneyPay, MoneyChannelIncome
+from .db.money import Money
 from .common import REDIS_INST
-
+import time
 
 class MoneyClass():
     # 设置仙豆
@@ -30,7 +30,7 @@ class MoneyClass():
         if money:
             return Money.update(coin=coin, bean=bean).where(Money.uid == uid).execute()
         else:
-            return Money.create(uid=uid, coin=coin, bean=bean, ts=timestamp)
+            return Money.create(uid=uid, coin=coin, bean=bean, ts=str(int(time.time())))
 
     # 获取用户余额
     @staticmethod

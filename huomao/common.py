@@ -279,11 +279,10 @@ class Common():
         subscribe_data['subsList'] = data
         Common.REDIS_INST.set(key, json.dumps(subscribe_data))
 
-    def try_json(data):
+    @staticmethod
+    def is_json(data):
         try:
-            res = json.loads(data)
-            print(res)
-            return res
+            json.loads(data)
+            return True
         except ValueError:
-            print(data)
-            return data
+            return False
