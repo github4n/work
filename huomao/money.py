@@ -5,8 +5,10 @@
 # Description :
 import redis
 from .db.money import Money
+from .db.noble_coin import NobleCoin
 from .common import REDIS_INST
 import time
+
 
 class MoneyClass():
     # 设置仙豆
@@ -32,8 +34,32 @@ class MoneyClass():
         else:
             return Money.create(uid=uid, coin=coin, bean=bean, ts=str(int(time.time())))
 
+    # 设置用户贵族猫币
+    @staticmethod
+    def set_noble_coin(uid, noble_coin=0, ts=str(int(time.time()))):
+        noble_coin = noble_coin if noble_coin else 0
+        noble = NobleCoin.select().where(NobleCoin.uid == uid).first()
+        # 判断用户是否存在记录，存在则修改，否则插入数据
+        if noble:
+            return NobleCoin.update(coin=noble_coin, ts=ts).where(NobleCoin.uid == uid).execute()
+        else:
+            return NobleCoin.create(uid=uid, coin=noble_coin, ts=ts)
+
     # 获取用户余额
     @staticmethod
     def get_money(uid):
         money = Money.select().where(Money.uid == uid).first()
         return {'coin': money.coin, 'bean': money.bean}
+
+    # 获取用户贵族余额
+    @staticmethod
+    def get_noble_coin(uid):
+        noble = NobleCoin.select().where(NobleCoin.uid == uid).first()
+        return noble.coin if noble else 0
+
+    # 获取用户猫币，贵族猫币
+    @staticmethod
+    def get_coin(uid):
+        noble = NobleCoin.select().where(NobleCoin.uid == uid).first()
+        money = Money.select().where(Money.uid == uid).first()
+        return (money.coin, noble.coin)

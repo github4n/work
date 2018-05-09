@@ -3,19 +3,14 @@
 # @Date    : 2017-07-24 16:37:48
 # @Author  : lixingyun
 
-import requests
-from  urllib import parse
 import json
-import xlsxwriter
-from config import domain_web,domain_api, interface,report_data
 import logging
-import unittest
-import HTMLTestRunner
-import time
-import gevent
+from  urllib import parse
+import requests
+import xlsxwriter
 from gevent import monkey
 from huomao.common import Common
-
+from .config import domain_web, domain_api, report_data
 monkey.patch_all()
 
 
@@ -230,27 +225,6 @@ def generate_report():
     workbook.close()
 
 
-def run_case(pattern='*.py'):
-    test_dir = './testcase'
-    filename = './result/{}result.html'.format(int(time.time()))
-    fp = open(filename, "wb")
-    discover = unittest.defaultTestLoader.discover(test_dir, pattern=pattern)
-    # 定义测试报告
-    runner = HTMLTestRunner.HTMLTestRunner(stream=fp)
-    # 运行测试用例
-    runner.run(discover)
-    # 普通报告
-    # runner = unittest.TextTestRunner()
-    # runner.run(discover)
-    # 协程执行
-    # events = []
-    # for testsuites in discover:
-    #     for testsuite in testsuites:
-    #         for test in testsuite:
-    #             events.append(gevent.spawn(runner.run, test))
-    # gevent.joinall(events)
-    # if report:
-    #     generate_report()
 
 
 def name_func_new(func, num, p):

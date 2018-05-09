@@ -8,16 +8,10 @@
 3.未判断守护用户
 4.
 '''
-import unittest
-import sys
 import time
-import json
+import unittest
 
-sys.path.append('../')
-from lib import *
 from huomao.common import Common
-
-# from config import *
 
 '''数据准备'''
 # Common.generate_room('gift', 1)
@@ -71,7 +65,7 @@ class TestGift(unittest.TestCase):
         self.url = '/chatnew/sendGift'
         self.method = 'get'
         # 默认报错信息
-        self.info = ''
+        # self.info = ''
         # 默认登录用户
         self.user = ''
         # 默认请求数据

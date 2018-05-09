@@ -205,11 +205,7 @@ class Common():
             Common.REDIS_INST.delete('hm_gag_channel_{}'.format(cid))
         return 0
 
-    # 获取经验值
-    @staticmethod
-    def get_experience(uid):
-        u = Userbase.select().where(Userbase.uid == uid).first()
-        return u.get_experience, u.anchor_experience
+
 
     # 获取送礼记录
     @staticmethod

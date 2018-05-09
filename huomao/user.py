@@ -4,13 +4,18 @@
 # Author : lixingyun
 # Description :
 import json
+import configparser
+import os
 import time
 import requests
+import logging
 from lxml import etree
 from .db.user import Userbase, Userinfo, Mobile, UserName, Uid
 from .common import REDIS_INST, Common
-from .config import URL,ADMIN_URL,ADMIN_COOKIES
+from .config import URL, ADMIN_URL, ADMIN_COOKIES
 from .db.contents import HmChannel
+from .db.noble import HmNobleRecord
+
 
 class User():
     # 查找UID
@@ -22,7 +27,7 @@ class User():
             return {'code': 101, 'status': False, 'msg': '没找到'}
 
     # 注册用户返回uid,或登录返回uid
-    def register(self,username):
+    def register(self, username):
         # 默认密码1
         password = Common.md5('1')
         img = ''
@@ -57,6 +62,24 @@ class User():
             data[key] = json.dumps(value)
         REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
         return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
+
+    # 按序注册用户返回uid
+    def reg(self):
+        # 获取文件的当前路径（绝对路径）
+        cur_path = os.path.dirname(os.path.realpath(__file__))
+        # 获取config.ini的路径
+        config_path = os.path.join(cur_path, 'user.ini')
+        conf = configparser.ConfigParser()
+        # 读取配置
+        conf.read(config_path)
+        number = conf.get('user', 'number')
+        # 设置配置
+        conf.set('user', 'number', str(int(number) + 1))
+        # 写入配置
+        with open(config_path, 'w') as fw:
+            conf.write(fw)
+        fw.close()
+        return self.register('t1stnoble' + number)['uid']
 
     # 申请直播并通过
     def sq_zb(self, uid):
@@ -124,3 +147,30 @@ class User():
         data['nickname'] = nick_name
         REDIS_INST.set('hm_' + uid, json.dumps(data))
         return {'code': 100, 'status': True, 'msg': '成功'}
+
+    # 获取经验值
+    @staticmethod
+    def get_experience(uid):
+        u = Userbase.select().where(Userbase.uid == uid).first()
+        return u.get_experience, u.anchor_experience
+
+    # 开通贵族
+    @staticmethod
+    def create_noble(uid, **kw):
+        data = dict(level=1, cid=2, month=1, type=1, to_uid='')
+        for key, value in kw.items():
+            data[key] = value
+        ret = requests.get(URL + '/noble/createNoble', params=data, cookies=Common.generate_cookies(uid)).json()
+        logging.info(ret)
+        return ret
+
+    # 查询开通贵族收益
+    @staticmethod
+    def find_noble_anchor_profit(uid, pay_money=0):
+        if pay_money == 0:
+            u = HmNobleRecord.select().where((HmNobleRecord.uid == uid) & (HmNobleRecord.open_type == 1)).first()
+            return float(u.anchor_profit) if u else 0
+        else:
+            u = HmNobleRecord.select().where(
+                (HmNobleRecord.uid == uid) & (HmNobleRecord.pay_money == pay_money) & (HmNobleRecord.open_type == 1)).first()
+            return float(u.anchor_profit) if u else 0

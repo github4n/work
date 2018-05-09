@@ -3,7 +3,7 @@
 # Date   : 2018/4/20 15:52
 # Author : lixingyun
 # Description :
-from huomao.common import Common
+from huomao.money import MoneyClass
 
 users = [
     'xiawei',
@@ -128,8 +128,8 @@ users = [
 #         print(Exception)
 
 for i in range(22682,22792):
-    Common.set_money(i, 0, 1000000)
-    Common.set_xd(i, 1000000)
+    MoneyClass.set_money(i, 0, 10000)
+    MoneyClass.set_xd(i, 10000)
 
 
 

@@ -10,7 +10,7 @@ import requests
 import time
 import logging
 import sys
-from guess_case import gamble_case_lists, banker_case_lists
+from .guess_case import gamble_case_lists, banker_case_lists
 from huomao.common import Common
 from huomao.money import MoneyClass
 from urllib import parse

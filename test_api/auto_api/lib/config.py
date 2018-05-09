@@ -21,10 +21,10 @@ super_uid = '1870709'
 # domain = 'https://www.huomao.com/'
 # 测试用例路径
 # if platform.system() == 'Linux':
-#     case_file = os.path.dirname(os.path.abspath(__file__)) + '/testcase.xlsx'
+#     case_file = os.path.dirname(os.path.abspath(__file__)) + '/test_case.xlsx'
 # else:
-#     case_file = os.path.dirname(os.path.abspath(__file__)) + '\\testcase.xlsx'
-case_file = 'testcase.xlsx'
+#     case_file = os.path.dirname(os.path.abspath(__file__)) + '\\test_case.xlsx'
+case_file = 'test_case.xlsx'
 # 测试报告数据
 report_data = {'report_res': [],
                'test_sum': 0,
