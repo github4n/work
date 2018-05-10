@@ -174,3 +174,16 @@ class User():
             u = HmNobleRecord.select().where(
                 (HmNobleRecord.uid == uid) & (HmNobleRecord.pay_money == pay_money) & (HmNobleRecord.open_type == 1)).first()
             return float(u.anchor_profit) if u else 0
+
+    # 设置贵族有效期
+    @staticmethod
+    def set_noble_expire(uid, _type='protect'):
+        if _type == 'protect':
+            day = 40
+        else:
+            day = 50
+        key = 'hm_noble:cache:{}'.format(uid)
+        ret = REDIS_INST.get(key)
+        data = json.loads(ret)
+        data['end_time'] = data['end_time'] - day * 24 * 60 * 60
+        REDIS_INST.set(key, json.dumps(data))

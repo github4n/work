@@ -8,7 +8,9 @@ from websocket import create_connection
 import struct
 import threading
 
-ws = create_connection("ws://gate-61.huomao.com:8090/sub")
+# url = "ws://gate-61.huomao.com:8090/sub"
+url = 'ws://gate.huomaotv.com.cn:8090/sub'
+ws = create_connection(url)
 
 
 rawHeaderLen = 16
@@ -18,7 +20,7 @@ verOffset = 6
 opOffset = 8
 seqOffset = 12
 
-tokenBody = {"Uid": 0, "Rid": 1}
+tokenBody = {"Uid": 0, "Rid": 2}
 token = bytes(json.dumps(tokenBody).encode())
 token_len = len(token)
 
@@ -57,7 +59,7 @@ while True:
         #     if data.get('body'):
         #         if data['body']['msg_type'] != 'MiniGame':
         #             print(data['body']['msg_content']['content'])
-        print(msg)
+        print(data)
 
 
 

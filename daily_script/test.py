@@ -9,5 +9,5 @@ from huomao.user import User
 # uid = Money.set_xd(1522,1)
 # print(uid)
 #
-profit = User.find_noble_anchor_profit(22983)
+profit = User.set_noble_expire(22968)
 print(profit)

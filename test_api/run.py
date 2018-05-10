@@ -7,7 +7,7 @@ from auto_api.test_case.web_noble import TestNoble
 
 
 suite = unittest.TestSuite()
-suite.addTest(TestNoble('test_2_1'))
+suite.addTest(TestNoble('test_4_1'))
 runner = unittest.TextTestRunner()
 runner.run(suite)
 
