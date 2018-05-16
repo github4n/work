@@ -4,10 +4,15 @@
 # Author : lixingyun
 # Description :
 import redis
+import time
 from .db.money import Money
 from .db.noble_coin import NobleCoin
 from .common import REDIS_INST
-import time
+from .db.money import MoneyPay, MoneyChannelIncome
+from .config import mon_last_time,mon_first_time
+import logging
+logger = logging.getLogger('peewee')
+logger.setLevel(logging.INFO)
 
 
 class MoneyClass():
@@ -63,3 +68,24 @@ class MoneyClass():
         noble = NobleCoin.select().where(NobleCoin.uid == uid).first()
         money = Money.select().where(Money.uid == uid).first()
         return (money.coin, noble.coin)
+
+    # 获取送礼记录
+    @staticmethod
+    def get_money_pay(uid, cid):
+        count = MoneyPay.select().where((MoneyPay.uid == uid) & (MoneyPay.other_cid == cid) & (MoneyPay.ts < mon_last_time)& (MoneyPay.ts > mon_first_time)).count()
+        return count
+
+    # 获取收礼记录
+    @staticmethod
+    def money_income(type, uid, user_id=0):
+        m = 0
+        if type == 'del':
+            m = MoneyChannelIncome.delete().where(MoneyChannelIncome.uid == uid).execute()
+        elif type == 'get':
+            m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) & (MoneyChannelIncome.addtime < mon_last_time) & (
+                MoneyChannelIncome.other_uid == user_id)).first()
+            m = m.money
+        elif type == 'count':
+            m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) & (MoneyChannelIncome.addtime < mon_last_time) & (
+                MoneyChannelIncome.other_uid == user_id)).count()
+        return m

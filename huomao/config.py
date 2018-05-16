@@ -57,6 +57,7 @@ run_date_year = run_date.tm_year
 run_date_month = run_date.tm_mon
 days = calendar.monthrange(run_date_year, run_date_month)[1]
 mon_last_time = time.mktime((run_date_year, run_date_month, days, 23, 59, 59, 0, 0, 0))
+mon_first_time = time.mktime((run_date_year, run_date_month, 1, 0, 0, 0, 0, 0, 0))
 
 REDIS_KEYS = {
     'fans':

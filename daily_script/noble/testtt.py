@@ -20,13 +20,13 @@ from huomao.common import REDIS_INST, Common
 # MoneyClass.set_money(uid,9999999)
 # User.create_noble(uid, level=i)
 for i in range(1, 2):
-    # u = User()
-    # uid = u.reg('noble')
-    # print(uid)
-    # u.bd_sj(uid)
-    # MoneyClass.set_money(uid, 1200000)
-    # User.create_noble(uid,  level=7)
-    User.set_noble_expire(23838, 700)
+    u = User()
+    uid = u.reg('noble')
+    print(uid)
+    u.bd_sj(uid)
+    MoneyClass.set_money(uid, 1200000)
+    User.create_noble(uid,  level=7)
+    User.set_noble_expire(uid, 40)
 
 # username = ['hmjsf{}'.format(i) for i in range(1,100)]
 # for i in username:

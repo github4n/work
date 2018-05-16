@@ -7,8 +7,6 @@ import json
 import logging
 from  urllib import parse
 import requests
-import xlsxwriter
-from gevent import monkey
 from huomao.common import Common
 from .config import domain_web, domain_api, report_data
 
@@ -62,7 +60,7 @@ def req(self):
 
     # logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
     # 判断请求结果是否包含预期结果
-    self.des = self._testMethodName if not hasattr(self, 'des') else self.des
+    self.des = self._testMethodName
 
     try:
         cmp_dict(self.exp_res, real_res)
@@ -78,12 +76,8 @@ def req(self):
         # logging.error(self.info)
         self.assertTrue(False, self.info)
     if result and hasattr(self, 'ver'):
-        if self.ver():
-            logging.info('二次验证成功')
-        else:
-            result = '二次验证失败'
-            logging.error('二次验证失败')
-            self.assertTrue(False, '二次验证失败')
+        self.assertTrue(self.ver(), '{}二次验证失败'.format(self.des))
+
     # 把结果添加到报告list中
     res = {"case_id": self._testMethodName,
            "case_des": self.des,
@@ -293,10 +287,6 @@ def generate_report():
         for key, value in excel1.items():
             worksheet2.write(key + str(report_data['report_res'].index(item) + 3), value)
     workbook.close()
-
-
-
-
 
 # # 从excel获取测试数据openpyxl 起始位置1, 1
 # def get_data(case_file):

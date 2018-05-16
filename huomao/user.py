@@ -15,6 +15,7 @@ from .common import REDIS_INST, Common
 from .config import URL, ADMIN_URL, ADMIN_COOKIES
 from .db.contents import HmChannel
 from .db.noble import HmNobleRecord, HmNobleUser, HmNobleInfo
+from .db.contents import HmGag, HmLoveliness
 
 
 class User():
@@ -154,6 +155,59 @@ class User():
         data['nickname'] = nick_name
         REDIS_INST.set('hm_' + uid, json.dumps(data))
         return {'code': 100, 'status': True, 'msg': '成功'}
+
+    # 设置房管
+    @staticmethod
+    def set_fg(cid, uid):
+        key = 'hm_channel_admin_{}'.format(cid)
+        data = REDIS_INST.get(key)
+        fg_data = json.loads(data) if data else {}
+        if fg_data.get('uid'):
+            return False
+        else:
+            fg_data[uid] = int(time.time())
+            REDIS_INST.set(key, json.dumps(fg_data))
+
+    # 删除房管
+    @staticmethod
+    def del_fg(cid):
+        key = 'hm_channel_admin_{}'.format(cid)
+        REDIS_INST.delete(key)
+
+    # 设置粉丝等级
+    @staticmethod
+    def set_fs_level(uid, cid, level=25):
+        key = 'hm_loveliness_fan_lv_news_{}_{}'.format(uid, cid, level)
+        REDIS_INST.set(key, level)
+
+    # 设置粉丝等级
+    @staticmethod
+    def set_badge(uid):
+        key = 'hm_member_adorn_badge:{}'.format(uid)
+        REDIS_INST.hset(key, 'bid:1', '{"bid":1,"gettime":' + str(int(time.time())) + ',"owntime":1440,"currentstat":3}')
+
+    # 获取/修改/删除粉丝值
+    @staticmethod
+    def loveliness(type, uid, cid=0, score=0):
+        if type == 'get':
+            res = HmLoveliness.select().where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).first()
+            res = res.score if res else 0
+        elif type == 'set':
+            print(333)
+            res = HmLoveliness.update(score=score).where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).execute()
+        elif type == 'del':
+            res = HmLoveliness.delete().where(HmLoveliness.uid == uid).execute()
+            print(res)
+        else:
+            res = False
+        return res
+
+    # 设置发言时间
+    @staticmethod
+    def set_chat_time(uid):
+        # 设置发言时间,服务器时间和本地时间有误差,所以用服务器时间
+        msg_time = Common.get_linux_time()
+        REDIS_INST.set('hm_chat_{}'.format(uid), msg_time)
 
     # 获取经验值
     @staticmethod

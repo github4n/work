@@ -9,7 +9,7 @@ import logging
 
 logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%Y/%m/%d %I:%M:%S %p',
-                    level=logging.INFO,
+                    level=logging.ERROR,
                     # filename='test.log',
                     filemode='w')
 # 请求的域名

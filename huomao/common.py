@@ -14,9 +14,7 @@ import redis
 import json
 import logging
 from urllib import parse
-from .db.user import Userbase
-from .db.money import MoneyPay, MoneyChannelIncome
-from .db.contents import HmGag, HmLoveliness
+from .db.contents import HmGag
 from .config import URL, REDIS_CONFIG, REDIS_CONFIG2
 
 # redis连接
@@ -111,58 +109,6 @@ class Common():
         REDIS_INST.set('hm_plugs_mobile_post_{}'.format(mobile), yzm, 1800)
 
     @staticmethod
-    def generate_name(casename):
-        return '{}{}'.format(casename, int(time.time()))
-
-    # 测试数据生成 1个房间，房主，房管fg数默认0
-    @staticmethod
-    def generate_room(casename, fg=0):
-        # 生成主播和房间
-        anchor_name = Common.generate_name(casename)
-        anchor_uid = Common.zc(anchor_name)['uid']
-        Common.bd_sj(anchor_uid)
-        res = Common.sq_zb(anchor_uid)['data']
-        cid = str(res[0])
-        rid = str(res[1])
-
-        data = {
-            'room': {
-                'cid': cid,
-                'rid': rid
-            },
-            'anchor': {
-                'uid': anchor_uid,
-                'name': anchor_name
-            },
-            'fg': {}
-        }
-
-        # 生成房管
-        for i in range(0, fg):
-            name = Common.generate_name(casename)
-            uid = Common.zc(name)['uid']
-            Common.bd_sj(uid)
-            requests.post(URL + '/myroom/setRoomAdministrator', data={'username': name}, cookies=Common.generate_cookies(anchor_uid))
-            data['fg'][i] = {'uid': uid, 'name': name}
-            time.sleep(1)
-
-        logging.info(data)
-        return data
-
-    @staticmethod
-    def generate_user(casename, user=1, phone=True):
-        data = {}
-        for i in range(0, user):
-            name = Common.generate_name(casename)
-            uid = Common.zc(name)['uid']
-            data[i] = {'uid': uid, 'name': name}
-            if phone:
-                Common.bd_sj(uid)
-            time.sleep(1)
-        logging.info(data)
-        return data
-
-    @staticmethod
     def send_msg(uid, cid):
         data = dict(cid=cid, uid=uid, data='测试')
         res = requests.get(URL + '/chatnew/msg', params=data, cookies=Common.generate_cookies(uid))
@@ -179,23 +125,6 @@ class Common():
             res = requests.get(URL + '/myroom/setCommChannelGag', params=data, cookies=Common.generate_cookies(ban_uid))
             logging.info(res.json())
 
-    @staticmethod
-    def del_fg(cid):
-        key = 'hm_channel_admin_{}'.format(cid)
-        REDIS_INST.delete(key)
-        # fg_data = json.loads(Common.REDIS_INST.get(key))
-        # print(fg_data)
-        # fg_data.pop(uid)
-        # Common.REDIS_INST.set(key, json.dumps(fg_data))
-
-    @staticmethod
-    def set_fg(cid, uid):
-        key = 'hm_channel_admin_{}'.format(cid)
-        data = REDIS_INST.get(key)
-        fg_data = json.loads(data) if data else {}
-        fg_data[uid] = int(time.time())
-        REDIS_INST.set(key, json.dumps(fg_data))
-
     # 初始化用户,房间禁言数据
     @staticmethod
     def init_gag(uid, cid):
@@ -204,44 +133,6 @@ class Common():
             REDIS_INST.delete('hm_gag_user_{}'.format(uid))
             REDIS_INST.delete('hm_gag_channel_{}'.format(cid))
         return 0
-
-
-
-    # 获取送礼记录
-    @staticmethod
-    def get_money_pay(uid, cid):
-        count = MoneyPay.select().where((MoneyPay.uid == uid) & (MoneyPay.other_cid == cid) & (MoneyPay.ts < mon_last_time)).count()
-        return count
-
-    # 获取收礼记录
-    @staticmethod
-    def money_income(type, uid, user_id=0):
-        m = 0
-        if type == 'del':
-            m = MoneyChannelIncome.delete().where(MoneyChannelIncome.uid == uid).execute()
-        elif type == 'get':
-            m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) & (MoneyChannelIncome.addtime < mon_last_time) & (
-                MoneyChannelIncome.other_uid == user_id)).first()
-            m = m.money
-        elif type == 'count':
-            m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) & (MoneyChannelIncome.addtime < mon_last_time) & (
-                MoneyChannelIncome.other_uid == user_id)).count()
-        return m
-
-    # 获取/修改/删除粉丝值
-    @staticmethod
-    def loveliness(type, uid, cid=0, score=0):
-        if type == 'get':
-            res = HmLoveliness.select().where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).first().score
-        elif type == 'set':
-            print(333)
-            res = HmLoveliness.update(score=score).where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).execute()
-        elif type == 'del':
-            res = HmLoveliness.delete().where(HmLoveliness.uid == uid).execute()
-            print(res)
-        else:
-            res = False
-        return res
 
     # 初始化粉丝
     @staticmethod

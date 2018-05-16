@@ -19,7 +19,7 @@ class Bag():
     @staticmethod
     def get_dmk(uid):
         u = UserBag.select(fn.Sum(UserBag.num)).where(
-            (UserBag.uid == uid) & (UserBag.expire_time > int(time.time())) & (UserBag.bag == 100001)).first()
+            (UserBag.uid == uid) & (UserBag.bag == 100001)).first()
         return u.num
 
     # 获取用户特定时间弹幕卡数量
