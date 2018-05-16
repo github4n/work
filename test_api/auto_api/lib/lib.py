@@ -11,7 +11,6 @@ import xlsxwriter
 from gevent import monkey
 from huomao.common import Common
 from .config import domain_web, domain_api, report_data
-monkey.patch_all()
 
 
 # 比较dict
@@ -28,6 +27,77 @@ def cmp_dict(dict1, dict2):
             cmp_dict(dict1_list, dict2_list)
     else:
         assert dict1 == dict2, "value: '{}' != '{}'".format(dict1, dict2)
+
+
+def req(self):
+    report_data['test_sum'] += 1
+    # 判断环境
+    if 'api' not in self._testMethodName:
+        cookies = Common.generate_cookies(self.user)
+        domain = domain_web
+    else:
+        self.data['uid'] = self.user
+        cookies = {}
+        domain = domain_api
+
+    self.resquest_url = domain + self.url + '?' + parse.urlencode(self.data)
+
+    logging.info('请求数据:{}\n{}'.format(self.data, self.resquest_url))
+
+    # 判断请求方式
+    headers = {'X-Requested-With': 'XMLHttpRequest'}
+    if self.method == 'get':
+        res = requests.get(domain + self.url, params=self.data, cookies=cookies, headers=headers).text
+    elif self.method == 'post':
+        res = requests.post(domain + self.url, data=self.data, cookies=cookies, headers=headers).text
+    else:
+        res = False
+    try:
+        real_res = json.loads(res)
+    except Exception:
+        try:
+            real_res = json.loads(res[1:-1])
+        except Exception:
+            real_res = res
+
+    # logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
+    # 判断请求结果是否包含预期结果
+    self.des = self._testMethodName if not hasattr(self, 'des') else self.des
+
+    try:
+        cmp_dict(self.exp_res, real_res)
+        report_data['test_success'] += 1
+        result = True
+        bz = ''
+        logging.info('{}验证成功'.format(self._testMethodName))
+    except Exception as e:
+        result = False
+        bz = str(e)
+        report_data['test_failed'] += 1
+        self.info = '用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self.des, e, self.exp_res, real_res, json.dumps(real_res))
+        # logging.error(self.info)
+        self.assertTrue(False, self.info)
+    if result and hasattr(self, 'ver'):
+        if self.ver():
+            logging.info('二次验证成功')
+        else:
+            result = '二次验证失败'
+            logging.error('二次验证失败')
+            self.assertTrue(False, '二次验证失败')
+    # 把结果添加到报告list中
+    res = {"case_id": self._testMethodName,
+           "case_des": self.des,
+           "name": self.name,
+           "method": self.method,
+           "url": self.url,
+           "user": self.user,
+           "data": self.data,
+           "exp_res": str(self.exp_res),
+           "real_res": str(real_res),
+           "result": result,
+           "bz": bz}
+    report_data['report_res'].append(res)
+    return real_res
 
 
 # 请求返回接口信息
@@ -89,7 +159,7 @@ def assert_res(self):
         result = False
         bz = str(e)
         report_data['test_failed'] += 1
-        self.info = '用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self._testMethodDoc, e, exp_res, real_res, json.dumps(real_res))
+        self.info = '用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self.des, e, exp_res, real_res, json.dumps(real_res))
         # logging.error(self.info)
         self.assertTrue(False, self.info)
     if result and hasattr(self, 'ver'):
@@ -101,7 +171,7 @@ def assert_res(self):
             self.assertTrue(False, '二次验证失败')
     # 把结果添加到报告list中
     res = {"case_id": self._testMethodName,
-           "case_des": self._testMethodDoc,
+           "case_des": self.des,
            "name": res[3],
            "method": res[2],
            "url": res[1],
@@ -227,16 +297,6 @@ def generate_report():
 
 
 
-def name_func_new(func, num, p):
-    base_name = func.__name__
-    # base_name
-    name_suffix = "_%s" % (num + 1,)
-    # name_suffix = ''
-    # if len(p.args) > 0 and isinstance(p.args[0], str):
-    #     name_suffix += "_" + parameterized.to_safe_name(p.args[0])
-    return base_name + name_suffix
-    # print(base_name)
-    # return base_name
 
 # # 从excel获取测试数据openpyxl 起始位置1, 1
 # def get_data(case_file):

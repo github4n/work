@@ -127,7 +127,7 @@
             function messageReceived(ver, body) {
                 var notify = self.options.notify;
                 if(notify) notify(body);
-                console.log("messageReceived:", "ver=" + ver, "body=" + body);
+//                console.log("messageReceived:", "ver=" + ver, "body=" + body);
             }
 
             function mergeArrayBuffer(ab1, ab2) {

@@ -182,7 +182,7 @@ class Common():
     @staticmethod
     def del_fg(cid):
         key = 'hm_channel_admin_{}'.format(cid)
-        Common.REDIS_INST.delete(key)
+        REDIS_INST.delete(key)
         # fg_data = json.loads(Common.REDIS_INST.get(key))
         # print(fg_data)
         # fg_data.pop(uid)
@@ -191,18 +191,18 @@ class Common():
     @staticmethod
     def set_fg(cid, uid):
         key = 'hm_channel_admin_{}'.format(cid)
-        data = Common.REDIS_INST.get(key)
+        data = REDIS_INST.get(key)
         fg_data = json.loads(data) if data else {}
         fg_data[uid] = int(time.time())
-        Common.REDIS_INST.set(key, json.dumps(fg_data))
+        REDIS_INST.set(key, json.dumps(fg_data))
 
     # 初始化用户,房间禁言数据
     @staticmethod
     def init_gag(uid, cid):
         if uid:
             HmGag.delete().where((HmGag.cid == cid) & (HmGag.uid == uid)).execute()
-            Common.REDIS_INST.delete('hm_gag_user_{}'.format(uid))
-            Common.REDIS_INST.delete('hm_gag_channel_{}'.format(cid))
+            REDIS_INST.delete('hm_gag_user_{}'.format(uid))
+            REDIS_INST.delete('hm_gag_channel_{}'.format(cid))
         return 0
 
 
@@ -251,29 +251,29 @@ class Common():
         fan_keys = REDIS_KEYS['fans']
         keys = []
         for key in fan_keys[0:2]:
-            keys.extend(Common.REDIS_INST.keys(key.format_map({'uid': uid, 'cid': '*'})))
+            keys.extend(REDIS_INST.keys(key.format_map({'uid': uid, 'cid': '*'})))
         for key in fan_keys[2:6]:
             keys.append(key.format_map({'uid': uid}))
         for key in keys:
-            Common.REDIS_INST.delete(key)
+            REDIS_INST.delete(key)
         # 删除已获取爱心粉丝值用户
         key = REDIS_KEYS['fans'][6]
-        data = json.loads(Common.REDIS_INST.get(key))
+        data = json.loads(REDIS_INST.get(key))
         for key, value in data.items():
             if uid in value:
                 data[key].remove(uid)
-                Common.REDIS_INST.set(key, json.dumps(data))
+                REDIS_INST.set(key, json.dumps(data))
         return {'msg': '成功'}
 
     def subscribe(uid):
         key = REDIS_KEYS['subscribe'].format_map({'uid': uid})
-        subscribe_data = Common.REDIS_INST.get(key)
+        subscribe_data = REDIS_INST.get(key)
         subscribe_data = json.loads(subscribe_data)
         data = {}
         for i in range(1, 211):
             data[i] = []
         subscribe_data['subsList'] = data
-        Common.REDIS_INST.set(key, json.dumps(subscribe_data))
+        REDIS_INST.set(key, json.dumps(subscribe_data))
 
     @staticmethod
     def is_json(data):

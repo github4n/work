@@ -15,6 +15,8 @@ logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelnam
 # 请求的域名
 domain_web = 'http://lxy.new.huomaotv.com.cn'
 domain_api = 'http://lxyapi.new.huomaotv.com.cn'
+# uid
+UID = 1522
 # 超管
 super_uid = '1870709'
 

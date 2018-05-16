@@ -34,7 +34,7 @@ class HmNobleRecord(BaseModel):
     anchor_profit = DecimalField(null=True)
     end_time = IntegerField(index=True)
     level = IntegerField()
-    month_num = IntegerField()
+    day_num = IntegerField()
     op_time = IntegerField()
     op_username = CharField()
     open_type = IntegerField()

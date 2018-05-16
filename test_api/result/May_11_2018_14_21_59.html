@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>API自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.test_case   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>API自动化测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2018-05-11 14:21:59</p>
+<p class='attribute'><strong>执行耗时:</strong> 0:00:12.082721</p>
+<p class='attribute'><strong>状态:</strong> Pass 8 Failure 9 Error 3</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>视图
+<a href='javascript:showCase(0)'>总览</a>
+<a href='javascript:showCase(1)'>失败</a>
+<a href='javascript:showCase(2)'>全部</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试模块/测试用例</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>auto_api.test_case.web_gift.TestGift</td>
+    <td>20</td>
+    <td>8</td>
+    <td>9</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c1',20)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=&t_count=1&gift=51>test_gift_01: 参数必填检验-无cid参数</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例参数必填检验-无cid参数,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '房间不存在', 'status': False, 'code': 1001}
+
+实际:{'message': '房间不存在', 'status': False, 'code': '1001'}
+
+实际json:{"message": "\u623f\u95f4\u4e0d\u5b58\u5728", "status": false, "code": "1001"}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例参数必填检验-无cid参数,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '房间不存在', 'status': False, 'code': 1001}
+
+实际:{'message': '房间不存在', 'status': False, 'code': '1001'}
+
+实际json:{"message": "\u623f\u95f4\u4e0d\u5b58\u5728", "status": false, "code": "1001"}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=&gift=51>test_gift_02: 参数必填检验-无t_count参数</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        fail</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例参数必填检验-无t_count参数,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '请选择数量', 'status': False, 'code': 1001}
+
+实际:{'message': '请选择数量', 'status': False, 'code': '1001'}
+
+实际json:{"message": "\u8bf7\u9009\u62e9\u6570\u91cf", "status": false, "code": "1001"}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例参数必填检验-无t_count参数,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '请选择数量', 'status': False, 'code': 1001}
+
+实际:{'message': '请选择数量', 'status': False, 'code': '1001'}
+
+实际json:{"message": "\u8bf7\u9009\u62e9\u6570\u91cf", "status": false, "code": "1001"}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_03: 参数必填检验-未登录</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_04: 业务-角色-房主</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        fail</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-角色-房主,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '自己不能给自己送礼物', 'status': False, 'code': 219}
+
+实际:{'message': '自己不能给自己送礼物', 'status': False, 'code': '219'}
+
+实际json:{"message": "\u81ea\u5df1\u4e0d\u80fd\u7ed9\u81ea\u5df1\u9001\u793c\u7269", "status": false, "code": "219"}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-角色-房主,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '自己不能给自己送礼物', 'status': False, 'code': 219}
+
+实际:{'message': '自己不能给自己送礼物', 'status': False, 'code': '219'}
+
+实际json:{"message": "\u81ea\u5df1\u4e0d\u80fd\u7ed9\u81ea\u5df1\u9001\u793c\u7269", "status": false, "code": "219"}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_05: 业务-角色-房管</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        fail</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: value: '1' != '0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-角色-房管,失败:value: '1' != '0'
+
+预期:{'data': {'extend': {'is_guard': '0', 'is_zb': '0', 'is_fg': '1'}}, 'status': True, 'code': 200}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '6', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5603', 'name': 'hm_3367543'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "6", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png", "level": "0", "uid": "5603", "name": "hm_3367543"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: value: '1' != '0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-角色-房管,失败:value: '1' != '0'
+
+预期:{'data': {'extend': {'is_guard': '0', 'is_zb': '0', 'is_fg': '1'}}, 'status': True, 'code': 200}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '6', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5603', 'name': 'hm_3367543'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "6", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png", "level": "0", "uid": "5603", "name": "hm_3367543"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_06: 业务-角色-粉丝</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        fail</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: value: 'gift1510039347' != 'hm_2394175'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-角色-粉丝,失败:value: 'gift1510039347' != 'hm_2394175'
+
+预期:{'data': {'fans': {'cid': '119488', 'rid': '497373', 'level': '25', 'zb_name': 'gift1510039347', 'name': '粉丝'}}, 'code': 200}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '25', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_0_big.png', 'level': '0', 'uid': '5604', 'name': 'hm_2151378'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "25", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_0_big.png", "level": "0", "uid": "5604", "name": "hm_2151378"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: value: 'gift1510039347' != 'hm_2394175'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-角色-粉丝,失败:value: 'gift1510039347' != 'hm_2394175'
+
+预期:{'data': {'fans': {'cid': '119488', 'rid': '497373', 'level': '25', 'zb_name': 'gift1510039347', 'name': '粉丝'}}, 'code': 200}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '25', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_0_big.png', 'level': '0', 'uid': '5604', 'name': 'hm_2151378'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "25", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_0_big.png", "level": "0", "uid": "5604", "name": "hm_2151378"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_07: 业务-显示图标-徽章</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51&guard_barrage=1>test_gift_08: 业务-显示图标-守护</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        fail</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: value: '2' != '0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-显示图标-守护,失败:value: '2' != '0'
+
+预期:{'data': {'extend': {'is_guard': '2'}}, 'code': 200}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '21', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_3_big.png', 'level': '0', 'uid': '5606', 'name': 'hm_1312141'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "21", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_3_big.png", "level": "0", "uid": "5606", "name": "hm_1312141"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: value: '2' != '0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-显示图标-守护,失败:value: '2' != '0'
+
+预期:{'data': {'extend': {'is_guard': '2'}}, 'code': 200}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '21', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_3_big.png', 'level': '0', 'uid': '5606', 'name': 'hm_1312141'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "21", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_3_big.png", "level": "0", "uid": "5606", "name": "hm_1312141"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.9' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=0>test_gift_09: 业务-赠送爱心-用户赠送爱心不足</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.9')" >
+        fail</a>
+
+    <div id='div_ft1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.9: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 24, in cmp_dict
+    assert key in dict2, "{} not in{}".format(key, dict2)
+AssertionError: message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '1', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '11', 'uid': '5607', 'name': 'hm_3205857'}, 'upgrade': {'platform': {'level': '11'}}, 'platform': '1', 'gift': {'gift_id': '0', 'before_count': '3', 'name': '爱心', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/static/web/images/gift/love.gif', 'repeat': {'img': '/static/web/images/gift/hf.png'}, 'img': '/static/web/images/gift/liwe_dou.png', 'word': '送了', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-赠送爱心-用户赠送爱心不足,失败:message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '1', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '11', 'uid': '5607', 'name': 'hm_3205857'}, 'upgrade': {'platform': {'level': '11'}}, 'platform': '1', 'gift': {'gift_id': '0', 'before_count': '3', 'name': '爱心', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/static/web/images/gift/love.gif', 'repeat': {'img': '/static/web/images/gift/hf.png'}, 'img': '/static/web/images/gift/liwe_dou.png', 'word': '送了', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+预期:{'message': '您剩余的仙豆数量不足！', 'status': False, 'code': 118}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '1', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '11', 'uid': '5607', 'name': 'hm_3205857'}, 'upgrade': {'platform': {'level': '11'}}, 'platform': '1', 'gift': {'gift_id': '0', 'before_count': '3', 'name': '爱心', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/static/web/images/gift/love.gif', 'repeat': {'img': '/static/web/images/gift/hf.png'}, 'img': '/static/web/images/gift/liwe_dou.png', 'word': '送了', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "1", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png", "level": "11", "uid": "5607", "name": "hm_3205857"}, "upgrade": {"platform": {"level": "11"}}, "platform": "1", "gift": {"gift_id": "0", "before_count": "3", "name": "\u7231\u5fc3", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/static/web/images/gift/love.gif", "repeat": {"img": "/static/web/images/gift/hf.png"}, "img": "/static/web/images/gift/liwe_dou.png", "word": "\u9001\u4e86", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 24, in cmp_dict
+    assert key in dict2, "{} not in{}".format(key, dict2)
+AssertionError: message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '1', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '11', 'uid': '5607', 'name': 'hm_3205857'}, 'upgrade': {'platform': {'level': '11'}}, 'platform': '1', 'gift': {'gift_id': '0', 'before_count': '3', 'name': '爱心', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/static/web/images/gift/love.gif', 'repeat': {'img': '/static/web/images/gift/hf.png'}, 'img': '/static/web/images/gift/liwe_dou.png', 'word': '送了', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-赠送爱心-用户赠送爱心不足,失败:message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '1', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '11', 'uid': '5607', 'name': 'hm_3205857'}, 'upgrade': {'platform': {'level': '11'}}, 'platform': '1', 'gift': {'gift_id': '0', 'before_count': '3', 'name': '爱心', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/static/web/images/gift/love.gif', 'repeat': {'img': '/static/web/images/gift/hf.png'}, 'img': '/static/web/images/gift/liwe_dou.png', 'word': '送了', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+预期:{'message': '您剩余的仙豆数量不足！', 'status': False, 'code': 118}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '1', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '11', 'uid': '5607', 'name': 'hm_3205857'}, 'upgrade': {'platform': {'level': '11'}}, 'platform': '1', 'gift': {'gift_id': '0', 'before_count': '3', 'name': '爱心', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/static/web/images/gift/love.gif', 'repeat': {'img': '/static/web/images/gift/hf.png'}, 'img': '/static/web/images/gift/liwe_dou.png', 'word': '送了', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "1", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png", "level": "11", "uid": "5607", "name": "hm_3205857"}, "upgrade": {"platform": {"level": "11"}}, "platform": "1", "gift": {"gift_id": "0", "before_count": "3", "name": "\u7231\u5fc3", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/static/web/images/gift/love.gif", "repeat": {"img": "/static/web/images/gift/hf.png"}, "img": "/static/web/images/gift/liwe_dou.png", "word": "\u9001\u4e86", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=0>test_gift_10: 业务-赠送爱心-用户赠送爱心增加经验主播增加仙能</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.11' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=1>test_gift_11: 业务-礼物配置-礼物未启用</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        fail</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-礼物配置-礼物未启用,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '礼物未激活', 'status': False, 'code': 211}
+
+实际:{'message': '礼物未激活', 'status': False, 'code': '211'}
+
+实际json:{"message": "\u793c\u7269\u672a\u6fc0\u6d3b", "status": false, "code": "211"}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 25, in cmp_dict
+    cmp_dict(dict1[key], dict2[key])
+AssertionError: type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-礼物配置-礼物未启用,失败:type: '&lt;class 'int'&gt;' != '&lt;class 'str'&gt;'
+
+预期:{'message': '礼物未激活', 'status': False, 'code': 211}
+
+实际:{'message': '礼物未激活', 'status': False, 'code': '211'}
+
+实际json:{"message": "\u793c\u7269\u672a\u6fc0\u6d3b", "status": false, "code": "211"}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_12: 业务-礼物配置-道具名称,id,赠送语</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_13: 业务-礼物配置-连击</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=3&gift=51>test_gift_14: 业务-礼物配置-霸屏特效,横幅</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_15: 业务-粉丝值</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.16' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_16: 业务-余额不足</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.16')" >
+        fail</a>
+
+    <div id='div_ft1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.16: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 24, in cmp_dict
+    assert key in dict2, "{} not in{}".format(key, dict2)
+AssertionError: message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '4', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5615', 'name': 'hm_1322834'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-余额不足,失败:message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '4', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5615', 'name': 'hm_1322834'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+预期:{'message': '余额不足', 'status': False, 'code': 2032}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '4', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5615', 'name': 'hm_1322834'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "4", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png", "level": "0", "uid": "5615", "name": "hm_1322834"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 83, in assert_res
+    cmp_dict(exp_res, real_res)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 24, in cmp_dict
+    assert key in dict2, "{} not in{}".format(key, dict2)
+AssertionError: message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '4', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5615', 'name': 'hm_1322834'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 281, in tearDown
+    assert_res(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 94, in assert_res
+    self.assertTrue(False, self.info)
+AssertionError: False is not true : 用例业务-余额不足,失败:message not in{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '4', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5615', 'name': 'hm_1322834'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+预期:{'message': '余额不足', 'status': False, 'code': 2032}
+
+实际:{'data': {'badge': [], 'anchor': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png', 'uid': '5602', 'name': 'hm_2394175'}, 'fans': {'rid': '497373', 'is_live': '0', 'gcmd': '', 'name': '粉丝', 'avatar': '', 'cid': '119488', 'level': '4', 'zb_name': 'hm_2394175', 'gname': '', 'rname': ''}, 'user': {'avatar': 'http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png', 'level': '0', 'uid': '5615', 'name': 'hm_1322834'}, 'platform': '1', 'gift': {'gift_id': '51', 'before_count': '3', 'name': 'APITEST1', 'resource_path': 'http://img.new.huomaotv.com.cn/', 'effect': '/upload/web/images/gift/20171108182026UbNILVqp.gif', 'repeat': {'img': '/upload/web/images/gift/201711081818399wD1dQek.png'}, 'img': '/upload/web/images/gift/20171107153313hVFs96DR.png', 'word': 'send', 'current_count': '4', 'send_count': '1'}, 'extend': {'is_guard': '0', 'is_noble': '0', 'is_fg': '0', 'is_cg': '0', 'is_zb': '0', 'noble_info': {}}, 'channel': {'cid': '119488', 'rid': '497373', 'screenType': '0', 'name': '我的直播间', 'platType': '1'}}, 'status': True, 'code': 200}
+
+实际json:{"data": {"badge": [], "anchor": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_2_normal.png", "uid": "5602", "name": "hm_2394175"}, "fans": {"rid": "497373", "is_live": "0", "gcmd": "", "name": "\u7c89\u4e1d", "avatar": "", "cid": "119488", "level": "4", "zb_name": "hm_2394175", "gname": "", "rname": ""}, "user": {"avatar": "http://img.new.huomaotv.com.cn/static/web/images/default_headimg/default_head_1_big.png", "level": "0", "uid": "5615", "name": "hm_1322834"}, "platform": "1", "gift": {"gift_id": "51", "before_count": "3", "name": "APITEST1", "resource_path": "http://img.new.huomaotv.com.cn/", "effect": "/upload/web/images/gift/20171108182026UbNILVqp.gif", "repeat": {"img": "/upload/web/images/gift/201711081818399wD1dQek.png"}, "img": "/upload/web/images/gift/20171107153313hVFs96DR.png", "word": "send", "current_count": "4", "send_count": "1"}, "extend": {"is_guard": "0", "is_noble": "0", "is_fg": "0", "is_cg": "0", "is_zb": "0", "noble_info": {}}, "channel": {"cid": "119488", "rid": "497373", "screenType": "0", "name": "\u6211\u7684\u76f4\u64ad\u95f4", "platType": "1"}}, "status": true, "code": 200}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_17: 业务-余额足够</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.18' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_18: 业务-送礼记录</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.18')" >
+        error</a>
+
+    <div id='div_ft1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.18: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 252, in test_gift_18
+    send_gift_count = Common.get_money_pay(self.user, cid)
+  File "Z:\share\huomao\common.py", line 213, in get_money_pay
+    count = MoneyPay.select().where((MoneyPay.uid == uid) &amp; (MoneyPay.other_cid == cid) &amp; (MoneyPay.ts &lt; mon_last_time)).count()
+NameError: name 'mon_last_time' is not defined
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 252, in test_gift_18
+    send_gift_count = Common.get_money_pay(self.user, cid)
+  File "Z:\share\huomao\common.py", line 213, in get_money_pay
+    count = MoneyPay.select().where((MoneyPay.uid == uid) &amp; (MoneyPay.other_cid == cid) &amp; (MoneyPay.ts &lt; mon_last_time)).count()
+NameError: name 'mon_last_time' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.19' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=51>test_gift_19: 业务-收礼记录,礼物中无宝箱</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.19')" >
+        error</a>
+
+    <div id='div_ft1.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.19: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 264, in test_gift_19
+    get_gift_count = Common.money_income('count', anchor, self.user)
+  File "Z:\share\huomao\common.py", line 227, in money_income
+    m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) &amp; (MoneyChannelIncome.addtime &lt; mon_last_time) &amp; (
+NameError: name 'mon_last_time' is not defined
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 264, in test_gift_19
+    get_gift_count = Common.money_income('count', anchor, self.user)
+  File "Z:\share\huomao\common.py", line 227, in money_income
+    m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) &amp; (MoneyChannelIncome.addtime &lt; mon_last_time) &amp; (
+NameError: name 'mon_last_time' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.20' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/chatnew/sendGift?cid=119488&t_count=1&gift=52>test_gift_20: 业务-收礼记录,礼物中有宝箱</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.20')" >
+        error</a>
+
+    <div id='div_ft1.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.20: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 275, in test_gift_20
+    get_gift_count = Common.money_income('count', anchor, self.user)
+  File "Z:\share\huomao\common.py", line 227, in money_income
+    m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) &amp; (MoneyChannelIncome.addtime &lt; mon_last_time) &amp; (
+NameError: name 'mon_last_time' is not defined
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_gift.py", line 275, in test_gift_20
+    get_gift_count = Common.money_income('count', anchor, self.user)
+  File "Z:\share\huomao\common.py", line 227, in money_income
+    m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) &amp; (MoneyChannelIncome.addtime &lt; mon_last_time) &amp; (
+NameError: name 'mon_last_time' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>20</td>
+    <td>8</td>
+    <td>9</td>
+    <td>3</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

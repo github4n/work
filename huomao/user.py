@@ -14,20 +14,22 @@ from .db.user import Userbase, Userinfo, Mobile, UserName, Uid
 from .common import REDIS_INST, Common
 from .config import URL, ADMIN_URL, ADMIN_COOKIES
 from .db.contents import HmChannel
-from .db.noble import HmNobleRecord
+from .db.noble import HmNobleRecord, HmNobleUser, HmNobleInfo
 
 
 class User():
     # 查找UID
-    def find_uid(self, username):
+    @staticmethod
+    def find_uid(username):
         u = Userbase.select(Userbase.uid).where(Userbase.name == username).first()
         if u:
-            return {'code': 100, 'status': True, 'msg': u.uid}
+            return {'code': 100, 'status': True, 'msg': str(u.uid)}
         else:
             return {'code': 101, 'status': False, 'msg': '没找到'}
 
     # 注册用户返回uid,或登录返回uid
-    def register(self, username):
+    @staticmethod
+    def register(username):
         # 默认密码1
         password = Common.md5('1')
         img = ''
@@ -61,10 +63,11 @@ class User():
         for key, value in data.items():
             data[key] = json.dumps(value)
         REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
-        return {'code': 100, 'status': True, 'msg': '成功\tuid:{}\t密码:1'.format(uid), 'uid': str(uid)}
+        return {'code': 100, 'status': True, 'msg': '成功\tuid:{}密码:1'.format(uid), 'uid': str(uid)}
 
     # 按序注册用户返回uid
-    def reg(self):
+    @staticmethod
+    def reg(key):
         # 获取文件的当前路径（绝对路径）
         cur_path = os.path.dirname(os.path.realpath(__file__))
         # 获取config.ini的路径
@@ -72,17 +75,20 @@ class User():
         conf = configparser.ConfigParser()
         # 读取配置
         conf.read(config_path)
-        number = conf.get('user', 'number')
+        name = conf.get(key, 'name')
+        number = conf.get(key, 'number')
         # 设置配置
-        conf.set('user', 'number', str(int(number) + 1))
+        conf.set(key, 'number', str(int(number) + 1))
         # 写入配置
         with open(config_path, 'w') as fw:
             conf.write(fw)
         fw.close()
-        return self.register('t1stnoble' + number)['uid']
+        print(name + number)
+        return User.register(name + number)['uid']
 
     # 申请直播并通过
-    def sq_zb(self, uid):
+    @staticmethod
+    def sq_zb(uid):
         # 判断uid是否是主播
         if uid:
             # uid = str(uid)
@@ -113,7 +119,8 @@ class User():
             return {'code': 901, 'status': False, 'msg': '申请失败'}
 
     # 绑定手机号
-    def bd_sj(self, uid, mobileareacode='+86'):
+    @staticmethod
+    def bd_sj(uid, mobileareacode='+86'):
         try:
             mobile = 15800000000 + int(uid)
             Mobile.create(mobile=mobile, uid=uid)
@@ -157,10 +164,10 @@ class User():
     # 开通贵族
     @staticmethod
     def create_noble(uid, **kw):
-        data = dict(level=1, cid=2, month=1, type=1, to_uid='')
+        data = dict(level=1, cid=13, month=1, type=1, to_uid='')
         for key, value in kw.items():
             data[key] = value
-        ret = requests.get(URL + '/noble/createNoble', params=data, cookies=Common.generate_cookies(uid)).json()
+        ret = requests.get(URL + '/noble/createNoble', params=data, cookies=Common.generate_cookies(uid)).text
         logging.info(ret)
         return ret
 
@@ -177,13 +184,18 @@ class User():
 
     # 设置贵族有效期
     @staticmethod
-    def set_noble_expire(uid, _type='protect'):
-        if _type == 'protect':
-            day = 40
-        else:
-            day = 50
+    def set_noble_expire(uid, day=40):
         key = 'hm_noble:cache:{}'.format(uid)
         ret = REDIS_INST.get(key)
         data = json.loads(ret)
-        data['end_time'] = data['end_time'] - day * 24 * 60 * 60
+        start_time = data['start_time'] - day * 24 * 60 * 60
+        end_time = data['end_time'] - day * 24 * 60 * 60
+        update_time = data['update_time'] - day * 24 * 60 * 60
+
+        data['start_time'] = start_time
+        data['end_time'] = end_time
+        data['update_time'] = update_time
         REDIS_INST.set(key, json.dumps(data))
+        HmNobleUser.update(start_time=start_time, end_time=end_time, add_time=start_time, returned_time=start_time).where(
+            HmNobleUser.uid == uid).execute()
+        HmNobleInfo.update(start_time=start_time, end_time=end_time, update_time=update_time).where(HmNobleInfo.uid == uid).execute()

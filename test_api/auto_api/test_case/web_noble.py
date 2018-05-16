@@ -17,10 +17,9 @@ from ..lib.config import domain_web
 class TestNoble(unittest.TestCase):
     # 创建用户
     def create_user(self):
-        user = User()
-        uid = user.reg()
+        uid = User.reg('noble')
         logging.info('注册用户UID：{}'.format(uid))
-        user.bd_sj(uid)
+        User.bd_sj(uid)
         MoneyClass.set_money(uid, 9000000)
         return uid
 
@@ -57,7 +56,8 @@ class TestNoble(unittest.TestCase):
                 # 普通模式
                 # 判断猫币
                 coin1 = MoneyClass.get_money(uid)['coin']
-                if coin != coin1 + noble_data[level][0] * 1 + noble_data[level][1] * (month - 1):
+                pay_money = noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)
+                if coin != coin1 + pay_money:
                     logging.error('普通-猫币错误{}:{}'.format(coin, coin1))
                     return False
                 # 判断贵族猫币
@@ -71,7 +71,7 @@ class TestNoble(unittest.TestCase):
                     logging.error('普通-平台经验错误{}:{}'.format(exp, exp1))
                     return False
                 # 判断主播提成
-                profit = User.find_noble_anchor_profit(uid)
+                profit = User.find_noble_anchor_profit(uid, pay_money)
                 if profit != noble_data[level][3]:
                     logging.error('普通-主播提成错误{}'.format(profit))
                     return False
@@ -79,7 +79,8 @@ class TestNoble(unittest.TestCase):
                 # 赠送模式
                 # 判断增送者猫币
                 coin1 = MoneyClass.get_money(uid)['coin']
-                if coin != coin1 + noble_data[level][0] * 1 + noble_data[level][1] * (month - 1):
+                pay_money = noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)
+                if coin != coin1 + pay_money:
                     logging.error('赠送者猫币错误{}:{}'.format(coin, coin1))
                     return False
                 # 判断赠送者贵族猫币
@@ -108,7 +109,7 @@ class TestNoble(unittest.TestCase):
                     logging.error('被赠送者平台经验错误{}:{}'.format(to_uid_exp, exp2))
                     return False
                 # 判断主播提成
-                profit = User.find_noble_anchor_profit(to_uid)
+                profit = User.find_noble_anchor_profit(to_uid, pay_money)
                 if profit != noble_data[level][3]:
                     logging.error('普通-主播提成错误{}'.format(profit))
                     return False
@@ -318,7 +319,7 @@ class TestNoble(unittest.TestCase):
         self.name = '贵族'
         self.method = 'get'
         # 默认请求数据 type:0体验1充值2赠送
-        self.data = dict(level=1, cid=2, month=1, type=1, to_uid='')
+        self.data = dict(level=1, cid=13, month=1, type=1, to_uid='')
         self.url = '/noble/createNoble'
         self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
 
@@ -357,31 +358,31 @@ class TestNoble(unittest.TestCase):
         '''参数必填检验-month参数'''
         self.user = 1522
         self.data.pop('month')
-        self.exp_res = {'data': '', 'code': 201, 'msg': 'month不存在'}
+        self.exp_res = dict(code=201)
 
     def test_0_7(self):
         '''参数必填检验-month参数'''
         self.user = 1522
         self.data['month'] = 0
-        self.exp_res = {'data': '', 'code': 201, 'msg': 'month不存在'}
+        self.exp_res = dict(code=201)
 
     def test_0_8(self):
         '''参数必填检验-month参数'''
         self.user = 1522
         self.data['month'] = -1
-        self.exp_res = {'data': '', 'code': 201, 'msg': 'month不存在'}
+        self.exp_res = dict(code=201)
 
     def test_0_9(self):
         '''参数必填检验-month参数'''
         self.user = 1522
         self.data['month'] = 13
-        self.exp_res = {'data': '', 'code': 201, 'msg': 'month不存在'}
+        self.exp_res = dict(code=201)
 
     def test_0_10(self):
         '''参数必填检验-type参数'''
         self.user = 1522
         self.data.pop('type')
-        self.exp_res = {'code': 201, 'msg': 'type不存在', 'data': ''}
+        self.exp_res = dict(code=201)
 
     '''用户首次开通贵族'''
 
@@ -389,7 +390,6 @@ class TestNoble(unittest.TestCase):
         '''1级1个月'''
         self.user = self.create_user()
         self.data['level'] = 1
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_2(self):
@@ -400,7 +400,6 @@ class TestNoble(unittest.TestCase):
         self.data['to_uid'] = self.create_user()
         self.data['level'] = 1
         self.data['type'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_3(self):
@@ -408,7 +407,6 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 2
         self.data['month'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_4(self):
@@ -420,7 +418,6 @@ class TestNoble(unittest.TestCase):
         self.data['level'] = 2
         self.data['month'] = 2
         self.data['type'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_5(self):
@@ -428,7 +425,6 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 3
         self.data['month'] = 3
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_6(self):
@@ -440,7 +436,6 @@ class TestNoble(unittest.TestCase):
         self.data['level'] = 3
         self.data['month'] = 3
         self.data['type'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_7(self):
@@ -448,7 +443,6 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 4
         self.data['month'] = 6
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_8(self):
@@ -460,7 +454,6 @@ class TestNoble(unittest.TestCase):
         self.data['level'] = 4
         self.data['month'] = 6
         self.data['type'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_9(self):
@@ -468,7 +461,6 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 5
         self.data['month'] = 9
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_10(self):
@@ -480,7 +472,6 @@ class TestNoble(unittest.TestCase):
         self.data['level'] = 5
         self.data['month'] = 9
         self.data['type'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_11(self):
@@ -488,7 +479,6 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 6
         self.data['month'] = 12
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_12(self):
@@ -500,7 +490,6 @@ class TestNoble(unittest.TestCase):
         self.data['level'] = 6
         self.data['month'] = 12
         self.data['type'] = 2
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_13(self):
@@ -508,7 +497,6 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 7
         self.data['month'] = 5
-        self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
         self.ver = self.validate()
 
     def test_1_14(self):
@@ -1020,6 +1008,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=2)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 1
         self.data['month'] = 1
         self.data['type'] = 2
@@ -1041,6 +1030,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=3)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 3
         self.data['month'] = 3
         self.data['type'] = 2
@@ -1062,6 +1052,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=4)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 5
         self.data['month'] = 6
         self.data['type'] = 2
@@ -1083,6 +1074,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=5)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 2
         self.data['month'] = 6
         self.data['type'] = 2
@@ -1104,6 +1096,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=6)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 7
         self.data['month'] = 2
         self.data['type'] = 2
@@ -1125,6 +1118,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=7)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 7
         self.data['month'] = 1
         self.data['type'] = 2
@@ -1146,6 +1140,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=1)
+        User.set_noble_expire(self.data['to_uid'])
         self.data['level'] = 7
         self.data['month'] = 10
         self.data['type'] = 2
@@ -1157,7 +1152,7 @@ class TestNoble(unittest.TestCase):
         '''用户2级在已过保护期开通1级1月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=2)
-        User.set_noble_expire(self.user, False)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 1
         self.data['month'] = 1
         self.ver = self.validate('create')
@@ -1169,6 +1164,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=2)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 1
         self.data['month'] = 1
         self.data['type'] = 2
@@ -1178,7 +1174,7 @@ class TestNoble(unittest.TestCase):
         '''用户3级已过保护期开通3级3月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=3)
-        User.set_noble_expire(self.user)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 3
         self.data['month'] = 3
         self.ver = self.validate('create')
@@ -1190,6 +1186,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=3)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 3
         self.data['month'] = 3
         self.data['type'] = 2
@@ -1199,7 +1196,7 @@ class TestNoble(unittest.TestCase):
         '''用4级已过保护期开通5级6月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=4)
-        User.set_noble_expire(self.user)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 5
         self.data['month'] = 6
         self.ver = self.validate('create')
@@ -1211,6 +1208,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=4)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 5
         self.data['month'] = 6
         self.data['type'] = 2
@@ -1220,7 +1218,7 @@ class TestNoble(unittest.TestCase):
         '''用5级已过保护期开通2级6月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=5)
-        User.set_noble_expire(self.user)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 2
         self.data['month'] = 6
         self.ver = self.validate('create')
@@ -1232,6 +1230,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=5)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 2
         self.data['month'] = 6
         self.data['type'] = 2
@@ -1241,7 +1240,7 @@ class TestNoble(unittest.TestCase):
         '''用6级已过保护期开通7级2月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=6)
-        User.set_noble_expire(self.user)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 7
         self.data['month'] = 2
         self.ver = self.validate('create')
@@ -1253,6 +1252,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=6)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 7
         self.data['month'] = 2
         self.data['type'] = 2
@@ -1262,7 +1262,7 @@ class TestNoble(unittest.TestCase):
         '''用7级已过保护期开通7级1月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=7)
-        User.set_noble_expire(self.user)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 7
         self.data['month'] = 1
         self.ver = self.validate('create')
@@ -1274,6 +1274,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=7)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 7
         self.data['month'] = 1
         self.data['type'] = 2
@@ -1283,7 +1284,7 @@ class TestNoble(unittest.TestCase):
         '''用1级已过保护期开通7级10月'''
         self.user = self.create_user()
         User.create_noble(self.user, level=1)
-        User.set_noble_expire(self.user)
+        User.set_noble_expire(self.user, 50)
         self.data['level'] = 7
         self.data['month'] = 10
         self.ver = self.validate('create')
@@ -1295,6 +1296,7 @@ class TestNoble(unittest.TestCase):
         # 被赠送者
         self.data['to_uid'] = self.create_user()
         User.create_noble(self.data['to_uid'], level=1)
+        User.set_noble_expire(self.data['to_uid'], 50)
         self.data['level'] = 7
         self.data['month'] = 10
         self.data['type'] = 2

@@ -3,36 +3,25 @@
 # @Date    : 2017-07-24 16:37:15
 # @Author  : lixingyun
 import unittest
+import datetime
+import os
+from auto_api.lib import HTMLTestRunner
 from auto_api.test_case.web_noble import TestNoble
+from auto_api.test_case.web_gift import TestGift
 
+# 全部执行
+# unittest.main()
+# 执行单个class
+# suite = unittest.makeSuite(TestNoble)
 
+# 执行单个类单个用例  #test_1_4
 suite = unittest.TestSuite()
-suite.addTest(TestNoble('test_4_1'))
+# for i in range(1,15):
+#     suite.addTest(TestNoble('test_4_{}'.format(i)))
+suite.addTest(TestGift('test_gift_5'))
 runner = unittest.TextTestRunner()
-runner.run(suite)
-
-
-# pattern = '*_noble'
-# test_dir = './auto_api/test_case'
-# print(test_dir)
-# filename = './{}result.html'.format(int(time.time()))
+# filename = './result/{}.html'.format(datetime.datetime.now().strftime('%b_%d_%Y_%H_%M_%S'))
 # fp = open(filename, "wb")
-# discover = unittest.defaultTestLoader.discover(test_dir, pattern=pattern)
-# print(discover)
-# HTML测试报告
 # runner = HTMLTestRunner.HTMLTestRunner(stream=fp)
-# runner.run(discover)
-# 普通报告
-# runner = unittest.TextTestRunner()
-# runner.run(discover)
-# 协程执行
-# events = []
-# for testsuites in discover:
-#     for testsuite in testsuites:
-#         for test in testsuite:
-#             events.append(gevent.spawn(runner.run, test))
-# gevent.joinall(events)
-# if report:
-#     generate_report()
 
-
+runner.run(suite)

@@ -25,10 +25,10 @@ def alipay(trade_id, money):
         'out_trade_no': trade_id,  # 商户订单号
         'trade_no': '27394723947293749',  # 支付宝交易号
         'trade_status': 'TRADE_FINISHED',  # 交易状态
-        'total_fee': money,  # 交易金额 int float str
+        'total_amount': money,  # 交易金额 int float str
         'notify_id': '9ESDJFJS23749ASDFJAS12341',  # 通知校验ID
         'notify_time': '201606121539',  # 通知的发送时间
-        'buyer_email': 'AJSDJF238492839',  # 买家支付宝帐号
+        'buyer_logon_id': 'AJSDJF238492839',  # 买家支付宝帐号
     }
     res = requests.post(url, data=data)
     print(res.text)
@@ -152,4 +152,4 @@ def tmallpay(trade_id, money):
 
 
 # wxpay(2018050209463215229773399, 2800)
-alipay(2018050209480715228142821, 10)
+alipay(20180512182017231684247179, 30)
