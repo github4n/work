@@ -25,8 +25,8 @@ for i in range(1, 2):
     print(uid)
     u.bd_sj(uid)
     MoneyClass.set_money(uid, 1200000)
-    User.create_noble(uid,  level=7)
-    User.set_noble_expire(uid, 40)
+    # User.create_noble(uid,  level=7)
+    # User.set_noble_expire(uid, 40)
 
 # username = ['hmjsf{}'.format(i) for i in range(1,100)]
 # for i in username:

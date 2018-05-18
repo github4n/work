@@ -27,6 +27,14 @@ def cmp_dict(dict1, dict2):
         assert dict1 == dict2, "value: '{}' != '{}'".format(dict1, dict2)
 
 
+def assert_dict_in(dict1, dict2):
+    try:
+        cmp_dict(dict1, dict2)
+    except Exception as e:
+        return False
+    return True
+
+
 def req(self):
     report_data['test_sum'] += 1
     # 判断环境
@@ -45,42 +53,36 @@ def req(self):
     # 判断请求方式
     headers = {'X-Requested-With': 'XMLHttpRequest'}
     if self.method == 'get':
-        res = requests.get(domain + self.url, params=self.data, cookies=cookies, headers=headers).text
+        res = requests.get(domain + self.url, params=self.data, cookies=cookies, headers=headers)
     elif self.method == 'post':
-        res = requests.post(domain + self.url, data=self.data, cookies=cookies, headers=headers).text
+        res = requests.post(domain + self.url, data=self.data, cookies=cookies, headers=headers)
     else:
         res = False
     try:
-        real_res = json.loads(res)
+        real_res = res.json()
     except Exception:
         try:
-            real_res = json.loads(res[1:-1])
+            real_res = json.loads(res.text[1:-1])
         except Exception:
-            real_res = res
+            real_res = res.text
 
-    # logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
     # 判断请求结果是否包含预期结果
-    self.des = self._testMethodName
+    result = assert_dict_in(self.exp_res, real_res) and res.status_code == 200
 
-    try:
-        cmp_dict(self.exp_res, real_res)
+    if result:
         report_data['test_success'] += 1
-        result = True
-        bz = ''
         logging.info('{}验证成功'.format(self._testMethodName))
-    except Exception as e:
-        result = False
-        bz = str(e)
+        if hasattr(self, 'ver'):
+            self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+    else:
         report_data['test_failed'] += 1
-        self.info = '用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self.des, e, self.exp_res, real_res, json.dumps(real_res))
-        # logging.error(self.info)
-        self.assertTrue(False, self.info)
-    if result and hasattr(self, 'ver'):
-        self.assertTrue(self.ver(), '{}二次验证失败'.format(self.des))
+        self.info = '用例{},失败\n预期:{}\n实际:{}\n实际json:{}'.format(self._testMethodName, self.exp_res, real_res, json.dumps(real_res))
+        logging.error(self.info)
+        self.assertFalse(self.info)
 
     # 把结果添加到报告list中
     res = {"case_id": self._testMethodName,
-           "case_des": self.des,
+           "case_des": self._testMethodDoc,
            "name": self.name,
            "method": self.method,
            "url": self.url,
@@ -89,7 +91,7 @@ def req(self):
            "exp_res": str(self.exp_res),
            "real_res": str(real_res),
            "result": result,
-           "bz": bz}
+           "bz": ''}
     report_data['report_res'].append(res)
     return real_res
 
