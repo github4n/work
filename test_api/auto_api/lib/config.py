@@ -7,7 +7,7 @@
 import time
 
 # 请求的域名
-domain_web = 'http://qa.new.huomaotv.com.cn'
+domain_web = 'http://lxy.new.huomaotv.com.cn'
 domain_api = 'http://qaapi.new.huomaotv.com.cn'
 # uid
 UID = 1522
@@ -21,28 +21,3 @@ report_data = {'report_res': [],
                'test_success': 0,
                'test_failed': 0,
                'test_date': time.strftime("%Y-%m-%d %X", time.localtime())}
-# 接口信息
-interface = {
-    'admingag': {'name': '超管禁言',
-                 'url': 'myroom/addUserGag',
-                 'method': 'post',
-                 'data': {'cid': '',
-                          'uid': 1,
-                          'user_uid': '',
-                          'gag_type': 24,
-                          'nickname': '',
-                          'text': ''
-                          },
-                 },
-    'admindelgag': {'name': '超管禁言',
-                    'url': 'myroom/delGagForSuper',
-                    'method': 'post',
-                    'data': {'cid': 0,
-                             'uid': '',
-                             'user_uid': 1,
-                             'gag_type': 24,
-                             'nickname': '',
-                             'text': ''
-                             },
-                    },
-}

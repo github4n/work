@@ -4,10 +4,10 @@
 # Author : lixingyun
 # Description :
 #
-from huomao.user import User
-#
-# uid = Money.set_xd(1522,1)
-# print(uid)
-#
-profit = User.set_noble_expire(22968)
-print(profit)
+data = {
+    '1': 1 * 3,
+    '2': 9 * 90*12
+}
+
+print(data.get('1')
+      )

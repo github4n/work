@@ -1,0 +1,2802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>API自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.test_case   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>API自动化测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2018-05-21 10:07:08</p>
+<p class='attribute'><strong>执行耗时:</strong> 0:02:11.773024</p>
+<p class='attribute'><strong>状态:</strong> Pass 28 Failure 36 Error 28</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>视图
+<a href='javascript:showCase(0)'>总览</a>
+<a href='javascript:showCase(1)'>失败</a>
+<a href='javascript:showCase(2)'>全部</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试模块/测试用例</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>auto_api.test_case.web_noble.TestNoble</td>
+    <td>92</td>
+    <td>28</td>
+    <td>36</td>
+    <td>28</td>
+    <td><a href="javascript:showClassDetail('c1',92)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_0_1: 参数必填检验-未登录</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&month=1&level=1>test_0_10: 参数必填检验-type参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1>test_0_2: 参数必填检验-level参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=0>test_0_3: 参数必填检验-level参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=8>test_0_4: 参数必填检验-level参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=-1>test_0_5: 参数必填检验-level参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&level=1>test_0_6: 参数必填检验-month参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=0&level=1>test_0_7: 参数必填检验-month参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=-1&level=1>test_0_8: 参数必填检验-month参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=13&level=1>test_0_9: 参数必填检验-month参数</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_1_1: 1级1个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24900&cid=14&type=2&month=9&level=5>test_1_10: 被赠送5级9个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=6>test_1_11: 6级12个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24903&cid=14&type=2&month=12&level=6>test_1_12: 被赠送6级12个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=5&level=7>test_1_13: 7级5个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24906&cid=14&type=2&month=5&level=7>test_1_14: 被赠送7级5个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24908&cid=14&type=2&month=1&level=1>test_1_2: 被赠送1级1个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=2&level=2>test_1_3: 2级2个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.19' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24911&cid=14&type=2&month=2&level=2>test_1_4: 被赠送2级2个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.20' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=3&level=3>test_1_5: 3级3个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.21' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24914&cid=14&type=2&month=3&level=3>test_1_6: 被赠送3级3个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.22' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=6&level=4>test_1_7: 4级6个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.23' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24917&cid=14&type=2&month=6&level=4>test_1_8: 被赠送4级6个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.24' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=9&level=5>test_1_9: 5级9个月</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.25' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_2_1: 已1级1个月开通1级1个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.25')" >
+        fail</a>
+
+    <div id='div_ft1.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.25: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_1二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_1二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.26' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24921&cid=14&type=2&month=6&level=2>test_2_10: 已2级2个月被赠送2级6个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.26')" >
+        fail</a>
+
+    <div id='div_ft1.26' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.26').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.26: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_10二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_10二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.27' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=3&level=3>test_2_11: 已2级3个月开通3级3个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.27')" >
+        fail</a>
+
+    <div id='div_ft1.27' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.27').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.27: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_11二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_11二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.28' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24924&cid=14&type=2&month=3&level=3>test_2_12: 已2级3个月被赠送3级3个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.28')" >
+        fail</a>
+
+    <div id='div_ft1.28' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.28').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.28: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_12二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_12二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.29' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=2>test_2_13: 已3级2个月开通2级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.29')" >
+        fail</a>
+
+    <div id='div_ft1.29' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.29').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.29: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_13,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_13,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.30' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24927&cid=14&type=2&month=12&level=2>test_2_14: 已3级2个月被赠送2级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.30')" >
+        fail</a>
+
+    <div id='div_ft1.30' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.30').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.30: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_14,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_14,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.31' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=6&level=3>test_2_15: 已3级2个月开通3级6个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.31')" >
+        fail</a>
+
+    <div id='div_ft1.31' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.31').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.31: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_15二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_15二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.32' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24930&cid=14&type=2&month=6&level=3>test_2_16: 已3级2个月被赠送3级6个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.32')" >
+        fail</a>
+
+    <div id='div_ft1.32' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.32').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.32: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_16二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_16二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.33' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=3&level=5>test_2_17: 已3级3个月开通5级3个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.33')" >
+        fail</a>
+
+    <div id='div_ft1.33' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.33').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.33: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_17二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_17二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.34' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24933&cid=14&type=2&month=3&level=5>test_2_18: 已3级3个月被赠送5级3个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.34')" >
+        fail</a>
+
+    <div id='div_ft1.34' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.34').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.34: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_18二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_18二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.35' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=3>test_2_19: 已4级2个月开通3级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.35')" >
+        fail</a>
+
+    <div id='div_ft1.35' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.35').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.35: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_19,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_19,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.36' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24936&cid=14&type=2&month=1&level=1>test_2_2: 已1级1个月被赠送1级1个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.36')" >
+        fail</a>
+
+    <div id='div_ft1.36' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.36').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.36: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_2二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_2二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.37' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24938&cid=14&type=2&month=12&level=3>test_2_20: 已4级2个月被赠送3级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.37')" >
+        fail</a>
+
+    <div id='div_ft1.37' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.37').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.37: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_20,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_20,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.38' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=6&level=4>test_2_21: 已4级4个月开通4级6个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.38')" >
+        fail</a>
+
+    <div id='div_ft1.38' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.38').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.38: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_21二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_21二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.39' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24941&cid=14&type=2&month=6&level=4>test_2_22: 已4级4个月被赠送4级6个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.39')" >
+        fail</a>
+
+    <div id='div_ft1.39' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.39').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.39: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_22二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_22二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.40' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=3&level=6>test_2_23: 已4级3个月开通6级2个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.40')" >
+        fail</a>
+
+    <div id='div_ft1.40' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.40').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.40: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_23二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_23二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.41' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24944&cid=14&type=2&month=3&level=5>test_2_24: 已4级3个月被赠送6级2个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.41')" >
+        fail</a>
+
+    <div id='div_ft1.41' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.41').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.41: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_24二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_24二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.42' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=3>test_2_25: 已5级2个月开通3级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.42')" >
+        fail</a>
+
+    <div id='div_ft1.42' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.42').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.42: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_25,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_25,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.43' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24947&cid=14&type=2&month=12&level=3>test_2_26: 已5级2个月被赠送3级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.43')" >
+        fail</a>
+
+    <div id='div_ft1.43' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.43').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.43: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_26,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_26,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.44' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=5>test_2_27: 已5级4个月开通5级1个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.44')" >
+        fail</a>
+
+    <div id='div_ft1.44' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.44').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.44: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_27二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_27二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.45' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24950&cid=14&type=2&month=1&level=5>test_2_28: 已5级4个月被赠送5级1个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.45')" >
+        fail</a>
+
+    <div id='div_ft1.45' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.45').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.45: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_28二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_28二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.46' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=7>test_2_29: 已5级3个月开通7级1个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.46')" >
+        fail</a>
+
+    <div id='div_ft1.46' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.46').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.46: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_29二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_29二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.47' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=2&level=2>test_2_3: 已1级1个月开通2级2个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.48' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24954&cid=14&type=2&month=1&level=7>test_2_30: 已5级3个月被赠送7级1个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.48')" >
+        fail</a>
+
+    <div id='div_ft1.48' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.48').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.48: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_30二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_30二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.49' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=2>test_2_31: 已6级2个月开通2级1个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.49')" >
+        fail</a>
+
+    <div id='div_ft1.49' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.49').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.49: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_31,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_31,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.50' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24957&cid=14&type=2&month=1&level=2>test_2_32: 已6级2个月被赠送2级1个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.50')" >
+        fail</a>
+
+    <div id='div_ft1.50' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.50').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.50: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_32,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_32,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.51' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=2&level=6>test_2_33: 已6级4个月开通6级2个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.51')" >
+        fail</a>
+
+    <div id='div_ft1.51' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.51').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.51: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_33二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_33二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.52' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24960&cid=14&type=2&month=2&level=6>test_2_34: 已6级4个月被赠送6级2个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.52')" >
+        fail</a>
+
+    <div id='div_ft1.52' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.52').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.52: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_34二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_34二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.53' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=2&level=7>test_2_35: 已6级3个月开通7级2个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.53')" >
+        fail</a>
+
+    <div id='div_ft1.53' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.53').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.53: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_35二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_35二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.54' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24963&cid=14&type=2&month=2&level=7>test_2_36: 已6级3个月被赠送7级2个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.54')" >
+        fail</a>
+
+    <div id='div_ft1.54' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.54').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.54: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_36二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_36二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.55' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=6>test_2_37: 已7级1个月开通6级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.55')" >
+        fail</a>
+
+    <div id='div_ft1.55' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.55').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.55: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_37,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_37,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.56' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24966&cid=14&type=2&month=12&level=6>test_2_38: 已7级1个月被赠送6级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.56')" >
+        fail</a>
+
+    <div id='div_ft1.56' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.56').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.56: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_38,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_38,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.57' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=7>test_2_39: 已7级4个月开通7级12个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.57')" >
+        fail</a>
+
+    <div id='div_ft1.57' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.57').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.57: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_39二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_39二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.58' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24969&cid=14&type=2&month=2&level=2>test_2_4: 已1级1个月被赠送2级2个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.59' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24971&cid=14&type=2&month=12&level=7>test_2_40: 已7级4个月被赠送7级12个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.59')" >
+        fail</a>
+
+    <div id='div_ft1.59' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.59').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.59: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_40二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_40二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.60' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=7>test_2_5: 已1级1个月开通7级12个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.61' class='hiddenRow'>
+    <td class='none'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24974&cid=14&type=2&month=12&level=7>test_2_6: 已1级1个月被赠送7级12个月--相当于升级</a></div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.62' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=12&level=1>test_2_7: 已2级2个月开通1级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.62')" >
+        fail</a>
+
+    <div id='div_ft1.62' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.62').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.62: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_7,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_7,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.63' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24977&cid=14&type=2&month=12&level=1>test_2_8: 已2级2个月被赠送1级12个月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.63')" >
+        fail</a>
+
+    <div id='div_ft1.63' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.63').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.63: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_8,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 84, in req
+    self.assertFalse(self.info)
+AssertionError: '用例test_2_8,失败\n预期:{\'code\': 201, \'data\': \'\', \'msg\': \'已经是该贵族了\'}\n实际:{\'code\': 200, \'msg\': \'成功\', \'data\': None}\n实际json:{"code": 200, "msg": "\\u6210\\u529f", "data": null}' is not false
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.64' class='none'>
+    <td class='failCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=6&level=2>test_2_9: 已2级2个月开通2级6个月--相当于续费</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.64')" >
+        fail</a>
+
+    <div id='div_ft1.64' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.64').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.64: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_9二次验证失败
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1307, in tearDown
+    req(self)
+  File "Z:\share\test_api\auto_api\lib\lib.py", line 79, in req
+    hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+AssertionError: False is not true : test_2_9二次验证失败
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.65' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_1: 用户2级在保护期开通1级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.65')" >
+        error</a>
+
+    <div id='div_ft1.65' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.65').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.65: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 999, in test_3_1
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 999, in test_3_1
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.66' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24981&cid=14&type=1&month=1&level=1>test_3_10: 用户6级在保护期被开通7级2月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.66')" >
+        error</a>
+
+    <div id='div_ft1.66' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.66').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.66: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1099, in test_3_10
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1099, in test_3_10
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.67' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_11: 用7级在保护期开通7级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.67')" >
+        error</a>
+
+    <div id='div_ft1.67' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.67').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.67: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1109, in test_3_11
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1109, in test_3_11
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.68' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24984&cid=14&type=1&month=1&level=1>test_3_12: 用户7级在保护期被开通7级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.68')" >
+        error</a>
+
+    <div id='div_ft1.68' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.68').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.68: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1121, in test_3_12
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1121, in test_3_12
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.69' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_13: 用1级在保护期开通7级10月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.69')" >
+        error</a>
+
+    <div id='div_ft1.69' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.69').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.69: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1131, in test_3_13
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1131, in test_3_13
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.70' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24987&cid=14&type=1&month=1&level=1>test_3_14: 用户1级在保护期被开通7级10月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.70')" >
+        error</a>
+
+    <div id='div_ft1.70' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.70').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.70: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1143, in test_3_14
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1143, in test_3_14
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.71' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24989&cid=14&type=1&month=1&level=1>test_3_2: 用户2级在保护期被开通1级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.71')" >
+        error</a>
+
+    <div id='div_ft1.71' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.71').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.71: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1011, in test_3_2
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1011, in test_3_2
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.72' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_3: 用户3级在保护期开通3级3月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.72')" >
+        error</a>
+
+    <div id='div_ft1.72' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.72').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.72: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1021, in test_3_3
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1021, in test_3_3
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.73' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24992&cid=14&type=1&month=1&level=1>test_3_4: 用户3级在保护期被开通3级3月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.73')" >
+        error</a>
+
+    <div id='div_ft1.73' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.73').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.73: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1033, in test_3_4
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1033, in test_3_4
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.74' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_5: 用4级在保护期开通5级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.74')" >
+        error</a>
+
+    <div id='div_ft1.74' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.74').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.74: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1043, in test_3_5
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1043, in test_3_5
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.75' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24995&cid=14&type=1&month=1&level=1>test_3_6: 用户4级在保护期被开通5级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.75')" >
+        error</a>
+
+    <div id='div_ft1.75' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.75').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.75: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1055, in test_3_6
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1055, in test_3_6
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.76' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_7: 用5级在保护期开通2级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.76')" >
+        error</a>
+
+    <div id='div_ft1.76' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.76').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.76: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1065, in test_3_7
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1065, in test_3_7
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.77' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=24998&cid=14&type=1&month=1&level=1>test_3_8: 用户5级在保护期被开通2级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.77')" >
+        error</a>
+
+    <div id='div_ft1.77' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.77').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.77: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1077, in test_3_8
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1077, in test_3_8
+    User.set_noble_expire(self.data['to_uid'])
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.78' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_3_9: 用6级在保护期开通7级2月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.78')" >
+        error</a>
+
+    <div id='div_ft1.78' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.78').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.78: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1087, in test_3_9
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1087, in test_3_9
+    User.set_noble_expire(self.user)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.79' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_1: 用户2级在已过保护期开通1级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.79')" >
+        error</a>
+
+    <div id='div_ft1.79' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.79').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.79: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1155, in test_4_1
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1155, in test_4_1
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.80' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25002&cid=14&type=1&month=1&level=1>test_4_10: 用户6级已过保护期被开通7级2月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.80')" >
+        error</a>
+
+    <div id='div_ft1.80' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.80').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.80: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1255, in test_4_10
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1255, in test_4_10
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.81' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_11: 用7级已过保护期开通7级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.81')" >
+        error</a>
+
+    <div id='div_ft1.81' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.81').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.81: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1265, in test_4_11
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1265, in test_4_11
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.82' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25005&cid=14&type=1&month=1&level=1>test_4_12: 用户7级已过保护期被开通7级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.82')" >
+        error</a>
+
+    <div id='div_ft1.82' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.82').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.82: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1277, in test_4_12
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1277, in test_4_12
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.83' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_13: 用1级已过保护期开通7级10月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.83')" >
+        error</a>
+
+    <div id='div_ft1.83' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.83').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.83: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1287, in test_4_13
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1287, in test_4_13
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.84' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25008&cid=14&type=1&month=1&level=1>test_4_14: 用户1级已过保护期被开通7级10月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.84')" >
+        error</a>
+
+    <div id='div_ft1.84' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.84').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.84: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1299, in test_4_14
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1299, in test_4_14
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.85' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25010&cid=14&type=1&month=1&level=1>test_4_2: 用户2级已过保护期被开通1级1月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.85')" >
+        error</a>
+
+    <div id='div_ft1.85' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.85').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.85: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1167, in test_4_2
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1167, in test_4_2
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.86' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_3: 用户3级已过保护期开通3级3月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.86')" >
+        error</a>
+
+    <div id='div_ft1.86' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.86').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.86: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1177, in test_4_3
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1177, in test_4_3
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.87' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25013&cid=14&type=1&month=1&level=1>test_4_4: 用户3级已过保护期被开通3级3月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.87')" >
+        error</a>
+
+    <div id='div_ft1.87' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.87').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.87: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1189, in test_4_4
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1189, in test_4_4
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.88' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_5: 用4级已过保护期开通5级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.88')" >
+        error</a>
+
+    <div id='div_ft1.88' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.88').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.88: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1199, in test_4_5
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1199, in test_4_5
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.89' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25016&cid=14&type=1&month=1&level=1>test_4_6: 用户4级已过保护期被开通5级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.89')" >
+        error</a>
+
+    <div id='div_ft1.89' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.89').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.89: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1211, in test_4_6
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1211, in test_4_6
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.90' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_7: 用5级已过保护期开通2级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.90')" >
+        error</a>
+
+    <div id='div_ft1.90' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.90').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.90: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1221, in test_4_7
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1221, in test_4_7
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.91' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=25019&cid=14&type=1&month=1&level=1>test_4_8: 用户5级已过保护期被开通2级6月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.91')" >
+        error</a>
+
+    <div id='div_ft1.91' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.91').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.91: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1233, in test_4_8
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1233, in test_4_8
+    User.set_noble_expire(self.data['to_uid'], 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.92' class='none'>
+    <td class='errorCase'><div class='test_case'><a target ='_blank' href= http://lxy.new.huomaotv.com.cn/noble/createNoble?to_uid=&cid=14&type=1&month=1&level=1>test_4_9: 用6级已过保护期开通7级2月</a></div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.92')" >
+        error</a>
+
+    <div id='div_ft1.92' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.92').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.92: Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1243, in test_4_9
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+Traceback (most recent call last):
+  File "Z:\share\test_api\auto_api\test_case\web_noble.py", line 1243, in test_4_9
+    User.set_noble_expire(self.user, 50)
+  File "Z:\share\huomao\user.py", line 243, in set_noble_expire
+    data = json.loads(ret)
+  File "C:\Python35\lib\json\__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>92</td>
+    <td>28</td>
+    <td>36</td>
+    <td>28</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

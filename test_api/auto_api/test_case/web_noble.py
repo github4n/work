@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Date   : 2018/4/17 17:53
 # Author : lixingyun
-# Description : 测试贵族功能 不验证每月返还功能
+# Description : 测试贵族功能 不验证每月返还功能,未测试已折扣月份升级，续费
 
 import time
 import requests
@@ -10,7 +10,8 @@ import logging
 import unittest
 from huomao.money import MoneyClass
 from huomao.user import User
-from ..lib.lib import assert_res
+from huomao.bag import Bag
+from ..lib.lib import req
 from ..lib.config import domain_web
 
 
@@ -24,7 +25,7 @@ class TestNoble(unittest.TestCase):
         return uid
 
     # 二次验证方法创建，续费，升级
-    def validate(self, _type='create'):
+    def validate(self, _type='create', discount=1):
         # 贵族等级：开通价格0，续费价格1，返还猫币2，主播提成3，增加经验4
         noble_data = {
             1: [66, 30, 30, 13.2, 0],
@@ -39,287 +40,151 @@ class TestNoble(unittest.TestCase):
         month = self.data['month']
         old_level = self.old_level if hasattr(self, 'old_level') else False
         old_month = self.old_month if hasattr(self, 'old_month') else False
-        # 获取用户的猫币，贵族猫币，平台经验
-        uid = self.user
-        coin = MoneyClass.get_money(self.user)['coin']
-        noble_coin = MoneyClass.get_noble_coin(self.user)
-        exp = User.get_experience(self.user)[0]
+        # 获取赠送者用户的猫币，贵族猫币，平台经验
+        buyer_uid = self.user
+        buyer_coin = MoneyClass.get_money(buyer_uid)['coin']
+        buyer_noble_coin = MoneyClass.get_noble_coin(buyer_uid)
+        buyer_exp = User.get_experience(buyer_uid)[0]
+
         # 获取被赠送者的猫币，贵族猫币，平台经验
-        to_uid = self.data['to_uid']
+        to_uid = self.data.get('to_uid')
         if to_uid:
             to_uid_coin = MoneyClass.get_money(to_uid)['coin']
             to_uid_noble_coin = MoneyClass.get_noble_coin(to_uid)
             to_uid_exp = User.get_experience(to_uid)[0]
 
-        def _ver_create():
-            if not to_uid:
-                # 普通模式
-                # 判断猫币
-                coin1 = MoneyClass.get_money(uid)['coin']
-                pay_money = noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)
-                if coin != coin1 + pay_money:
-                    logging.error('普通-猫币错误{}:{}'.format(coin, coin1))
-                    return False
-                # 判断贵族猫币
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1 - noble_data[level][2]:
-                    logging.error('普通-贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
-                    return False
-                # 判断平台经验
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1 - noble_data[level][4]:
-                    logging.error('普通-平台经验错误{}:{}'.format(exp, exp1))
-                    return False
-                # 判断主播提成
-                profit = User.find_noble_anchor_profit(uid, pay_money)
-                if profit != noble_data[level][3]:
-                    logging.error('普通-主播提成错误{}'.format(profit))
-                    return False
-            else:
+        def _ver():
+            noble_profit = get_noble_exp = get_noble_money = pay_money = False
+            if to_uid:
                 # 赠送模式
                 # 判断增送者猫币
-                coin1 = MoneyClass.get_money(uid)['coin']
-                pay_money = noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)
-                if coin != coin1 + pay_money:
-                    logging.error('赠送者猫币错误{}:{}'.format(coin, coin1))
+                buyer_coin_new = MoneyClass.get_money(buyer_uid)['coin']
+                if _type == 'create' or _type == 'upgrade':
+                    # 开通/升级 首月原价,其他优惠价
+                    pay_money = (noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)) * discount
+                elif _type == 'renew' or _type == 'protect_create':
+                    # 续费/续费保护期购买 只花费折扣价格
+                    pay_money = noble_data[level][1] * month * discount
+                if buyer_coin != buyer_coin_new + pay_money:
+                    logging.error('赠送者-猫币错误{}:{}'.format(buyer_coin, buyer_coin_new))
                     return False
                 # 判断赠送者贵族猫币
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1:
-                    logging.error('赠送者贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
+                buyer_noble_coin_new = MoneyClass.get_noble_coin(buyer_uid)
+                if buyer_noble_coin != buyer_noble_coin_new:
+                    logging.error('赠送者贵族猫币错误{}:{}'.format(buyer_noble_coin, buyer_noble_coin_new))
                     return False
                 # 判断赠送者平台经验
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1:
-                    logging.error('赠送者平台经验错误{}:{}'.format(exp, exp1))
+                buyer_exp_new = User.get_experience(buyer_uid)[0]
+                if buyer_exp != buyer_exp_new:
+                    logging.error('赠送者平台经验错误{}:{}'.format(buyer_exp, buyer_exp_new))
                     return False
                 # 判断被增送者猫币
-                coin2 = MoneyClass.get_money(to_uid)['coin']
-                if to_uid_coin != coin2:
-                    logging.error('被赠送者猫币错误{}:{}'.format(to_uid_coin, coin2))
+                to_uid_coin_new = MoneyClass.get_money(to_uid)['coin']
+                if to_uid_coin != to_uid_coin_new:
+                    logging.error('被赠送者猫币错误{}:{}'.format(to_uid_coin, to_uid_coin_new))
                     return False
-                # 判断被赠送者贵族猫币
-                noble_coin2 = MoneyClass.get_noble_coin(to_uid)
-                if to_uid_noble_coin != noble_coin2 - noble_data[level][2]:
-                    logging.error('被赠送者贵族猫币错误{}:{}'.format(to_uid_noble_coin, noble_coin2))
+                # 判断被增送贵族猫币
+                to_uid_noble_coin_new = MoneyClass.get_noble_coin(to_uid)
+                if _type == 'create' or _type == 'protect_create':
+                    # 开通/续费保护期 获得一个月
+                    get_noble_money = noble_data[level][2] * discount
+                elif _type == 'renew':
+                    # 续费 不获得
+                    get_noble_money = 0
+                elif _type == 'upgrade':
+                    # 返还第一个月和之前月份未给的
+                    get_noble_money = noble_data[level][2] * discount + noble_data[old_level][2] * (old_month - 1)
+                if to_uid_noble_coin != to_uid_noble_coin_new - get_noble_money:
+                    logging.error('被赠送者贵族猫币错误{}:{}'.format(to_uid_noble_coin, to_uid_noble_coin_new))
                     return False
-                # 判断被赠送者平台经验
-                exp2 = User.get_experience(to_uid)[0]
-                if to_uid_exp != exp2 - noble_data[level][4]:
-                    logging.error('被赠送者平台经验错误{}:{}'.format(to_uid_exp, exp2))
+
+                # 判断被增送平台经验
+                to_uid_exp_new = User.get_experience(to_uid)[0]
+                if _type == 'create' or _type == 'protect_create':
+                    # 开通/续费保护期购买 获得一个月
+                    get_noble_exp = noble_data[level][4] * discount
+                elif _type == 'renew':
+                    # 续费不获得平台经验
+                    get_noble_exp = 0
+                elif _type == 'upgrade':
+                    # 返还第一个月和之前月份未给的
+                    get_noble_exp = noble_data[level][4] * discount + noble_data[old_level][4] * (old_month - 1)
+                if to_uid_exp != to_uid_exp_new - get_noble_exp:
+                    logging.error('普通-平台经验错误{}:{}'.format(to_uid_exp, to_uid_exp_new))
                     return False
+
                 # 判断主播提成
                 profit = User.find_noble_anchor_profit(to_uid, pay_money)
-                if profit != noble_data[level][3]:
-                    logging.error('普通-主播提成错误{}'.format(profit))
-                    return False
-            return True
-
-        def _ver_renew():
-            if not to_uid:
-                # 普通模式
-                # 判断猫币-续费只花费折扣价格
-                coin1 = MoneyClass.get_money(uid)['coin']
-                if coin != coin1 + noble_data[level][1] * month:
-                    logging.error('普通-猫币错误{}:{}'.format(coin, coin1))
-                    return False
-                # 判断贵族猫币-续费不获得贵族猫币
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1:
-                    logging.error('普通-贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
-                    return False
-                # 判断平台经验-续费不获得平台经验
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1:
-                    logging.error('普通-平台经验错误{}:{}'.format(exp, exp1))
-                    return False
-                # 判断主播提成-续费不获得主播提成
-                profit = User.find_noble_anchor_profit(uid, noble_data[level][1] * month)
-                if profit:
+                if _type == 'create' or _type == 'upgrade':
+                    # 开通/升级 获得一个月
+                    noble_profit = noble_data[level][3] * discount
+                elif _type == 'renew' or _type == 'protect_create':
+                    # 续费/续费保护期  不获得主播提成
+                    noble_profit = 0
+                if profit != noble_profit:
                     logging.error('普通-主播提成错误{}'.format(profit))
                     return False
             else:
-                # 赠送模式
-                # 判断增送者猫币-续费只花费折扣价格
-                coin1 = MoneyClass.get_money(uid)['coin']
-                if coin != coin1 + noble_data[level][1] * month:
-                    logging.error('赠送者猫币错误{}:{}'.format(coin, coin1))
-                    return False
-                # 判断赠送者贵族猫币-续费不获得贵族猫币
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1:
-                    logging.error('赠送者贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
-                    return False
-                # 判断赠送者平台经验-续费不获得平台经验
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1:
-                    logging.error('赠送者平台经验错误{}:{}'.format(exp, exp1))
-                    return False
-                # 判断被增送者猫币-续费不获得猫币
-                coin2 = MoneyClass.get_money(to_uid)['coin']
-                if to_uid_coin != coin2:
-                    logging.error('被赠送者猫币错误{}:{}'.format(to_uid_coin, coin2))
-                    return False
-                # 判断被赠送者贵族猫币-续费不获得贵族猫币
-                noble_coin2 = MoneyClass.get_noble_coin(to_uid)
-                if to_uid_noble_coin != noble_coin2:
-                    logging.error('被赠送者贵族猫币错误{}:{}'.format(to_uid_noble_coin, noble_coin2))
-                    return False
-                # 判断被赠送者平台经验-续费不获得平台经验
-                exp2 = User.get_experience(to_uid)[0]
-                if to_uid_exp != exp2:
-                    logging.error('被赠送者平台经验错误{}:{}'.format(to_uid_exp, exp2))
-                    return False
-                # 判断主播提成-续费不获得主播提成
-                profit = User.find_noble_anchor_profit(to_uid, noble_data[level][1] * month)
-                if profit:
-                    logging.error('普通-主播提成错误{}'.format(profit))
-                    return False
-            return True
-
-        def _ver_upgrade():
-            if not to_uid:
                 # 普通模式
-                # 判断猫币 - 相当于重新购买
-                coin1 = MoneyClass.get_money(uid)['coin']
-                pay_money = noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)
-                if coin != coin1 + pay_money:
-                    logging.error('普通-猫币错误{}:{}:{}'.format(coin, coin1, pay_money))
+                buyer_coin_new = MoneyClass.get_money(buyer_uid)['coin']
+                if _type == 'create' or _type == 'upgrade':
+                    # 开通/升级 首月原价,其他优惠价
+                    pay_money = (noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)) * discount
+                elif _type == 'renew' or _type == 'protect_create':
+                    # 续费/续费保护期购买 只花费折扣价格
+                    pay_money = noble_data[level][1] * month * discount
+                if buyer_coin != buyer_coin_new + pay_money:
+                    logging.error('普通-猫币错误{}:{}'.format(buyer_coin, buyer_coin_new))
                     return False
-                # 判断贵族猫币-返还第一个月和之前月份未给的
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1 - noble_data[level][2] - noble_data[old_level][2] * (old_month - 1):
-                    logging.error('普通-贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
+                # 判断贵族猫币
+                buyer_noble_coin_new = MoneyClass.get_noble_coin(buyer_uid)
+                if _type == 'create' or _type == 'protect_create':
+                    # 开通/续费保护期购买 获得一个月
+                    get_noble_money = noble_data[level][2] * discount
+                elif _type == 'renew':
+                    # 续费 不获得
+                    get_noble_money = 0
+                elif _type == 'upgrade':
+                    # 返还第一个月和之前月份未给的
+                    get_noble_money = noble_data[level][2] * discount + noble_data[old_level][2] * (old_month - 1)
+                if buyer_noble_coin != buyer_noble_coin_new - get_noble_money:
+                    logging.error('普通-贵族猫币错误{}:{}'.format(buyer_noble_coin, buyer_noble_coin_new))
                     return False
-                # 判断平台经验 返还第一个月和之前月份未给的
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1 - noble_data[level][4] - noble_data[old_level][4] * (old_month - 1):
-                    logging.error('普通-平台经验错误{}:{}'.format(exp, exp1))
+                # 判断平台经验
+                buyer_exp_new = User.get_experience(buyer_uid)[0]
+                if _type == 'create' or _type == 'protect_create':
+                    # 开通/续费保护期购买 获得一个月
+                    get_noble_exp = noble_data[level][4] * discount
+                elif _type == 'renew':
+                    # 续费不获得平台经验
+                    get_noble_exp = 0
+                elif _type == 'upgrade':
+                    # 返还第一个月和之前月份未给的
+                    get_noble_exp = noble_data[level][4] * discount + noble_data[old_level][4] * (old_month - 1)
+                if buyer_exp != buyer_exp_new - get_noble_exp:
+                    logging.error('普通-平台经验错误{}:{}'.format(buyer_exp, buyer_exp_new))
                     return False
-                # 判断主播提成-返还一个月
-                profit = User.find_noble_anchor_profit(uid, pay_money)
-                if profit != noble_data[level][3]:
+                # 判断主播提成
+                profit = User.find_noble_anchor_profit(buyer_uid, pay_money)
+                if _type == 'create' or _type == 'upgrade':
+                    # 开通/升级 获得一个月
+                    noble_profit = noble_data[level][3] * discount
+                elif _type == 'renew' or _type == 'protect_create':
+                    # 续费/续费保护期  不获得主播提成
+                    noble_profit = 0
+                if profit != noble_profit:
                     logging.error('普通-主播提成错误{}'.format(profit))
                     return False
-            else:
-                # 赠送模式
-                # 判断增送者猫币- 相当于重新购买
-                coin1 = MoneyClass.get_money(uid)['coin']
-                pay_money = noble_data[level][0] * 1 + noble_data[level][1] * (month - 1)
-                if coin != coin1 + pay_money:
-                    logging.error('赠送者猫币错误{}:{}:{}'.format(coin, coin1, pay_money))
-                    return False
-                # 判断赠送者贵族猫币 - 不变
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1:
-                    logging.error('赠送者贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
-                    return False
-                # 判断赠送者平台经验 - 不变
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1:
-                    logging.error('赠送者平台经验错误{}:{}'.format(exp, exp1))
-                    return False
-                # 判断被增送者猫币-不变
-                coin2 = MoneyClass.get_money(to_uid)['coin']
-                if to_uid_coin != coin2:
-                    logging.error('被赠送者猫币错误{}:{}'.format(to_uid_coin, coin2))
-                    return False
-                # 判断被赠送者贵族猫币-返还第一个月和之前月份未给的
-                noble_coin2 = MoneyClass.get_noble_coin(to_uid)
-                if to_uid_noble_coin != noble_coin2 - noble_data[level][2] - noble_data[old_level][2] * (old_month - 1):
-                    logging.error('被赠送者贵族猫币错误{}:{}'.format(to_uid_noble_coin, noble_coin2))
-                    return False
-                # 判断被赠送者平台经验-返还第一个月和之前月份未给的
-                exp2 = User.get_experience(to_uid)[0]
-                if to_uid_exp != exp2 - noble_data[level][4] - noble_data[old_level][4] * (old_month - 1):
-                    logging.error('被赠送者平台经验错误{}:{}'.format(to_uid_exp, exp2))
-                    return False
-                # 判断主播提成-返还一个月
-                profit = User.find_noble_anchor_profit(to_uid, pay_money)
-                if profit != noble_data[level][3]:
-                    logging.error('普通-主播提成错误{}'.format(profit))
-                    return False
-            return True
 
-        def _ver_protect_create():
-            if not to_uid:
-                # 普通模式
-                # 判断猫币-续费保护期只花费折扣价格
-                coin1 = MoneyClass.get_money(uid)['coin']
-                if coin != coin1 + noble_data[level][1] * month:
-                    logging.error('普通-猫币错误{}:{}'.format(coin, coin1))
-                    return False
-                # 判断贵族猫币-续费保护期获得首月贵族猫币
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1 - noble_data[level][2]:
-                    logging.error('普通-贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
-                    return False
-                # 判断平台经验-续费保护期获得首月平台经验
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1 - noble_data[level][4]:
-                    logging.error('普通-平台经验错误{}:{}'.format(exp, exp1))
-                    return False
-                # 判断主播提成-续费保护期不获得主播提成
-                profit = User.find_noble_anchor_profit(uid, noble_data[level][1] * month)
-                if profit:
-                    logging.error('普通-主播提成错误{}'.format(profit))
-                    return False
-            else:
-                # 赠送模式
-                # 判断增送者猫币-续费保护期只花费折扣价格
-                coin1 = MoneyClass.get_money(uid)['coin']
-                if coin != coin1 + noble_data[level][1] * month:
-                    logging.error('赠送者猫币错误{}:{}'.format(coin, coin1))
-                    return False
-                # 判断赠送者贵族猫币-续费不获得贵族猫币
-                noble_coin1 = MoneyClass.get_noble_coin(uid)
-                if noble_coin != noble_coin1:
-                    logging.error('赠送者贵族猫币错误{}:{}'.format(noble_coin, noble_coin1))
-                    return False
-                # 判断赠送者平台经验-续费不获得平台经验
-                exp1 = User.get_experience(uid)[0]
-                if exp != exp1:
-                    logging.error('赠送者平台经验错误{}:{}'.format(exp, exp1))
-                    return False
-                # 判断被增送者猫币-续费不获得猫币
-                coin2 = MoneyClass.get_money(to_uid)['coin']
-                if to_uid_coin != coin2:
-                    logging.error('被赠送者猫币错误{}:{}'.format(to_uid_coin, coin2))
-                    return False
-                # 判断被赠送者贵族猫币-续费保护期获得首月贵族猫币
-                noble_coin2 = MoneyClass.get_noble_coin(to_uid)
-                if to_uid_noble_coin != noble_coin2 - noble_data[level][2]:
-                    logging.error('被赠送者贵族猫币错误{}:{}'.format(to_uid_noble_coin, noble_coin2))
-                    return False
-                # 判断被赠送者平台经验-续费保护期获得首月平台经验
-                exp2 = User.get_experience(to_uid)[0]
-                if to_uid_exp != exp2 - noble_data[level][4]:
-                    logging.error('被赠送者平台经验错误{}:{}'.format(to_uid_exp, exp2))
-                    return False
-                # 判断主播提成-续费不获得主播提成
-                profit = User.find_noble_anchor_profit(to_uid, noble_data[level][1] * month)
-                if profit:
-                    logging.error('普通-主播提成错误{}'.format(profit))
-                    return False
-            return True
 
-        if _type == 'create':
-            return _ver_create
-        elif _type == 'renew':
-            return _ver_renew
-        elif _type == 'upgrade':
-            return _ver_upgrade
-        elif _type == 'protect_create':
-            return _ver_protect_create
-        else:
-            return False
+        return _ver
 
     def setUp(self):
         # 接口信息
         self.name = '贵族'
         self.method = 'get'
         # 默认请求数据 type:0体验1充值2赠送
-        self.data = dict(level=1, cid=13, month=1, type=1, to_uid='')
+        self.data = dict(level=1, cid=14, month=1, type=1, to_uid='')
         self.url = '/noble/createNoble'
         self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
 
@@ -391,6 +256,13 @@ class TestNoble(unittest.TestCase):
         self.user = self.create_user()
         self.data['level'] = 1
         self.ver = self.validate()
+
+    # def test_1_1_eight(self):
+    #     '''1级1个月'''
+    #     self.user = self.create_user()
+    #     Bag.add_bag(self.user, bag=90001)
+    #     self.data['level'] = 1
+    #     self.ver = self.validate('create', 0.8)
 
     def test_1_2(self):
         '''被赠送1级1个月'''
@@ -1304,4 +1176,4 @@ class TestNoble(unittest.TestCase):
 
     def tearDown(self):
         # 比较结果
-        assert_res(self)
+        req(self)

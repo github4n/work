@@ -22,7 +22,6 @@ from huomao.common import REDIS_INST, Common
 for i in range(1, 2):
     u = User()
     uid = u.reg('noble')
-    print(uid)
     u.bd_sj(uid)
     MoneyClass.set_money(uid, 1200000)
     # User.create_noble(uid,  level=7)

@@ -7,6 +7,7 @@ import configparser
 import os
 import time
 import calendar
+import logging
 
 # 获取文件的当前路径（绝对路径）
 cur_path = os.path.dirname(os.path.realpath(__file__))
@@ -72,3 +73,9 @@ REDIS_KEYS = {
         ],
     'subscribe': 'hm_users_subscribe_channels{uid}'
 }
+
+logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%Y/%m/%d %I:%M:%S %p',
+                    level=logging.INFO,
+                    # filename='example.log',
+                    filemode='w')

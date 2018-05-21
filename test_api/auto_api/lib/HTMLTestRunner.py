@@ -753,7 +753,7 @@ class HTMLTestRunner(Template_mixin):
 
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
-        has_output = bool(o or e)
+        has_output = bool(o or e) # 输出或者报错
         tid = (n == 0 and 'p' or 'f') + 't%s.%s' % (cid+1,tid+1)
         name = t.id().split('.')[-1]
         doc = t.shortDescription() or ""

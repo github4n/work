@@ -11,8 +11,13 @@ from .db.user_bag import UserBag
 class Bag():
     # 添加弹幕卡
     @staticmethod
-    def add_dmk(uid, add_time=int(time.time()), expire_time=int(time.time()) + 10000, num=1):
-        UserBag.create(uid=uid, get_way='admin_33', bag=100001, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
+    def add_bag(uid, **kw):
+        t = int(time.time())
+        add_time = kw.get('add_time', t)
+        expire_time = kw.get('expire_time', t + 10000)
+        num = kw.get('num', 1)
+        bag = kw.get('bag', 100001)
+        UserBag.create(uid=uid, get_way='admin_33', bag=bag, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
         return
 
     # 获取弹幕卡

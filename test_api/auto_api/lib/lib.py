@@ -72,8 +72,7 @@ def req(self):
     if result:
         report_data['test_success'] += 1
         logging.info('{}验证成功'.format(self._testMethodName))
-        if hasattr(self, 'ver'):
-            self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+        hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
     else:
         report_data['test_failed'] += 1
         self.info = '用例{},失败\n预期:{}\n实际:{}\n实际json:{}'.format(self._testMethodName, self.exp_res, real_res, json.dumps(real_res))
@@ -81,19 +80,19 @@ def req(self):
         self.assertFalse(self.info)
 
     # 把结果添加到报告list中
-    res = {"case_id": self._testMethodName,
-           "case_des": self._testMethodDoc,
-           "name": self.name,
-           "method": self.method,
-           "url": self.url,
-           "user": self.user,
-           "data": self.data,
-           "exp_res": str(self.exp_res),
-           "real_res": str(real_res),
-           "result": result,
-           "bz": ''}
-    report_data['report_res'].append(res)
-    return real_res
+    # res = {"case_id": self._testMethodName,
+    #        "case_des": self._testMethodDoc,
+    #        "name": self.name,
+    #        "method": self.method,
+    #        "url": self.url,
+    #        "user": self.user,
+    #        "data": self.data,
+    #        "exp_res": str(self.exp_res),
+    #        "real_res": str(real_res),
+    #        "result": result,
+    #        "bz": ''}
+    # report_data['report_res'].append(res)
+    # return real_res
 
 
 # 请求返回接口信息

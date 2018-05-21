@@ -141,7 +141,7 @@ def test(i):
                     "id": "664",
                     "uid": "23650",
                     "anchor_id": "0",
-                    "level": str(random.randint(1, 7)),
+                    "level": str(random.randint(4, 7)),
                     "type": "1",
                     "start_time": "1526357039",
                     "end_time": "1531583999",
@@ -237,7 +237,7 @@ def test(i):
                 },
                 "screen_hf": {
                     "img": "/upload/web/images/gift/20170420193626FwuYDEkl.png",
-                    "time": "100"
+                    "time": "10"
                 },
                 "barrage": {
                     "img": "/upload/web/images/gift/20171226180453z8BeTcqo.png",
@@ -292,7 +292,7 @@ def test(i):
         "noble": {
             "screen_hf": {
                 "img": "static/web/nobility/img/jm_sc_4.png",
-                "time": "210"
+                "time": "10"
             },
             "screen_effect": {
                 "effect": "static/web/nobility/img/xlz_4.gif",
@@ -371,7 +371,12 @@ def test(i):
     print(res.json())
 
 
-[test(0) for i in range(10)]
+for i in range(2):
+    test(3)
+    test(2)
+    t = random.random()
+    print(t)
+    # time.sleep(4)
 # while True:
 #     test()
 #     time.sleep(0.5)

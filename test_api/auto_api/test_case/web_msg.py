@@ -180,7 +180,6 @@ class TestMsg(unittest.TestCase):
         '''业务-彩色弹幕'''
         self.exp_res = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
         self.user = self.create_user()
-        print(self.user)
         self.data['color_barrage'] = 1
         # 二次验证函数
         self.ver = lambda: Bag.get_dmk(self.user) == 0 and MoneyClass.get_money(self.user)['coin'] == 1

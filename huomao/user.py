@@ -31,6 +31,7 @@ class User():
     # 注册用户返回uid,或登录返回uid
     @staticmethod
     def register(username):
+        logging.info(username)
         # 默认密码1
         password = Common.md5('1')
         img = ''
@@ -64,6 +65,7 @@ class User():
         for key, value in data.items():
             data[key] = json.dumps(value)
         REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
+        logging.info(uid)
         return {'code': 100, 'status': True, 'msg': '成功\tuid:{}密码:1'.format(uid), 'uid': str(uid)}
 
     # 按序注册用户返回uid
@@ -84,7 +86,6 @@ class User():
         with open(config_path, 'w') as fw:
             conf.write(fw)
         fw.close()
-        print(name + number)
         return User.register(name + number)['uid']
 
     # 申请直播并通过
@@ -97,7 +98,7 @@ class User():
             if REDIS_INST.hget(anchor_key, 'id'):
                 return {'code': 1001, 'status': False, 'msg': '已是主播'}
             else:
-                self.bd_sj(uid)
+                User.bd_sj(uid)
                 time.sleep(1)
                 data = {'true_name': '测试号',
                         'sex': '1',
@@ -218,7 +219,7 @@ class User():
     # 开通贵族
     @staticmethod
     def create_noble(uid, **kw):
-        data = dict(level=1, cid=13, month=1, type=1, to_uid='')
+        data = dict(level=1, cid=14, month=1, type=1, to_uid='')
         for key, value in kw.items():
             data[key] = value
         ret = requests.get(URL + '/noble/createNoble', params=data, cookies=Common.generate_cookies(uid)).text
