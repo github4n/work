@@ -5,7 +5,7 @@
 # Description :
 from huomao.user import User
 from huomao.money import MoneyClass
-from huomao.common import REDIS_INST, Common
+from huomao.bag import Bag
 
 # name = ['noble{}'.format(i) for i in range(1,8)]
 # for i in name:
@@ -23,7 +23,8 @@ for i in range(1, 2):
     u = User()
     uid = u.reg('noble')
     u.bd_sj(uid)
-    MoneyClass.set_money(uid, 1200000)
+    # MoneyClass.set_money(uid, 1200000)
+    Bag.add_bag(uid,bag=90001)
     # User.create_noble(uid,  level=7)
     # User.set_noble_expire(uid, 40)
 

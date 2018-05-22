@@ -228,14 +228,9 @@ class User():
 
     # 查询开通贵族收益
     @staticmethod
-    def find_noble_anchor_profit(uid, pay_money=0):
-        if pay_money == 0:
-            u = HmNobleRecord.select().where((HmNobleRecord.uid == uid) & (HmNobleRecord.open_type == 1)).first()
-            return float(u.anchor_profit) if u else 0
-        else:
-            u = HmNobleRecord.select().where(
-                (HmNobleRecord.uid == uid) & (HmNobleRecord.pay_money == pay_money) & (HmNobleRecord.open_type == 1)).first()
-            return float(u.anchor_profit) if u else 0
+    def find_noble_anchor_profit(uid, pay_money):
+        u = HmNobleRecord.select().where((HmNobleRecord.uid == uid) & (HmNobleRecord.pay_money == pay_money) & (HmNobleRecord.open_type == 1)).first()
+        return u and u.anchor_profit or 0
 
     # 设置贵族有效期
     @staticmethod

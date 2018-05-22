@@ -4,10 +4,5 @@
 # Author : lixingyun
 # Description :
 #
-data = {
-    '1': 1 * 3,
-    '2': 9 * 90*12
-}
-
-print(data.get('1')
-      )
+from decimal import *
+print(Decimal('66')*Decimal('0.8'))

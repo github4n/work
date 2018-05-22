@@ -7,12 +7,34 @@
 import time
 import requests
 import logging
+from nose_parameterized import parameterized
 import unittest
 from huomao.money import MoneyClass
 from huomao.user import User
 from huomao.bag import Bag
 from ..lib.lib import req
 from ..lib.config import domain_web
+from decimal import *
+
+
+def new_name_func(func, num, p):
+    return func.__name__ + '_' + str(num + 1)
+
+
+# 用户状态，原月数，原等级，是否赠送，折扣，开通月数，开通等级
+cases = [
+    ('first', 0, 0, 0, 0, 1, 1),
+    ('first', 0, 0, 0, 1, 1, 1),
+    ('first', 0, 0, 1, 0, 1, 1),
+    ('first', 0, 0, 1, 1, 1, 1),
+    ('first', 0, 0, 0, 0, 2, 2),
+    ('first', 0, 0, 0, 1, 2, 2),
+    ('first', 0, 0, 1, 0, 2, 2),
+    ('first', 0, 0, 1, 1, 2, 2),
+    # ('unexpired', 1, 2),
+    # ('expired_protect', 1, 2),
+    # ('expired', 1, 2),
+]
 
 
 class TestNoble(unittest.TestCase):
@@ -25,10 +47,12 @@ class TestNoble(unittest.TestCase):
         return uid
 
     # 二次验证方法创建，续费，升级
-    def validate(self, _type='create', discount=1):
+    def validate(self, _type='create'):
+        discount = self.discount and Decimal(str(self.discount)) or 1
+        print(discount)
         # 贵族等级：开通价格0，续费价格1，返还猫币2，主播提成3，增加经验4
         noble_data = {
-            1: [66, 30, 30, 13.2, 0],
+            1: [66, 30, 30, Decimal('13.2'), 0],
             2: [500, 300, 300, 100, 1000],
             3: [1500, 1000, 1000, 300, 3000],
             4: [5000, 3000, 3000, 1000, 7500],
@@ -38,8 +62,8 @@ class TestNoble(unittest.TestCase):
         }
         level = self.data['level']
         month = self.data['month']
-        old_level = self.old_level if hasattr(self, 'old_level') else False
-        old_month = self.old_month if hasattr(self, 'old_month') else False
+        old_level = hasattr(self, 'old_level') and self.old_level
+        old_month = hasattr(self, 'old_month') and self.old_month
         # 获取赠送者用户的猫币，贵族猫币，平台经验
         buyer_uid = self.user
         buyer_coin = MoneyClass.get_money(buyer_uid)['coin']
@@ -162,7 +186,7 @@ class TestNoble(unittest.TestCase):
                     # 返还第一个月和之前月份未给的
                     get_noble_exp = noble_data[level][4] * discount + noble_data[old_level][4] * (old_month - 1)
                 if buyer_exp != buyer_exp_new - get_noble_exp:
-                    logging.error('普通-平台经验错误{}:{}'.format(buyer_exp, buyer_exp_new))
+                    logging.error('普通-平台经验错误{}:{}:{}'.format(buyer_exp, buyer_exp_new, get_noble_exp))
                     return False
                 # 判断主播提成
                 profit = User.find_noble_anchor_profit(buyer_uid, pay_money)
@@ -173,9 +197,9 @@ class TestNoble(unittest.TestCase):
                     # 续费/续费保护期  不获得主播提成
                     noble_profit = 0
                 if profit != noble_profit:
-                    logging.error('普通-主播提成错误{}'.format(profit))
+                    logging.error('普通-主播提成错误{}:{}'.format(noble_profit, profit))
                     return False
-
+            return True
 
         return _ver
 
@@ -249,6 +273,24 @@ class TestNoble(unittest.TestCase):
         self.data.pop('type')
         self.exp_res = dict(code=201)
 
+    @parameterized.expand(cases, name_func=new_name_func)
+    def test(self, *args):
+        if args[0] == 'first':
+            # 是否打折
+            self.discount = args[-3] and 0.8
+            # 开通参数
+            self.data['level'] = args[-1]
+            self.data['month'] = args[-2]
+            # 创建购买用户
+            self.user = self.create_user()
+            self.discount and Bag.add_bag(self.user, bag=90001)
+            # 是否赠送
+            if args[3]:
+                self.data['to_uid'] = self.create_user()
+                self.data['type'] = 2
+            # 验证
+            self.ver = self.validate()
+
     '''用户首次开通贵族'''
 
     def test_1_1(self):
@@ -257,14 +299,13 @@ class TestNoble(unittest.TestCase):
         self.data['level'] = 1
         self.ver = self.validate()
 
-    # def test_1_1_eight(self):
-    #     '''1级1个月'''
-    #     self.user = self.create_user()
-    #     Bag.add_bag(self.user, bag=90001)
-    #     self.data['level'] = 1
-    #     self.ver = self.validate('create', 0.8)
+    def test_1_1_eight(self):
+        '''1级1个月'''
+        self.user = self.create_user(True)
+        self.data['level'] = 1
+        self.ver = self.validate('create', 0.8)
 
-    def test_1_2(self):
+    def test_1_1_give(self):
         '''被赠送1级1个月'''
         # 赠送者
         self.user = self.create_user()
@@ -274,14 +315,31 @@ class TestNoble(unittest.TestCase):
         self.data['type'] = 2
         self.ver = self.validate()
 
-    def test_1_3(self):
+    def test_1_1_give_eight(self):
+        '''被赠送1级1个月'''
+        # 赠送者
+        self.user = self.create_user(True)
+        # 被赠送着
+        self.data['to_uid'] = self.create_user()
+        self.data['level'] = 1
+        self.data['type'] = 2
+        self.ver = self.validate('create', 0.8)
+
+    def test_1_2(self):
         '''2级2个月'''
         self.user = self.create_user()
         self.data['level'] = 2
         self.data['month'] = 2
         self.ver = self.validate()
 
-    def test_1_4(self):
+    def test_1_2_eight(self):
+        '''2级2个月'''
+        self.user = self.create_user(True)
+        self.data['level'] = 2
+        self.data['month'] = 2
+        self.ver = self.validate('create', 0.8)
+
+    def test_1_2_give(self):
         '''被赠送2级2个月'''
         # 赠送者
         self.user = self.create_user()
@@ -291,6 +349,17 @@ class TestNoble(unittest.TestCase):
         self.data['month'] = 2
         self.data['type'] = 2
         self.ver = self.validate()
+
+    def test_1_2_give_eight(self):
+        '''被赠送2级2个月'''
+        # 赠送者
+        self.user = self.create_user(True)
+        # 被赠送着
+        self.data['to_uid'] = self.create_user()
+        self.data['level'] = 2
+        self.data['month'] = 2
+        self.data['type'] = 2
+        self.ver = self.validate('create', 0.8)
 
     def test_1_5(self):
         '''3级3个月'''

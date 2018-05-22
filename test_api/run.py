@@ -20,7 +20,6 @@ logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelnam
                     filemode='w')
 
 
-
 # # 获取文件的当前路径（绝对路径）
 # cur_path = os.path.dirname(os.path.realpath(__file__))
 # filename = cur_path + '/result/{}.html'.format(datetime.datetime.now().strftime('%b_%d_%Y_%H_%M_%S'))
@@ -37,6 +36,6 @@ logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelnam
 
 # 执行单个类单个用例  #test_1_4
 suite = unittest.TestSuite()
-suite.addTest(TestNoble('test_1_1'))
+suite.addTest(TestNoble('test_9'))
 runner = unittest.TextTestRunner()
 runner.run(suite)

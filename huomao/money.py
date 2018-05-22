@@ -11,8 +11,7 @@ from .common import REDIS_INST
 from .db.money import MoneyPay, MoneyChannelIncome
 from .config import mon_last_time,mon_first_time
 import logging
-logger = logging.getLogger('peewee')
-logger.setLevel(logging.INFO)
+
 
 
 class MoneyClass():
@@ -72,6 +71,8 @@ class MoneyClass():
     # 获取送礼记录
     @staticmethod
     def get_money_pay(uid, cid):
+        logger = logging.getLogger('peewee')
+        logger.setLevel(logging.INFO)
         count = MoneyPay.select().where((MoneyPay.uid == uid) & (MoneyPay.other_cid == cid) & (MoneyPay.ts < mon_last_time)& (MoneyPay.ts > mon_first_time)).count()
         return count
 
