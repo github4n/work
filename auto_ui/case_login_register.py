@@ -10,7 +10,7 @@ import os
 
 sys.path.append('..')
 from huomao.common import Common
-from huomao.selenium import URL
+from huomao.selenium import URL,CookieLogin
 
 
 class LoginRegister(unittest.TestCase):

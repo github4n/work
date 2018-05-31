@@ -63,3 +63,17 @@ class Mobile(BaseModel):
 
     class Meta:
         db_table = 'mobile'
+
+class MemberBadge(BaseModel):
+    bid = IntegerField(null=True)
+    currentstat = IntegerField(null=True)
+    expiretime = IntegerField(null=True)
+    gettime = IntegerField(null=True)
+    owntime = IntegerField(null=True)
+    uid = BigIntegerField(null=True)
+
+    class Meta:
+        db_table = 'member_badge'
+        indexes = (
+            (('uid', 'bid'), False),
+        )

@@ -3,33 +3,48 @@
 # Date   : 2018/5/11 14:42
 # Author : lixingyun
 # Description :
-from huomao.user import User
+from huomao.user import User,Userbase
 from huomao.money import MoneyClass
 from huomao.bag import Bag
+from huomao.selenium import URL,CookieLogin
+from selenium import webdriver
+from huomao.common import REDIS_INST,Common
 
-# name = ['noble{}'.format(i) for i in range(1,8)]
-# for i in name:
-#     u = User()
-#     uid = u.find_uid(i)['msg']
-#     print(uid)
-# try:
-#     uid = u.register('noble{}'.format(i))['uid']
-#     u.bd_sj(uid)
-# except:
-#     pass
-# MoneyClass.set_money(uid,9999999)
-# User.create_noble(uid, level=i)
-for i in range(1, 2):
-    u = User()
-    uid = u.reg('noble')
-    u.bd_sj(uid)
-    # MoneyClass.set_money(uid, 1200000)
-    Bag.add_bag(uid,bag=90001)
-    # User.create_noble(uid,  level=7)
-    # User.set_noble_expire(uid, 40)
 
-# username = ['hmjsf{}'.format(i) for i in range(1,100)]
-# for i in username:
-#     uid = User.find_uid(i)['msg']
-#     key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(i))
-#     REDIS_INST.set(key_username, uid)
+# Userbase.update(get_experience=0).where(Userbase.uid == '1522').execute()
+
+
+# User.update_nick_name('22693'
+#
+# ,'运维的锅')
+
+# User.set_badge(5257,48)
+
+u = User()
+uid = u.reg('noble')
+print(uid)
+u.bd_sj(uid)
+MoneyClass.set_money(uid, 1200000)
+User.create_noble(uid, level=3, month=1)
+    # User.set_noble_expire(uid, 87)
+#     Bag.add_bag(uid,bag=90001)
+
+# #
+#     driver = webdriver.Chrome()
+#     driver.implicitly_wait(10)
+#     driver.get('http://lxy.new.huomaotv.com.cn/1')
+#     driver.maximize_window()
+#     CookieLogin(uid,driver)
+#     driver.get('http://lxy.new.huomaotv.com.cn/memberpay/noblePay')
+
+# 非贵族
+# 房主 t_n3247(26311)  1225388   粉丝0-1 徽章 0-3
+#
+
+
+# 贵族
+# 房主 1
+# 房管 t_n3249（26450） 粉丝0-1 徽章 0-3
+
+
+

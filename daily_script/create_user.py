@@ -4,6 +4,7 @@
 # Author : lixingyun
 # Description :
 from huomao.money import MoneyClass
+from huomao.user import User
 
 users = [
     'xiawei',
@@ -115,21 +116,18 @@ users = [
     'liuyilin',
     'yuhan',
 ]
-#
-# for i in ['xiawei','hongtao']:
-#     name = 'hm_' + str(i)
-#     try:
-#         uid = Common.register(name)['uid']
-#         print(name, uid)
-#         Common.bd_sj(uid)
-#         Common.set_money(uid, 0, 1000000)
-#         Common.set_xd(uid, 1000000)
-#     except  Exception:
-#         print(Exception)
 
-for i in range(22682,22792):
-    MoneyClass.set_money(i, 0, 10000)
-    MoneyClass.set_xd(i, 10000)
+for i in users:
+    name = 'hm_' + str(i) + '1'
+    try:
+        uid = User.register(name)['uid']
+        print(name, uid)
+        User.bd_sj(uid)
+        MoneyClass.set_money(uid, 150000)
+    except  Exception:
+        print(Exception)
+
+
 
 
 

@@ -180,12 +180,13 @@ class TestMsg(unittest.TestCase):
         '''业务-彩色弹幕'''
         self.exp_res = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
         self.user = self.create_user()
+        # 添加用户弹幕卡和货币
+        Bag.add_bag(self.user)
+        MoneyClass.set_money(self.user, 1)
         self.data['color_barrage'] = 1
         # 二次验证函数
         self.ver = lambda: Bag.get_dmk(self.user) == 0 and MoneyClass.get_money(self.user)['coin'] == 1
-        # 添加用户弹幕卡和货币
-        Bag.add_dmk(self.user)
-        MoneyClass.set_money(self.user, 1)
+
 
     # def test_msg_14(self):
     #     '''弹幕卡足，余额不足时，发言彩色弹幕'''
@@ -198,15 +199,14 @@ class TestMsg(unittest.TestCase):
     #     # 添加用户弹幕卡
     #     Common.add_dmk(self.user)
     #
-    # def test_msg_15(self):
-    #     '''弹幕卡不足，余额足时，发言彩色弹幕'''
-    #     self.exp_res = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
-    #     self.user = user_ids[9]
-    #     self.data['color_barrage'] = 1
-    #     Common.del_dmk(self.user)
-    #     # 二次验证函数
-    #     self.ver = lambda: Common.get_money(self.user)['coin'] == 0
-    #     Common.set_money(self.user, 1)
+    def test_14(self):
+        '''弹幕卡不足，余额足时，发言彩色弹幕'''
+        self.exp_res = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
+        self.user = self.create_user()
+        self.data['color_barrage'] = 1
+        MoneyClass.set_money(self.user, 1)
+        # 二次验证函数
+        self.ver = lambda: MoneyClass.get_money(self.user)['coin'] == 0
     #
     # def test_msg_16(self):
     #     '''弹幕卡不足，余额不足时，发言彩色弹幕'''
@@ -230,7 +230,7 @@ class TestMsg(unittest.TestCase):
     #     self.ver = lambda: Common.get_time_dmk(self.user, expire_time1) == 0
     '''业务-图标'''
 
-    def test_14(self):
+    def test_15(self):
         '''业务-图标-粉丝'''
         self.exp_res = {'code': 200, 'data': {'fans': {'cid': cid,
                                                        'level': '25', 'name': '粉丝'}}}
@@ -238,7 +238,7 @@ class TestMsg(unittest.TestCase):
         # 设置用户粉丝等级
         User.set_fs_level(self.user, cid)
 
-    def test_15(self):
+    def test_16(self):
         '''业务-图标-徽章'''
         self.exp_res = {'code': 200, 'data': {'badge': [{'bid': '1', }]}}
         self.user = self.create_user()

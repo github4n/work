@@ -79,3 +79,5 @@ logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelnam
                     level=logging.INFO,
                     # filename='example.log',
                     filemode='w')
+logger = logging.getLogger('peewee')
+logger.setLevel('DEBUG')

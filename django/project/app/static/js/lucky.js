@@ -40,6 +40,10 @@ function request(method){
             url = '/new_web/update_password'
             data = $("#update_password_form").serialize()
             break;
+        case 'test_fun':
+            url = '/new_web/test_fun'
+            data = ''
+            break;
     }
     $.ajax({
         type: "POST",

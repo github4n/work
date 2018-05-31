@@ -70,9 +70,16 @@ def req(self):
     result = assert_dict_in(self.exp_res, real_res) and res.status_code == 200
 
     if result:
-        report_data['test_success'] += 1
         logging.info('{}验证成功'.format(self._testMethodName))
-        hasattr(self, 'ver') and self.assertTrue(self.ver(), '{}二次验证失败'.format(self._testMethodName))
+        if not hasattr(self, 'ver'):
+            report_data['test_success'] += 1
+        elif hasattr(self, 'ver') and self.ver():
+            report_data['test_success'] += 1
+            logging.info('{}二次验证成功'.format(self._testMethodName))
+        else:
+            report_data['test_failed'] += 1
+            logging.error('{}二次验证失败'.format(self._testMethodName))
+            self.assertTrue(False,'二次验证失败')
     else:
         report_data['test_failed'] += 1
         self.info = '用例{},失败\n预期:{}\n实际:{}\n实际json:{}'.format(self._testMethodName, self.exp_res, real_res, json.dumps(real_res))

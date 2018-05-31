@@ -145,6 +145,12 @@
                 <button type="button" onclick="request('init_fans')">提交</button>
             </form>
         </div>
+        <div id='content5'>
+            <form id="set_money_form" role="form">
+                <!--{% csrf_token %}-->
+                <button type="button" onclick="request('test_fun')">测试TEST</button>
+            </form>
+        </div>
     </div>
     <div>
         <script>
@@ -153,6 +159,8 @@
           console.log(data);
         }
       });
+
+
         </script>
     </div>
     <!--脚-->

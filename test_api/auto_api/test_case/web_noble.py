@@ -21,8 +21,9 @@ def new_name_func(func, num, p):
     return func.__name__ + '_' + str(num + 1)
 
 
-# 用户状态，原月数，原等级，是否赠送，折扣，开通月数，开通等级
+# 用户状态，原等级,原月数，是否赠送，折扣，开通等级,开通月数
 cases = [
+    # 用户首次开通贵族1
     ('first', 0, 0, 0, 0, 1, 1),
     ('first', 0, 0, 0, 1, 1, 1),
     ('first', 0, 0, 1, 0, 1, 1),
@@ -31,9 +32,177 @@ cases = [
     ('first', 0, 0, 0, 1, 2, 2),
     ('first', 0, 0, 1, 0, 2, 2),
     ('first', 0, 0, 1, 1, 2, 2),
-    # ('unexpired', 1, 2),
-    # ('expired_protect', 1, 2),
-    # ('expired', 1, 2),
+    ('first', 0, 0, 0, 0, 3, 3),
+    ('first', 0, 0, 0, 1, 3, 3),
+    ('first', 0, 0, 1, 0, 3, 3),
+    ('first', 0, 0, 1, 1, 3, 3),
+    ('first', 0, 0, 0, 0, 4, 6),
+    ('first', 0, 0, 0, 1, 4, 6),
+    ('first', 0, 0, 1, 0, 4, 6),
+    ('first', 0, 0, 1, 1, 4, 6),
+    ('first', 0, 0, 0, 0, 5, 9),
+    ('first', 0, 0, 0, 1, 5, 9),
+    ('first', 0, 0, 1, 0, 5, 9),
+    ('first', 0, 0, 1, 1, 5, 9),
+    ('first', 0, 0, 0, 0, 6, 12),
+    ('first', 0, 0, 0, 1, 6, 12),
+    ('first', 0, 0, 1, 0, 6, 12),
+    ('first', 0, 0, 1, 1, 6, 12),
+    ('first', 0, 0, 0, 0, 7, 5),
+    ('first', 0, 0, 0, 1, 7, 5),
+    ('first', 0, 0, 1, 0, 7, 5),
+    ('first', 0, 0, 1, 1, 7, 5),
+    # 用户已开通未过期 29
+    ('unexpired', 1, 1, 0, 0, 1, 1),
+    ('unexpired', 1, 1, 0, 1, 1, 1),
+    ('unexpired', 1, 1, 1, 0, 1, 1),
+    ('unexpired', 1, 1, 1, 1, 1, 1),
+    ('unexpired', 1, 1, 0, 0, 7, 12),
+    ('unexpired', 1, 1, 0, 1, 7, 12),
+    ('unexpired', 1, 1, 1, 0, 7, 12),
+    ('unexpired', 1, 1, 1, 1, 7, 12),
+
+    ('unexpired', 2, 2, 0, 0, 1, 12),
+    ('unexpired', 2, 2, 0, 1, 1, 12),
+    ('unexpired', 2, 2, 1, 0, 1, 12),
+    ('unexpired', 2, 2, 1, 1, 1, 12),
+    ('unexpired', 2, 2, 0, 0, 2, 6),
+    ('unexpired', 2, 2, 0, 1, 2, 6),
+    ('unexpired', 2, 2, 1, 0, 2, 6),
+    ('unexpired', 2, 2, 1, 1, 2, 6),
+    ('unexpired', 2, 3, 0, 0, 3, 3),  # 45 bug
+    ('unexpired', 2, 3, 0, 1, 3, 3),  # 46 bug
+    ('unexpired', 2, 3, 1, 0, 3, 3),  # 47 bug
+    ('unexpired', 2, 3, 1, 1, 3, 3),  # 48 bug
+
+    ('unexpired', 3, 2, 0, 0, 2, 12),
+    ('unexpired', 3, 2, 0, 1, 2, 12),
+    ('unexpired', 3, 2, 1, 0, 2, 12),
+    ('unexpired', 3, 2, 1, 1, 2, 12),
+    ('unexpired', 3, 2, 0, 0, 3, 6),
+    ('unexpired', 3, 2, 0, 1, 3, 6),
+    ('unexpired', 3, 2, 1, 0, 3, 6),
+    ('unexpired', 3, 2, 1, 1, 3, 6),
+    ('unexpired', 3, 3, 0, 0, 5, 3),
+    ('unexpired', 3, 3, 0, 1, 5, 3),
+    ('unexpired', 3, 3, 1, 0, 5, 3),
+    ('unexpired', 3, 3, 1, 1, 5, 3),
+
+    ('unexpired', 4, 3, 0, 0, 3, 3),  # 61
+    ('unexpired', 4, 3, 0, 1, 3, 3),
+    ('unexpired', 4, 3, 1, 0, 3, 3),
+    ('unexpired', 4, 3, 1, 1, 3, 3),
+    ('unexpired', 4, 4, 0, 0, 4, 6),  # 65
+    ('unexpired', 4, 4, 0, 1, 4, 6),
+    ('unexpired', 4, 4, 1, 0, 4, 6),
+    ('unexpired', 4, 4, 1, 1, 4, 6),
+    ('unexpired', 4, 3, 0, 0, 6, 2),  # 69
+    ('unexpired', 4, 3, 0, 1, 6, 2),
+    ('unexpired', 4, 3, 1, 0, 6, 2),
+    ('unexpired', 4, 3, 1, 1, 6, 2),
+
+    ('unexpired', 5, 2, 0, 0, 3, 12),  # 73
+    ('unexpired', 5, 2, 0, 1, 3, 12),
+    ('unexpired', 5, 2, 1, 0, 3, 12),
+    ('unexpired', 5, 2, 1, 1, 3, 12),
+    ('unexpired', 5, 4, 0, 0, 5, 1),  # 77
+    ('unexpired', 5, 4, 0, 1, 5, 1),
+    ('unexpired', 5, 4, 1, 0, 5, 1),
+    ('unexpired', 5, 4, 1, 1, 5, 1),
+    ('unexpired', 5, 3, 0, 0, 7, 1),  # 81
+    ('unexpired', 5, 3, 0, 1, 7, 1),
+    ('unexpired', 5, 3, 1, 0, 7, 1),
+    ('unexpired', 5, 3, 1, 1, 7, 1),
+
+    ('unexpired', 6, 2, 0, 0, 2, 1),  # 85
+    ('unexpired', 6, 2, 0, 1, 2, 1),
+    ('unexpired', 6, 2, 1, 0, 2, 1),
+    ('unexpired', 6, 2, 1, 1, 2, 1),
+    ('unexpired', 6, 4, 0, 0, 6, 2),  # 89
+    ('unexpired', 6, 4, 0, 1, 6, 2),
+    ('unexpired', 6, 4, 1, 0, 6, 2),
+    ('unexpired', 6, 4, 1, 1, 6, 2),
+    ('unexpired', 6, 3, 0, 0, 7, 2),  # 93
+    ('unexpired', 6, 3, 0, 1, 7, 2),
+    ('unexpired', 6, 3, 1, 0, 7, 2),
+    ('unexpired', 6, 3, 1, 1, 7, 2),
+
+    ('unexpired', 7, 2, 0, 0, 6, 1),  # 97
+    ('unexpired', 7, 2, 0, 1, 6, 1),
+    ('unexpired', 7, 2, 1, 0, 6, 1),
+    ('unexpired', 7, 2, 1, 1, 6, 1),
+    ('unexpired', 7, 4, 0, 0, 7, 12),  # 101
+    ('unexpired', 7, 4, 0, 1, 7, 12),
+    ('unexpired', 7, 4, 1, 0, 7, 12),
+    ('unexpired', 7, 4, 1, 1, 7, 12),
+    ('unexpired', 6, 3, 0, 0, 7, 2),  # 105
+    ('unexpired', 6, 3, 0, 1, 7, 2),
+    ('unexpired', 6, 3, 1, 0, 7, 2),
+    ('unexpired', 6, 3, 1, 1, 7, 2),
+    # 用户开通过在保护期
+    ('expired_protect', 2, 1, 0, 0, 1, 1),  # 109
+    ('expired_protect', 2, 1, 0, 1, 1, 1),
+    ('expired_protect', 2, 1, 1, 0, 1, 1),
+    ('expired_protect', 2, 1, 1, 1, 1, 1),
+    ('expired_protect', 3, 1, 0, 0, 3, 3),  # 113
+    ('expired_protect', 3, 1, 0, 1, 3, 3),
+    ('expired_protect', 3, 1, 1, 0, 3, 3),
+    ('expired_protect', 3, 1, 1, 1, 3, 3),
+    ('expired_protect', 4, 1, 0, 0, 5, 3),  # 117
+    ('expired_protect', 4, 1, 0, 1, 5, 3),
+    ('expired_protect', 4, 1, 1, 0, 5, 3),
+    ('expired_protect', 4, 1, 1, 1, 5, 3),
+    ('expired_protect', 5, 1, 0, 0, 2, 6),  # 121
+    ('expired_protect', 5, 1, 0, 1, 2, 6),
+    ('expired_protect', 5, 1, 1, 0, 2, 6),
+    ('expired_protect', 5, 1, 1, 1, 2, 6),
+    ('expired_protect', 6, 1, 0, 0, 7, 2),  # 125
+    ('expired_protect', 6, 1, 0, 1, 7, 2),
+    ('expired_protect', 6, 1, 1, 0, 7, 2),
+    ('expired_protect', 6, 1, 1, 1, 7, 2),
+    ('expired_protect', 7, 1, 0, 0, 7, 1),  # 129
+    ('expired_protect', 7, 1, 0, 1, 7, 1),
+    ('expired_protect', 7, 1, 1, 0, 7, 1),
+    ('expired_protect', 7, 1, 1, 1, 7, 1),
+    ('expired_protect', 1, 1, 0, 0, 7, 10),  # 133
+    ('expired_protect', 1, 1, 0, 1, 7, 10),
+    ('expired_protect', 1, 1, 1, 0, 7, 10),
+    ('expired_protect', 1, 1, 1, 1, 7, 10),
+    # 用户开通过已过保护期
+    ('expired', 2, 1, 0, 0, 1, 1),  # 137
+    ('expired', 2, 1, 0, 1, 1, 1),
+    ('expired', 2, 1, 1, 0, 1, 1),
+    ('expired', 2, 1, 1, 1, 1, 1),
+
+    ('expired', 3, 1, 0, 0, 3, 3),  # 141
+    ('expired', 3, 1, 0, 1, 3, 3),
+    ('expired', 3, 1, 1, 0, 3, 3),
+    ('expired', 3, 1, 1, 1, 3, 3),
+
+    ('expired', 4, 1, 0, 0, 5, 3),  # 145
+    ('expired', 4, 1, 0, 1, 5, 3),
+    ('expired', 4, 1, 1, 0, 5, 3),
+    ('expired', 4, 1, 1, 1, 5, 3),
+
+    ('expired', 5, 1, 0, 0, 2, 6),  # 149
+    ('expired', 5, 1, 0, 1, 2, 6),
+    ('expired', 5, 1, 1, 0, 2, 6),
+    ('expired', 5, 1, 1, 1, 2, 6),
+
+    ('expired', 6, 1, 0, 0, 7, 2),  # 153
+    ('expired', 6, 1, 0, 1, 7, 2),
+    ('expired', 6, 1, 1, 0, 7, 2),
+    ('expired', 6, 1, 1, 1, 7, 2),
+
+    ('expired', 7, 1, 0, 0, 7, 1),  # 157
+    ('expired', 7, 1, 0, 1, 7, 1),
+    ('expired', 7, 1, 1, 0, 7, 1),
+    ('expired', 7, 1, 1, 1, 7, 1),
+
+    ('expired', 1, 1, 0, 0, 7, 10),  # 161
+    ('expired', 1, 1, 0, 1, 7, 10),
+    ('expired', 1, 1, 1, 0, 7, 10),
+    ('expired', 1, 1, 1, 1, 7, 10),
 ]
 
 
@@ -49,7 +218,6 @@ class TestNoble(unittest.TestCase):
     # 二次验证方法创建，续费，升级
     def validate(self, _type='create'):
         discount = self.discount and Decimal(str(self.discount)) or 1
-        print(discount)
         # 贵族等级：开通价格0，续费价格1，返还猫币2，主播提成3，增加经验4
         noble_data = {
             1: [66, 30, 30, Decimal('13.2'), 0],
@@ -134,7 +302,7 @@ class TestNoble(unittest.TestCase):
                     # 返还第一个月和之前月份未给的
                     get_noble_exp = noble_data[level][4] * discount + noble_data[old_level][4] * (old_month - 1)
                 if to_uid_exp != to_uid_exp_new - get_noble_exp:
-                    logging.error('普通-平台经验错误{}:{}'.format(to_uid_exp, to_uid_exp_new))
+                    logging.error('普通-平台经验错误{}:{}:{}'.format(to_uid_exp, to_uid_exp_new, get_noble_exp))
                     return False
 
                 # 判断主播提成
@@ -158,7 +326,7 @@ class TestNoble(unittest.TestCase):
                     # 续费/续费保护期购买 只花费折扣价格
                     pay_money = noble_data[level][1] * month * discount
                 if buyer_coin != buyer_coin_new + pay_money:
-                    logging.error('普通-猫币错误{}:{}'.format(buyer_coin, buyer_coin_new))
+                    logging.error('普通-猫币错误{}:{}:{}'.format(buyer_coin, buyer_coin_new, pay_money))
                     return False
                 # 判断贵族猫币
                 buyer_noble_coin_new = MoneyClass.get_noble_coin(buyer_uid)
@@ -211,6 +379,56 @@ class TestNoble(unittest.TestCase):
         self.data = dict(level=1, cid=14, month=1, type=1, to_uid='')
         self.url = '/noble/createNoble'
         self.exp_res = {'code': 200, 'data': None, 'msg': '成功'}
+
+    @parameterized.expand(cases, name_func=new_name_func)
+    def test(self, *args):
+        logging.info(args)
+        # 开通参数
+        self.data['month'] = args[-1]
+        self.data['level'] = args[-2]
+        # 是否打折,皇帝，国王不打折
+        self.discount = self.data['level'] <= 5 and args[-3] and 0.8
+        self.old_level = args[1]
+        self.old_month = args[2]
+        # 创建购买用户
+        self.user = self.create_user()
+        # 是否赠送，创建用户贵族
+        if args[3]:
+            self.data['to_uid'] = self.create_user()
+            self.data['type'] = 2
+            if args[0] != 'first':
+                # 是首次开通,不用预先开通用户贵族
+                User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
+            if args[0] == 'expired_protect':
+                User.set_noble_expire(self.data['to_uid'])
+            elif args[0] == 'expired':
+                User.set_noble_expire(self.data['to_uid'], 50)
+        else:
+            if args[0] != 'first':
+                User.create_noble(self.user, level=self.old_level, month=self.old_month)
+            if args[0] == 'expired_protect':
+                User.set_noble_expire(self.user)
+            elif args[0] == 'expired':
+                User.set_noble_expire(self.user, 50)
+
+        # 添加打折卡
+        self.discount and Bag.add_bag(self.user, bag=90001)
+
+        # 验证
+        if args[0] == 'expired_protect':
+            self.ver = self.validate('protect_create')
+        elif args[0] == 'expired':
+            self.ver = self.validate('create')
+        elif args[0] == 'unexpired':
+            # 验证
+            if self.old_level == self.data['level']:
+                self.ver = self.validate('renew')
+            elif self.old_level < self.data['level']:
+                self.ver = self.validate('upgrade')
+            else:
+                self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
+        else:
+            self.ver = self.validate()
 
     '''参数必填检验'''
 
@@ -272,976 +490,6 @@ class TestNoble(unittest.TestCase):
         self.user = 1522
         self.data.pop('type')
         self.exp_res = dict(code=201)
-
-    @parameterized.expand(cases, name_func=new_name_func)
-    def test(self, *args):
-        if args[0] == 'first':
-            # 是否打折
-            self.discount = args[-3] and 0.8
-            # 开通参数
-            self.data['level'] = args[-1]
-            self.data['month'] = args[-2]
-            # 创建购买用户
-            self.user = self.create_user()
-            self.discount and Bag.add_bag(self.user, bag=90001)
-            # 是否赠送
-            if args[3]:
-                self.data['to_uid'] = self.create_user()
-                self.data['type'] = 2
-            # 验证
-            self.ver = self.validate()
-
-    '''用户首次开通贵族'''
-
-    def test_1_1(self):
-        '''1级1个月'''
-        self.user = self.create_user()
-        self.data['level'] = 1
-        self.ver = self.validate()
-
-    def test_1_1_eight(self):
-        '''1级1个月'''
-        self.user = self.create_user(True)
-        self.data['level'] = 1
-        self.ver = self.validate('create', 0.8)
-
-    def test_1_1_give(self):
-        '''被赠送1级1个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    def test_1_1_give_eight(self):
-        '''被赠送1级1个月'''
-        # 赠送者
-        self.user = self.create_user(True)
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('create', 0.8)
-
-    def test_1_2(self):
-        '''2级2个月'''
-        self.user = self.create_user()
-        self.data['level'] = 2
-        self.data['month'] = 2
-        self.ver = self.validate()
-
-    def test_1_2_eight(self):
-        '''2级2个月'''
-        self.user = self.create_user(True)
-        self.data['level'] = 2
-        self.data['month'] = 2
-        self.ver = self.validate('create', 0.8)
-
-    def test_1_2_give(self):
-        '''被赠送2级2个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 2
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    def test_1_2_give_eight(self):
-        '''被赠送2级2个月'''
-        # 赠送者
-        self.user = self.create_user(True)
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 2
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate('create', 0.8)
-
-    def test_1_5(self):
-        '''3级3个月'''
-        self.user = self.create_user()
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.ver = self.validate()
-
-    def test_1_6(self):
-        '''被赠送3级3个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    def test_1_7(self):
-        '''4级6个月'''
-        self.user = self.create_user()
-        self.data['level'] = 4
-        self.data['month'] = 6
-        self.ver = self.validate()
-
-    def test_1_8(self):
-        '''被赠送4级6个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 4
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    def test_1_9(self):
-        '''5级9个月'''
-        self.user = self.create_user()
-        self.data['level'] = 5
-        self.data['month'] = 9
-        self.ver = self.validate()
-
-    def test_1_10(self):
-        '''被赠送5级9个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 5
-        self.data['month'] = 9
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    def test_1_11(self):
-        '''6级12个月'''
-        self.user = self.create_user()
-        self.data['level'] = 6
-        self.data['month'] = 12
-        self.ver = self.validate()
-
-    def test_1_12(self):
-        '''被赠送6级12个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 6
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    def test_1_13(self):
-        '''7级5个月'''
-        self.user = self.create_user()
-        self.data['level'] = 7
-        self.data['month'] = 5
-        self.ver = self.validate()
-
-    def test_1_14(self):
-        '''被赠送7级5个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送着
-        self.data['to_uid'] = self.create_user()
-        self.data['level'] = 7
-        self.data['month'] = 5
-        self.data['type'] = 2
-        self.ver = self.validate()
-
-    '''用户已开通未过期'''
-
-    def test_2_1(self):
-        '''已1级1个月开通1级1个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 1
-        self.old_month = 1
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 1
-        self.ver = self.validate('renew')
-
-    def test_2_2(self):
-        '''已1级1个月被赠送1级1个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 1
-        self.old_month = 1
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_3(self):
-        '''已1级1个月开通2级2个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 1
-        self.old_month = 1
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_4(self):
-        '''已1级1个月被赠送2级2个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 1
-        self.old_month = 1
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_5(self):
-        '''已1级1个月开通7级12个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 1
-        self.old_month = 1
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 12
-        self.ver = self.validate('upgrade')
-
-    def test_2_6(self):
-        '''已1级1个月被赠送7级12个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 1
-        self.old_month = 1
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_7(self):
-        '''已2级2个月开通1级12个月'''
-        self.user = self.create_user()
-        self.old_level = 2
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 1
-        self.data['month'] = 12
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_8(self):
-        '''已2级2个月被赠送1级12个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 2
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 1
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_9(self):
-        '''已2级2个月开通2级6个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 2
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 6
-        self.ver = self.validate('renew')
-
-    def test_2_10(self):
-        '''已2级2个月被赠送2级6个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 2
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_11(self):
-        '''已2级3个月开通3级3个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 2
-        self.old_month = 3
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.ver = self.validate('upgrade')
-
-    def test_2_12(self):
-        '''已2级3个月被赠送3级3个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 2
-        self.old_month = 3
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_13(self):
-        '''已3级2个月开通2级12个月'''
-        self.user = self.create_user()
-        self.old_level = 3
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 12
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_14(self):
-        '''已3级2个月被赠送2级12个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 3
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_15(self):
-        '''已3级2个月开通3级6个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 3
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 6
-        self.ver = self.validate('renew')
-
-    def test_2_16(self):
-        '''已3级2个月被赠送3级6个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 3
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_17(self):
-        '''已3级3个月开通5级3个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 3
-        self.old_month = 3
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 5
-        self.data['month'] = 3
-        self.ver = self.validate('upgrade')
-
-    def test_2_18(self):
-        '''已3级3个月被赠送5级3个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 3
-        self.old_month = 3
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 5
-        self.data['month'] = 3
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_19(self):
-        '''已4级2个月开通3级12个月'''
-        self.user = self.create_user()
-        self.old_level = 4
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 12
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_20(self):
-        '''已4级2个月被赠送3级12个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 4
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_21(self):
-        '''已4级4个月开通4级6个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 4
-        self.old_month = 4
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 4
-        self.data['month'] = 6
-        self.ver = self.validate('renew')
-
-    def test_2_22(self):
-        '''已4级4个月被赠送4级6个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 4
-        self.old_month = 4
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 4
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_23(self):
-        '''已4级3个月开通6级2个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 4
-        self.old_month = 3
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 6
-        self.data['month'] = 3
-        self.ver = self.validate('upgrade')
-
-    def test_2_24(self):
-        '''已4级3个月被赠送6级2个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 3
-        self.old_month = 3
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 5
-        self.data['month'] = 3
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_25(self):
-        '''已5级2个月开通3级12个月'''
-        self.user = self.create_user()
-        self.old_level = 5
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 12
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_26(self):
-        '''已5级2个月被赠送3级12个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 5
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 3
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_27(self):
-        '''已5级4个月开通5级1个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 5
-        self.old_month = 4
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 5
-        self.data['month'] = 1
-        self.ver = self.validate('renew')
-
-    def test_2_28(self):
-        '''已5级4个月被赠送5级1个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 5
-        self.old_month = 4
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 5
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_29(self):
-        '''已5级3个月开通7级1个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 5
-        self.old_month = 3
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 1
-        self.ver = self.validate('upgrade')
-
-    def test_2_30(self):
-        '''已5级3个月被赠送7级1个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 5
-        self.old_month = 3
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_31(self):
-        '''已6级2个月开通2级1个月'''
-        self.user = self.create_user()
-        self.old_level = 6
-        self.old_month = 2
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 1
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_32(self):
-        '''已6级2个月被赠送2级1个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 6
-        self.old_month = 2
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 2
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_33(self):
-        '''已6级4个月开通6级2个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 6
-        self.old_month = 4
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 6
-        self.data['month'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_34(self):
-        '''已6级4个月被赠送6级2个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 6
-        self.old_month = 4
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 6
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    def test_2_35(self):
-        '''已6级3个月开通7级2个月--相当于升级'''
-        self.user = self.create_user()
-        self.old_level = 6
-        self.old_month = 3
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_36(self):
-        '''已6级3个月被赠送7级2个月--相当于升级'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 6
-        self.old_month = 3
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate('upgrade')
-
-    def test_2_37(self):
-        '''已7级1个月开通6级12个月'''
-        self.user = self.create_user()
-        self.old_level = 7
-        self.old_month = 1
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 6
-        self.data['month'] = 12
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_38(self):
-        '''已7级1个月被赠送6级12个月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 7
-        self.old_month = 1
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 6
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.exp_res = {'code': 201, 'data': '', 'msg': '已经是该贵族了'}
-
-    def test_2_39(self):
-        '''已7级4个月开通7级12个月--相当于续费'''
-        self.user = self.create_user()
-        self.old_level = 7
-        self.old_month = 4
-        User.create_noble(self.user, level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 12
-        self.ver = self.validate('renew')
-
-    def test_2_40(self):
-        '''已7级4个月被赠送7级12个月--相当于续费'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        self.old_level = 7
-        self.old_month = 4
-        User.create_noble(self.data['to_uid'], level=self.old_level, month=self.old_month)
-        self.data['level'] = 7
-        self.data['month'] = 12
-        self.data['type'] = 2
-        self.ver = self.validate('renew')
-
-    '''用户开通过在保护期'''
-
-    def test_3_1(self):
-        '''用户2级在保护期开通1级1月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=2)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 1
-        self.data['month'] = 1
-        self.ver = self.validate('protect_create')
-
-    def test_3_2(self):
-        '''用户2级在保护期被开通1级1月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=2)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 1
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_3(self):
-        '''用户3级在保护期开通3级3月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=3)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.ver = self.validate('protect_create')
-
-    def test_3_4(self):
-        '''用户3级在保护期被开通3级3月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=3)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_5(self):
-        '''用4级在保护期开通5级6月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=4)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 5
-        self.data['month'] = 6
-        self.ver = self.validate('protect_create')
-
-    def test_3_6(self):
-        '''用户4级在保护期被开通5级6月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=4)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 5
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_7(self):
-        '''用5级在保护期开通2级6月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=5)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 2
-        self.data['month'] = 6
-        self.ver = self.validate('protect_create')
-
-    def test_3_8(self):
-        '''用户5级在保护期被开通2级6月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=5)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 2
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_9(self):
-        '''用6级在保护期开通7级2月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=6)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 7
-        self.data['month'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_10(self):
-        '''用户6级在保护期被开通7级2月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=6)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 7
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_11(self):
-        '''用7级在保护期开通7级1月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=7)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 7
-        self.data['month'] = 1
-        self.ver = self.validate('protect_create')
-
-    def test_3_12(self):
-        '''用户7级在保护期被开通7级1月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=7)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 7
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    def test_3_13(self):
-        '''用1级在保护期开通7级10月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=1)
-        User.set_noble_expire(self.user)
-        self.data['level'] = 7
-        self.data['month'] = 10
-        self.ver = self.validate('protect_create')
-
-    def test_3_14(self):
-        '''用户1级在保护期被开通7级10月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=1)
-        User.set_noble_expire(self.data['to_uid'])
-        self.data['level'] = 7
-        self.data['month'] = 10
-        self.data['type'] = 2
-        self.ver = self.validate('protect_create')
-
-    '''用户开通过已过保护期'''
-
-    def test_4_1(self):
-        '''用户2级在已过保护期开通1级1月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=2)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 1
-        self.data['month'] = 1
-        self.ver = self.validate('create')
-
-    def test_4_2(self):
-        '''用户2级已过保护期被开通1级1月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=2)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 1
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_3(self):
-        '''用户3级已过保护期开通3级3月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=3)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.ver = self.validate('create')
-
-    def test_4_4(self):
-        '''用户3级已过保护期被开通3级3月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=3)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 3
-        self.data['month'] = 3
-        self.data['type'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_5(self):
-        '''用4级已过保护期开通5级6月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=4)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 5
-        self.data['month'] = 6
-        self.ver = self.validate('create')
-
-    def test_4_6(self):
-        '''用户4级已过保护期被开通5级6月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=4)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 5
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_7(self):
-        '''用5级已过保护期开通2级6月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=5)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 2
-        self.data['month'] = 6
-        self.ver = self.validate('create')
-
-    def test_4_8(self):
-        '''用户5级已过保护期被开通2级6月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=5)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 2
-        self.data['month'] = 6
-        self.data['type'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_9(self):
-        '''用6级已过保护期开通7级2月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=6)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 7
-        self.data['month'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_10(self):
-        '''用户6级已过保护期被开通7级2月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=6)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 7
-        self.data['month'] = 2
-        self.data['type'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_11(self):
-        '''用7级已过保护期开通7级1月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=7)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 7
-        self.data['month'] = 1
-        self.ver = self.validate('create')
-
-    def test_4_12(self):
-        '''用户7级已过保护期被开通7级1月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=7)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 7
-        self.data['month'] = 1
-        self.data['type'] = 2
-        self.ver = self.validate('create')
-
-    def test_4_13(self):
-        '''用1级已过保护期开通7级10月'''
-        self.user = self.create_user()
-        User.create_noble(self.user, level=1)
-        User.set_noble_expire(self.user, 50)
-        self.data['level'] = 7
-        self.data['month'] = 10
-        self.ver = self.validate('create')
-
-    def test_4_14(self):
-        '''用户1级已过保护期被开通7级10月'''
-        # 赠送者
-        self.user = self.create_user()
-        # 被赠送者
-        self.data['to_uid'] = self.create_user()
-        User.create_noble(self.data['to_uid'], level=1)
-        User.set_noble_expire(self.data['to_uid'], 50)
-        self.data['level'] = 7
-        self.data['month'] = 10
-        self.data['type'] = 2
-        self.ver = self.validate('create')
 
     def tearDown(self):
         # 比较结果

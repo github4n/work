@@ -10,7 +10,7 @@ import time
 import requests
 import logging
 from lxml import etree
-from .db.user import Userbase, Userinfo, Mobile, UserName, Uid
+from .db.user import Userbase, Userinfo, Mobile, UserName, Uid,MemberBadge
 from .common import REDIS_INST, Common
 from .config import URL, ADMIN_URL, ADMIN_COOKIES
 from .db.contents import HmChannel
@@ -35,7 +35,7 @@ class User():
         # 默认密码1
         password = Common.md5('1')
         img = ''
-        nickname = username + 'nc'
+        nickname = username + 'n'
         ret = {'code': 1001, 'status': False, 'msg': '用户名已存在或注册失败'}
         # 验证用户名是否存在
         key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(username))
@@ -149,7 +149,8 @@ class User():
         return {'code': 100, 'status': True, 'msg': '成功'}
 
     # 修改昵称
-    def update_nick_name(self, uid, nick_name):
+    @staticmethod
+    def update_nick_name(uid, nick_name):
         uid = str(uid)
         # 更新redis
         data = json.loads(REDIS_INST.get('hm_' + uid))
@@ -181,11 +182,15 @@ class User():
         key = 'hm_loveliness_fan_lv_news_{}_{}'.format(uid, cid, level)
         REDIS_INST.set(key, level)
 
-    # 设置粉丝等级
+    # 添加徽章
     @staticmethod
-    def set_badge(uid):
-        key = 'hm_member_adorn_badge:{}'.format(uid)
-        REDIS_INST.hset(key, 'bid:1', '{"bid":1,"gettime":' + str(int(time.time())) + ',"owntime":1440,"currentstat":3}')
+    def set_badge(uid, bid=1):
+        # 创建徽章
+        MemberBadge.create(uid=uid,bid=bid, currentstat=3, expiretime=0, gettime=1, owntime=-1)
+        redis_key = 'hm_member_adorn_badge:{}'.format(uid)
+        key = 'bid:' + str(bid)
+        value = {'bid': bid, 'gettime': str(int(time.time())), 'owntime': '-1', 'currentstat': 3}
+        REDIS_INST.hset(redis_key, key, json.dumps(value))
 
     # 获取/修改/删除粉丝值
     @staticmethod
@@ -194,7 +199,6 @@ class User():
             res = HmLoveliness.select().where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).first()
             res = res.score if res else 0
         elif type == 'set':
-            print(333)
             res = HmLoveliness.update(score=score).where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).execute()
         elif type == 'del':
             res = HmLoveliness.delete().where(HmLoveliness.uid == uid).execute()
@@ -219,7 +223,7 @@ class User():
     # 开通贵族
     @staticmethod
     def create_noble(uid, **kw):
-        data = dict(level=1, cid=14, month=1, type=1, to_uid='')
+        data = dict(level=1, cid=2, month=1, type=1, to_uid='')
         for key, value in kw.items():
             data[key] = value
         ret = requests.get(URL + '/noble/createNoble', params=data, cookies=Common.generate_cookies(uid)).text

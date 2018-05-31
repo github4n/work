@@ -7,7 +7,7 @@
 import time
 
 # 请求的域名
-domain_web = 'http://lxy.new.huomaotv.com.cn'
+domain_web = 'http://qa.new.huomaotv.com.cn'
 domain_api = 'http://qaapi.new.huomaotv.com.cn'
 # uid
 UID = 1522

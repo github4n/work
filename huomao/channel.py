@@ -8,7 +8,7 @@ import requests
 import json
 from lxml import etree
 from .common import REDIS_INST, REDIS_INST2
-from .config import ADMIN_URL_ONLINE
+from .config import ADMIN_URL_ONLINE, ADMIN_COOKIES
 
 
 class Channel():

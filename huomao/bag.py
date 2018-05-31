@@ -4,6 +4,7 @@
 # Author : lixingyun
 # Description :
 import time
+import logging
 from peewee import fn
 from .db.user_bag import UserBag
 
@@ -23,15 +24,14 @@ class Bag():
     # 获取弹幕卡
     @staticmethod
     def get_dmk(uid):
-        u = UserBag.select(fn.Sum(UserBag.num)).where(
-            (UserBag.uid == uid) & (UserBag.bag == 100001)).first()
-        return u.num
+        u = UserBag.select(fn.Sum(UserBag.num).alias('nums')).where((UserBag.uid == uid) & (UserBag.bag == 100001)).first()
+        return u.nums
 
     # 获取用户特定时间弹幕卡数量
     @staticmethod
     def get_time_dmk(uid, dmk_time):
-        u = UserBag.select(fn.Sum(UserBag.num)).where((UserBag.uid == uid) & (UserBag.expire_time == dmk_time)).first()
-        return u.num
+        u = UserBag.select(fn.Sum(UserBag.num).alias('nums')).where((UserBag.uid == uid) & (UserBag.expire_time == dmk_time)).first()
+        return u.nums
 
     # 删除弹幕卡
     @staticmethod

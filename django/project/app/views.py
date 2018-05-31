@@ -4,6 +4,7 @@ from huomao.common import Common
 from huomao.user import User
 from huomao.channel import Channel
 from huomao.money import MoneyClass
+from huomao.test import test
 
 user = User()
 channel = Channel()
@@ -19,6 +20,10 @@ def new_web(request, method=''):
     else:
         # 字符串转函数表达式
         return eval(method)(request)
+
+def test_fun(request):
+    test()
+    return JsonResponse({'msg':'成功'})
 
 
 def find_uid(request):

@@ -10,6 +10,7 @@ from .db.noble_coin import NobleCoin
 from .common import REDIS_INST
 from .db.money import MoneyPay, MoneyChannelIncome
 from .config import mon_last_time,mon_first_time
+from peewee import fn
 import logging
 
 
@@ -71,10 +72,8 @@ class MoneyClass():
     # 获取送礼记录
     @staticmethod
     def get_money_pay(uid, cid):
-        logger = logging.getLogger('peewee')
-        logger.setLevel(logging.INFO)
-        count = MoneyPay.select().where((MoneyPay.uid == uid) & (MoneyPay.other_cid == cid) & (MoneyPay.ts < mon_last_time)& (MoneyPay.ts > mon_first_time)).count()
-        return count
+        count = MoneyPay.select(fn.COUNT(1).alias('nums')).where((MoneyPay.uid == uid) & (MoneyPay.other_cid == cid) & (MoneyPay.ts < mon_last_time)& (MoneyPay.ts > mon_first_time)).first()
+        return count.nums
 
     # 获取收礼记录
     @staticmethod
@@ -87,6 +86,6 @@ class MoneyClass():
                 MoneyChannelIncome.other_uid == user_id)).first()
             m = m.money
         elif type == 'count':
-            m = MoneyChannelIncome.select().where((MoneyChannelIncome.uid == uid) & (MoneyChannelIncome.addtime < mon_last_time) & (
-                MoneyChannelIncome.other_uid == user_id)).count()
+            m = MoneyChannelIncome.select(fn.COUNT(1).alias('nums')).where((MoneyChannelIncome.uid == uid) & (MoneyChannelIncome.addtime < mon_last_time) & (
+                MoneyChannelIncome.other_uid == user_id)).first().nums
         return m
