@@ -575,7 +575,9 @@ class _TestResult(TestResult):
             sys.stderr.write(str(test))
             sys.stderr.write('\n')
         else:
-            sys.stderr.write('.')
+            # edit by lucky 不输出.
+            # sys.stderr.write('.')
+            pass
 
     def addError(self, test, err):
         self.error_count += 1
@@ -629,7 +631,8 @@ class HTMLTestRunner(Template_mixin):
         self.stopTime = datetime.datetime.now()
         self.generateReport(test, result)
         # print >> sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime)
-        print(sys.stderr, '耗时: %s' % (self.stopTime-self.startTime))
+        # 暂时不输出方便判断
+        # print(sys.stderr, '耗时: %s' % (self.stopTime-self.startTime))
         return result
 
 

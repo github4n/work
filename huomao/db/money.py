@@ -3,7 +3,7 @@
 # Date   : 2017/9/14 12:15
 # Author : lixingyun
 from peewee import *
-from .config import DB_CONFIG
+from ..config import DB_CONFIG
 
 database = MySQLDatabase('hm_money', **DB_CONFIG)
 

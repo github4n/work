@@ -871,8 +871,8 @@ def test(data):
 
 
 
-
-test(kt_data_7)
+print(1533139199 - 1533052800)
+# test(kt_data_7)
 # test(kt_data_6)
 #
 # test(gift_data)

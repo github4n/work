@@ -38,15 +38,16 @@ def assert_dict_in(dict1, dict2):
 def req(self):
     report_data['test_sum'] += 1
     # 判断环境
-    if 'api' not in self._testMethodName:
-        cookies = Common.generate_cookies(self.user)
-        domain = domain_web
+    if 'api' in self._testMethodName:
+        # api 加密token
+        self.data = Common.encrypt(self.data)
+        cookies = None
+        domain = getattr(self, 'domain', domain_api)
     else:
-        self.data['uid'] = self.user
-        cookies = {}
-        domain = domain_api
+        cookies = Common.generate_cookies(self.user)
+        domain = getattr(self, 'domain', domain_web)
 
-    self.resquest_url = domain + self.url + '?' + parse.urlencode(self.data)
+    self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)])
 
     logging.info('请求数据:{}\n{}'.format(self.data, self.resquest_url))
 
@@ -79,27 +80,27 @@ def req(self):
         else:
             report_data['test_failed'] += 1
             logging.error('{}二次验证失败'.format(self._testMethodName))
-            self.assertTrue(False,'二次验证失败')
+            self.assertTrue(False, '二次验证失败')
     else:
         report_data['test_failed'] += 1
         self.info = '用例{},失败\n预期:{}\n实际:{}\n实际json:{}'.format(self._testMethodName, self.exp_res, real_res, json.dumps(real_res))
         logging.error(self.info)
         self.assertFalse(self.info)
 
-    # 把结果添加到报告list中
-    # res = {"case_id": self._testMethodName,
-    #        "case_des": self._testMethodDoc,
-    #        "name": self.name,
-    #        "method": self.method,
-    #        "url": self.url,
-    #        "user": self.user,
-    #        "data": self.data,
-    #        "exp_res": str(self.exp_res),
-    #        "real_res": str(real_res),
-    #        "result": result,
-    #        "bz": ''}
-    # report_data['report_res'].append(res)
-    # return real_res
+        # 把结果添加到报告list中
+        # res = {"case_id": self._testMethodName,
+        #        "case_des": self._testMethodDoc,
+        #        "name": self.name,
+        #        "method": self.method,
+        #        "url": self.url,
+        #        "user": self.user,
+        #        "data": self.data,
+        #        "exp_res": str(self.exp_res),
+        #        "real_res": str(real_res),
+        #        "result": result,
+        #        "bz": ''}
+        # report_data['report_res'].append(res)
+        # return real_res
 
 
 # 请求返回接口信息

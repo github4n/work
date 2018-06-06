@@ -31,7 +31,7 @@ class User():
     # 注册用户返回uid,或登录返回uid
     @staticmethod
     def register(username):
-        logging.info(username)
+        logging.info('注册用户名:{}'.format(username))
         # 默认密码1
         password = Common.md5('1')
         img = ''
@@ -65,7 +65,7 @@ class User():
         for key, value in data.items():
             data[key] = json.dumps(value)
         REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
-        logging.info(uid)
+        logging.info('注册UID:{}'.format(uid))
         return {'code': 100, 'status': True, 'msg': '成功\tuid:{}密码:1'.format(uid), 'uid': str(uid)}
 
     # 按序注册用户返回uid

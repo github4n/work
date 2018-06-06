@@ -3,7 +3,7 @@
 # Date   : 2017/10/30 15:27
 # Author : lixingyun
 from peewee import *
-from .config import DB_CONFIG
+from ..config import DB_CONFIG
 
 database = MySQLDatabase('hm_user_bag', **DB_CONFIG)
 

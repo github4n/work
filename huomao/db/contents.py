@@ -4,7 +4,7 @@
 # Author : lixingyun
 # python -m pwiz -e mysql -H 10.10.23.15  -u huomao -P huomao  hm_contents > db.py
 from peewee import *
-from .config import DB_CONFIG
+from ..config import DB_CONFIG
 
 database = MySQLDatabase('hm_contents', **DB_CONFIG)
 

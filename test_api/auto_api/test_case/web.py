@@ -5,10 +5,16 @@
 # Description :
 
 import unittest
-from nose_parameterized import parameterized
-import requests
+from time import time
+from parameterized import parameterized
+from huomao.common import Common
 from ..lib.config import UID
 from ..lib.lib import req
+
+
+def new_name_func(func, num, p):
+    return func.__name__ + '_' + str(num + 1)
+
 
 cases = [
     # 首页
@@ -31,19 +37,14 @@ cases = [
 ]
 
 
-def new_name_func(func, num, p):
-    return func.__name__ + '_' + str(num + 1)
-
-
 class TestWeb(unittest.TestCase):
     @parameterized.expand(cases, name_func=new_name_func)
     def test(self, *args):
         # 接口信息
+        self.domain = 'https://www.huomao.com'
         self.name = 'WEB'
         self.url = args[0]
         self.method = 'get'
-        # 默认报错信息
-        # self.info = ''
         # 默认登录用户
         self.user = UID
         # 默认请求数据
@@ -51,3 +52,31 @@ class TestWeb(unittest.TestCase):
         self.exp_res = args[1]
         req(self)
 
+
+cases_api = [
+    ('/channels/channelDetail', dict(refer='android',
+                                     cid=9418,
+                                     expires_time=1527757747,
+                                     post_data=1,
+                                     time=1528181184,
+                                     uid=27064,
+                                     now_time=int(time()) + 100,
+                                     an=67,
+                                     ver='dev2.4', ), dict(code='100'))
+]
+
+
+class TestApi(unittest.TestCase):
+    @parameterized.expand(cases_api, name_func=new_name_func)
+    def test_api(self, *args):
+        # 接口信息
+        self.domain = 'http://test1.api.huomao.com'
+        self.name = 'API'
+        self.url = args[0]
+        self.method = 'get'
+        # 默认登录用户
+        self.user = UID
+        # 默认请求数据
+        self.data = args[1]
+        self.exp_res = args[2]
+        req(self)

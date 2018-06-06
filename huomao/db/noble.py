@@ -5,7 +5,7 @@
 # Description :
 
 from peewee import *
-from .config import DB_CONFIG
+from ..config import DB_CONFIG
 
 database = MySQLDatabase('hm_noble', **DB_CONFIG)
 

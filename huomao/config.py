@@ -3,28 +3,40 @@
 # Date   : 2018/5/4 14:35
 # Author : lixingyun
 # Description :
-import configparser
 import os
 import time
 import calendar
 import logging
-import peewee
-# 获取文件的当前路径（绝对路径）
-cur_path = os.path.dirname(os.path.realpath(__file__))
-# 获取config.ini的路径
-config_path = os.path.join(cur_path, 'config.ini')
-conf = configparser.ConfigParser()
-# 读取配置
-conf.read(config_path)
+
+# peewee日志
+logger = logging.getLogger('peewee')
+logger.setLevel('INFO')
+logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%Y/%m/%d %I:%M:%S %p',
+                    level=logging.INFO,
+                    # filename='example.log',
+                    filemode='w')
+
+
+
+# 数据库配置
+DB_CONFIG = {'host': '10.10.23.15','user': 'huomao',  'password': 'huomao','port':3306}
+DB_CONFIG2 = {'host': '10.10.23.15','user': 'huomao',  'password': 'huomao','port':3307}
+# redis配置
+REDIS_CONFIG = {'host': 'db.huomaotv.com.cn', 'port': 6379}
+REDIS_CONFIG2 = {'host': '10.10.23.12', 'port': 6379}
+
+
+
 # 网站url
-URL = conf.get('urls', 'URL')
-URL_API = conf.get('urls', 'URL_API')
-DOMAIN = conf.get('urls', 'DOMAIN')
+URL = 'http://lxy.new.huomaotv.com.cn'
+URL_API = 'http://lxy.new.huomaotv.com.cn'
+DOMAIN = '.huomaotv.com.cn'
 # 线上地址
-URL_ONLINE = conf.get('urls', 'URL_ONLINE')
-ADMIN_URL_ONLINE = conf.get('urls', 'ADMIN_URL_ONLINE')
+URL_ONLINE = 'https://www.huomao.com'
+ADMIN_URL_ONLINE = 'http://bii3c.huomao.com'
 # 后台url
-ADMIN_URL = conf.get('urls', 'ADMIN_URL')
+ADMIN_URL = 'http://qaadmin.new.huomaotv.com.cn'
 # 后台cookies
 ADMIN_COOKIES = {
     'huomaotvcheckcode': 'SQJ5',
@@ -44,13 +56,8 @@ ADMIN_COOKIES_ONLINE = {
     'adminLoginTime': '1504756354',
     'adminToken': '66897400739a15c9c6453a6e68b71e1d'
 }
-# redis配置
-REDIS_CONFIG = {}
-for (key, value) in conf.items('redis'):
-    REDIS_CONFIG[key] = value
-REDIS_CONFIG2 = {}
-for (key, value) in conf.items('redis2'):
-    REDIS_CONFIG2[key] = value
+
+
 
 timestamp = int(time.time())
 run_date = time.localtime()
@@ -73,11 +80,3 @@ REDIS_KEYS = {
         ],
     'subscribe': 'hm_users_subscribe_channels{uid}'
 }
-
-logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-                    datefmt='%Y/%m/%d %I:%M:%S %p',
-                    level=logging.INFO,
-                    # filename='example.log',
-                    filemode='w')
-logger = logging.getLogger('peewee')
-logger.setLevel('DEBUG')

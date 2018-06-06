@@ -14,6 +14,7 @@ import redis
 import json
 import logging
 from urllib import parse
+
 from .db.contents import HmGag
 from .config import URL, REDIS_CONFIG, REDIS_CONFIG2
 
@@ -53,12 +54,9 @@ class Common():
         value = ''
         for key in sorted(data.keys(), reverse=True):
             value += str(data[key])
-        m = hashlib.md5()
-        value = (value + SECRET_KEY_MOBILE).encode('utf-8')
-        m.update(value)
-        md5s = m.hexdigest()
-        datas = parse.urlencode(data)
-        return '?' + datas + '&token=' + md5s
+        data['token'] =  Common.md5(value + SECRET_KEY_MOBILE)
+        return data
+
 
     # md5
     @staticmethod

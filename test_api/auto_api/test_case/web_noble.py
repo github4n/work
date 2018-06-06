@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Date   : 2018/4/17 17:53
 # Author : lixingyun
-# Description : 测试贵族功能 不验证每月返还功能,未测试已折扣月份升级，续费
+# Description : 测试贵族功能 不验证每月返还功能,未测试已折扣月份升级，续费,未测试体验贵族
 
 import time
 import requests
@@ -21,7 +21,7 @@ def new_name_func(func, num, p):
     return func.__name__ + '_' + str(num + 1)
 
 
-# 用户状态，原等级,原月数，是否赠送，折扣，开通等级,开通月数
+# 用户状态，原等级,原月数，是否赠送，折扣，开通等级,开通月数,体验贵族等级,体验贵族天数
 cases = [
     # 用户首次开通贵族1
     ('first', 0, 0, 0, 0, 1, 1),
