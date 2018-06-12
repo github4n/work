@@ -14,11 +14,11 @@ from .config import ADMIN_URL_ONLINE, ADMIN_COOKIES
 class Channel():
     # 更新房间状态
     @staticmethod
-    def update_stat(cids, stat):
-        if cids and stat:
-            cids = str(cids)
-            cids = cids.split(",")
-            for cid in cids:
+    def update_stat(rooms, stat):
+        if rooms and stat:
+            rooms = str(rooms)
+            rooms = rooms.split(",")
+            for cid in rooms:
                 channel = HmChannel.select().where(HmChannel.room_number == cid).first()
                 if channel:
                     HmChannel.update(is_live=stat).where(HmChannel.room_number == cid).execute()
@@ -55,7 +55,7 @@ class Channel():
             REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps(data))
             return 1
 
-        if room_number and status or status == '0':
+        if room_number and status:
             channel = HmChannel.select().where(HmChannel.room_number == room_number).first()
             uid = channel.uid
             cid = channel.id
@@ -89,6 +89,6 @@ class Channel():
                 REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)
             else:
                 return {'code': 101, 'status': False, 'msg': '修改失败'}
-            return {'code': 100, 'status': True, 'msg': '修改成功2'}
+            return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
             return {'code': 102, 'status': False, 'msg': '修改失败'}

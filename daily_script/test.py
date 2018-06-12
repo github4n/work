@@ -4,5 +4,19 @@
 # Author : lixingyun
 # Description :
 #
-from decimal import *
-print(Decimal('66')*Decimal('0.8'))
+from huomao.common import Common
+#
+# version = 640
+#
+# urls_config = [
+#     'poletest.js',
+#     'https://www.huomao.com/static/web/js/live_draw.js',
+#     ''
+# ]
+#
+# for url in urls_config:
+#     'https://www.huomao.com/static/web/js/{}?v={}'.format(url, version)
+#
+#
+Common.clear_cdn_cache('https://www.huomao.com/static/web/css/common.css?v=643')
+# Common.clear_cdn_cache('https://www.huomao.com/static/web/js/live_draw.js?v=640')

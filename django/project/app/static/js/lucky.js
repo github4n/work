@@ -53,8 +53,17 @@ function request(method){
         success: function(result) {
             $('.modal-body').text(result.msg);
             $('#myModal').modal('show');
+            if (result.uid != undefined){
+                $('.uid').val(result.uid);
+            };
+
+
 //            setTimeout(function(){$("#myModal").modal("hide")},20000);
         }
     });
+
+
+
+
 }
 

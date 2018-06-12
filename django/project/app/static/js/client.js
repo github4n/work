@@ -1,4 +1,4 @@
-(function(win) {
+var test = function(cid) {
     const rawHeaderLen = 16;
     const packetOffset = 0;
     const headerOffset = 4;
@@ -39,7 +39,7 @@
                 var op = dataView.getInt32(opOffset);
                 var seq = dataView.getInt32(seqOffset);
 
-                console.log("receiveHeader: packetLen=" + packetLen, "headerLen=" + headerLen, "ver=" + ver, "op=" + op, "seq=" + seq);
+//                console.log("receiveHeader: packetLen=" + packetLen, "headerLen=" + headerLen, "ver=" + ver, "op=" + op, "seq=" + seq);
 
                 switch(op) {
                     case 8:
@@ -49,7 +49,7 @@
                     break;
                     case 3:
                         // heartbeat reply
-                        console.log("receive: heartbeat");
+//                        console.log("receive: heartbeat");
                     break;
                     case 5:
                         // batch message
@@ -84,7 +84,7 @@
                 headerView.setInt32(opOffset, 2);
                 headerView.setInt32(seqOffset, 1);
                 ws.send(headerBuf);
-                console.log("send: heartbeat");
+//                console.log("send: heartbeat");
             }
 			
 			
@@ -96,12 +96,12 @@
 			const seqOffset = 12;
 	
             function auth() {
-                var tokenBody = {"Uid":0,"Rid":2};
+                var tokenBody = {"Uid":0,"Rid":parseInt(cid)};
                 var token = JSON.stringify(tokenBody);
                 var headerBuf = new ArrayBuffer(rawHeaderLen);
                 var headerView = new DataView(headerBuf, 0);
                 var bodyBuf = textEncoder.encode(token);
-                console.log(bodyBuf.byteLength);
+//                console.log(bodyBuf.byteLength);
 
                 headerView.setInt32(packetOffset, rawHeaderLen + bodyBuf.byteLength);
                 headerView.setInt16(headerOffset, rawHeaderLen);
@@ -110,24 +110,25 @@
                 headerView.setInt32(seqOffset, 1);
 				
 				var mergeA = mergeArrayBuffer(headerBuf, bodyBuf);
-				console.log("mergeA", headerView.getInt32(0),  headerView.getInt16(4),  headerView.getInt16(6),  headerView.getInt32(8),  headerView.getInt32(12));
-				
-				console.log(headerBuf);
-				console.log(bodyBuf);
-				console.log(100,mergeA);
+//				console.log("mergeA", headerView.getInt32(0),  headerView.getInt16(4),  headerView.getInt16(6),  headerView.getInt32(8),  headerView.getInt32(12));
+//
+//				console.log(headerBuf);
+//				console.log(bodyBuf);
+//				console.log(100,mergeA);
 
 				// console.log(textEncoder.decode(bodyBuf));
 
                 ws.send(mergeA);
-                console.log(1000);
+//                console.log(1000);
 
 
             }
 
             function messageReceived(ver, body) {
+//                console.log("messageReceived:", "ver=" + ver, "body=" + body);
                 var notify = self.options.notify;
                 if(notify) notify(body);
-//                console.log("messageReceived:", "ver=" + ver, "body=" + body);
+
             }
 
             function mergeArrayBuffer(ab1, ab2) {
@@ -155,5 +156,38 @@
         }
     }
 
-    win['MyClient'] = Client;
-})(window);
+    window.MyClient = Client;
+
+};
+
+function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return 2;
+    }
+
+cid = getQueryString('cid');
+console.log('连接cid:',cid);
+test(cid);
+
+var html = '';
+var client = new MyClient({
+
+    notify: function(data) {
+        data = JSON.parse(data);
+        html += '<pre style="margin:10px;font-size: 12px;max-height:50px;max-width:1200px;" class="pre-scrollable">'+ JSON.stringify(data,null,4) +'</pre>';
+        console.log(data);
+        $(".test").html(html);
+    }
+
+});
+
+$(document).on("mouseover",".pre-scrollable",function(){
+//    $(this).stop().animate({'max-height':'800px'},500);
+    $(this).css("max-height","800px")
+});
+$(document).on("mouseout",".pre-scrollable",function(){
+    $(this).stop().animate({'max-height':'50px'},500);
+//    $(this).css("max-height","50px")
+});

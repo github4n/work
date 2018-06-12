@@ -10,7 +10,7 @@ def cookies(uid):
     if uid:
         key = 'HUOMAOTV!@#$%^&*137SECRET'
         uid = str(uid)
-        ts = str(int(time.time()))
+        ts = str(int(time.time())+86400*30)
         a = uid + str(ts) + key
         b = a.encode('utf-8')
         token = str(hashlib.md5(b).hexdigest())

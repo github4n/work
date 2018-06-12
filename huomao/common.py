@@ -16,7 +16,7 @@ import logging
 from urllib import parse
 
 from .db.contents import HmGag
-from .config import URL, REDIS_CONFIG, REDIS_CONFIG2
+from .config import URL, REDIS_CONFIG, REDIS_CONFIG2,ADMIN_COOKIES, ADMIN_COOKIES_ONLINE
 
 # redis连接
 REDIS_INST = redis.Redis(**REDIS_CONFIG, db=0, decode_responses=True)
@@ -100,6 +100,20 @@ class Common():
                    'user_6b90717037ae096e2f345fde0c31e11b': token,
                    'user_2c691ee7b8307f7fadc5c2c9349dbd7b': ts}
         return cookies
+
+    # 清楚cdn缓存
+    @staticmethod
+    def clear_cdn_cache(urls):
+        if isinstance(urls,list):
+            for url in urls:
+                res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': url})
+                res = res.json()
+                print(res)
+        else:
+            res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': urls})
+            res = res.json()
+            print(res)
+
 
     # 添加手机验证码
     @staticmethod

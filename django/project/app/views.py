@@ -10,8 +10,13 @@ user = User()
 channel = Channel()
 money = MoneyClass()
 
+
 def api_test(request):
     return render(request, 'api_test.html')
+
+
+def chatroom(request):
+    return render(request, 'chatroom.html')
 
 
 def new_web(request, method=''):
@@ -21,9 +26,10 @@ def new_web(request, method=''):
         # 字符串转函数表达式
         return eval(method)(request)
 
+
 def test_fun(request):
     test()
-    return JsonResponse({'msg':'成功'})
+    return JsonResponse({'msg': '成功'})
 
 
 def find_uid(request):
@@ -38,11 +44,14 @@ def set_money(request):
         xd = request.POST.get('xd')
         coin = request.POST.get('coin')
         bean = request.POST.get('bean')
+        noble_coin = request.POST.get('noble_coin')
         money.set_xd(uid, xd)
         money.set_money(uid, coin, bean)
+        money.set_noble_coin(uid, noble_coin)
         return JsonResponse({'msg': '成功'})
     else:
         return JsonResponse({'msg': '失败'})
+
 
 def bd_sj(request):
     uid = request.POST.get('uid')
@@ -70,9 +79,9 @@ def update_stream(request):
 
 
 def update_stat(request):
-    cids = request.POST.get('rooms')
+    rooms = request.POST.get('rooms')
     stat = request.POST.get('status')
-    res = channel.update_stat(cids, stat)
+    res = channel.update_stat(rooms, stat)
     return JsonResponse(res)
 
 
@@ -116,10 +125,9 @@ def download(request):
     return response
 
 
-
 def set_cookies(request):
     response = HttpResponse('test')
-    response.set_cookie('cookies_test','test',domain='.huomaotv.com.cn')
+    response.set_cookie('cookies_test', 'test', domain='.huomaotv.com.cn')
     return response
 
     # def phone_fy(request):

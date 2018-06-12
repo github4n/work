@@ -5,19 +5,13 @@
     <meta charset="UTF-8">
     <title>测试平台</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lucky.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'image/favicon.ico' %}">
     <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/lucky.js' %}"></script>
     <script src="{% static 'js/client.js' %}"></script>
-    <style type="text/css">
-        #content1,#content2,#content3,#content4
-        {
-        height:230px;
-        width:230px;
-        float:left;
-        margin-left:50px;
-        }
-    </style>
+    <script src="{% static 'js/lucky.js' %}"></script>
+
 </head>
 <body>
 {% block content %}{% endblock %}

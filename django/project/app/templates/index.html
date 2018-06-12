@@ -15,156 +15,210 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-<div id="container" style="width:1920px">
-    <!--头-->
-    <div id="header" style="background-color:;">
-        <h1 style="margin-bottom:0;">测试平台</h1>
-        <br>
-        <p>
-            <a href="http://yfb2.huomaotv.com.cn/release.html" target="_blank">预发布2发布地址http://yfb2.huomaotv.com.cn/release.html</a>
-        </p>
-        <p>
-            <a href="http://10.10.2.49/" target="_blank">安卓包地址:http://10.10.2.49/</a>
-        </p>
-        <p>
-            <a href="http://redmine.marstv.com:3000/projects/test/issues" target="_blank">redmine地址:redmine.marstv.com:3000/projects/test/issues</a>
-        </p>
-    </div>
-    <!--菜单-->
-    <!--<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">-->
-    <!--<b>菜单</b><br>-->
-    <!--HTML<br>-->
-    <!--CSS<br>-->
-    <!--JavaScript-->
-    <!--</div>-->
-    <!--内容-->
-    <div id="content" style="background-color:#EEEEEE;height:850px;width:1920px;float:left;">
-        <div id='content1'>
-            <h5>设置money</h5>
+
+
+<div id="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">测试平台</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://yfb2.huomaotv.com.cn/release.html" target="_blank">预发布2发布地址</a></li>
+                <li><a href="http://10.10.2.89/" target="_blank">安卓包地址</a></li>
+                <li><a href="http://redmine.marstv.com:3000/projects/test/issues" target="_blank">redmine地址</a></li>
+                <li><a href="/chatroom?cid=2" target="_blank">接收聊天消息测试 <span class="label label-danger">NEW!</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="content">
+        <div id='row1'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">设置用户仙豆/猫币/贵族猫币/猫豆</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="set_money_form" role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="uid" class='uid form-control' placeholder="UID">
+                            <input type="text" name="xd" class="form-control" placeholder="仙豆">
+                            <input type="text" name="coin" class="form-control" placeholder="猫币">
+                            <input type="text" name="noble_coin" class="form-control" placeholder="贵族猫币">
+                            <input type="text" name="bean" class="form-control" placeholder="猫豆">
+                        </div>
+                        <button class="btn btn-default" type="button" onclick="request('set_money')">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id='row2'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">快速注册,密码为1</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="zc_form" role="form">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" name="name_zc" class="form-control" placeholder="用户名">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" onclick="request('zc')">提交</button>
+                                </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">绑定手机</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="bd_sj_form" role="form">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" name="uid" class="uid form-control" placeholder="UID">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick="request('bd_sj')">提交</button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">查找UID</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="find_uid_form" role="form">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" name="name" class="form-control" placeholder="用户名">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick="request('find_uid')">提交</button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">申请主播</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="sq_zb_form" role="form">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" name="uid" class="uid form-control" placeholder="UID">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick="request('sq_zb')">提交</button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id='row3'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">线上流同步线下</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="update_stream_form" role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="room_xs" class="form-control" placeholder="线上房间号">
+                            <input type="text" name="room_xx" class="form-control" placeholder="线下房间号">
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="request('update_stream')">提交</button>
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改房间直播状态</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="update_stat_form" role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="rooms" class="form-control" placeholder="房间号(多个用,隔开)">
+                            <input type="text" name="status" class="form-control" placeholder="直播状态1/0">
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="request('update_stat')">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id='row4'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改房间类型</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="update_roomlx_form" role="form" class="form-group">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="room_number" class="form-control" placeholder="房间号(room_number)">
+                            <label>选择类型</label>
+                            <select class="form-control" name="status">
+                                <option value="0">PC非娱乐</option>
+                                <option value="1">PC娱乐</option>
+                                <option value="2">手机非娱乐横屏</option>
+                                <option value="3">手机非娱乐竖屏</option>
+                                <option value="4">手机娱乐横屏</option>
+                                <option value="5">手机娱乐竖屏</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="request('update_roomlx')">提交</button>
+                    </form>
+                </div>
+            </div>
+            <div id="div_padding_top">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">修改用户密码</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form id="update_password_form" role="form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" name="uid" class="uid form-control" placeholder="UID">
+                                <input type="text" name="password" class="form-control" placeholder="新密码">
+                            </div>
+                            <button type="button" class="btn btn-default" onclick="request('update_password')">提交</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="div_padding_top">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">初始化用户全平台粉丝功能</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form id="init_fans_form" role="form">
+                            {% csrf_token %}
+                            <input type="text" name="uid" class="uid form-control" placeholder="UID">
+                            <button type="button" onclick="request('init_fans')">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='row5'>
             <form id="set_money_form" role="form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="text" name="uid" placeholder="UID">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="xd" placeholder="仙豆">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="coin" placeholder="猫币">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="bean" placeholder="猫豆">
-                </div>
-                <button type="button" onclick="request('set_money')">提交</button>
+                <!--<button type="button" onclick="request('test_fun')">测试TEST</button>-->
             </form>
         </div>
-        <div id='content2'>
-            <h5>查找UID</h5>
-            <form id="find_uid_form" role="form">
-                {% csrf_token %}
-                <input type="text" name="name" placeholder="用户名">
-                <button type="button" onclick="request('find_uid')">提交</button>
-            </form>
-
-            <h5>绑定手机</h5>
-            <form id="bd_sj_form" role="form">
-                {% csrf_token %}
-                <input type="text" name="uid" placeholder="UID">
-                <button type="button" onclick="request('bd_sj')">提交</button>
-            </form>
-
-            <h5>快速注册</h5>
-            <form id="zc_form" role="form">
-                {% csrf_token %}
-                <input type="text" name="name_zc" placeholder="用户名">
-                <button type="button" onclick="request('zc')">提交</button>
-            </form>
-            <h5>申请主播</h5>
-            <form id="sq_zb_form" role="form">
-                {% csrf_token %}
-                <input type="text" name="uid" placeholder="UID">
-                <button type="button" onclick="request('sq_zb')">提交</button>
-            </form>
-        </div>
-        <div id='content3'>
-            <h5>线上流同步线下</h5>
-            <form id="update_stream_form" role="form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="text" name="room_xs" placeholder="线上房间号">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="room_xx" placeholder="线下房间号">
-                </div>
-                <button type="button" onclick="request('update_stream')">提交</button>
-            </form>
-            <h5>修改房间直播状态</h5>
-            <form id="update_stat_form" role="form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="text" name="rooms" placeholder="房间号(多个用,隔开)">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="status" placeholder="直播状态1/0">
-                </div>
-                <button type="button" onclick="request('update_stat')">提交</button>
-            </form>
-        </div>
-        <div id='content4'>
-            <h5>修改房间类型</h5>
-            <form id="update_roomlx_form" role="form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="text" name="room_number" placeholder="房间号(room_number)">
-                    <select name="status">
-                        <option value="0">PC非娱乐</option>
-                        <option value="1">PC娱乐</option>
-                        <option value="2">手机非娱乐横屏</option>
-                        <option value="3">手机非娱乐竖屏</option>
-                        <option value="4">手机娱乐横屏</option>
-                        <option value="5">手机娱乐竖屏</option>
-                    </select>
-                </div>
-                <button type="button" onclick="request('update_roomlx')">提交</button>
-            </form>
-
-            <h5>修改用户密码</h5>
-            <form id="update_password_form" role="form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="text" name="uid" placeholder="UID">
-                    <input type="text" name="password" placeholder="新密码">
-                </div>
-                <button type="button" onclick="request('update_password')">提交</button>
-            </form>
-
-            <h5>初始化用户全平台粉丝功能</h5>
-            <form id="init_fans_form" role="form">
-                {% csrf_token %}
-                <input type="text" name="uid" placeholder="UID">
-                <button type="button" onclick="request('init_fans')">提交</button>
-            </form>
-        </div>
-        <div id='content5'>
-            <form id="set_money_form" role="form">
-                <!--{% csrf_token %}-->
-                <button type="button" onclick="request('test_fun')">测试TEST</button>
-            </form>
-        </div>
-    </div>
-    <div>
-        <script>
-      var client = new MyClient({
-        notify: function(data) {
-          console.log(data);
-        }
-      });
-
-
-        </script>
     </div>
     <!--脚-->
-    <div id="footer" style="background-color:;clear:both;text-align:center;">
+    <div class="footer">
         未完待续
     </div>
 </div>

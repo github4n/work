@@ -185,7 +185,7 @@ class TestGift(unittest.TestCase):
 
     def test_gift_16(self):
         '''业务-余额不足'''
-        self.exp_res = {'message': '余额不足', 'status': False, 'code': '2033'}
+        self.exp_res = {'message': '余额不足', 'status': False, 'code': '2032'}
         self.user = self.create_user()
 
     def test_gift_17(self):

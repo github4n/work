@@ -9,6 +9,8 @@ import requests
 
 # STREAM_REFRESH_API_EXPIRE = 10
 
+a = Common.hash_table(480635)
+print(a)
 
 url = 'http://test1.api.huomao.com/channels/channelDetail'
 # url = 'http://lxyapi.new.huomaotv.com.cn/channels/channelDetail'

@@ -1,0 +1,17 @@
+#row1,#row2,#row3,#row4
+{
+    width:230px;
+    float:left;
+    margin-left:50px;
+}
+
+
+.footer
+{
+    text-align:center;
+    height:50px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+}

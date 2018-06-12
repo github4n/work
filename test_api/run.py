@@ -17,7 +17,7 @@ from auto_api.test_case.web_msg import TestMsg
 # from auto_api.test_case.web import TestApi
 
 # 设置执行时日志等级
-# logging.getLogger().setLevel(logging.ERROR)
+logging.getLogger().setLevel(logging.ERROR)
 
 
 def run_all():

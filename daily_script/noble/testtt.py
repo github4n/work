@@ -21,8 +21,8 @@ from huomao.common import REDIS_INST,Common
 
 u = User()
 uid = u.reg('noble')
-u.bd_sj(uid)
-MoneyClass.set_money(uid, 5000000)
+# u.bd_sj(uid)
+# MoneyClass.set_money(uid, 1500)
 # User.create_noble(uid, level=7, month=1,cid=13)
 # User.set_noble_expire(uid, 30)
 # Bag.add_bag(uid,bag=90001)
@@ -30,10 +30,10 @@ MoneyClass.set_money(uid, 5000000)
 #
 # driver = webdriver.Chrome()
 # driver.implicitly_wait(10)
-# driver.get('http://qa.new.huomaotv.com.cn/1')
+# driver.get('http://lxy.new.huomaotv.com.cn/1')
 # driver.maximize_window()
 # CookieLogin(uid,driver)
-# driver.get('http://qa.new.huomaotv.com.cn/memberpay/noblePay')
+# driver.get('http://lxy.new.huomaotv.com.cn/memberpay/noblePay')
 
 # 非贵族
 # 房主 t_n3247(26311)  1225388   粉丝0-1 徽章 0-3
