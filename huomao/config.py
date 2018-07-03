@@ -18,7 +18,7 @@ logging.basicConfig(format='%(asctime)s %(filename)10s [line:%(lineno)5d]  %(lev
                     datefmt='%Y/%m/%d %I:%M:%S %p',
                     level=logging.DEBUG,
                     filename=log_path,
-                    filemode='w')
+                    filemode='a')
 # 创建流处理器
 # handler = logging.StreamHandler()
 # handler.setLevel(logging.DEBUG)
