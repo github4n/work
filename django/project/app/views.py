@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.http import StreamingHttpResponse, HttpResponse, JsonResponse
+from django.http import StreamingHttpResponse, HttpResponse, JsonResponse,HttpResponseRedirect
 from huomao.common import Common
 from huomao.user import User
 from huomao.channel import Channel
 from huomao.money import MoneyClass
 from huomao.test import test
+import json
 
 user = User()
 channel = Channel()
@@ -62,7 +63,22 @@ def bd_sj(request):
 def register(request):
     name = request.POST.get('name_zc')
     res = user.register(name)
-    return JsonResponse(res)
+    response = HttpResponse(json.dumps(res))
+    cookies = Common.generate_cookies(res.get('uid', 1522))
+    for key, value in cookies.items():
+        response.set_cookie(key, value, domain='.huomaotv.com.cn', max_age=86400)
+    response.set_cookie('user_frontloginstat', 1, domain='.huomaotv.com.cn', max_age=86400 * 7)
+    return response
+
+
+def mn_login(request):
+    uid = request.POST.get('uid')
+    cookies = Common.generate_cookies(uid)
+    response = HttpResponse('')
+    for key, value in cookies.items():
+        response.set_cookie(key, value, domain='.huomaotv.com.cn', max_age=86400)
+    response.set_cookie('user_frontloginstat', 1, domain='.huomaotv.com.cn', max_age=86400 * 7)
+    return response
 
 
 def sq_zb(request):
@@ -97,10 +113,12 @@ def init_fans(request):
     res = Common.init_fans(uid)
     return JsonResponse(res)
 
+
 def add_mobile_yzm(request):
     phone = request.POST.get('phone')
     Common.add_mobile_yzm(phone)
     return JsonResponse({'msg': '成功'})
+
 
 def update_password(request):
     uid = request.POST.get('uid')
@@ -127,40 +145,3 @@ def download(request):
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Disposition'] = 'attachment;filename="{}"'.format(file_name).encode('utf-8')
     return response
-
-
-def set_cookies(request):
-    response = HttpResponse('test')
-    response.set_cookie('cookies_test', 'test', domain='.huomaotv.com.cn')
-    return response
-
-    # def phone_fy(request):
-    #     cid = request.POST.get('cid_fy')
-    #     data = request.POST.get('data_fy')
-    #     uid = request.POST.get('uid_fy')
-    #     if Common.phone_fy(cid, data, uid):
-    #         return {'msg': '成功'}
-    #     else:
-    #         return {'msg': '失败'}
-    #
-    #
-    # def phone_sl(request):
-    #     cid = request.POST.get('cid_sl')
-    #     uid = request.POST.get('uid_sl')
-    #     t_count = request.POST.get('t_count')
-    #     pos = request.POST.get('pos')
-    #     gift = request.POST.get('giftid')
-    #     print((cid, uid, t_count, pos, gift))
-    #     if Common.phone_sl(cid, uid, t_count, pos, gift):
-    #         return {'msg': '成功'}
-    #     else:
-    #         return {'msg': '失败'}
-    #
-    #
-    # def phone_sd(request):
-    #     cid = request.POST.get('cid_sd')
-    #     uid = request.POST.get('uid_sd')
-    #     if Common.phone_sd(cid, uid):
-    #         return {'msg': '成功'}
-    #     else:
-    #         return {'msg': '失败'}

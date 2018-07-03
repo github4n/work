@@ -11,7 +11,28 @@ function request(method){
         case 'zc':
             url = '/new_web/register';
             data = $("#zc_form").serialize()
-            break;
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                async: false,
+                success: function(result) {
+                    result = JSON.parse(result);
+                    if(result.code == 100){
+                         $('.btn-primary').addClass('hidden');
+                         $('.modal-footer a').removeClass('hidden');
+                    }else{
+                        $('.btn-primary').removeClass('hidden');
+                        $('.modal-footer a').addClass('hidden');
+                    }
+                    $('.modal-body').text(result.msg);
+                    $('#myModal').modal('show');
+                    if (result.uid != undefined){
+                        $('.uid').val(result.uid);
+                    };
+                    }
+            });
+            return;
         case 'sq_zb':
             url = '/new_web/sq_zb';
             data = $("#sq_zb_form").serialize()
@@ -48,6 +69,19 @@ function request(method){
             url = '/new_web/add_mobile_yzm';
             data = $("#add_mobile_yzm_form").serialize();
             break;
+        case 'mn_login':
+            url = '/new_web/mn_login';
+            data = $("#mn_login_form").serialize();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                async: false,
+                success: function(result) {
+                    window.open('http://qa.new.huomaotv.com.cn/1');
+                    }
+                });
+                return;
     }
     $.ajax({
         type: "POST",
@@ -55,19 +89,19 @@ function request(method){
         data: data,
         async: false,
         success: function(result) {
+            $('.btn-primary').removeClass('hidden');
+            $('.modal-footer a').addClass('hidden');
             $('.modal-body').text(result.msg);
             $('#myModal').modal('show');
             if (result.uid != undefined){
                 $('.uid').val(result.uid);
             };
-
-
 //            setTimeout(function(){$("#myModal").modal("hide")},20000);
         }
     });
 
-
-
-
 }
+
+
+
 

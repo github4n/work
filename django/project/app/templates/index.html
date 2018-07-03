@@ -9,8 +9,9 @@
             </div>
             <div class="modal-body">在这里添加一些文本</div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                <button type="button" class="btn btn-primary " data-dismiss="modal">确定</button>
+                <a href="http://qa.new.huomaotv.com.cn/1" target="_blank"  class="hidden" >跳转</a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -71,7 +72,7 @@
         <div id='row2'>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">快速注册,密码为1</h3>
+                    <h3 class="panel-title">快速注册并浏览器自动登录(密码为1)</h3>
                 </div>
                 <div class="panel-body">
                     <form id="zc_form" role="form">
@@ -164,6 +165,20 @@
                             <input type="text" name="status" class="form-control" placeholder="直播状态1/0">
                         </div>
                         <button type="button" class="btn btn-default" onclick="request('update_stat')">提交</button>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">模拟登录</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="mn_login_form" role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="uid" class="form-control" placeholder="UID">
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="request('mn_login')">提交</button>
                     </form>
                 </div>
             </div>
