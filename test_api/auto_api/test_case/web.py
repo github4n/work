@@ -10,6 +10,7 @@ from parameterized import parameterized
 from huomao.common import Common
 from ..lib.config import UID
 from ..lib.lib import req
+from .web_data import admin_cases
 
 
 def new_name_func(func, num, p):
@@ -50,6 +51,23 @@ class TestWeb(unittest.TestCase):
         # 默认请求数据
         self.data = dict()
         self.exp_res = args[1]
+        req(self)
+
+
+
+
+class TestAdmin(unittest.TestCase):
+    @parameterized.expand(admin_cases, name_func=new_name_func)
+    def test_admin(self, *args):
+        # 接口信息
+        self.name = 'ADMIN'
+        self.url = args[0]
+        self.method = 'get'
+        # 默认登录用户
+        self.user = UID
+        # 默认请求数据
+        self.data = dict()
+        self.exp_res = ''
         req(self)
 
 

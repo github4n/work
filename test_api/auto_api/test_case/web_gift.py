@@ -8,9 +8,8 @@
 3.未判断守护用户
 4.
 '''
-import time
-import logging
 import unittest
+import logging
 from ..lib.lib import req
 from ..lib.config import UID
 from huomao.user import User

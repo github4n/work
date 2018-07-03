@@ -3,12 +3,15 @@
 # @Date    : 2017-07-24 16:37:48
 # @Author  : lixingyun
 
-
+import os
 import time
+import logging
+from huomao.config import ADMIN_COOKIES
 
 # 请求的域名
 domain_web = 'http://qa.new.huomaotv.com.cn'
 domain_api = 'http://qaapi.new.huomaotv.com.cn'
+domain_admin = 'http://qaadmin.new.huomaotv.com.cn'
 # uid
 UID = 1522
 # 超管
@@ -21,3 +24,7 @@ report_data = {'report_res': [],
                'test_success': 0,
                'test_failed': 0,
                'test_date': time.strftime("%Y-%m-%d %X", time.localtime())}
+#
+# logger_test_api = logging.getLogger('huomao.test_api')
+# logger_test_api.setLevel(logging.INFO)
+

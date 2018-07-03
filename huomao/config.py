@@ -8,25 +8,47 @@ import time
 import calendar
 import logging
 
-# peewee日志
-logger = logging.getLogger('peewee')
-logger.setLevel('INFO')
-logging.basicConfig(format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+
+# 获取文件的当前路径（绝对路径）
+huomao_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+# 获取config.ini的路径
+log_path = os.path.join(huomao_path, 'huomao.log')
+# logging 配置
+logging.basicConfig(format='%(asctime)s %(filename)10s [line:%(lineno)5d]  %(levelname)s %(message)s',
                     datefmt='%Y/%m/%d %I:%M:%S %p',
-                    level=logging.INFO,
-                    # filename='example.log',
+                    level=logging.DEBUG,
+                    filename=log_path,
                     filemode='w')
+# 创建流处理器
+# handler = logging.StreamHandler()
+# handler.setLevel(logging.DEBUG)
 
+# set FileHandler
+# handler = logging.FileHandler("huomao.log")
+# handler.setLevel(logging.DEBUG)
 
+# 创建formatter
+# formatter = logging.Formatter('%(asctime)s %(filename)10s [line:%(lineno)5d] %(name)10s %(levelname)s %(message)s')
+# Formatter绑定在Handler上
+# handler.setFormatter(formatter)
+
+# 创建logger记录器实例
+# logger_huomao = logging.getLogger('huomao')
+# logger_huomao.setLevel(logging.DEBUG)
+# Handler绑定在logger上
+# logger_huomao.addHandler(handler)
+
+# 获取peewee日志
+# logger_peewee = logging.getLogger('peewee')
+# logger_peewee.setLevel(logging.DEBUG)
+# logger_peewee.addHandler(handler)
 
 # 数据库配置
-DB_CONFIG = {'host': '10.10.23.15','user': 'huomao',  'password': 'huomao','port':3306}
-DB_CONFIG2 = {'host': '10.10.23.15','user': 'huomao',  'password': 'huomao','port':3307}
+DB_CONFIG = {'host': '10.10.23.15', 'user': 'huomao', 'password': 'huomao', 'port': 3306}
+DB_CONFIG2 = {'host': '10.10.23.15', 'user': 'huomao', 'password': 'huomao', 'port': 3307}
 # redis配置
 REDIS_CONFIG = {'host': 'db.huomaotv.com.cn', 'port': 6379}
 REDIS_CONFIG2 = {'host': '10.10.23.12', 'port': 6379}
-
-
 
 # 网站url
 URL = 'http://lxy.new.huomaotv.com.cn'
@@ -56,8 +78,6 @@ ADMIN_COOKIES_ONLINE = {
     'adminLoginTime': '1504756354',
     'adminToken': '66897400739a15c9c6453a6e68b71e1d'
 }
-
-
 
 timestamp = int(time.time())
 run_date = time.localtime()

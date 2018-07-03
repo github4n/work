@@ -30,19 +30,23 @@ function request(method){
             break;
         case 'find_uid':
             url = '/new_web/find_uid';
-            data = $("#find_uid_form").serialize()
+            data = $("#find_uid_form").serialize();
             break;
         case 'init_fans':
-            url = '/new_web/init_fans'
-            data = $("#init_fans_form").serialize()
+            url = '/new_web/init_fans';
+            data = $("#init_fans_form").serialize();
             break;
         case 'update_password':
-            url = '/new_web/update_password'
-            data = $("#update_password_form").serialize()
+            url = '/new_web/update_password';
+            data = $("#update_password_form").serialize();
             break;
         case 'test_fun':
-            url = '/new_web/test_fun'
-            data = ''
+            url = '/new_web/test_fun';
+            data = '';
+            break;
+        case 'add_mobile_yzm':
+            url = '/new_web/add_mobile_yzm';
+            data = $("#add_mobile_yzm_form").serialize();
             break;
     }
     $.ajax({

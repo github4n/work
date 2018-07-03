@@ -21,11 +21,11 @@ from huomao.common import REDIS_INST,Common
 
 u = User()
 uid = u.reg('noble')
-# u.bd_sj(uid)
-# MoneyClass.set_money(uid, 1500)
+u.bd_sj(uid)
+MoneyClass.set_money(uid, 150000)
 # User.create_noble(uid, level=7, month=1,cid=13)
 # User.set_noble_expire(uid, 30)
-# Bag.add_bag(uid,bag=90001)
+Bag.add_bag(uid,bag=90001)
 
 #
 # driver = webdriver.Chrome()

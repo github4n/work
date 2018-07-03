@@ -4,11 +4,12 @@
 # @Author  : lixingyun
 
 import json
-import logging
 from  urllib import parse
 import requests
+import logging
 from huomao.common import Common
-from .config import domain_web, domain_api, report_data
+from huomao.config import ADMIN_COOKIES
+from .config import domain_web, domain_api, domain_admin, report_data
 
 
 # 比较dict
@@ -43,10 +44,13 @@ def req(self):
         self.data = Common.encrypt(self.data)
         cookies = None
         domain = getattr(self, 'domain', domain_api)
+    elif 'admin' in self._testMethodName:
+        cookies = ADMIN_COOKIES
+        domain = getattr(self, 'domain', domain_admin)
     else:
         cookies = Common.generate_cookies(self.user)
         domain = getattr(self, 'domain', domain_web)
-
+    print(domain)
     self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)])
 
     logging.info('请求数据:{}\n{}'.format(self.data, self.resquest_url))
@@ -303,7 +307,7 @@ def generate_report():
 #         # 打开excel到内存
 #         wb = load_workbook(case_file)
 #     except Exception as e:
-#         logging.error('打开excel错误:{}'.format(e))
+#         logger_test_api.error('打开excel错误:{}'.format(e))
 #         return False
 #     datadict = {}
 #     for sheet in wb.worksheets:

@@ -5,6 +5,7 @@
 # Description :
 from huomao.money import MoneyClass
 from huomao.user import User
+from huomao.common import Common,REDIS_INST
 
 users = [
     'xiawei',
@@ -118,26 +119,17 @@ users = [
 ]
 
 for i in users:
-    name = 'hm_' + str(i) + '1'
+
     try:
-        uid = User.register(name)['uid']
-        print(name, uid)
-        User.bd_sj(uid)
-        MoneyClass.set_money(uid, 150000)
-    except  Exception:
-        print(Exception)
+        name = 'hm_' + str(i) +'1'
+        uid = User.find_uid(name)['msg']
+        print(uid)
+        REDIS_INST.delete('hm_{}'.format(uid))
+    except  Exception as e:
+        print(e)
 
-
-
-
-
-# for i in range(101):
-#     name = 'tuyu' + str(i)
-#     try:
-#         uid = Common.register(name)['uid']
-#         print(uid)
-#         Common.bd_sj(uid)
-#         Common.set_money(uid,999999,999999)
-#         Common.set_xd(uid, 99999999)
-#     except  Exception:
-#         print(Exception)
+# [26342,26449]
+# u = User()
+# uid = u.reg('test')
+# u.bd_sj(uid)
+# MoneyClass.set_money(uid, 150000)

@@ -3,9 +3,8 @@
 # @Date    : 2017-07-24 18:27:48
 # @Author  : lixingyun
 # @notice  :
-import time
-import logging
 import unittest
+import logging
 from ..lib.lib import req
 from ..lib.config import UID
 from huomao.user import User

@@ -24,10 +24,13 @@
                 <a class="navbar-brand" href="#">测试平台</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="http://yfb2.huomaotv.com.cn/release.html" target="_blank">预发布2发布地址</a></li>
-                <li><a href="http://10.10.2.89/" target="_blank">安卓包地址</a></li>
-                <li><a href="http://redmine.marstv.com:3000/projects/test/issues" target="_blank">redmine地址</a></li>
-                <li><a href="/chatroom?cid=2" target="_blank">接收聊天消息测试 <span class="label label-danger">NEW!</span></a></li>
+                <li><a href="http://10.10.23.14:6677/release/" target="_blank"><u>发布系统</u></a></li>
+                <li><a href="http://wiki.huomaotv.com.cn" target="_blank"><u>火猫WIKI</u></a></li>
+                <li><a href="http://yfb2.huomaotv.com.cn/release.html" target="_blank"><u>预发布2发布地址</u></a></li>
+                <li><a href="http://10.10.2.89/" target="_blank"><u>安卓包地址</u></a></li>
+                <li><a href="http://redmine.marstv.com:3000/projects/test/issues" target="_blank"><u>redmine地址</u></a></li>
+                <li><a href="https://www.yunpian.com/component/login" target="_blank"><u>云片网</u></a></li>
+                <li><a href="/chatroom?cid=2" target="_blank"><u>接收聊天消息测试 </u><span class="label label-danger">NEW!</span></a></li>
             </ul>
         </div>
     </nav>
@@ -49,6 +52,18 @@
                             <input type="text" name="bean" class="form-control" placeholder="猫豆">
                         </div>
                         <button class="btn btn-default" type="button" onclick="request('set_money')">提交</button>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">设置注册手机验证码（默认123456）</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="add_mobile_yzm_form" role="form">
+                        {% csrf_token %}
+                        <input type="text" name="phone" class="form-control" placeholder="手机号">
+                        <button class="btn btn-default" type="button" onclick="request('add_mobile_yzm')">提交</button>
                     </form>
                 </div>
             </div>
@@ -177,39 +192,38 @@
                     </form>
                 </div>
             </div>
-            <div id="div_padding_top">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">修改用户密码</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form id="update_password_form" role="form">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <input type="text" name="uid" class="uid form-control" placeholder="UID">
-                                <input type="text" name="password" class="form-control" placeholder="新密码">
-                            </div>
-                            <button type="button" class="btn btn-default" onclick="request('update_password')">提交</button>
-                        </form>
-                    </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改用户密码</h3>
                 </div>
-
-
-            </div>
-            <div id="div_padding_top">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">初始化用户全平台粉丝功能</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form id="init_fans_form" role="form">
-                            {% csrf_token %}
+                <div class="panel-body">
+                    <form id="update_password_form" role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
                             <input type="text" name="uid" class="uid form-control" placeholder="UID">
-                            <button type="button" onclick="request('init_fans')">提交</button>
-                        </form>
-                    </div>
+                            <input type="text" name="password" class="form-control" placeholder="新密码">
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="request('update_password')">提交</button>
+                    </form>
                 </div>
             </div>
+
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">初始化用户全平台粉丝功能</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="init_fans_form" role="form">
+                        {% csrf_token %}
+                        <input type="text" name="uid" class="uid form-control" placeholder="UID">
+                        <button type="button" onclick="request('init_fans')">提交</button>
+                    </form>
+                </div>
+            </div>
+
+
         </div>
         <div id='row5'>
             <form id="set_money_form" role="form">

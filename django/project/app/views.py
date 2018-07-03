@@ -97,6 +97,10 @@ def init_fans(request):
     res = Common.init_fans(uid)
     return JsonResponse(res)
 
+def add_mobile_yzm(request):
+    phone = request.POST.get('phone')
+    Common.add_mobile_yzm(phone)
+    return JsonResponse({'msg': '成功'})
 
 def update_password(request):
     uid = request.POST.get('uid')

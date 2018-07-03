@@ -11,13 +11,13 @@ from auto_api.lib import HTMLTestRunner
 from auto_api.lib.lib import report_data
 
 # from auto_api.test_case.web_noble import TestNoble
-from auto_api.test_case.web_gift import TestGift
+# from auto_api.test_case.web_gift import TestGift
 from auto_api.test_case.web_msg import TestMsg
-from auto_api.test_case.web import TestAdmin
 # from auto_api.test_case.web import TestWeb
+# from auto_api.test_case.web import TestAdmin
 # from auto_api.test_case.web import TestApi
 
-# 设置执行时日志等级
+
 def run_all():
     # 获取文件的当前路径（绝对路径）
     cur_path = os.path.dirname(os.path.realpath(__file__))
@@ -27,7 +27,7 @@ def run_all():
     # runner = unittest.TextTestRunner()
     # 全部执行
     unittest.main(testRunner=runner, exit=False)
-    print(report_data.get('test_failed'))
+    report_data.get('test_failed') == 0 and print(0)
 
 
 run_all()

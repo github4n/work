@@ -7,8 +7,8 @@ import json
 import configparser
 import os
 import time
-import requests
 import logging
+import requests
 from lxml import etree
 from .db.user import Userbase, Userinfo, Mobile, UserName, Uid,MemberBadge
 from .common import REDIS_INST, Common
@@ -35,11 +35,12 @@ class User():
         # 默认密码1
         password = Common.md5('1')
         img = ''
-        nickname = username + 'n'
+        nickname = username + 'nk'
         ret = {'code': 1001, 'status': False, 'msg': '用户名已存在或注册失败'}
         # 验证用户名是否存在
         key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(username))
         if REDIS_INST.get(key_username) or UserName.select().where(UserName.username == username).first():
+            logging.info('{}'.format(ret))
             return ret
         # 创建uid
         uid = Uid().create().id
@@ -124,7 +125,7 @@ class User():
     @staticmethod
     def bd_sj(uid, mobileareacode='+86'):
         try:
-            mobile = 15800000000 + int(uid)
+            mobile = 15100000000 + int(uid)
             Mobile.create(mobile=mobile, uid=uid)
             Userbase.update(mobile=mobile, mobileareacode=mobileareacode).where(Userbase.uid == uid).execute()
             key = 'hm_userbaseinfo_{}'.format(uid)

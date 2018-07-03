@@ -109,10 +109,12 @@ class Common():
                 res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': url})
                 res = res.json()
                 print(res)
+                requests.get(url)
         else:
             res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': urls})
             res = res.json()
             print(res)
+            requests.get(urls)
 
 
     # 添加手机验证码
