@@ -29,7 +29,6 @@ def run_all():
     unittest.main(testRunner=runner, exit=False)
     report_data.get('test_failed') == 0 and print(0)
 
-
 run_all()
 
 # 执行单个class

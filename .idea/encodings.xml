@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/huomao/huomao.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/test_api/example.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/test_api/example.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/test_api/huomao.log" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/huomao.log" charset="GBK" />
   </component>
 </project>

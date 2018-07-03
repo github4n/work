@@ -2,3 +2,5 @@
 *.pp
 *workspace.xml
 *.out
+*.log
+

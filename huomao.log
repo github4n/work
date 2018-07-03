@@ -1,1208 +1,208 @@
-2018/07/03 11:24:52 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:52 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET / HTTP/1.1" 200 None
-2018/07/03 11:24:52 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/getChannelList?
-2018/07/03 11:24:52 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/getChannelList HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_1验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/tape/index?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /tape/index HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_10验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guessnew/match?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guessnew/match HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_100验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guessnew/periods?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guessnew/periods HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_101验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guessnew/orders?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guessnew/orders HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_102验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guessnew/user?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guessnew/user HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_103验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guessnew/room?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guessnew/room HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_104验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/award/index?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /award/index HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_105验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/exchangeshop/index?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /exchangeshop/index HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_106验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/room/index?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:53 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /room/index HTTP/1.1" 200 None
-2018/07/03 11:24:53 AM     lib.py [line:   78]  INFO test_admin_107验证成功
-2018/07/03 11:24:53 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/bankcash/index?
-2018/07/03 11:24:53 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /bankcash/index HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_108验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/smallgame/index?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /smallgame/index HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_109验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channelevent/activeIndex?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channelevent/activeIndex HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_11验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/smallgame/room?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /smallgame/room HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_110验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/smallgame/period?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /smallgame/period HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_111验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/smallgame/order?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /smallgame/order HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_112验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/smallgame/user?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /smallgame/user HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_113验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/event/eventList?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /event/eventList HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_114验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/event/teamList?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:54 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /event/teamList HTTP/1.1" 200 None
-2018/07/03 11:24:54 AM     lib.py [line:   78]  INFO test_admin_115验证成功
-2018/07/03 11:24:54 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/event/racesList?
-2018/07/03 11:24:54 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /event/racesList HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_116验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/advertevent/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /advertevent/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_117验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/eventbrand/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /eventbrand/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_118验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/vdemand/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /vdemand/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_119验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/userInfo/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /userInfo/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_12验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/raffle/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /raffle/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_120验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/support/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /support/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_121验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/tieba/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /tieba/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_122验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/star/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /star/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_123验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/barrage/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /barrage/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_124验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/special/index?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:55 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /special/index HTTP/1.1" 200 None
-2018/07/03 11:24:55 AM     lib.py [line:   78]  INFO test_admin_125验证成功
-2018/07/03 11:24:55 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/eslone?
-2018/07/03 11:24:55 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /eslone HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_126验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/eventrace/index?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /eventrace/index HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_127验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/active/starindex?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /active/starindex HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_128验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/event/pageIndexsEvent?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /event/pageIndexsEvent HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_129验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/memberbadge/index?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /memberbadge/index HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_13验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/user/goods?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /user/goods HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_130验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/support/csgoIndex?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /support/csgoIndex HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_131验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/dotamatch/index?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /dotamatch/index HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_132验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/menu/menuList?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /menu/menuList HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_133验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/adminset/adminList?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /adminset/adminList HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_134验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/adminlog/index?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /adminlog/index HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_135验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/advertmanage/index?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:56 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /advertmanage/index HTTP/1.1" 200 None
-2018/07/03 11:24:56 AM     lib.py [line:   78]  INFO test_admin_136验证成功
-2018/07/03 11:24:56 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/advertcontrol/index?
-2018/07/03 11:24:56 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /advertcontrol/index HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_137验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/wawaji/index?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /wawaji/index HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_138验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/channelPopularTag?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/channelPopularTag HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_139验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/speechLimitMange?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/speechLimitMange HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_14验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/payrate?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /payrate HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_140验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/badgecategory/index?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /badgecategory/index HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_141验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channelwhites/index?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channelwhites/index HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_15验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/roomnumbers/index?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /roomnumbers/index HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_16验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/channelHidManage?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/channelHidManage HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_17验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/taobao?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/taobao HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_18验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/taobaogoods?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:57 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/taobaogoods HTTP/1.1" 200 None
-2018/07/03 11:24:57 AM     lib.py [line:   78]  INFO test_admin_19验证成功
-2018/07/03 11:24:57 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/?
-2018/07/03 11:24:57 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET / HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_2验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/robotchat/index?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /robotchat/index HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_20验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/reorder/channel?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /reorder/channel HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_21验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/anchorRank/index?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /anchorRank/index HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_22验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/recommend/channel?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /recommend/channel HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_23验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/advert/index?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /advert/index HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_24验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channelRecs/index?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channelRecs/index HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_25验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/recommend/match?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /recommend/match HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_26验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/theme/index?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /theme/index HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_27验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/MobileActive/activeIndex?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /MobileActive/activeIndex HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_28验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/Reclink/index?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /Reclink/index HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_29验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/adminset/myAccount?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:58 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /adminset/myAccount HTTP/1.1" 200 None
-2018/07/03 11:24:58 AM     lib.py [line:   78]  INFO test_admin_3验证成功
-2018/07/03 11:24:58 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/shareactive/activeIndex?
-2018/07/03 11:24:58 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /shareactive/activeIndex HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_30验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/VersionCommit/index?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /VersionCommit/index HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_31验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/autoReplayManage/index?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /autoReplayManage/index HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_32验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/mobilefunctions/index?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /mobilefunctions/index HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_33验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/advert/advertCate?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /advert/advertCate HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_34验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/createtab/index?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /createtab/index HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_35验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channeltab/index?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channeltab/index HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_36验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/tempIcons?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /tempIcons HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_37验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/guess?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/guess HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_38验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/adminsubscribe/index?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /adminsubscribe/index HTTP/1.1" 200 None
-2018/07/03 11:24:59 AM     lib.py [line:   78]  INFO test_admin_39验证成功
-2018/07/03 11:24:59 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/index/outlogin?
-2018/07/03 11:24:59 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /index/outlogin HTTP/1.1" 307 None
-2018/07/03 11:24:59 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /index/login HTTP/1.1" 307 None
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /index/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_4验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/message/index?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /message/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_40验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/wechattype/index?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /wechattype/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_41验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/wechatanchor/index?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /wechatanchor/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_42验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/connectmicAuth/index?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /connectmicAuth/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_43验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/closure?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/closure HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_44验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/killStream?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/killStream HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_45验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/user/blackmenu?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /user/blackmenu HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_46验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/report/reportUser?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /report/reportUser HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_47验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/gag/index?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /gag/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_48验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/cachemanage/index?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /cachemanage/index HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_49验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/channelListManage?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:00 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/channelListManage HTTP/1.1" 200 None
-2018/07/03 11:25:00 AM     lib.py [line:   78]  INFO test_admin_5验证成功
-2018/07/03 11:25:00 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/dirtywords/dirtyWordsList?
-2018/07/03 11:25:00 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /dirtywords/dirtyWordsList HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_50验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/cdn/cdnList?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /cdn/cdnList HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_51验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/monitor/index?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /monitor/index HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_52验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/shumei?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/shumei HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_53验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/CheckImgLog/checkchannel?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /CheckImgLog/checkchannel HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_54验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/chat/index?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /chat/index HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_55验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/chat/index2?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /chat/index2 HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_56验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/feedback/index?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /feedback/index HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_57验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/report/index?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:01 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /report/index HTTP/1.1" 200 None
-2018/07/03 11:25:01 AM     lib.py [line:   78]  INFO test_admin_58验证成功
-2018/07/03 11:25:01 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/anchor/lists?
-2018/07/03 11:25:01 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /anchor/lists HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_59验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/outlink/stream?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /outlink/stream HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_6验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/user/headerSh?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /user/headerSh HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_60验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/bankcard/index?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /bankcard/index HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_61验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/bag/index?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /bag/index HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_62验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/bag/sendRecord?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /bag/sendRecord HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_63验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/bag/useRecord?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:02 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /bag/useRecord HTTP/1.1" 200 None
-2018/07/03 11:25:02 AM     lib.py [line:   78]  INFO test_admin_64验证成功
-2018/07/03 11:25:02 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/noble/send?
-2018/07/03 11:25:02 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /noble/send HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_65验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/bannedgift/showaddlist?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /bannedgift/showaddlist HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_66验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/specialNoble/send?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /specialNoble/send HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_67验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/simulatelogin/index?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /simulatelogin/index HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_68验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/incremoney/index?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /incremoney/index HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_69验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channel/popularity?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channel/popularity HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_7验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/memberbadge/showaddlist?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /memberbadge/showaddlist HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_70验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/whitelist?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /whitelist HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_71验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/djgoods/index?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /djgoods/index HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_72验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guard/index?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guard/index HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_73验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guard/Sendrecord?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guard/Sendrecord HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_74验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/lemipay?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:03 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /lemipay HTTP/1.1" 200 None
-2018/07/03 11:25:03 AM     lib.py [line:   78]  INFO test_admin_75验证成功
-2018/07/03 11:25:03 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/news/getList?
-2018/07/03 11:25:03 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /news/getList HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_76验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/game/gameListManage?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /game/gameListManage HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_77验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/gamecollection/gameCollectionManage?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /gamecollection/gameCollectionManage HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_78验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/reccattype/recCatTypeManage?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /reccattype/recCatTypeManage HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_79验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/userspeak/index?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /userspeak/index HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_8验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/reccattypecont/recCatTypeContManage?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /reccattypecont/recCatTypeContManage HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_80验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/reccatcontpos/recCatContPosManage?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /reccatcontpos/recCatContPosManage HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_81验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/gift?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /gift HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_82验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/sharecontent/activeIndex?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /sharecontent/activeIndex HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_83验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/gift/historyconf?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /gift/historyconf HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_84验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/topnews/index?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /topnews/index HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_85验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/mobiletab/index?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /mobiletab/index HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_86验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/channellabel/labelListManage?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:04 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /channellabel/labelListManage HTTP/1.1" 200 None
-2018/07/03 11:25:04 AM     lib.py [line:   78]  INFO test_admin_87验证成功
-2018/07/03 11:25:04 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/badgemanage/index?
-2018/07/03 11:25:04 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /badgemanage/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_88验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/Weekstargift/index?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /Weekstargift/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_89验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/cdn/cdnVideoIndex?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /cdn/cdnVideoIndex HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_9验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/help/index?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /help/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_90验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/seoTDK/index?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /seoTDK/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_91验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/hotwordssearch/index?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /hotwordssearch/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_92验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/h5links/index?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /h5links/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_93验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/hotwordssearch/channelIndex?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /hotwordssearch/channelIndex HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_94验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/lotterys/attach?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /lotterys/attach HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_95验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/lotterys/monitor?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /lotterys/monitor HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_96验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/lotterys/record?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /lotterys/record HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_97验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/video/index?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:05 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /video/index HTTP/1.1" 200 None
-2018/07/03 11:25:05 AM     lib.py [line:   78]  INFO test_admin_98验证成功
-2018/07/03 11:25:05 AM     lib.py [line:   56]  INFO 请求数据:{}
-http://qaadmin.new.huomaotv.com.cn/guessnew/team?
-2018/07/03 11:25:05 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qaadmin.new.huomaotv.com.cn
-2018/07/03 11:25:06 AM connectionpool.py [line:  395]  DEBUG http://qaadmin.new.huomaotv.com.cn:80 "GET /guessnew/team HTTP/1.1" 200 None
-2018/07/03 11:25:06 AM     lib.py [line:   78]  INFO test_admin_99验证成功
-2018/07/03 11:25:06 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': ''}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=
-2018/07/03 11:25:06 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:06 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid= HTTP/1.1" 200 None
-2018/07/03 11:25:06 AM     lib.py [line:   78]  INFO test_gift_01验证成功
-2018/07/03 11:25:06 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': '', 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=&cid=119488
-2018/07/03 11:25:06 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:06 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:06 AM     lib.py [line:   78]  INFO test_gift_02验证成功
-2018/07/03 11:25:06 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:06 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:06 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:06 AM     lib.py [line:   78]  INFO test_gift_03验证成功
-2018/07/03 11:25:06 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:06 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:06 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:06 AM     lib.py [line:   78]  INFO test_gift_04验证成功
-2018/07/03 11:25:06 AM    user.py [line:   34]  INFO 注册用户名:t_n6704
-2018/07/03 11:25:06 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6704'])
-2018/07/03 11:25:06 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:06 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6704', '', 30068, ''])
-2018/07/03 11:25:06 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30068, 't_n6704'])
-2018/07/03 11:25:06 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30068, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:06 AM    user.py [line:   69]  INFO 注册UID:30068
-2018/07/03 11:25:06 AM web_gift.py [line:   40]  INFO 注册用户UID：30068
-2018/07/03 11:25:07 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030068', 30068])
-2018/07/03 11:25:07 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030068', '+86', 30068])
-2018/07/03 11:25:07 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30068])
-2018/07/03 11:25:07 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588307, 30068])
-2018/07/03 11:25:07 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:07 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:07 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:07 AM     lib.py [line:   78]  INFO test_gift_05验证成功
-2018/07/03 11:25:08 AM    user.py [line:   34]  INFO 注册用户名:t_n6705
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6705'])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6705', '', 30069, ''])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30069, 't_n6705'])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30069, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:08 AM    user.py [line:   69]  INFO 注册UID:30069
-2018/07/03 11:25:08 AM web_gift.py [line:   40]  INFO 注册用户UID：30069
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030069', 30069])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030069', '+86', 30069])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30069])
-2018/07/03 11:25:08 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588308, 30069])
-2018/07/03 11:25:08 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:08 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:09 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:09 AM     lib.py [line:   78]  INFO test_gift_06验证成功
-2018/07/03 11:25:09 AM    user.py [line:   34]  INFO 注册用户名:t_n6706
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6706'])
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6706', '', 30070, ''])
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30070, 't_n6706'])
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30070, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:09 AM    user.py [line:   69]  INFO 注册UID:30070
-2018/07/03 11:25:09 AM web_gift.py [line:   40]  INFO 注册用户UID：30070
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030070', 30070])
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030070', '+86', 30070])
-2018/07/03 11:25:09 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `member_badge` (`bid`, `currentstat`, `expiretime`, `gettime`, `owntime`, `uid`) VALUES (%s, %s, %s, %s, %s, %s)', [1, 3, 0, 1, -1, 30070])
-2018/07/03 11:25:10 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30070])
-2018/07/03 11:25:10 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588310, 30070])
-2018/07/03 11:25:10 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:10 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:10 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:10 AM     lib.py [line:   78]  INFO test_gift_07验证成功
-2018/07/03 11:25:10 AM    user.py [line:   34]  INFO 注册用户名:t_n6707
-2018/07/03 11:25:10 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6707'])
-2018/07/03 11:25:10 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6707', '', 30071, ''])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30071, 't_n6707'])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30071, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:11 AM    user.py [line:   69]  INFO 注册UID:30071
-2018/07/03 11:25:11 AM web_gift.py [line:   40]  INFO 注册用户UID：30071
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030071', 30071])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030071', '+86', 30071])
-2018/07/03 11:25:11 AM     lib.py [line:   56]  INFO 请求数据:{'gift': 0, 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=0&t_count=1&cid=119488
-2018/07/03 11:25:11 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:11 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=0&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:11 AM     lib.py [line:   78]  INFO test_gift_08验证成功
-2018/07/03 11:25:11 AM    user.py [line:   34]  INFO 注册用户名:t_n6708
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6708'])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6708', '', 30072, ''])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30072, 't_n6708'])
-2018/07/03 11:25:11 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30072, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:12 AM    user.py [line:   69]  INFO 注册UID:30072
-2018/07/03 11:25:12 AM web_gift.py [line:   40]  INFO 注册用户UID：30072
-2018/07/03 11:25:12 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030072', 30072])
-2018/07/03 11:25:12 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030072', '+86', 30072])
-2018/07/03 11:25:12 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`anchor_experience`, `t1`.`email`, `t1`.`email_activate_stat`, `t1`.`get_experience`, `t1`.`mobile`, `t1`.`mobileareacode`, `t1`.`name`, `t1`.`openid`, `t1`.`send_freebean`, `t1`.`uid`, `t1`.`weixin` FROM `userbase` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30072])
-2018/07/03 11:25:12 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`anchor_experience`, `t1`.`email`, `t1`.`email_activate_stat`, `t1`.`get_experience`, `t1`.`mobile`, `t1`.`mobileareacode`, `t1`.`name`, `t1`.`openid`, `t1`.`send_freebean`, `t1`.`uid`, `t1`.`weixin` FROM `userbase` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [5602])
-2018/07/03 11:25:12 AM     lib.py [line:   56]  INFO 请求数据:{'gift': 0, 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=0&t_count=1&cid=119488
-2018/07/03 11:25:12 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:13 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=0&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:13 AM     lib.py [line:   78]  INFO test_gift_09验证成功
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`anchor_experience`, `t1`.`email`, `t1`.`email_activate_stat`, `t1`.`get_experience`, `t1`.`mobile`, `t1`.`mobileareacode`, `t1`.`name`, `t1`.`openid`, `t1`.`send_freebean`, `t1`.`uid`, `t1`.`weixin` FROM `userbase` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30072])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`anchor_experience`, `t1`.`email`, `t1`.`email_activate_stat`, `t1`.`get_experience`, `t1`.`mobile`, `t1`.`mobileareacode`, `t1`.`name`, `t1`.`openid`, `t1`.`send_freebean`, `t1`.`uid`, `t1`.`weixin` FROM `userbase` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [5602])
-2018/07/03 11:25:13 AM     lib.py [line:   83]  INFO test_gift_09二次验证成功
-2018/07/03 11:25:13 AM    user.py [line:   34]  INFO 注册用户名:t_n6709
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6709'])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6709', '', 30073, ''])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30073, 't_n6709'])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30073, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:13 AM    user.py [line:   69]  INFO 注册UID:30073
-2018/07/03 11:25:13 AM web_gift.py [line:   40]  INFO 注册用户UID：30073
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030073', 30073])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030073', '+86', 30073])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30073])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588313, 30073])
-2018/07/03 11:25:13 AM     lib.py [line:   56]  INFO 请求数据:{'gift': 1, 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=1&t_count=1&cid=119488
-2018/07/03 11:25:13 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:13 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=1&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:13 AM     lib.py [line:   78]  INFO test_gift_11验证成功
-2018/07/03 11:25:13 AM    user.py [line:   34]  INFO 注册用户名:t_n6710
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6710'])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:13 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6710', '', 30074, ''])
-2018/07/03 11:25:14 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30074, 't_n6710'])
-2018/07/03 11:25:14 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30074, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:14 AM    user.py [line:   69]  INFO 注册UID:30074
-2018/07/03 11:25:14 AM web_gift.py [line:   40]  INFO 注册用户UID：30074
-2018/07/03 11:25:14 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030074', 30074])
-2018/07/03 11:25:14 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030074', '+86', 30074])
-2018/07/03 11:25:14 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30074])
-2018/07/03 11:25:14 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588314, 30074])
-2018/07/03 11:25:14 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:14 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:15 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:15 AM     lib.py [line:   78]  INFO test_gift_12验证成功
-2018/07/03 11:25:15 AM    user.py [line:   34]  INFO 注册用户名:t_n6711
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6711'])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6711', '', 30075, ''])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30075, 't_n6711'])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30075, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:15 AM    user.py [line:   69]  INFO 注册UID:30075
-2018/07/03 11:25:15 AM web_gift.py [line:   40]  INFO 注册用户UID：30075
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030075', 30075])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030075', '+86', 30075])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30075])
-2018/07/03 11:25:15 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588315, 30075])
-2018/07/03 11:25:15 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:15 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:16 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:16 AM     lib.py [line:   78]  INFO test_gift_13验证成功
-2018/07/03 11:25:16 AM    user.py [line:   34]  INFO 注册用户名:t_n6712
-2018/07/03 11:25:16 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6712'])
-2018/07/03 11:25:16 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:16 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6712', '', 30076, ''])
-2018/07/03 11:25:16 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30076, 't_n6712'])
-2018/07/03 11:25:16 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30076, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:16 AM    user.py [line:   69]  INFO 注册UID:30076
-2018/07/03 11:25:16 AM web_gift.py [line:   40]  INFO 注册用户UID：30076
-2018/07/03 11:25:16 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030076', 30076])
-2018/07/03 11:25:17 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030076', '+86', 30076])
-2018/07/03 11:25:17 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30076])
-2018/07/03 11:25:17 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('1000'), Decimal('10'), 1530588317, 30076])
-2018/07/03 11:25:17 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': '3', 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=3&cid=119488
-2018/07/03 11:25:17 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:17 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=3&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:17 AM     lib.py [line:   78]  INFO test_gift_14验证成功
-2018/07/03 11:25:17 AM    user.py [line:   34]  INFO 注册用户名:t_n6713
-2018/07/03 11:25:17 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6713'])
-2018/07/03 11:25:17 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:17 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6713', '', 30077, ''])
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30077, 't_n6713'])
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30077, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:18 AM    user.py [line:   69]  INFO 注册UID:30077
-2018/07/03 11:25:18 AM web_gift.py [line:   40]  INFO 注册用户UID：30077
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030077', 30077])
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030077', '+86', 30077])
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30077])
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588318, 30077])
-2018/07/03 11:25:18 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`cid`, `t1`.`is_sel`, `t1`.`other_uid`, `t1`.`score`, `t1`.`settime`, `t1`.`type`, `t1`.`uid` FROM `hm_loveliness` AS t1 WHERE ((`t1`.`uid` = %s) AND (`t1`.`cid` = %s)) LIMIT 1', [30077, 119488])
-2018/07/03 11:25:18 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:18 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:19 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:19 AM     lib.py [line:   78]  INFO test_gift_15验证成功
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`cid`, `t1`.`is_sel`, `t1`.`other_uid`, `t1`.`score`, `t1`.`settime`, `t1`.`type`, `t1`.`uid` FROM `hm_loveliness` AS t1 WHERE ((`t1`.`uid` = %s) AND (`t1`.`cid` = %s)) LIMIT 1', [30077, 119488])
-2018/07/03 11:25:19 AM     lib.py [line:   83]  INFO test_gift_15二次验证成功
-2018/07/03 11:25:19 AM    user.py [line:   34]  INFO 注册用户名:t_n6714
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6714'])
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6714', '', 30078, ''])
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30078, 't_n6714'])
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30078, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:19 AM    user.py [line:   69]  INFO 注册UID:30078
-2018/07/03 11:25:19 AM web_gift.py [line:   40]  INFO 注册用户UID：30078
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030078', 30078])
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030078', '+86', 30078])
-2018/07/03 11:25:19 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:19 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:19 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:19 AM     lib.py [line:   78]  INFO test_gift_16验证成功
-2018/07/03 11:25:19 AM    user.py [line:   34]  INFO 注册用户名:t_n6715
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6715'])
-2018/07/03 11:25:19 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6715', '', 30079, ''])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30079, 't_n6715'])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30079, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:20 AM    user.py [line:   69]  INFO 注册UID:30079
-2018/07/03 11:25:20 AM web_gift.py [line:   40]  INFO 注册用户UID：30079
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030079', 30079])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030079', '+86', 30079])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30079])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588320, 30079])
-2018/07/03 11:25:20 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30079])
-2018/07/03 11:25:20 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:20 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:21 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:21 AM     lib.py [line:   78]  INFO test_gift_17验证成功
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30079])
-2018/07/03 11:25:21 AM     lib.py [line:   83]  INFO test_gift_17二次验证成功
-2018/07/03 11:25:21 AM    user.py [line:   34]  INFO 注册用户名:t_n6716
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6716'])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6716', '', 30080, ''])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30080, 't_n6716'])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30080, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:21 AM    user.py [line:   69]  INFO 注册UID:30080
-2018/07/03 11:25:21 AM web_gift.py [line:   40]  INFO 注册用户UID：30080
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030080', 30080])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030080', '+86', 30080])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30080])
-2018/07/03 11:25:21 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588321, 30080])
-2018/07/03 11:25:22 AM  peewee.py [line: 3764]  DEBUG ('SELECT COUNT(%s) AS nums FROM `money_pay` AS t1 WHERE ((((`t1`.`uid` = %s) AND (`t1`.`other_cid` = %s)) AND (`t1`.`ts` < %s)) AND (`t1`.`ts` > %s)) LIMIT 1', [1, 30080, 119488, 1533052799, 1530374400])
-2018/07/03 11:25:22 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:22 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:22 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:22 AM     lib.py [line:   78]  INFO test_gift_18验证成功
-2018/07/03 11:25:22 AM  peewee.py [line: 3764]  DEBUG ('SELECT COUNT(%s) AS nums FROM `money_pay` AS t1 WHERE ((((`t1`.`uid` = %s) AND (`t1`.`other_cid` = %s)) AND (`t1`.`ts` < %s)) AND (`t1`.`ts` > %s)) LIMIT 1', [1, 30080, 119488, 1533052799, 1530374400])
-2018/07/03 11:25:22 AM     lib.py [line:   83]  INFO test_gift_18二次验证成功
-2018/07/03 11:25:22 AM    user.py [line:   34]  INFO 注册用户名:t_n6717
-2018/07/03 11:25:22 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6717'])
-2018/07/03 11:25:22 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:22 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6717', '', 30081, ''])
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30081, 't_n6717'])
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30081, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:23 AM    user.py [line:   69]  INFO 注册UID:30081
-2018/07/03 11:25:23 AM web_gift.py [line:   40]  INFO 注册用户UID：30081
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030081', 30081])
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030081', '+86', 30081])
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30081])
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588323, 30081])
-2018/07/03 11:25:23 AM  peewee.py [line: 3764]  DEBUG ('SELECT COUNT(%s) AS nums FROM `money_channel_income` AS t1 WHERE (((`t1`.`uid` = %s) AND (`t1`.`addtime` < %s)) AND (`t1`.`other_uid` = %s)) LIMIT 1', [1, 5602, 1533052799, 30081])
-2018/07/03 11:25:23 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '51', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=51&t_count=1&cid=119488
-2018/07/03 11:25:23 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:24 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=51&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:24 AM     lib.py [line:   78]  INFO test_gift_19验证成功
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('SELECT COUNT(%s) AS nums FROM `money_channel_income` AS t1 WHERE (((`t1`.`uid` = %s) AND (`t1`.`addtime` < %s)) AND (`t1`.`other_uid` = %s)) LIMIT 1', [1, 5602, 1533052799, 30081])
-2018/07/03 11:25:24 AM     lib.py [line:   83]  INFO test_gift_19二次验证成功
-2018/07/03 11:25:24 AM    user.py [line:   34]  INFO 注册用户名:t_n6718
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6718'])
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6718', '', 30082, ''])
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30082, 't_n6718'])
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30082, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:24 AM    user.py [line:   69]  INFO 注册UID:30082
-2018/07/03 11:25:24 AM web_gift.py [line:   40]  INFO 注册用户UID：30082
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030082', 30082])
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030082', '+86', 30082])
-2018/07/03 11:25:24 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30082])
-2018/07/03 11:25:25 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('4'), 1530588325, 30082])
-2018/07/03 11:25:25 AM  peewee.py [line: 3764]  DEBUG ('SELECT COUNT(%s) AS nums FROM `money_channel_income` AS t1 WHERE (((`t1`.`uid` = %s) AND (`t1`.`addtime` < %s)) AND (`t1`.`other_uid` = %s)) LIMIT 1', [1, 5602, 1533052799, 30082])
-2018/07/03 11:25:25 AM     lib.py [line:   56]  INFO 请求数据:{'gift': '52', 't_count': 1, 'cid': '119488'}
-http://qa.new.huomaotv.com.cn/chatnew/sendGift?gift=52&t_count=1&cid=119488
-2018/07/03 11:25:25 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:25 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/sendGift?gift=52&t_count=1&cid=119488 HTTP/1.1" 200 None
-2018/07/03 11:25:25 AM     lib.py [line:   78]  INFO test_gift_20验证成功
-2018/07/03 11:25:25 AM  peewee.py [line: 3764]  DEBUG ('SELECT COUNT(%s) AS nums FROM `money_channel_income` AS t1 WHERE (((`t1`.`uid` = %s) AND (`t1`.`addtime` < %s)) AND (`t1`.`other_uid` = %s)) LIMIT 1', [1, 5602, 1533052799, 30082])
-2018/07/03 11:25:25 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`add_score`, `t1`.`addtime`, `t1`.`cid`, `t1`.`ip`, `t1`.`item`, `t1`.`item_acount`, `t1`.`money`, `t1`.`money_type`, `t1`.`nick`, `t1`.`note`, `t1`.`orderid`, `t1`.`other_cid`, `t1`.`other_uid`, `t1`.`pay_type`, `t1`.`uid`, `t1`.`user_type` FROM `money_channel_income` AS t1 WHERE (((`t1`.`uid` = %s) AND (`t1`.`addtime` < %s)) AND (`t1`.`other_uid` = %s)) LIMIT 1', [5602, 1533052799, 30082])
-2018/07/03 11:25:25 AM     lib.py [line:   83]  INFO test_gift_20二次验证成功
-2018/07/03 11:25:25 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:29 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:25 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:25 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:25 AM     lib.py [line:   78]  INFO test_01验证成功
-2018/07/03 11:25:25 AM     lib.py [line:   56]  INFO 请求数据:{'data': '', 'cid': '119484'}
+2018/07/03 11:35:29 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:29 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:29 AM     lib.py [line:   78]  INFO test_01验证成功
+2018/07/03 11:35:29 AM     lib.py [line:   56]  INFO 请求数据:{'data': '', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=&cid=119484
-2018/07/03 11:25:25 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:25 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:25 AM     lib.py [line:   78]  INFO test_02验证成功
-2018/07/03 11:25:25 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': ''}
+2018/07/03 11:35:29 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:29 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:29 AM     lib.py [line:   78]  INFO test_02验证成功
+2018/07/03 11:35:29 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': ''}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=
-2018/07/03 11:25:25 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:25 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid= HTTP/1.1" 200 None
-2018/07/03 11:25:25 AM     lib.py [line:   78]  INFO test_03验证成功
-2018/07/03 11:25:26 AM    user.py [line:   34]  INFO 注册用户名:t_n6719
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6719'])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6719', '', 30083, ''])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30083, 't_n6719'])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30083, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:26 AM    user.py [line:   69]  INFO 注册UID:30083
-2018/07/03 11:25:26 AM web_msg.py [line:   62]  INFO 注册用户UID：30083
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030083', 30083])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030083', '+86', 30083])
-2018/07/03 11:25:26 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:29 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:29 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid= HTTP/1.1" 200 None
+2018/07/03 11:35:29 AM     lib.py [line:   78]  INFO test_03验证成功
+2018/07/03 11:35:29 AM    user.py [line:   34]  INFO 注册用户名:t_n6739
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6739'])
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6739', '', 30103, ''])
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30103, 't_n6739'])
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30103, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:29 AM    user.py [line:   69]  INFO 注册UID:30103
+2018/07/03 11:35:29 AM web_msg.py [line:   62]  INFO 注册用户UID：30103
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030103', 30103])
+2018/07/03 11:35:29 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030103', '+86', 30103])
+2018/07/03 11:35:30 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:26 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:26 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:26 AM     lib.py [line:   78]  INFO test_04验证成功
-2018/07/03 11:25:26 AM    user.py [line:   34]  INFO 注册用户名:t_n6720
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6720'])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6720', '', 30084, ''])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30084, 't_n6720'])
-2018/07/03 11:25:26 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30084, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:27 AM    user.py [line:   69]  INFO 注册UID:30084
-2018/07/03 11:25:27 AM web_msg.py [line:   62]  INFO 注册用户UID：30084
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030084', 30084])
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030084', '+86', 30084])
-2018/07/03 11:25:27 AM     lib.py [line:   56]  INFO 请求数据:{'data': '01234567890123456789012345678901234567890123456789', 'cid': '119484'}
+2018/07/03 11:35:30 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:30 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:30 AM     lib.py [line:   78]  INFO test_04验证成功
+2018/07/03 11:35:30 AM    user.py [line:   34]  INFO 注册用户名:t_n6740
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6740'])
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6740', '', 30104, ''])
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30104, 't_n6740'])
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30104, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:30 AM    user.py [line:   69]  INFO 注册UID:30104
+2018/07/03 11:35:30 AM web_msg.py [line:   62]  INFO 注册用户UID：30104
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030104', 30104])
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030104', '+86', 30104])
+2018/07/03 11:35:30 AM     lib.py [line:   56]  INFO 请求数据:{'data': '01234567890123456789012345678901234567890123456789', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=01234567890123456789012345678901234567890123456789&cid=119484
-2018/07/03 11:25:27 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:27 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=01234567890123456789012345678901234567890123456789&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:27 AM     lib.py [line:   78]  INFO test_05验证成功
-2018/07/03 11:25:27 AM    user.py [line:   34]  INFO 注册用户名:t_n6721
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6721'])
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6721', '', 30085, ''])
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30085, 't_n6721'])
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30085, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:27 AM    user.py [line:   69]  INFO 注册UID:30085
-2018/07/03 11:25:27 AM web_msg.py [line:   62]  INFO 注册用户UID：30085
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030085', 30085])
-2018/07/03 11:25:27 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030085', '+86', 30085])
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG starting thread (client mode): 0x97e5fbe0
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Local version/idstring: SSH-2.0-paramiko_2.3.1
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Remote version/idstring: SSH-2.0-OpenSSH_5.3
-2018/07/03 11:25:28 AM transport.py [line: 1685]  INFO Connected (version 2.0, client OpenSSH_5.3)
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG kex algos:['diffie-hellman-group-exchange-sha256', 'diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa', 'ssh-dss'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc', 'blowfish-cbc', 'cast128-cbc', 'aes192-cbc', 'aes256-cbc', 'arcfour', 'rijndael-cbc@lysator.liu.se'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc', 'blowfish-cbc', 'cast128-cbc', 'aes192-cbc', 'aes256-cbc', 'arcfour', 'rijndael-cbc@lysator.liu.se'] client mac:['hmac-md5', 'hmac-sha1', 'umac-64@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-ripemd160', 'hmac-ripemd160@openssh.com', 'hmac-sha1-96', 'hmac-md5-96'] server mac:['hmac-md5', 'hmac-sha1', 'umac-64@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-ripemd160', 'hmac-ripemd160@openssh.com', 'hmac-sha1-96', 'hmac-md5-96'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Kex agreed: diffie-hellman-group-exchange-sha256
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG HostKey agreed: ssh-rsa
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Cipher agreed: aes128-ctr
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG MAC agreed: hmac-sha2-256
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Compression agreed: none
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Got server p (2048 bits)
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG kex engine KexGexSHA256 specified hash_algo <built-in function openssl_sha256>
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Switch to new keys ...
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Adding ssh-rsa host key for 10.10.23.14: b'1a5d8b597115c13c4debe943a2aa266c'
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Trying discovered key b'e6614ba3fa442e278e84cf30bf09092d' in C:\Users\Admin/.ssh/id_rsa
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG userauth is OK
-2018/07/03 11:25:28 AM transport.py [line: 1685]  INFO Authentication (publickey) failed.
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG userauth is OK
-2018/07/03 11:25:28 AM transport.py [line: 1685]  INFO Authentication (password) successful!
-2018/07/03 11:25:28 AM channel.py [line: 1183]  DEBUG [chan 0] Max packet in: 32768 bytes
-2018/07/03 11:25:28 AM channel.py [line: 1183]  DEBUG [chan 0] Max packet out: 32768 bytes
-2018/07/03 11:25:28 AM transport.py [line: 1685]  DEBUG Secsh channel 0 opened.
-2018/07/03 11:25:28 AM channel.py [line: 1183]  DEBUG [chan 0] Sesch channel 0 request ok
-2018/07/03 11:25:28 AM channel.py [line: 1183]  DEBUG [chan 0] EOF received (0)
-2018/07/03 11:25:28 AM channel.py [line: 1183]  DEBUG [chan 0] EOF sent (0)
-2018/07/03 11:25:28 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:30 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:30 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=01234567890123456789012345678901234567890123456789&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:30 AM     lib.py [line:   78]  INFO test_05验证成功
+2018/07/03 11:35:30 AM    user.py [line:   34]  INFO 注册用户名:t_n6741
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6741'])
+2018/07/03 11:35:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6741', '', 30105, ''])
+2018/07/03 11:35:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30105, 't_n6741'])
+2018/07/03 11:35:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30105, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:31 AM    user.py [line:   69]  INFO 注册UID:30105
+2018/07/03 11:35:31 AM web_msg.py [line:   62]  INFO 注册用户UID：30105
+2018/07/03 11:35:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030105', 30105])
+2018/07/03 11:35:31 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030105', '+86', 30105])
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG starting thread (client mode): 0xc29c51d0
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Local version/idstring: SSH-2.0-paramiko_2.3.1
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Remote version/idstring: SSH-2.0-OpenSSH_5.3
+2018/07/03 11:35:31 AM transport.py [line: 1685]  INFO Connected (version 2.0, client OpenSSH_5.3)
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG kex algos:['diffie-hellman-group-exchange-sha256', 'diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa', 'ssh-dss'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc', 'blowfish-cbc', 'cast128-cbc', 'aes192-cbc', 'aes256-cbc', 'arcfour', 'rijndael-cbc@lysator.liu.se'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc', 'blowfish-cbc', 'cast128-cbc', 'aes192-cbc', 'aes256-cbc', 'arcfour', 'rijndael-cbc@lysator.liu.se'] client mac:['hmac-md5', 'hmac-sha1', 'umac-64@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-ripemd160', 'hmac-ripemd160@openssh.com', 'hmac-sha1-96', 'hmac-md5-96'] server mac:['hmac-md5', 'hmac-sha1', 'umac-64@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-ripemd160', 'hmac-ripemd160@openssh.com', 'hmac-sha1-96', 'hmac-md5-96'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Kex agreed: diffie-hellman-group-exchange-sha256
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG HostKey agreed: ssh-rsa
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Cipher agreed: aes128-ctr
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG MAC agreed: hmac-sha2-256
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Compression agreed: none
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Got server p (2048 bits)
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG kex engine KexGexSHA256 specified hash_algo <built-in function openssl_sha256>
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Switch to new keys ...
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Adding ssh-rsa host key for 10.10.23.14: b'1a5d8b597115c13c4debe943a2aa266c'
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Trying discovered key b'e6614ba3fa442e278e84cf30bf09092d' in C:\Users\Admin/.ssh/id_rsa
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG userauth is OK
+2018/07/03 11:35:31 AM transport.py [line: 1685]  INFO Authentication (publickey) failed.
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG userauth is OK
+2018/07/03 11:35:31 AM transport.py [line: 1685]  INFO Authentication (password) successful!
+2018/07/03 11:35:31 AM channel.py [line: 1183]  DEBUG [chan 0] Max packet in: 32768 bytes
+2018/07/03 11:35:31 AM channel.py [line: 1183]  DEBUG [chan 0] Max packet out: 32768 bytes
+2018/07/03 11:35:31 AM transport.py [line: 1685]  DEBUG Secsh channel 0 opened.
+2018/07/03 11:35:31 AM channel.py [line: 1183]  DEBUG [chan 0] Sesch channel 0 request ok
+2018/07/03 11:35:32 AM channel.py [line: 1183]  DEBUG [chan 0] EOF received (0)
+2018/07/03 11:35:32 AM channel.py [line: 1183]  DEBUG [chan 0] EOF sent (0)
+2018/07/03 11:35:32 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:28 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:28 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:28 AM     lib.py [line:   78]  INFO test_07验证成功
-2018/07/03 11:25:28 AM    user.py [line:   34]  INFO 注册用户名:t_n6722
-2018/07/03 11:25:28 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6722'])
-2018/07/03 11:25:28 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:28 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6722', '', 30086, ''])
-2018/07/03 11:25:28 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30086, 't_n6722'])
-2018/07/03 11:25:28 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30086, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:28 AM    user.py [line:   69]  INFO 注册UID:30086
-2018/07/03 11:25:28 AM web_msg.py [line:   62]  INFO 注册用户UID：30086
-2018/07/03 11:25:28 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:32 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:32 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:32 AM     lib.py [line:   78]  INFO test_07验证成功
+2018/07/03 11:35:32 AM    user.py [line:   34]  INFO 注册用户名:t_n6742
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6742'])
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6742', '', 30106, ''])
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30106, 't_n6742'])
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30106, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:32 AM    user.py [line:   69]  INFO 注册UID:30106
+2018/07/03 11:35:32 AM web_msg.py [line:   62]  INFO 注册用户UID：30106
+2018/07/03 11:35:32 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:28 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:29 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:29 AM     lib.py [line:   78]  INFO test_08验证成功
-2018/07/03 11:25:29 AM    user.py [line:   34]  INFO 注册用户名:t_n6723
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6723'])
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6723', '', 30087, ''])
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30087, 't_n6723'])
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30087, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:29 AM    user.py [line:   69]  INFO 注册UID:30087
-2018/07/03 11:25:29 AM web_msg.py [line:   62]  INFO 注册用户UID：30087
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030087', 30087])
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030087', '+86', 30087])
-2018/07/03 11:25:29 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): lxy.new.huomaotv.com.cn
-2018/07/03 11:25:29 AM connectionpool.py [line:  395]  DEBUG http://lxy.new.huomaotv.com.cn:80 "GET /myroom/setCommChannelGag?uid=30087&nickname=%E6%B5%8B%E8%AF%95&status=0&text=%E6%B5%8B%E8%AF%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:29 AM  common.py [line:  140]  INFO {'data': {'nickname': '测试', 'time': 1530588345, 'channel_id': '119484', 'title': '禁言'}, 'code': 4000, 'status': True, 'message': '处理成功！'}
-2018/07/03 11:25:29 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:32 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:32 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:32 AM     lib.py [line:   78]  INFO test_08验证成功
+2018/07/03 11:35:32 AM    user.py [line:   34]  INFO 注册用户名:t_n6743
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6743'])
+2018/07/03 11:35:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6743', '', 30107, ''])
+2018/07/03 11:35:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30107, 't_n6743'])
+2018/07/03 11:35:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30107, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:33 AM    user.py [line:   69]  INFO 注册UID:30107
+2018/07/03 11:35:33 AM web_msg.py [line:   62]  INFO 注册用户UID：30107
+2018/07/03 11:35:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030107', 30107])
+2018/07/03 11:35:33 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030107', '+86', 30107])
+2018/07/03 11:35:33 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): lxy.new.huomaotv.com.cn
+2018/07/03 11:35:33 AM connectionpool.py [line:  395]  DEBUG http://lxy.new.huomaotv.com.cn:80 "GET /myroom/setCommChannelGag?text=%E6%B5%8B%E8%AF%95&status=0&nickname=%E6%B5%8B%E8%AF%95&uid=30107&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:33 AM  common.py [line:  140]  INFO {'status': True, 'data': {'channel_id': '119484', 'title': '禁言', 'nickname': '测试', 'time': 1530588949}, 'message': '处理成功！', 'code': 4000}
+2018/07/03 11:35:33 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:29 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:29 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:29 AM     lib.py [line:   78]  INFO test_10验证成功
-2018/07/03 11:25:29 AM    user.py [line:   34]  INFO 注册用户名:t_n6724
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6724'])
-2018/07/03 11:25:29 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6724', '', 30088, ''])
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30088, 't_n6724'])
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30088, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:30 AM    user.py [line:   69]  INFO 注册UID:30088
-2018/07/03 11:25:30 AM web_msg.py [line:   62]  INFO 注册用户UID：30088
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030088', 30088])
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030088', '+86', 30088])
-2018/07/03 11:25:30 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:33 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:33 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:33 AM     lib.py [line:   78]  INFO test_10验证成功
+2018/07/03 11:35:34 AM    user.py [line:   34]  INFO 注册用户名:t_n6744
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6744'])
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6744', '', 30108, ''])
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30108, 't_n6744'])
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30108, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:34 AM    user.py [line:   69]  INFO 注册UID:30108
+2018/07/03 11:35:34 AM web_msg.py [line:   62]  INFO 注册用户UID：30108
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030108', 30108])
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030108', '+86', 30108])
+2018/07/03 11:35:34 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:30 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:30 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:30 AM     lib.py [line:   78]  INFO test_11验证成功
-2018/07/03 11:25:30 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:34 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:34 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:34 AM     lib.py [line:   78]  INFO test_11验证成功
+2018/07/03 11:35:34 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:30 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:30 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:30 AM     lib.py [line:   78]  INFO test_12验证成功
-2018/07/03 11:25:30 AM    user.py [line:   34]  INFO 注册用户名:t_n6725
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6725'])
-2018/07/03 11:25:30 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6725', '', 30089, ''])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30089, 't_n6725'])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30089, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:31 AM    user.py [line:   69]  INFO 注册UID:30089
-2018/07/03 11:25:31 AM web_msg.py [line:   62]  INFO 注册用户UID：30089
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030089', 30089])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030089', '+86', 30089])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `user_bag` (`add_time`, `bag_id`, `expire_time`, `get_way`, `num`, `total`, `type`, `uid`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', [1530588331, 100001, 1530598331, 'admin_33', 1, 1, 2, 30089])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30089])
-2018/07/03 11:25:31 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588331, 30089])
-2018/07/03 11:25:31 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'color_barrage': 1, 'cid': '119484'}
+2018/07/03 11:35:34 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:34 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:34 AM     lib.py [line:   78]  INFO test_12验证成功
+2018/07/03 11:35:34 AM    user.py [line:   34]  INFO 注册用户名:t_n6745
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6745'])
+2018/07/03 11:35:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6745', '', 30109, ''])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30109, 't_n6745'])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30109, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:35 AM    user.py [line:   69]  INFO 注册UID:30109
+2018/07/03 11:35:35 AM web_msg.py [line:   62]  INFO 注册用户UID：30109
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030109', 30109])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030109', '+86', 30109])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `user_bag` (`add_time`, `bag_id`, `expire_time`, `get_way`, `num`, `total`, `type`, `uid`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', [1530588935, 100001, 1530598935, 'admin_33', 1, 1, 2, 30109])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30109])
+2018/07/03 11:35:35 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588935, 30109])
+2018/07/03 11:35:35 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'color_barrage': 1, 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&color_barrage=1&cid=119484
-2018/07/03 11:25:31 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:32 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&color_barrage=1&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:32 AM     lib.py [line:   78]  INFO test_13验证成功
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT Sum(`t1`.`num`) AS nums FROM `user_bag` AS t1 WHERE ((`t1`.`uid` = %s) AND (`t1`.`bag_id` = %s)) LIMIT 1', [30089, 100001])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30089])
-2018/07/03 11:25:32 AM     lib.py [line:   83]  INFO test_13二次验证成功
-2018/07/03 11:25:32 AM    user.py [line:   34]  INFO 注册用户名:t_n6726
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6726'])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6726', '', 30090, ''])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30090, 't_n6726'])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30090, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:32 AM    user.py [line:   69]  INFO 注册UID:30090
-2018/07/03 11:25:32 AM web_msg.py [line:   62]  INFO 注册用户UID：30090
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030090', 30090])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030090', '+86', 30090])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30090])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588332, 30090])
-2018/07/03 11:25:32 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'color_barrage': 1, 'cid': '119484'}
+2018/07/03 11:35:35 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:36 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&color_barrage=1&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:36 AM     lib.py [line:   78]  INFO test_13验证成功
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('SELECT Sum(`t1`.`num`) AS nums FROM `user_bag` AS t1 WHERE ((`t1`.`uid` = %s) AND (`t1`.`bag_id` = %s)) LIMIT 1', [30109, 100001])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30109])
+2018/07/03 11:35:36 AM     lib.py [line:   83]  INFO test_13二次验证成功
+2018/07/03 11:35:36 AM    user.py [line:   34]  INFO 注册用户名:t_n6746
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6746'])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6746', '', 30110, ''])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30110, 't_n6746'])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30110, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:36 AM    user.py [line:   69]  INFO 注册UID:30110
+2018/07/03 11:35:36 AM web_msg.py [line:   62]  INFO 注册用户UID：30110
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030110', 30110])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030110', '+86', 30110])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30110])
+2018/07/03 11:35:36 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `money` (`bean`, `coin`, `ts`, `uid`) VALUES (%s, %s, %s, %s)', [Decimal('0'), Decimal('1'), 1530588936, 30110])
+2018/07/03 11:35:36 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'color_barrage': 1, 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&color_barrage=1&cid=119484
-2018/07/03 11:25:32 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:32 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&color_barrage=1&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:32 AM     lib.py [line:   78]  INFO test_14验证成功
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30090])
-2018/07/03 11:25:32 AM     lib.py [line:   83]  INFO test_14二次验证成功
-2018/07/03 11:25:32 AM    user.py [line:   34]  INFO 注册用户名:t_n6727
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6727'])
-2018/07/03 11:25:32 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6727', '', 30091, ''])
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30091, 't_n6727'])
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30091, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:33 AM    user.py [line:   69]  INFO 注册UID:30091
-2018/07/03 11:25:33 AM web_msg.py [line:   62]  INFO 注册用户UID：30091
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030091', 30091])
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030091', '+86', 30091])
-2018/07/03 11:25:33 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:36 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:37 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&color_barrage=1&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:37 AM     lib.py [line:   78]  INFO test_14验证成功
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`id`, `t1`.`bean`, `t1`.`coin`, `t1`.`ts`, `t1`.`uid` FROM `money` AS t1 WHERE (`t1`.`uid` = %s) LIMIT 1', [30110])
+2018/07/03 11:35:37 AM     lib.py [line:   83]  INFO test_14二次验证成功
+2018/07/03 11:35:37 AM    user.py [line:   34]  INFO 注册用户名:t_n6747
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6747'])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6747', '', 30111, ''])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30111, 't_n6747'])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30111, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:37 AM    user.py [line:   69]  INFO 注册UID:30111
+2018/07/03 11:35:37 AM web_msg.py [line:   62]  INFO 注册用户UID：30111
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030111', 30111])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030111', '+86', 30111])
+2018/07/03 11:35:37 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:33 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:33 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:33 AM     lib.py [line:   78]  INFO test_15验证成功
-2018/07/03 11:25:33 AM    user.py [line:   34]  INFO 注册用户名:t_n6728
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6728'])
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
-2018/07/03 11:25:33 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6728', '', 30092, ''])
-2018/07/03 11:25:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30092, 't_n6728'])
-2018/07/03 11:25:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30092, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
-2018/07/03 11:25:34 AM    user.py [line:   69]  INFO 注册UID:30092
-2018/07/03 11:25:34 AM web_msg.py [line:   62]  INFO 注册用户UID：30092
-2018/07/03 11:25:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030092', 30092])
-2018/07/03 11:25:34 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030092', '+86', 30092])
-2018/07/03 11:25:34 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `member_badge` (`bid`, `currentstat`, `expiretime`, `gettime`, `owntime`, `uid`) VALUES (%s, %s, %s, %s, %s, %s)', [1, 3, 0, 1, -1, 30092])
-2018/07/03 11:25:34 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
+2018/07/03 11:35:37 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:37 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:37 AM     lib.py [line:   78]  INFO test_15验证成功
+2018/07/03 11:35:37 AM    user.py [line:   34]  INFO 注册用户名:t_n6748
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('SELECT `t1`.`uid`, `t1`.`username` FROM `username` AS t1 WHERE (`t1`.`username` = %s) LIMIT 1', ['t_n6748'])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `uid` (`uid`.`id`) VALUES (DEFAULT)', [])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userbase` (`email`, `mobile`, `mobileareacode`, `name`, `openid`, `uid`, `weixin`) VALUES (%s, %s, %s, %s, %s, %s, %s)', ['', '', '', 't_n6748', '', 30112, ''])
+2018/07/03 11:35:37 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `username` (`uid`, `username`) VALUES (%s, %s)', [30112, 't_n6748'])
+2018/07/03 11:35:38 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `userinfo` (`uid`, `img`, `lv`, `password`) VALUES (%s, %s, %s, %s)', [30112, '', 0, 'c4ca4238a0b923820dcc509a6f75849b'])
+2018/07/03 11:35:38 AM    user.py [line:   69]  INFO 注册UID:30112
+2018/07/03 11:35:38 AM web_msg.py [line:   62]  INFO 注册用户UID：30112
+2018/07/03 11:35:38 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `mobile` (`mobile`, `uid`) VALUES (%s, %s)', ['15100030112', 30112])
+2018/07/03 11:35:38 AM  peewee.py [line: 3764]  DEBUG ('UPDATE `userbase` SET `mobile` = %s, `mobileareacode` = %s WHERE (`userbase`.`uid` = %s)', ['15100030112', '+86', 30112])
+2018/07/03 11:35:38 AM  peewee.py [line: 3764]  DEBUG ('INSERT INTO `member_badge` (`bid`, `currentstat`, `expiretime`, `gettime`, `owntime`, `uid`) VALUES (%s, %s, %s, %s, %s, %s)', [1, 3, 0, 1, -1, 30112])
+2018/07/03 11:35:38 AM     lib.py [line:   56]  INFO 请求数据:{'data': '测试弹幕', 'cid': '119484'}
 http://qa.new.huomaotv.com.cn/chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484
-2018/07/03 11:25:34 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
-2018/07/03 11:25:34 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
-2018/07/03 11:25:34 AM     lib.py [line:   78]  INFO test_16验证成功
-2018/07/03 11:25:34 AM transport.py [line: 1685]  DEBUG EOF in transport thread
+2018/07/03 11:35:38 AM connectionpool.py [line:  207]  DEBUG Starting new HTTP connection (1): qa.new.huomaotv.com.cn
+2018/07/03 11:35:38 AM connectionpool.py [line:  395]  DEBUG http://qa.new.huomaotv.com.cn:80 "GET /chatnew/msg?data=%E6%B5%8B%E8%AF%95%E5%BC%B9%E5%B9%95&cid=119484 HTTP/1.1" 200 None
+2018/07/03 11:35:38 AM     lib.py [line:   78]  INFO test_16验证成功
+2018/07/03 11:35:38 AM transport.py [line: 1685]  DEBUG EOF in transport thread
