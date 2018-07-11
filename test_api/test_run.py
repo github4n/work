@@ -29,7 +29,7 @@ def run_all():
     unittest.main(testRunner=runner, exit=False)
     report_data.get('test_failed') == 0 and print(0)
 
-run_all()
+# run_all()
 
 # 执行单个class
 # suite = unittest.makeSuite(TestWeb)
@@ -37,9 +37,9 @@ run_all()
 # print(suite._tests)
 
 # 执行单个类单个用例  #test_1_4
-# suite = unittest.TestSuite()
+suite = unittest.TestSuite()
 # for i in range(1,165):
 #     suite.addTest(TestNoble('test_{}'.format(i)))
-# suite.addTest(TestGift('test_gift_20'))
-# runner = unittest.TextTestRunner()
-# runner.run(suite)
+suite.addTest(TestMsg('test_13'))
+runner = unittest.TextTestRunner()
+runner.run(suite)

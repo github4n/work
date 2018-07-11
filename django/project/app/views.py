@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import StreamingHttpResponse, HttpResponse, JsonResponse,HttpResponseRedirect
+from django.http import StreamingHttpResponse, HttpResponse, JsonResponse, HttpResponseRedirect
 from huomao.common import Common
 from huomao.user import User
 from huomao.channel import Channel
@@ -30,6 +30,11 @@ def new_web(request, method=''):
 
 def test_fun(request):
     test()
+    return JsonResponse({'msg': '成功'})
+
+
+def init_active(request):
+    Common.init_active()
     return JsonResponse({'msg': '成功'})
 
 

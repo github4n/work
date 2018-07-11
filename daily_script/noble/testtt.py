@@ -19,13 +19,15 @@ from huomao.common import REDIS_INST,Common
 # ,'运维的锅')ㅤㅤㅤㅤㅤㅤㅤ
 # User.set_badge(5257,48)
 
-u = User()
-uid = u.reg('noble')
-u.bd_sj(uid)
-MoneyClass.set_money(uid, 150000)
-# User.create_noble(uid, level=7, month=1,cid=13)
-# User.set_noble_expire(uid, 30)
-Bag.add_bag(uid,bag=90001)
+# u = User()
+# uid = u.reg('noble')
+# print(uid)
+# u.bd_sj(uid)
+# MoneyClass.set_money(uid, 150000)
+# Bag.add_bag(uid,bag=90001)
+# User.create_noble(uid, level=4, month=1,cid=2)
+User.set_noble_expire(30504, 8)
+
 
 #
 # driver = webdriver.Chrome()

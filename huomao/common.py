@@ -123,6 +123,12 @@ class Common():
         REDIS_INST.set('hm_plugs_mobile_post_{}'.format(mobile), yzm, 1800)
 
     @staticmethod
+    def init_active():
+        for key in REDIS_INST.keys('*mobile_active_*'):
+            REDIS_INST.delete(key)
+
+
+    @staticmethod
     def send_msg(uid, cid):
         data = dict(cid=cid, uid=uid, data='测试')
         res = requests.get(URL + '/chatnew/msg', params=data, cookies=Common.generate_cookies(uid))

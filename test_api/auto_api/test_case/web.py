@@ -25,7 +25,7 @@ cases = [
     ('/money/getUserMoney', dict(code=200)),
     ('/member/retUserLVinfo', dict(code='130')),
     ('/abcde/abcde.json?cur_page=web_channellist&cid=0&gid=0&labelID=0', dict(code='180')),
-    ('/ajax/get_outdoor?cid=2&callback=', dict(anchorUid='1522')),
+    ('/ajax/get_outdoor?cid=2', dict(anchorUid='1522')),
     ('/ajax/getAnchorGiftByMon.json?anchor_uid=1522', dict(code=100)),
     ('/eventcenter/getThirdMatchGuessList.json', dict(code=101)),
     ('/eventcenter/getThirdMatchGuessList.json', dict(code=101)),
@@ -42,7 +42,7 @@ class TestWeb(unittest.TestCase):
     @parameterized.expand(cases, name_func=new_name_func)
     def test(self, *args):
         # 接口信息
-        self.domain = 'https://www.huomao.com'
+        self.domain = 'http://www.huomao.com'
         self.name = 'WEB'
         self.url = args[0]
         self.method = 'get'

@@ -9,7 +9,7 @@ from ..lib.config import domain_admin
 from huomao.config import ADMIN_COOKIES
 
 admin_cases = ['/channel/getChannelList']
-other_links = ['#', '/eventTreasures/index', '/treasureSends/index','/guess/index']
+other_links = ['#', '/eventTreasures/index', '/treasureSends/index','/guess/index','/guessuser/index']
 
 ret = requests.get(domain_admin, cookies=ADMIN_COOKIES).text
 links = etree.HTML(ret).xpath('//a')

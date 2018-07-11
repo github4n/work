@@ -37,6 +37,7 @@ def assert_dict_in(dict1, dict2):
 
 
 def req(self):
+    # exit()
     report_data['test_sum'] += 1
     # 判断环境
     if 'api' in self._testMethodName:
@@ -50,10 +51,9 @@ def req(self):
     else:
         cookies = Common.generate_cookies(self.user)
         domain = getattr(self, 'domain', domain_web)
-    print(domain)
-    self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)])
 
-    logging.info('请求数据:{}\n{}'.format(self.data, self.resquest_url))
+    self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)])
+    logging.info('请求数据:{}\n请求url:{}'.format(self.data, self.resquest_url))
 
     # 判断请求方式
     headers = {'X-Requested-With': 'XMLHttpRequest'}

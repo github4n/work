@@ -65,6 +65,10 @@ function request(method){
             url = '/new_web/test_fun';
             data = '';
             break;
+        case 'init_active':
+            url = '/new_web/init_active';
+            data = '';
+            break;
         case 'add_mobile_yzm':
             url = '/new_web/add_mobile_yzm';
             data = $("#add_mobile_yzm_form").serialize();

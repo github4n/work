@@ -11,7 +11,7 @@
             <div class="modal-footer">
                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
                 <button type="button" class="btn btn-primary " data-dismiss="modal">确定</button>
-                <a href="http://qa.new.huomaotv.com.cn/1" target="_blank"  class="hidden" >跳转</a>
+                <a href="http://qa.new.huomaotv.com.cn/1" target="_blank" class="hidden">跳转</a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -176,7 +176,7 @@
                     <form id="mn_login_form" role="form">
                         {% csrf_token %}
                         <div class="form-group">
-                            <input type="text" name="uid" class="form-control" placeholder="UID">
+                            <input type="text" name="uid" class="uid form-control" placeholder="UID">
                         </div>
                         <button type="button" class="btn btn-default" onclick="request('mn_login')">提交</button>
                     </form>
@@ -233,7 +233,7 @@
                     <form id="init_fans_form" role="form">
                         {% csrf_token %}
                         <input type="text" name="uid" class="uid form-control" placeholder="UID">
-                        <button type="button" onclick="request('init_fans')">提交</button>
+                        <button type="button" class="btn btn-default" onclick="request('init_fans')">提交</button>
                     </form>
                 </div>
             </div>
@@ -241,9 +241,16 @@
 
         </div>
         <div id='row5'>
-            <form id="set_money_form" role="form">
-                <!--<button type="button" onclick="request('test_fun')">测试TEST</button>-->
-            </form>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">初始化移动端活动</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="init_active_form" role="form">
+                        <button type="button" class="btn btn-default" onclick="request('init_active')">TEST</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!--脚-->

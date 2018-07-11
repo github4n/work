@@ -4,6 +4,7 @@
 # @Author  : lixingyun
 # @notice  :
 import unittest
+import time
 import logging
 from ..lib.lib import req
 from ..lib.config import UID
@@ -181,10 +182,10 @@ class TestMsg(unittest.TestCase):
         self.user = self.create_user()
         # 添加用户弹幕卡和货币
         Bag.add_bag(self.user)
-        MoneyClass.set_money(self.user, 1)
+        MoneyClass.set_money(self.user, 10)
         self.data['color_barrage'] = 1
         # 二次验证函数
-        self.ver = lambda: Bag.get_dmk(self.user) == 0 and MoneyClass.get_money(self.user)['coin'] == 1
+        self.ver = lambda: Bag.get_dmk(self.user) == 0 and MoneyClass.get_money(self.user)['coin'] == 10
 
 
     # def test_msg_14(self):

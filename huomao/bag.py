@@ -19,12 +19,15 @@ class Bag():
         num = kw.get('num', 1)
         bag = kw.get('bag', 100001)
         UserBag.create(uid=uid, get_way='admin_33', bag=bag, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
+        # 线下从库有延迟
+        time.sleep(15)
         return
 
     # 获取弹幕卡
     @staticmethod
     def get_dmk(uid):
         u = UserBag.select(fn.Sum(UserBag.num).alias('nums')).where((UserBag.uid == uid) & (UserBag.bag == 100001)).first()
+        print(u.nums)
         return u.nums
 
     # 获取用户特定时间弹幕卡数量

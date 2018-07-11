@@ -6,27 +6,31 @@
 from huomao.common import Common
 from time import time
 import requests
+from huomao.bag import Bag
+uid = 3092301
 
+Bag.add_bag(uid)
+Bag.get_dmk(uid)
 # STREAM_REFRESH_API_EXPIRE = 10
 
-a = Common.hash_table(480635)
-print(a)
-
-url = 'http://test1.api.huomao.com/channels/channelDetail'
-# url = 'http://lxyapi.new.huomaotv.com.cn/channels/channelDetail'
-data = dict(
-    refer='android',
-    cid=9418,
-    expires_time=1527757747,
-    post_data=1,
-    time=1528181184,
-    uid=27064,
-    now_time=int(time()),
-    an=67,
-    ver='dev2.4',
-)
-ret = requests.get(url, params=Common.encrypt(data)).json()
-print(ret)
+# a = Common.hash_table(30183)
+# print(a)
+# exit(1)
+# url = 'http://test1.api.huomao.com/channels/channelDetail'
+# # url = 'http://lxyapi.new.huomaotv.com.cn/channels/channelDetail'
+# data = dict(
+#     refer='android',
+#     cid=9418,
+#     expires_time=1527757747,
+#     post_data=1,
+#     time=1528181184,
+#     uid=27064,
+#     now_time=int(time()),
+#     an=67,
+#     ver='dev2.4',
+# )
+# ret = requests.get(url, params=Common.encrypt(data)).json()
+# print(ret)
 
 # refer=android
 # cid=9418&

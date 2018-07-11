@@ -7,6 +7,7 @@ import time
 import requests
 import json
 import random
+from huomao.common import REDIS_INST
 
 url = 'http://gate.huomaotv.com.cn:7173/1/push/room?rid=2'
 
@@ -596,15 +597,19 @@ def test_re(data):
     print(res.json())
 
 
-
-
 def test():
-    test_re(kt_data_4)
-    test_re(kt_data_7)
-    test_re(kt_data_5)
-    test_re(kt_data_6)
-    test_re(kt_data_7)
-    test_re(kt_data_4)
-    test_re(kt_data_6)
+    for key in REDIS_INST.keys('*mobile_active_*'):
+        REDIS_INST.delete(key)
+
+
+
+# def test():
+#     test_re(kt_data_4)
+#     test_re(kt_data_7)
+#     test_re(kt_data_5)
+#     test_re(kt_data_6)
+#     test_re(kt_data_7)
+#     test_re(kt_data_4)
+#     test_re(kt_data_6)
 
 
