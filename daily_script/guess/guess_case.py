@@ -5,9 +5,10 @@
 
 uids = [str(i) for i in range(5524, 5624)]
 
+# from huomao.money import MoneyClass
 # for uid in uids:
-#     Common.set_money(uid,999999,999999)
-#     Common.set_xd(uid, 999999)
+#     MoneyClass.set_money(uid,100000,100000)
+#     MoneyClass.set_xd(uid, 100000)
 # exit()
 # 用例ID,{用户:下注选项,结果1,2,loss,dog时的预期}
 gamble_case_lists = [

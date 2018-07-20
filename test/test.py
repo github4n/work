@@ -4,8 +4,6 @@
 # Date   : 2018/7/2 16:58
 # Author : lixingyun
 # Description :
-import logging
+from huomao.common import Common
 
-logging.error('333')
-
-print(__name__)
+Common.clear_all_cdn_cache()

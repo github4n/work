@@ -13,6 +13,7 @@ import paramiko
 import redis
 import json
 import logging
+from lxml import etree
 from urllib import parse
 
 from .db.contents import HmGag
@@ -108,14 +109,41 @@ class Common():
             for url in urls:
                 res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': url})
                 res = res.json()
-                print(res)
+                print(url, res)
                 requests.get(url)
         else:
             res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': urls})
             res = res.json()
-            print(res)
+            print(urls,res)
             requests.get(urls)
+        print('执行完成')
 
+
+    @staticmethod
+    def clear_all_cdn_cache():
+        urls = ['https://www.huomao.com/',
+                'https://www.huomao.com/channel/all',
+                'https://www.huomao.com/1',
+                'https://www.huomao.com/zt/lucky']
+
+        def get_js_css(urls):
+            rets = []
+            res = []
+            for url in urls:
+                ret = requests.get(url).text
+                links = etree.HTML(ret).xpath('//link')
+                scripts = etree.HTML(ret).xpath('//script')
+                for link in links:
+                    rets.append(link.get('href'))
+                for script in scripts:
+                    rets.append(script.get('src'))
+            for ret in set(rets):
+                if ret:
+                    if '?v=' in ret:
+                        res.append('https://www.huomao.com'+ret)
+            return res
+
+        Common.clear_cdn_cache(get_js_css(urls))
 
     # 添加手机验证码
     @staticmethod

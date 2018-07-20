@@ -65,6 +65,10 @@ function request(method){
             url = '/new_web/test_fun';
             data = '';
             break;
+        case 'clear_all_cdn_cache':
+            url = '/new_web/clear_all_cdn_cache';
+            data = '';
+            break;
         case 'init_active':
             url = '/new_web/init_active';
             data = '';

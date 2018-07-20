@@ -33,6 +33,11 @@ def test_fun(request):
     return JsonResponse({'msg': '成功'})
 
 
+def clear_all_cdn_cache(request):
+    Common.clear_all_cdn_cache()
+    return JsonResponse({'msg': '成功'})
+
+
 def init_active(request):
     Common.init_active()
     return JsonResponse({'msg': '成功'})
@@ -81,7 +86,9 @@ def mn_login(request):
     cookies = Common.generate_cookies(uid)
     response = HttpResponse('')
     for key, value in cookies.items():
+        # response.set_cookie(key, value, domain='.huomaotv.com.cn', max_age=86400)
         response.set_cookie(key, value, domain='.huomaotv.com.cn', max_age=86400)
+    # response.set_cookie('user_frontloginstat', 1, domain='.huomaotv.com.cn', max_age=86400 * 7)
     response.set_cookie('user_frontloginstat', 1, domain='.huomaotv.com.cn', max_age=86400 * 7)
     return response
 

@@ -7,7 +7,10 @@ import time
 import requests
 import json
 import random
-from huomao.common import REDIS_INST
+from huomao.common import REDIS_INST,Common
+from huomao.channel import Channel
+from lxml import etree
+
 
 url = 'http://gate.huomaotv.com.cn:7173/1/push/room?rid=2'
 
@@ -278,7 +281,6 @@ gift_data = {
         }
     }
 }
-
 kt_data_4 = {
     "code": "800004",
     "time": "1526367178",
@@ -591,25 +593,10 @@ kt_data_7 = {
     }
 }
 
-
 def test_re(data):
     res = requests.post(url, json=data, timeout=1)
     print(res.json())
 
-
 def test():
-    for key in REDIS_INST.keys('*mobile_active_*'):
-        REDIS_INST.delete(key)
-
-
-
-# def test():
-#     test_re(kt_data_4)
-#     test_re(kt_data_7)
-#     test_re(kt_data_5)
-#     test_re(kt_data_6)
-#     test_re(kt_data_7)
-#     test_re(kt_data_4)
-#     test_re(kt_data_6)
-
+    test_re(join_data)
 

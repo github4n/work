@@ -10,7 +10,7 @@ import requests
 import time
 import logging
 import sys
-from .guess_case import gamble_case_lists, banker_case_lists
+from guess_case import gamble_case_lists, banker_case_lists
 from huomao.common import Common
 from huomao.money import MoneyClass
 from urllib import parse
@@ -33,11 +33,11 @@ ADMIN_COOKIES = {'huomaotvcheckcode': 'SQJ5', 'adminId': '33', 'adminAccount': '
 
 # 后台创建盘口
 def create(**kw):
-    Calculation()
+    # Calculation()
     data = {
         'guess_type': 'match',  # 竞猜类型,anchor:主播,match:赛事
-        'match_id_or_room_number': '3',  # 比赛ID/房间号
-        'play_type': 'gamble',  # 竞猜玩法,对赌:gamble,坐庄:banker
+        'match_id_or_room_number': '6473',  # 比赛ID/房间号
+        'play_type': 'banker',  # 竞猜玩法,对赌:gamble,坐庄:banker
         'title': '赛事竞猜测试',  # 竞猜标题
         'opt_type': '200001',  # 选项类型
         'opt_items': {
@@ -45,7 +45,7 @@ def create(**kw):
             2: '选项2'
         },
         'expire': str(int(time.time())),  # 竞猜封盘时间
-        'note': 'test' + str(int(time.time())),  # ??
+        'note': '',  # ??
     }
     for key, value in kw.items():
         data[key] = value
@@ -54,6 +54,7 @@ def create(**kw):
     try:
         ret = json.loads(ret)
         logging.info('开盘{},{}'.format(ret['period'], ret))
+        time.sleep(2)
         return ret['period']
     except:
         logging.error(ret)
@@ -85,7 +86,8 @@ def settlement(**kw):
             data[key] = kw.get(key)
     res = requests.post(ADMIN_URL + '/guessnew/settlement', data=data, cookies=ADMIN_COOKIES)
     logging.info('结算选项:{}结果:{}'.format(data['win_option'], res.json()))
-    Calculation()
+    # Calculation()
+    # time.sleep(20)
 
 
 # 更新状态
@@ -115,7 +117,7 @@ def bet(uid, **kw):
     for key, value in kw.items():
         data['bet'][0][key] = value
     post_data = Common.form_single_dict(data)
-    requests.post(URL + '/guessnew/betMore', data=post_data, cookies=Common.generate_cookies(uid))
+    requests.post(URL + '/guessnew/betMore?bet_room_number=1&refer=web', data=post_data, cookies=Common.generate_cookies(uid))
     # 轮询
     for i in range(30):
         ret = requests.get(URL + '/guessnew/bettingRes', cookies=Common.generate_cookies(uid)).text
@@ -144,16 +146,16 @@ def banker(uid, **kw):
         'period': '111111',  # 期号
         'opt_type': 200001,  # 选项类型 normal,normal_3,normal_4,normal_5,money_line,ball
         'coin_type': 'free_bean',  # 货币类型仙豆free_bean,猫豆cat_bean
-        'punter': 'banker',  # bet:普通下注,'banker':坐庄, 'buyer':买庄
+        # 'punter': 'banker',  # bet:普通下注,'banker':坐庄, 'buyer':买庄
         'banker_odds': 2,  # 赔率
         'chose': 1,  # 坐庄选项
         'amount': 1000,
-        'third_id': 0,
+        # 'third_id': 0,
     }
     for key, value in kw.items():
         data[key] = value
     post_data = Common.form_single_dict(data)
-    res = requests.post(URL + '/guessnew/banker', data=post_data, cookies=Common.generate_cookies(uid))
+    res = requests.post(URL + '/guessnew/banker?bet_room_number=2&refer=web', data=post_data, cookies=Common.generate_cookies(uid))
     try:
         res = res.json()
         res_info = '用户{}坐庄数据\n{}返回{}\n'.format(uid, data, res)
@@ -248,7 +250,7 @@ class TestGuessBanker(unittest.TestCase):
     @parameterized.expand(banker_case_lists, name_func=new_name_func)
     def test(self, *args):
         name = self._testMethodName
-        for res in [1, 2, -1, -2]:
+        for res in [1, 2, -1, -2]:  # , 1,2, -1, -2
             logging.info('用例:{}结算选项{}开始'.format(name, res) + '*' * 80)
             # 开盘
             period = create(guess_type='match', play_type='banker')
@@ -374,16 +376,41 @@ class TestGuessStatus(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    # for i in range(58,73):
+    #     settlement(period='20180720{}'.format(i))
+    # exit()
+    # 总局
+    # create(opt_type='200001', title='谁能获得比赛胜利', note='')
+    # create(opt_type='200002', title='若主队[1]，谁能获得胜利', note='1')
+    # create(opt_type='200002', title='若主队[1]，谁能获得胜利', note='1')
+    # create(opt_type='200003', title='总场次局数大于或小于[1]', note='1')
+    #for i in range(1, 8):
+        # create(opt_type='{}0200001'.format(i),title='第{}局：谁能获得胜利'.format(i),note='')
+        # create(opt_type='{}0200003'.format(i),title='第{}局：大于或小于[{}]'.format(i,i),note='{}'.format(i))
+        # create(opt_type='{}0200004'.format(i),title='第{}局：谁能获得第一滴血'.format(i),note='')
+        # create(opt_type='{}0200005'.format(i), title='第{}局：谁能率先{}杀'.format(i, i), note='{}'.format(i))
+        # create(opt_type='{}0200006'.format(i), title='第{}局：若主队击杀[{}]，谁能击杀更多'.format(i, i), note='{}'.format(i))
+        # create(opt_type='{}0200007'.format(i), title='第{}局：总击杀数大于或小于[{}]'.format(i, i), note='{}'.format(i))
+        #create(opt_type='{}0200008'.format(i), title='第{}局：若主队回合让分[{}],谁能获得胜利'.format(i, i), note='{}'.format(i))
+        # create(opt_type='{}0200009'.format(i), title='第{}局：若总回合数大于或小于[{}]'.format(i, i), note='{}'.format(i))
+
+
+
     # 执行文件下所有用例
     # unittest.main()
     # 执行指定类下的所有用例
     # suite = unittest.TestSuite(unittest.makeSuite(TestGuessBanker))
     # 执行单个用例
-    suite = unittest.TestSuite()
-    suite.addTest(TestGuessStatus('test_5'))
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
-
+    # suite = unittest.TestSuite()
+    # suite.addTest(TestGuessBanker('test_1'))
+    # runner = unittest.TextTestRunner()
+    # runner.run(suite)
+    banker(1522, period=2018072073, opt_type=200001, coin_type='free_bean', banker_odds=3.1, chose=1, amount=10000)
+    # bet(1522, period=20180718123, opt_type=200001, coin_type='free_bean', punter='buyer',
+    #     chose={  # 下注选项
+    #         0: {'chose': 1, 'amount': 2000, 'now_odds': 2.3},
+    #         # 1: {'chose': 1, 'amount': 100, 'now_odds': 0},
+    #     })
     # test_dir = './'
     # discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')
     # for i in discover:

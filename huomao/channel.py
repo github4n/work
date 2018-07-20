@@ -37,6 +37,7 @@ class Channel():
             res = requests.post(ADMIN_URL_ONLINE + '/channel/getChannelList', data={'keyWord': 'roomNum', 'keyContent': room_xs, 'page': 1},
                                 cookies=ADMIN_COOKIES)
             stream = etree.HTML(res.text).xpath('//*[@id="matchTable"]/tr[2]/td[2]')[0].text
+            stream = stream.split('?')[0] #后台改了
             # 更新表
             HmChannel.update(stream=stream).where(HmChannel.room_number == room_xx).execute()
             # 获取主播uid

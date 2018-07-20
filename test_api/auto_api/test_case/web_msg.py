@@ -175,7 +175,7 @@ class TestMsg(unittest.TestCase):
     #     self.user = superuid
 
     '''业务-彩色弹幕逻辑'''
-
+    @unittest.skip('从库同步问题')
     def test_13(self):
         '''业务-彩色弹幕'''
         self.exp_res = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}

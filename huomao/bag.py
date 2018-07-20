@@ -20,7 +20,7 @@ class Bag():
         bag = kw.get('bag', 100001)
         UserBag.create(uid=uid, get_way='admin_33', bag=bag, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
         # 线下从库有延迟
-        time.sleep(15)
+        time.sleep(20)
         return
 
     # 获取弹幕卡

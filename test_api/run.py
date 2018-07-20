@@ -11,7 +11,7 @@ from auto_api.lib import HTMLTestRunner
 from auto_api.lib.lib import report_data
 
 # from auto_api.test_case.web_noble import TestNoble
-# from auto_api.test_case.web_gift import TestGift
+from auto_api.test_case.web_gift import TestGift
 from auto_api.test_case.web_msg import TestMsg
 # from auto_api.test_case.web import TestAdmin
 # from auto_api.test_case.web import TestWeb
