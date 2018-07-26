@@ -6,10 +6,10 @@
 import json
 from  urllib import parse
 import requests
-import logging
 from huomao.common import Common
 from huomao.config import ADMIN_COOKIES
-from .config import domain_web, domain_api, domain_admin, report_data
+from .config import domain_web, domain_api, domain_admin, report_data,logger_test_api
+
 
 
 # 比较dict
@@ -53,7 +53,7 @@ def req(self):
         domain = getattr(self, 'domain', domain_web)
 
     self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)])
-    logging.info('请求数据:{}\n请求url:{}'.format(self.data, self.resquest_url))
+    logger_test_api.info('请求数据:{}\n请求url:{}'.format(self.data, self.resquest_url))
 
     # 判断请求方式
     headers = {'X-Requested-With': 'XMLHttpRequest'}
@@ -75,20 +75,20 @@ def req(self):
     result = assert_dict_in(self.exp_res, real_res) and res.status_code == 200
 
     if result:
-        logging.info('{}验证成功'.format(self._testMethodName))
+        logger_test_api.info('{}验证成功'.format(self._testMethodName))
         if not hasattr(self, 'ver'):
             report_data['test_success'] += 1
         elif hasattr(self, 'ver') and self.ver():
             report_data['test_success'] += 1
-            logging.info('{}二次验证成功'.format(self._testMethodName))
+            logger_test_api.info('{}二次验证成功'.format(self._testMethodName))
         else:
             report_data['test_failed'] += 1
-            logging.error('{}二次验证失败'.format(self._testMethodName))
+            logger_test_api.error('{}二次验证失败'.format(self._testMethodName))
             self.assertTrue(False, '二次验证失败')
     else:
         report_data['test_failed'] += 1
         self.info = '用例{},失败\n预期:{}\n实际:{}\n实际json:{}'.format(self._testMethodName, self.exp_res, real_res, json.dumps(real_res))
-        logging.error(self.info)
+        logger_test_api.error(self.info)
         self.assertFalse(self.info)
 
         # 把结果添加到报告list中
@@ -125,7 +125,7 @@ def request(self):
 
     self.resquest_url = domain + url + '?' + parse.urlencode(data)
 
-    logging.info('请求数据:{}\n{}'.format(data, self.resquest_url))
+    logger_test_api.info('请求数据:{}\n{}'.format(data, self.resquest_url))
 
     # 判断请求方式
     headers = {'X-Requested-With': 'XMLHttpRequest'}
@@ -135,7 +135,7 @@ def request(self):
         print(data)
         res = requests.post(domain + url, data=data, cookies=cookies, headers=headers)
     else:
-        logging.error('请求方式BUG')
+        logger_test_api.error('请求方式BUG')
     try:
         real_res = res.json()
     except Exception:
@@ -143,7 +143,7 @@ def request(self):
             real_res = json.loads(res.text[1:-1])
         except Exception:
             real_res = res.text
-    # logging.debug('数据准备{}'.format(real_res))
+    # logger_test_api.debug('数据准备{}'.format(real_res))
     return [real_res, url, method, name, str(data)]
 
 
@@ -154,27 +154,27 @@ def assert_res(self):
     # 实际结果判断方式
     res = request(self)
     real_res = res[0]
-    # logging.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
+    # logger_test_api.debug('预期:{}\t实际:{}\t数据:{}'.format(exp_res, real_res, res[4]))
     # 判断请求结果是否包含预期结果
     try:
         cmp_dict(exp_res, real_res)
         report_data['test_success'] += 1
         result = True
         bz = ''
-        logging.info('{}验证成功'.format(self._testMethodName))
+        logger_test_api.info('{}验证成功'.format(self._testMethodName))
     except Exception as e:
         result = False
         bz = str(e)
         report_data['test_failed'] += 1
         self.info = '用例{},失败:{}\n\n预期:{}\n\n实际:{}\n\n实际json:{}'.format(self.des, e, exp_res, real_res, json.dumps(real_res))
-        # logging.error(self.info)
+        # logger_test_api.error(self.info)
         self.assertTrue(False, self.info)
     if result and hasattr(self, 'ver'):
         if self.ver():
-            logging.info('二次验证成功')
+            logger_test_api.info('二次验证成功')
         else:
             result = '二次验证失败'
-            logging.error('二次验证失败')
+            logger_test_api.error('二次验证失败')
             self.assertTrue(False, '二次验证失败')
     # 把结果添加到报告list中
     res = {"case_id": self._testMethodName,
@@ -318,9 +318,9 @@ def generate_report():
 #             url = interface_data['url']
 #             method = interface_data['method']
 #             num = int(interface_data['num'])
-#             logging.debug('接口参数{}'.format(interface_data))
+#             logger_test_api.debug('接口参数{}'.format(interface_data))
 #         except Exception as e:
-#             logging.error('接口参数读取错误:{}'.format(e))
+#             logger_test_api.error('接口参数读取错误:{}'.format(e))
 #             return False
 #         # 请求数据
 #         datas = []
@@ -337,7 +337,7 @@ def generate_report():
 #                 try:
 #                     exp_res = json.loads(sheet.cell(row=row, column=num + 5).value)
 #                 except Exception as e:
-#                     logging.error('预期结果读取错误:行数{}'.format(row))
+#                     logger_test_api.error('预期结果读取错误:行数{}'.format(row))
 #                     return False
 #                 # 请求数据
 #                 data = {}
@@ -345,7 +345,7 @@ def generate_report():
 #                     # 第二行参数：第i行。第五个列数开始循环
 #                     data[sheet.cell(row=2, column=5 + i).value] = sheet.cell(row=row, column=5 + i).value if sheet.cell(row=row, column=5 + i).value else ''
 #                 datas.append((caseid, casedes, name, url, method, user, data, exp_res))
-#         logging.debug('{}用例数据:{}'.format(sheet.title, json.dumps(datas)))
+#         logger_test_api.debug('{}用例数据:{}'.format(sheet.title, json.dumps(datas)))
 #         datadict[sheet.title] = datas
-#     logging.debug('全部用例数据:{}'.format(json.dumps(datadict)))
+#     logger_test_api.debug('全部用例数据:{}'.format(json.dumps(datadict)))
 #     return datadict

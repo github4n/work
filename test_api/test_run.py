@@ -40,6 +40,6 @@ def run_all():
 suite = unittest.TestSuite()
 # for i in range(1,165):
 #     suite.addTest(TestNoble('test_{}'.format(i)))
-suite.addTest(TestMsg('test_13'))
+suite.addTest(TestMsg('test_12'))
 runner = unittest.TextTestRunner()
 runner.run(suite)

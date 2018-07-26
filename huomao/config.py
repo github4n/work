@@ -8,40 +8,38 @@ import time
 import calendar
 import logging
 
-
 # 获取文件的当前路径（绝对路径）
-huomao_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-# 获取config.ini的路径
+huomao_path = os.path.dirname(os.path.realpath(__file__))
 log_path = os.path.join(huomao_path, 'huomao.log')
 # logging 配置
-logging.basicConfig(format='%(asctime)s %(filename)10s [line:%(lineno)5d]  %(levelname)s %(message)s',
-                    datefmt='%Y/%m/%d %I:%M:%S %p',
-                    level=logging.DEBUG,
-                    filename=log_path,
-                    filemode='a')
+# logging.basicConfig(format='%(asctime)s %(filename)10s [line:%(lineno)5d]  %(levelname)s %(message)s',
+#                     datefmt='%Y/%m/%d %I:%M:%S %p',
+#                     level=logging.DEBUG,
+#                     filename=log_path,
+#                     filemode='a')
 # 创建流处理器
 # handler = logging.StreamHandler()
 # handler.setLevel(logging.DEBUG)
 
-# set FileHandler
-# handler = logging.FileHandler("huomao.log")
-# handler.setLevel(logging.DEBUG)
+# 创建文件处理器
+handler = logging.FileHandler(log_path)
 
 # 创建formatter
-# formatter = logging.Formatter('%(asctime)s %(filename)10s [line:%(lineno)5d] %(name)10s %(levelname)s %(message)s')
+formatter = logging.Formatter('%(asctime)s %(filename)10s [line:%(lineno)5d] %(name)10s %(levelname)s %(message)s')
 # Formatter绑定在Handler上
-# handler.setFormatter(formatter)
+handler.setFormatter(formatter)
+handler.setLevel(logging.DEBUG)
 
 # 创建logger记录器实例
-# logger_huomao = logging.getLogger('huomao')
-# logger_huomao.setLevel(logging.DEBUG)
+logger_huomao = logging.getLogger('huomao')
+logger_huomao.setLevel(logging.DEBUG)
 # Handler绑定在logger上
-# logger_huomao.addHandler(handler)
+logger_huomao.addHandler(handler)
 
 # 获取peewee日志
-# logger_peewee = logging.getLogger('peewee')
-# logger_peewee.setLevel(logging.DEBUG)
-# logger_peewee.addHandler(handler)
+logger_peewee = logging.getLogger('peewee')
+logger_peewee.setLevel(logging.DEBUG)
+logger_peewee.addHandler(handler)
 
 # 数据库配置
 DB_CONFIG = {'host': '10.10.23.15', 'user': 'huomao', 'password': 'huomao', 'port': 3306}

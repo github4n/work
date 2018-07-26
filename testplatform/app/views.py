@@ -143,7 +143,7 @@ def download(request):
     file_name = request.GET['name']
 
     def file_iterator(file_name, chunk_size=512):
-        file_name = '/home/lucky/share/django/project/app/files/' + file_name
+        file_name = '/home/lucky/share/django/testplatform/app/files/' + file_name
         with open(file_name, 'rb') as f:
             while True:
                 c = f.read(chunk_size)

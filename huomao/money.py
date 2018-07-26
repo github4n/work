@@ -9,9 +9,8 @@ from .db.money import Money
 from .db.noble_coin import NobleCoin
 from .common import REDIS_INST
 from .db.money import MoneyPay, MoneyChannelIncome
-from .config import mon_last_time,mon_first_time
+from .config import mon_last_time,mon_first_time,logger_huomao
 from peewee import fn
-import logging
 
 
 
@@ -54,7 +53,9 @@ class MoneyClass():
     @staticmethod
     def get_money(uid):
         money = Money.select().where(Money.uid == uid).first()
-        return {'coin': money.coin, 'bean': money.bean}
+        ret = {'coin': money.coin, 'bean': money.bean}
+        logger_huomao.info(ret)
+        return ret
 
     # 获取用户贵族余额
     @staticmethod

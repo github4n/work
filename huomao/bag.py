@@ -4,9 +4,9 @@
 # Author : lixingyun
 # Description :
 import time
-import logging
 from peewee import fn
 from .db.user_bag import UserBag
+from .config import logger_huomao
 
 
 class Bag():
@@ -15,20 +15,22 @@ class Bag():
     def add_bag(uid, **kw):
         t = int(time.time())
         add_time = kw.get('add_time', t)
-        expire_time = kw.get('expire_time', t + 10000)
+        expire_time = kw.get('expire_time', t + 100000)
         num = kw.get('num', 1)
         bag = kw.get('bag', 100001)
         UserBag.create(uid=uid, get_way='admin_33', bag=bag, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
+        time.sleep(10)
         # 线下从库有延迟
-        time.sleep(20)
         return
 
     # 获取弹幕卡
     @staticmethod
     def get_dmk(uid):
-        u = UserBag.select(fn.Sum(UserBag.num).alias('nums')).where((UserBag.uid == uid) & (UserBag.bag == 100001)).first()
-        print(u.nums)
-        return u.nums
+        # u = UserBag.select(fn.Sum(UserBag.num).alias('nums')).where((UserBag.uid == uid) & (UserBag.bag == 100001)).first()
+        u = UserBag.raw('/*master*/select sum(num) as nums from user_bag where uid = {} and bag_id=100001'.format(uid)).execute()
+        ret = u.cursor._rows[0][0]
+        logger_huomao.info('{}弹幕卡数量{}'.format(uid, ret))
+        return ret
 
     # 获取用户特定时间弹幕卡数量
     @staticmethod

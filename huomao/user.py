@@ -7,12 +7,11 @@ import json
 import configparser
 import os
 import time
-import logging
 import requests
 from lxml import etree
 from .db.user import Userbase, Userinfo, Mobile, UserName, Uid,MemberBadge
 from .common import REDIS_INST, Common
-from .config import URL, ADMIN_URL, ADMIN_COOKIES
+from .config import URL, ADMIN_URL, ADMIN_COOKIES,logger_huomao
 from .db.contents import HmChannel
 from .db.noble import HmNobleRecord, HmNobleUser, HmNobleInfo
 from .db.contents import HmGag, HmLoveliness
@@ -31,7 +30,7 @@ class User():
     # 注册用户返回uid,或登录返回uid
     @staticmethod
     def register(username):
-        logging.info('注册用户名:{}'.format(username))
+        logger_huomao.info('注册用户名:{}'.format(username))
         # 默认密码1
         password = Common.md5('1')
         img = ''
@@ -40,7 +39,7 @@ class User():
         # 验证用户名是否存在
         key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(username))
         if REDIS_INST.get(key_username) or UserName.select().where(UserName.username == username).first():
-            logging.info('{}'.format(ret))
+            logger_huomao.info('{}'.format(ret))
             return ret
         # 创建uid
         uid = Uid().create().id
@@ -66,7 +65,7 @@ class User():
         for key, value in data.items():
             data[key] = json.dumps(value)
         REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
-        logging.info('注册UID:{}'.format(uid))
+        logger_huomao.info('注册UID:{}'.format(uid))
         return {'code': 100, 'status': True, 'msg': '成功\tuid:{}密码:1'.format(uid), 'uid': str(uid)}
 
     # 按序注册用户返回uid
@@ -228,7 +227,7 @@ class User():
         for key, value in kw.items():
             data[key] = value
         ret = requests.get(URL + '/noble/createNoble', params=data, cookies=Common.generate_cookies(uid)).text
-        logging.info(ret)
+        logger_huomao.info(ret)
         return ret
 
     # 查询开通贵族收益

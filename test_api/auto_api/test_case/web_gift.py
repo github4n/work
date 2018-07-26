@@ -9,9 +9,8 @@
 4.
 '''
 import unittest
-import logging
 from ..lib.lib import req
-from ..lib.config import UID
+from ..lib.config import UID,logger_test_api
 from huomao.user import User
 from huomao.money import MoneyClass
 
@@ -37,7 +36,7 @@ class TestGift(unittest.TestCase):
     # 创建用户
     def create_user(self):
         uid = User.reg('noble')
-        logging.info('注册用户UID：{}'.format(uid))
+        logger_test_api.info('注册用户UID：{}'.format(uid))
         User.bd_sj(uid)
         return uid
 

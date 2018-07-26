@@ -12,12 +12,11 @@ import requests
 import paramiko
 import redis
 import json
-import logging
 from lxml import etree
 from urllib import parse
 
 from .db.contents import HmGag
-from .config import URL, REDIS_CONFIG, REDIS_CONFIG2,ADMIN_COOKIES, ADMIN_COOKIES_ONLINE
+from .config import URL, REDIS_CONFIG, REDIS_CONFIG2,ADMIN_COOKIES, ADMIN_COOKIES_ONLINE,logger_huomao
 
 # redis连接
 REDIS_INST = redis.Redis(**REDIS_CONFIG, db=0, decode_responses=True)
@@ -72,7 +71,8 @@ class Common():
     @staticmethod
     def form_single_dict(data, key='', ret={}):
         if isinstance(data, dict):
-            for key1, value1 in data.items():
+            for key1 in sorted(data.keys()):
+                value1 = data.get(key1)
                 key1s = str(key) + '[' + str(key1) + ']' if key else str(key1)
                 if isinstance(value1, dict):
                     Common.form_single_dict(value1, key1s)
@@ -167,11 +167,11 @@ class Common():
         if status == -1:
             data = dict(cid=cid, uid=ban_uid, user_uid=uid, gag_type='24', text='测试')
             res = requests.get(URL + '/myroom/addUserGag', params=data, cookies=Common.generate_cookies(ban_uid))
-            logging.info(res.json())
+            logger_huomao.info(res.json())
         else:
             data = dict(cid=cid, uid=uid, status=status, nickname='测试', text='测试')
             res = requests.get(URL + '/myroom/setCommChannelGag', params=data, cookies=Common.generate_cookies(ban_uid))
-            logging.info(res.json())
+            logger_huomao.info(res.json())
 
     # 初始化用户,房间禁言数据
     @staticmethod

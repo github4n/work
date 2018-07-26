@@ -24,7 +24,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">测试平台</a>
             </div>
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav ">
                 <li><a href="http://10.10.23.14:6677/release/" target="_blank"><u>发布系统</u></a></li>
                 <li><a href="http://wiki.huomaotv.com.cn" target="_blank"><u>火猫WIKI</u></a></li>
                 <li><a href="http://yfb2.huomaotv.com.cn/release.html" target="_blank"><u>预发布2发布地址</u></a></li>
@@ -32,7 +32,9 @@
                 <li><a href="http://redmine.marstv.com:3000/projects/test/issues" target="_blank"><u>redmine地址</u></a></li>
                 <li><a href="https://www.yunpian.com/component/login" target="_blank"><u>云片网</u></a></li>
                 <li><a href="/chatroom?cid=2" target="_blank"><u>接收聊天消息测试 </u><span class="label label-danger">NEW!</span></a></li>
+                <li><a href="javascript:void(0);" id="user_uid"></a></li>
             </ul>
+
         </div>
     </nav>
 
@@ -251,14 +253,16 @@
                     </form>
                 </div>
             </div>
-                        <div class="panel panel-primary">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">测试专用</h3>
                 </div>
                 <div class="panel-body">
                     <form id="test_fun_form" role="form">
-                        <button type="button" class="btn btn-default" onclick="request('clear_all_cdn_cache')">清除线上所有js,css缓存 <span class="label label-danger">！</span></button>
+                        <button type="button" class="btn btn-default" onclick="request('clear_all_cdn_cache')">清除线上所有js,css缓存 <span
+                                class="label label-danger">！</span></button>
                         <button type="button" class="btn btn-default" onclick="request('test_fun')">TEST</button>
+                        <button type="button" class="btn btn-default" id='test'>TEST2</button>
                     </form>
                 </div>
             </div>

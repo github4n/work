@@ -24,7 +24,23 @@ report_data = {'report_res': [],
                'test_success': 0,
                'test_failed': 0,
                'test_date': time.strftime("%Y-%m-%d %X", time.localtime())}
-#
-# logger_test_api = logging.getLogger('huomao.test_api')
-# logger_test_api.setLevel(logging.INFO)
 
+# 获取文件的当前路径（绝对路径）
+huomao_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+log_path = os.path.join(huomao_path, 'test_api.log')
+
+# 创建文件处理器
+handler = logging.FileHandler(log_path)
+
+# 创建formatter
+formatter = logging.Formatter('%(asctime)s %(filename)10s [line:%(lineno)5d] %(name)10s %(levelname)s %(message)s')
+# Formatter绑定在Handler上
+handler.setFormatter(formatter)
+handler.setLevel(logging.DEBUG)
+
+# 创建logger记录器实例
+logger_test_api = logging.getLogger('test_api')
+logger_test_api.setLevel(logging.INFO)
+
+# Handler绑定在logger上
+logger_test_api.addHandler(handler)

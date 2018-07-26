@@ -109,7 +109,6 @@ function request(method){
     });
 
 }
-
-
-
-
+uid = $.cookie('user_e100fe70f5705b56db66da43c140237c');
+$('.uid').val(uid);
+$('#user_uid').html('当前登录UID:'+uid);

@@ -376,25 +376,31 @@ class TestGuessStatus(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # for i in range(58,73):
-    #     settlement(period='20180720{}'.format(i))
+    # for i in range(243,302):
+        # period = '20180720{}'.format(i)
+        # settlement(period=period)
     # exit()
     # 总局
     # create(opt_type='200001', title='谁能获得比赛胜利', note='')
-    # create(opt_type='200002', title='若主队[1]，谁能获得胜利', note='1')
-    # create(opt_type='200002', title='若主队[1]，谁能获得胜利', note='1')
+    # create(opt_type='200002', title='若主队[+1]，谁能获得胜利', note='+1')
     # create(opt_type='200003', title='总场次局数大于或小于[1]', note='1')
-    #for i in range(1, 8):
-        # create(opt_type='{}0200001'.format(i),title='第{}局：谁能获得胜利'.format(i),note='')
-        # create(opt_type='{}0200003'.format(i),title='第{}局：大于或小于[{}]'.format(i,i),note='{}'.format(i))
-        # create(opt_type='{}0200004'.format(i),title='第{}局：谁能获得第一滴血'.format(i),note='')
-        # create(opt_type='{}0200005'.format(i), title='第{}局：谁能率先{}杀'.format(i, i), note='{}'.format(i))
-        # create(opt_type='{}0200006'.format(i), title='第{}局：若主队击杀[{}]，谁能击杀更多'.format(i, i), note='{}'.format(i))
-        # create(opt_type='{}0200007'.format(i), title='第{}局：总击杀数大于或小于[{}]'.format(i, i), note='{}'.format(i))
-        #create(opt_type='{}0200008'.format(i), title='第{}局：若主队回合让分[{}],谁能获得胜利'.format(i, i), note='{}'.format(i))
-        # create(opt_type='{}0200009'.format(i), title='第{}局：若总回合数大于或小于[{}]'.format(i, i), note='{}'.format(i))
+    # for i in range(1, 8):
+    #     create(opt_type='{}0200001'.format(i),title='第{}局：谁能获得胜利'.format(i),note='')
+    #     create(opt_type='{}0200003'.format(i),title='第{}局：大于或小于[{}]'.format(i,i),note='{}'.format(i))
+    #     create(opt_type='{}0200004'.format(i),title='第{}局：谁能获得第一滴血'.format(i),note='')
+    #     create(opt_type='{}0200005'.format(i), title='第{}局：谁能率先{}杀'.format(i, i), note='{}'.format(i))
+    #     create(opt_type='{}0200006'.format(i), title='第{}局：若主队击杀[+{}]，谁能击杀更多'.format(i, i), note='+{}'.format(i))
+    #     create(opt_type='{}0200007'.format(i), title='第{}局：总击杀数大于或小于[{}]'.format(i, i), note='{}'.format(i))
+    #     create(opt_type='{}0200008'.format(i), title='第{}局：若主队回合让分[+{}],谁能获得胜利'.format(i, i), note='+{}'.format(i))
+    #     create(opt_type='{}0200009'.format(i), title='第{}局：若总回合数大于或小于[{}]'.format(i, i), note='{}'.format(i))
 
-
+    banker(1522, period=20180720303, opt_type=200001, coin_type='free_bean', banker_odds=3.4, chose=1, amount=500000)
+    banker(1522, period=20180720303, opt_type=200001, coin_type='free_bean', banker_odds=3.4, chose=2, amount=10000)
+    # bet(1522, period=20180720305, opt_type=200001, coin_type='free_bean', punter='buyer',
+    #     chose={  # 下注选项
+    #         0: {'chose': 1, 'amount': 3000, 'now_odds': 3.47},
+    #         # 1: {'chose': 1, 'amount': 100, 'now_odds': 0},
+    #     })
 
     # 执行文件下所有用例
     # unittest.main()
@@ -405,12 +411,7 @@ if __name__ == '__main__':
     # suite.addTest(TestGuessBanker('test_1'))
     # runner = unittest.TextTestRunner()
     # runner.run(suite)
-    banker(1522, period=2018072073, opt_type=200001, coin_type='free_bean', banker_odds=3.1, chose=1, amount=10000)
-    # bet(1522, period=20180718123, opt_type=200001, coin_type='free_bean', punter='buyer',
-    #     chose={  # 下注选项
-    #         0: {'chose': 1, 'amount': 2000, 'now_odds': 2.3},
-    #         # 1: {'chose': 1, 'amount': 100, 'now_odds': 0},
-    #     })
+
     # test_dir = './'
     # discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')
     # for i in discover:

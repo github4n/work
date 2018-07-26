@@ -5,9 +5,8 @@
 # @notice  :
 import unittest
 import time
-import logging
 from ..lib.lib import req
-from ..lib.config import UID
+from ..lib.config import UID,logger_test_api
 from huomao.user import User
 from huomao.common import Common, REDIS_INST
 from huomao.bag import Bag
@@ -60,7 +59,7 @@ class TestMsg(unittest.TestCase):
     # 创建用户
     def create_user(self, phone=True):
         uid = User.reg('noble')
-        logging.info('注册用户UID：{}'.format(uid))
+        logger_test_api.info('注册用户UID：{}'.format(uid))
         if phone:
             User.bd_sj(uid)
         return uid
@@ -175,7 +174,7 @@ class TestMsg(unittest.TestCase):
     #     self.user = superuid
 
     '''业务-彩色弹幕逻辑'''
-    @unittest.skip('从库同步问题')
+    @unittest.skip('主从同步20s太坑')
     def test_13(self):
         '''业务-彩色弹幕'''
         self.exp_res = {'code': 200, 'data': {'barrage': {'type': '300', 'color': '#e24040', 'num': '0', 'msg': '测试弹幕'}}}
@@ -184,9 +183,9 @@ class TestMsg(unittest.TestCase):
         Bag.add_bag(self.user)
         MoneyClass.set_money(self.user, 10)
         self.data['color_barrage'] = 1
+
         # 二次验证函数
         self.ver = lambda: Bag.get_dmk(self.user) == 0 and MoneyClass.get_money(self.user)['coin'] == 10
-
 
     # def test_msg_14(self):
     #     '''弹幕卡足，余额不足时，发言彩色弹幕'''
@@ -207,6 +206,7 @@ class TestMsg(unittest.TestCase):
         MoneyClass.set_money(self.user, 1)
         # 二次验证函数
         self.ver = lambda: MoneyClass.get_money(self.user)['coin'] == 0
+
     #
     # def test_msg_16(self):
     #     '''弹幕卡不足，余额不足时，发言彩色弹幕'''
