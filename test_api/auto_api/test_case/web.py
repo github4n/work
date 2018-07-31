@@ -17,7 +17,7 @@ def new_name_func(func, num, p):
     return func.__name__ + '_' + str(num + 1)
 
 
-cases = [
+cases_web = [
     # 首页
     ('/plugs/getCacheTime', dict(code='100')),
     ('/user/checkUserLoginStat', dict(code='100')),
@@ -38,9 +38,10 @@ cases = [
 ]
 
 
+
 class TestWeb(unittest.TestCase):
-    @parameterized.expand(cases, name_func=new_name_func)
-    def test(self, *args):
+    @parameterized.expand(cases_web, name_func=new_name_func)
+    def test_web(self, *args):
         # 接口信息
         self.domain = 'http://www.huomao.com'
         self.name = 'WEB'
@@ -52,8 +53,6 @@ class TestWeb(unittest.TestCase):
         self.data = dict()
         self.exp_res = args[1]
         req(self)
-
-
 
 
 class TestAdmin(unittest.TestCase):

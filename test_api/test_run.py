@@ -14,8 +14,9 @@ from auto_api.lib.lib import report_data
 # from auto_api.test_case.web_gift import TestGift
 from auto_api.test_case.web_msg import TestMsg
 # from auto_api.test_case.web import TestWeb
-# from auto_api.test_case.web import TestAdmin
+from auto_api.test_case.web import TestAdmin
 # from auto_api.test_case.web import TestApi
+# from auto_api.test_case.web_noble import TestNoble
 
 
 def run_all():
@@ -30,16 +31,17 @@ def run_all():
     report_data.get('test_failed') == 0 and print(0)
 
 # run_all()
-
+# exit()
 # 执行单个class
 # suite = unittest.makeSuite(TestWeb)
 # print(dir(suite))
 # print(suite._tests)
 
 # 执行单个类单个用例  #test_1_4
-suite = unittest.TestSuite()
+
 # for i in range(1,165):
 #     suite.addTest(TestNoble('test_{}'.format(i)))
-suite.addTest(TestMsg('test_12'))
+suite = unittest.TestSuite()
+suite.addTest(TestMsg('test_13'))
 runner = unittest.TextTestRunner()
 runner.run(suite)

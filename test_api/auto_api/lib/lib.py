@@ -52,8 +52,8 @@ def req(self):
         cookies = Common.generate_cookies(self.user)
         domain = getattr(self, 'domain', domain_web)
 
-    self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)])
-    logger_test_api.info('请求数据:{}\n请求url:{}'.format(self.data, self.resquest_url))
+    self.resquest_url = ''.join([domain, self.url, '?', parse.urlencode(self.data)] if parse.urlencode(self.data) else [domain, self.url])
+    logger_test_api.info('请求数据:{}请求url:{}'.format(self.data, self.resquest_url))
 
     # 判断请求方式
     headers = {'X-Requested-With': 'XMLHttpRequest'}

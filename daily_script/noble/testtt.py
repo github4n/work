@@ -26,7 +26,7 @@ from huomao.common import REDIS_INST,Common
 # MoneyClass.set_money(uid, 150000)
 # Bag.add_bag(uid,bag=90001)
 # User.create_noble(uid, level=4, month=1,cid=2)
-User.set_noble_expire(31057, 8)
+User.set_noble_expire(32210, 5)
 
 
 #

@@ -40,7 +40,7 @@ handler.setLevel(logging.DEBUG)
 
 # 创建logger记录器实例
 logger_test_api = logging.getLogger('test_api')
-logger_test_api.setLevel(logging.INFO)
+logger_test_api.setLevel(logging.DEBUG)
 
 # Handler绑定在logger上
 logger_test_api.addHandler(handler)
