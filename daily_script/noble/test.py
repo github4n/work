@@ -18,7 +18,7 @@ cid = '13'
 rid ='13'
 url = 'http://gate.huomaotv.com.cn:7173/1/push/room?rid='+cid
 
-nick_name = "t1stnoble{}nc".format(random.randint(1, 10000))
+nick_name = f"t1stnoble{random.randint(1, 10000)}nc"
 join_data = {
     "platform":"1",
     "join":{
@@ -155,7 +155,7 @@ msg_data = {
         },
         "barrage": {
             "type": "600",
-            "msg": "testmsg{}".format(random.randint(1, 10000)),
+            "msg": f"testmsg{random.randint(1, 10000)}",
             "color": "",
             "num": "0"
         }

@@ -21,7 +21,7 @@ from auto_api.test_case.web import TestAdmin
 def run_all():
     # 获取文件的当前路径（绝对路径）
     cur_path = os.path.dirname(os.path.realpath(__file__))
-    filename = cur_path + '/result/{}.html'.format(datetime.datetime.now().strftime('%b_%d_%Y_%H_%M_%S'))
+    filename = cur_path + f"/result/{datetime.datetime.now().strftime('%b_%d_%Y_%H_%M_%S')}.html"
     fp = open(filename, "wb")
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp)
     # runner = unittest.TextTestRunner()

@@ -14,7 +14,7 @@ from lxml import etree
 
 url = 'http://gate.huomaotv.com.cn:7173/1/push/room?rid=2'
 
-nick_name = "t1stnoble{}nc".format(random.randint(1, 10000))
+nick_name = f"t1stnoble{random.randint(1, 10000)}nc"
 join_data = {
     "code": "400011",
     "time": "1525948661",
@@ -150,7 +150,7 @@ msg_data = {
         },
         "barrage": {
             "type": "600",
-            "msg": "testmsg{}".format(random.randint(1, 10000)),
+            "msg": f"testmsg{random.randint(1, 10000)}",
             "color": "",
             "num": "0"
         }

@@ -2,13 +2,13 @@ from locust import HttpLocust, TaskSet, task
 import time
 import hashlib
 
-cid = 1001
-cuid = anchor_id = '92468'
-domian = 'http://tt.new.huomaotv.com.cn'
+cid = 3642
+cuid = anchor_id = '357855'
+domian = 'http://www.huomao.com'
 
 
 urls_get = [
-    '/zt/ceshi',
+    '/zt/lucky',
     '/noble/getNoble',
     '/plugs/getCacheTime',
     '/user/checkUserLoginStat',
@@ -16,31 +16,31 @@ urls_get = [
     '/money/getUserMoney',
     '/member/retUserLVinfo',
     '/abcde/abcde.json?cur_page=web_channellist&cid=0&gid=0&labelID=0&cache_time=1532498424',
-    '/ajax/checkAnchor?cid={}'.format(cid),
-    '/getRoomInfo?cuid={}'.format(cuid),
-    '/channels/getChannelAsyncInfoByCIDS?channel_ids={}&met=getLiveViews'.format(cid),
-    '/subscribe/checkUserSubByCID?channel_id={}&channel_uid=92468&r=0.6584665426116061'.format(cid),
+    f'/ajax/checkAnchor?cid={cid}',
+    f'/getRoomInfo?cuid={cuid}',
+    f'/channels/getChannelAsyncInfoByCIDS?channel_ids={cid}&met=getLiveViews',
+    f'/subscribe/checkUserSubByCID?channel_id={cid}&channel_uid=92468&r=0.6584665426116061',
     '/active/winner_notes',
-    '/ajax/getNewGift?cid={}&cache_time=1532498442&face_label=0'.format(cid),
-    '/ajax/get_outdoor?cid={}'.format(cid),
+    f'/ajax/getNewGift?cid={cid}&cache_time=1532498442&face_label=0',
+    f'/ajax/get_outdoor?cid={cid}',
     '/ajax/goimConf',
-    '/guessnew/roomHasGuess/{}'.format(cid),
+    f'/guessnew/roomHasGuess/{cid}',
     '/ajax/getNewGuessAlert',
-    '/rank/getNewRankList.json?cid={}&flag=0'.format(cid),
-    '/room/getLevelList?cid={}'.format(cid),
-    '/abcdef/abcdef.json?cur_page=web_channeldetailnew&position=room&cid={}'.format(cid),
-    '/abcde/abcde.json?cur_page=web_channeldetail&position=room&cid={}'.format(cid),
-    '/channels/getConmicInfo?cid={}'.format(cid),
-    '/channels/isHaveTreasure?cid={}'.format(cid),
-    '/eventBox/isHaveEventTreasure?cid={}'.format(cid),
+    f'/rank/getNewRankList.json?cid={cid}&flag=0',
+    f'/room/getLevelList?cid={cid}',
+    f'/abcdef/abcdef.json?cur_page=web_channeldetailnew&position=room&cid={cid}',
+    f'/abcde/abcde.json?cur_page=web_channeldetail&position=room&cid={cid}',
+    f'/channels/getConmicInfo?cid={cid}',
+    f'/channels/isHaveTreasure?cid={cid}',
+    f'/eventBox/isHaveEventTreasure?cid={cid}',
     '/bag/isNewBag',
     '/active_file/WorldCup/getUserFootBallRecord',
     '/plugs/getHotWords',
-    '/lottery/getLotteryStatus?room_number={}'.format(cid),
-    '/channels/getLatestMsgList.json?cid={}'.format(cid),
-    '/myroom/roomMainUser?cid={}'.format(cid),
+    f'/lottery/getLotteryStatus?room_number={cid}',
+    f'/channels/getLatestMsgList.json?cid={cid}',
+    f'/myroom/roomMainUser?cid={cid}',
     '/shield/getShieldList',
-    '/channels/checkin_bp?channel_id={}'.format(cid),
+    f'/channels/checkin_bp?channel_id={cid}',
     '/Popup/show'
 ]
 urls_post = {
@@ -64,7 +64,7 @@ def generate_cookies(uid):
 class UserBehavior(TaskSet):
     @task(1)
     def test(self):
-        user_cookies = generate_cookies(1522)
+        user_cookies = generate_cookies(357855)
         for url in urls_get:
             self.client.get(domian + url, cookies=user_cookies)
         for key, value in urls_post.items():
@@ -73,12 +73,11 @@ class UserBehavior(TaskSet):
 
 
 
-
 class WebsiteUser(HttpLocust):
     task_set = UserBehavior
     min_wait = 0
     max_wait = 0
-    host = 'http://tt.new.huomaotv.com.cn'
+    host = 'http://www.huomao.com'
 
 
 #locust -f Z:\share\locust\load_test.py

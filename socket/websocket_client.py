@@ -28,7 +28,7 @@ def connect(uid, cid):
 
     def auth():
         print('开始验证')
-        fmt = '!ihhii{}s'.format(token_len)
+        fmt = f'!ihhii{token_len}s'
         data = struct.pack(fmt, rawHeaderLen + token_len, rawHeaderLen, 1, 7, 1, token)
         ws.send(data)
 

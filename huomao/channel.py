@@ -23,9 +23,8 @@ class Channel():
                 if channel:
                     HmChannel.update(is_live=stat).where(HmChannel.room_number == cid).execute()
                     uid = channel.uid
-                    key = 'hm_channel_views:{}'.format(uid)
-                    REDIS_INST2.hset(key, 'is_live', stat)
-                    REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_live', json.dumps(stat))
+                    key = f'hm_channel_views:{uid}'
+                    REDIS_INST.hset(f'hm_channel_anchor_{uid}', 'is_live', json.dumps(stat))
             return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:
             return {'code': 101, 'status': False, 'msg': '修改失败'}
@@ -42,7 +41,7 @@ class Channel():
             HmChannel.update(stream=stream).where(HmChannel.room_number == room_xx).execute()
             # 获取主播uid
             channel = HmChannel.select().where(HmChannel.room_number == room_xx).first()
-            REDIS_INST.hset('hm_channel_anchor_{}'.format(channel.uid), 'stream', '"' + stream + '"')
+            REDIS_INST.hset(f'hm_channel_anchor_{channel.uid}', 'stream', '"' + stream + '"')
             return {'code': 100, 'status': True, 'msg': '成功'}
         except Exception as msg:
             print(msg)
@@ -53,7 +52,7 @@ class Channel():
     def update_roomlx(room_number, status):
         def update_yl(data='no'):
             HmChannel.update(is_entertainment=data).where(HmChannel.room_number == room_number).execute()
-            REDIS_INST.hset('hm_channel_anchor_{}'.format(uid), 'is_entertainment', json.dumps(data))
+            REDIS_INST.hset(f'hm_channel_anchor_{uid}', 'is_entertainment', json.dumps(data))
             return 1
 
         if room_number and status:
@@ -63,31 +62,31 @@ class Channel():
             if status == '0':
                 # PC直播,非娱乐直播间
                 update_yl()
-                REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)
+                REDIS_INST.set(f'hm_pushstream_type_{cid}', 1)
             elif status == '1':
                 # PC直播,娱乐直播间
                 update_yl('yes')
-                REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 1)
+                REDIS_INST.set(f'hm_pushstream_type_{cid}', 1)
             elif status == '2':
                 # 手机直播,非娱乐,横屏
                 update_yl()
-                REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
-                REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 1)
+                REDIS_INST.set(f'hm_pushstream_type_{cid}', 2)
+                REDIS_INST.set(f'hm_mobile_screenType_outdoor_{cid}', 1)
             elif status == '3':
                 # 手机直播,非娱乐,竖屏
                 update_yl()
-                REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
-                REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)
+                REDIS_INST.set(f'hm_pushstream_type_{cid}', 2)
+                REDIS_INST.set(f'hm_mobile_screenType_outdoor_{cid}', 2)
             elif status == '4':
                 # 手机直播,娱乐,横屏
                 update_yl('yes')
-                REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
-                REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 1)
+                REDIS_INST.set(f'hm_pushstream_type_{cid}', 2)
+                REDIS_INST.set(f'hm_mobile_screenType_outdoor_{cid}', 1)
             elif status == '5':
                 # 手机直播,娱乐,竖屏
                 update_yl('yes')
-                REDIS_INST.set('hm_pushstream_type_{}'.format(cid), 2)
-                REDIS_INST.set('hm_mobile_screenType_outdoor_{}'.format(cid), 2)
+                REDIS_INST.set(f'hm_pushstream_type_{cid}', 2)
+                REDIS_INST.set(f'hm_mobile_screenType_outdoor_{cid}', 2)
             else:
                 return {'code': 101, 'status': False, 'msg': '修改失败'}
             return {'code': 100, 'status': True, 'msg': '修改成功'}

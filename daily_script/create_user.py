@@ -119,12 +119,11 @@ users = [
 ]
 
 for i in users:
-
     try:
         name = 'hm_' + str(i) +'1'
         uid = User.find_uid(name)['msg']
         print(uid)
-        REDIS_INST.delete('hm_{}'.format(uid))
+        REDIS_INST.delete(f'hm_{uid}')
     except  Exception as e:
         print(e)
 

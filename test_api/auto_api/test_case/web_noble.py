@@ -220,7 +220,7 @@ class TestNoble(unittest.TestCase):
     # 创建用户
     def create_user(self):
         uid = User.reg('noble')
-        logger_test_api.info('注册用户UID：{}'.format(uid))
+        logger_test_api.info(f'注册用户UID：{uid}')
         User.bd_sj(uid)
         MoneyClass.set_money(uid, 9000000)
         return uid
@@ -268,22 +268,22 @@ class TestNoble(unittest.TestCase):
                     # 续费/续费保护期购买 只花费折扣价格
                     pay_money = noble_data[level][1] * month * discount
                 if buyer_coin != buyer_coin_new + pay_money:
-                    logger_test_api.error('赠送者-猫币错误{}:{}'.format(buyer_coin, buyer_coin_new))
+                    logger_test_api.error(f'赠送者-猫币错误{buyer_coin}:{buyer_coin_new}')
                     return False
                 #2 判断赠送者贵族猫币
                 buyer_noble_coin_new = MoneyClass.get_noble_coin(buyer_uid)
                 if buyer_noble_coin != buyer_noble_coin_new:
-                    logger_test_api.error('赠送者贵族猫币错误{}:{}'.format(buyer_noble_coin, buyer_noble_coin_new))
+                    logger_test_api.error(f'赠送者贵族猫币错误{buyer_noble_coin}:{buyer_noble_coin_new}')
                     return False
                 #3 判断赠送者平台经验
                 buyer_exp_new = User.get_experience(buyer_uid)[0]
                 if buyer_exp != buyer_exp_new:
-                    logger_test_api.error('赠送者平台经验错误{}:{}'.format(buyer_exp, buyer_exp_new))
+                    logger_test_api.error(f'赠送者平台经验错误{buyer_exp}:{buyer_exp_new}')
                     return False
                 #4 判断被增送者猫币
                 to_uid_coin_new = MoneyClass.get_money(to_uid)['coin']
                 if to_uid_coin != to_uid_coin_new:
-                    logger_test_api.error('被赠送者猫币错误{}:{}'.format(to_uid_coin, to_uid_coin_new))
+                    logger_test_api.error(f'被赠送者猫币错误{to_uid_coin}:{to_uid_coin_new}')
                     return False
                 #5 判断被增送贵族猫币,平台经验
                 to_uid_noble_coin_new = MoneyClass.get_noble_coin(to_uid)
@@ -301,10 +301,10 @@ class TestNoble(unittest.TestCase):
                     get_noble_money = noble_data[level][2] * discount + noble_data[old_level][2] * (old_month - 1)
                     get_noble_exp = noble_data[level][4] * discount + noble_data[old_level][4] * (old_month - 1)
                 if to_uid_noble_coin != to_uid_noble_coin_new - get_noble_money:
-                    logger_test_api.error('被赠送者贵族猫币错误{}:{}'.format(to_uid_noble_coin, to_uid_noble_coin_new))
+                    logger_test_api.error(f'被赠送者贵族猫币错误{to_uid_noble_coin}:{to_uid_noble_coin_new}')
                     return False
                 if to_uid_exp != to_uid_exp_new - get_noble_exp:
-                    logger_test_api.error('普通-平台经验错误{}:{}:{}'.format(to_uid_exp, to_uid_exp_new, get_noble_exp))
+                    logger_test_api.error(f'普通-平台经验错误{to_uid_exp}:{to_uid_exp_new}:{get_noble_exp}')
                     return False
 
                 # 判断主播提成
@@ -316,7 +316,7 @@ class TestNoble(unittest.TestCase):
                     # 续费/续费保护期  不获得主播提成
                     noble_profit = 0
                 if profit != noble_profit:
-                    logger_test_api.error('普通-主播提成错误{}'.format(profit))
+                    logger_test_api.error(f'普通-主播提成错误{profit}')
                     return False
             else:
                 # B 普通模式
@@ -329,7 +329,7 @@ class TestNoble(unittest.TestCase):
                     # 续费/续费保护相同等级购买 只花费折扣价格
                     pay_money = noble_data[level][1] * month * discount
                 if buyer_coin != buyer_coin_new + pay_money:
-                    logger_test_api.error('普通-猫币错误{}:{}:{}'.format(buyer_coin, buyer_coin_new, pay_money))
+                    logger_test_api.error(f'普通-猫币错误{buyer_coin}:{buyer_coin_new}:{pay_money}')
                     return False
                 # 2 判断贵族猫币,平台经验
                 buyer_noble_coin_new = MoneyClass.get_noble_coin(buyer_uid)
@@ -348,11 +348,11 @@ class TestNoble(unittest.TestCase):
                     get_noble_exp = noble_data[level][4] * discount + noble_data[old_level][4] * (old_month - 1)
 
                 if buyer_noble_coin != buyer_noble_coin_new - get_noble_money:
-                    logger_test_api.error('普通-贵族猫币错误{}:{}'.format(buyer_noble_coin, buyer_noble_coin_new))
+                    logger_test_api.error(f'普通-贵族猫币错误{buyer_noble_coin}:{buyer_noble_coin_new}')
                     return False
 
                 if buyer_exp != buyer_exp_new - get_noble_exp:
-                    logger_test_api.error('普通-平台经验错误{}:{}:{}'.format(buyer_exp, buyer_exp_new, get_noble_exp))
+                    logger_test_api.error(f'普通-平台经验错误{buyer_exp}:{buyer_exp_new}:{get_noble_exp}')
                     return False
 
                 # 3 判断主播提成
@@ -364,7 +364,7 @@ class TestNoble(unittest.TestCase):
                     # 续费/续费保护期  不获得主播提成
                     noble_profit = 0
                 if profit != noble_profit:
-                    logger_test_api.error('普通-主播提成错误{}:{}'.format(noble_profit, profit))
+                    logger_test_api.error(f'普通-主播提成错误{noble_profit}:{profit}')
                     return False
             return True
 

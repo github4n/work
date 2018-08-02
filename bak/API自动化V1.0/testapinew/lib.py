@@ -23,7 +23,7 @@ def get_data(case_file):
         # 打开excel到内存
         wb = load_workbook(case_file)
     except Exception as e:
-        logging.error('打开excel错误:{}'.format(e))
+        logging.error('打开excel错误:{}')
         return False
     datadict = {}
     for sheet in wb.worksheets:

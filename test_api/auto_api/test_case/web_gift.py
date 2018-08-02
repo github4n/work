@@ -36,7 +36,7 @@ class TestGift(unittest.TestCase):
     # 创建用户
     def create_user(self):
         uid = User.reg('noble')
-        logger_test_api.info('注册用户UID：{}'.format(uid))
+        logger_test_api.info(f'注册用户UID：{uid}')
         User.bd_sj(uid)
         return uid
 

@@ -155,5 +155,5 @@ def download(request):
     # the_file_name = '消息相关功能.xmind'
     response = StreamingHttpResponse(file_iterator(file_name))
     response['Content-Type'] = 'application/octet-stream'
-    response['Content-Disposition'] = 'attachment;filename="{}"'.format(file_name).encode('utf-8')
+    response['Content-Disposition'] = f'attachment;filename="{file_name}"'.encode('utf-8')
     return response

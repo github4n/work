@@ -85,7 +85,7 @@ class Common():
     # hash分表查询
     @staticmethod
     def hash_table(s, num=32):
-        md5s = Common.md5('hm_db_{}'.format(s))
+        md5s = Common.md5(f'hm_db_{s}')
         md5ss = int(md5s[1:3], 16) % num
         return str(md5ss)
 
@@ -148,7 +148,7 @@ class Common():
     # 添加手机验证码
     @staticmethod
     def add_mobile_yzm(mobile, yzm=123456):
-        REDIS_INST.set('hm_plugs_mobile_post_{}'.format(mobile), yzm, 1800)
+        REDIS_INST.set(f'hm_plugs_mobile_post_{mobile}', yzm, 1800)
 
     @staticmethod
     def init_active():
@@ -178,8 +178,8 @@ class Common():
     def init_gag(uid, cid):
         if uid:
             HmGag.delete().where((HmGag.cid == cid) & (HmGag.uid == uid)).execute()
-            REDIS_INST.delete('hm_gag_user_{}'.format(uid))
-            REDIS_INST.delete('hm_gag_channel_{}'.format(cid))
+            REDIS_INST.delete(f'hm_gag_user_{uid}')
+            REDIS_INST.delete(f'hm_gag_channel_{cid}')
         return 0
 
     # 初始化粉丝

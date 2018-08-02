@@ -5,3 +5,4 @@
 # Description :
 from huomao.common import REDIS_INST
 from huomao.bag import Bag
+print(f"{'*'*80}哈哈哈")

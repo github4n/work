@@ -19,7 +19,7 @@ class Bag():
         num = kw.get('num', 1)
         bag = kw.get('bag', 100001)
         UserBag.create(uid=uid, get_way='admin_33', bag=bag, add_time=add_time, expire_time=expire_time, num=num, type=2, total=num)
-        time.sleep(10)
+        # time.sleep(10)
         # 线下从库有延迟
         return
 
@@ -27,9 +27,9 @@ class Bag():
     @staticmethod
     def get_dmk(uid):
         # u = UserBag.select(fn.Sum(UserBag.num).alias('nums')).where((UserBag.uid == uid) & (UserBag.bag == 100001)).first()
-        u = UserBag.raw('/*master*/select sum(num) as nums from user_bag where uid = {} and bag_id=100001'.format(uid)).execute()
+        u = UserBag.raw(f'/*master*/select sum(num) as nums from user_bag where uid = {uid} and bag_id=100001').execute()
         ret = u.cursor._rows[0][0]
-        logger_huomao.info('{}弹幕卡数量{}'.format(uid, ret))
+        logger_huomao.info(f'{uid}弹幕卡数量{ret}')
         return ret
 
     # 获取用户特定时间弹幕卡数量

@@ -59,7 +59,7 @@ class TestMsg(unittest.TestCase):
     # 创建用户
     def create_user(self, phone=True):
         uid = User.reg('noble')
-        logger_test_api.info('注册用户UID：{}'.format(uid))
+        logger_test_api.info(f'注册用户UID：{uid}')
         if phone:
             User.bd_sj(uid)
         return uid

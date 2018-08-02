@@ -30,16 +30,16 @@ class User():
     # 注册用户返回uid,或登录返回uid
     @staticmethod
     def register(username):
-        logger_huomao.info('注册用户名:{}'.format(username))
+        logger_huomao.info(f'注册用户名:{username}')
         # 默认密码1
         password = Common.md5('1')
         img = ''
         nickname = username + 'nk'
         ret = {'code': 1001, 'status': False, 'msg': '用户名已存在或注册失败'}
         # 验证用户名是否存在
-        key_username = 'hm_user_name_redis_prefix:{}'.format(Common.md5(username))
+        key_username = f'hm_user_name_redis_prefix:{Common.md5(username)}'
         if REDIS_INST.get(key_username) or UserName.select().where(UserName.username == username).first():
-            logger_huomao.info('{}'.format(ret))
+            logger_huomao.info(f'{ret}')
             return ret
         # 创建uid
         uid = Uid().create().id
@@ -54,9 +54,9 @@ class User():
         REDIS_INST.set(key_username, uid)
         # 设置uid,redis缓存
         data = dict(nickname=nickname, password=password, img=img, lv=0, regtime=int(time.time()))
-        REDIS_INST.set('hm_{}'.format(uid), json.dumps(data))
+        REDIS_INST.set(f'hm_{uid}', json.dumps(data))
         # 设置nickname,redis缓存
-        REDIS_INST.set('hm_nickname_{}'.format(Common.md5(nickname)), uid)
+        REDIS_INST.set(f'hm_nickname_{Common.md5(nickname)}', uid)
         # 设置userbase,redis缓存:hm_userbaseinfo_{uid}
         data = dict(uid=uid, name=username, email='', email_activate_stat=0,
                     mobile='', openid='', weixin='', blog='', send_freebean=0,
@@ -64,9 +64,9 @@ class User():
         # 不知道php为什么要json转义一层再存.
         for key, value in data.items():
             data[key] = json.dumps(value)
-        REDIS_INST.hmset('hm_userbaseinfo_{}'.format(uid), data)
-        logger_huomao.info('注册UID:{}'.format(uid))
-        return {'code': 100, 'status': True, 'msg': '成功\tuid:{}密码:1'.format(uid), 'uid': str(uid)}
+        REDIS_INST.hmset(f'hm_userbaseinfo_{uid}', data)
+        logger_huomao.info(f'注册UID:{uid}')
+        return {'code': 100, 'status': True, 'msg': f'成功\tuid:{uid}密码:1', 'uid': str(uid)}
 
     # 按序注册用户返回uid
     @staticmethod
@@ -94,7 +94,7 @@ class User():
         # 判断uid是否是主播
         if uid:
             # uid = str(uid)
-            anchor_key = 'hm_channel_anchor_{}'.format(uid)
+            anchor_key = f'hm_channel_anchor_{uid}'
             if REDIS_INST.hget(anchor_key, 'id'):
                 return {'code': 1001, 'status': False, 'msg': '已是主播'}
             else:
@@ -116,7 +116,7 @@ class User():
                                     data={'status': '1', 'is_push': '1', 'reason': '', 'id': uidid}, cookies=ADMIN_COOKIES)
                 channel = HmChannel.select().where(HmChannel.uid == uid).first()
                 data = [channel.id, channel.room_number]
-                return {'code': 100, 'status': True, 'msg': '申请成功\tcid:{}\t房间号:{}'.format(data[0], data[1]), 'data': data}
+                return {'code': 100, 'status': True, 'msg': f'申请成功\tcid:{data[0]}\t房间号:{data[1]}', 'data': data}
         else:
             return {'code': 901, 'status': False, 'msg': '申请失败'}
 
@@ -127,10 +127,10 @@ class User():
             mobile = 15100000000 + int(uid)
             Mobile.create(mobile=mobile, uid=uid)
             Userbase.update(mobile=mobile, mobileareacode=mobileareacode).where(Userbase.uid == uid).execute()
-            key = 'hm_userbaseinfo_{}'.format(uid)
+            key = f'hm_userbaseinfo_{uid}'
             REDIS_INST.hset(key, 'mobile', mobile)
             REDIS_INST.hset(key, 'mobileareacode', mobileareacode)
-            key_mobile = 'hm_user_mobile_prefix:{}_{}'.format(mobileareacode, mobile)
+            key_mobile = f'hm_user_mobile_prefix:{mobileareacode}_{mobile}'
             REDIS_INST.set(key_mobile, uid)
             return {'code': 100, 'status': True, 'msg': '绑定手机号成功', 'mobile': mobile}
         except:
@@ -161,7 +161,7 @@ class User():
     # 设置房管
     @staticmethod
     def set_fg(cid, uid):
-        key = 'hm_channel_admin_{}'.format(cid)
+        key = f'hm_channel_admin_{cid}'
         data = REDIS_INST.get(key)
         fg_data = json.loads(data) if data else {}
         if fg_data.get('uid'):
@@ -173,13 +173,13 @@ class User():
     # 删除房管
     @staticmethod
     def del_fg(cid):
-        key = 'hm_channel_admin_{}'.format(cid)
+        key = f'hm_channel_admin_{cid}'
         REDIS_INST.delete(key)
 
     # 设置粉丝等级
     @staticmethod
     def set_fs_level(uid, cid, level=25):
-        key = 'hm_loveliness_fan_lv_news_{}_{}'.format(uid, cid, level)
+        key = f'hm_loveliness_fan_lv_news_{uid}_{cid}'
         REDIS_INST.set(key, level)
 
     # 添加徽章
@@ -187,7 +187,7 @@ class User():
     def set_badge(uid, bid=1):
         # 创建徽章
         MemberBadge.create(uid=uid,bid=bid, currentstat=3, expiretime=0, gettime=1, owntime=-1)
-        redis_key = 'hm_member_adorn_badge:{}'.format(uid)
+        redis_key = f'hm_member_adorn_badge:{uid}'
         key = 'bid:' + str(bid)
         value = {'bid': bid, 'gettime': str(int(time.time())), 'owntime': '-1', 'currentstat': 3}
         REDIS_INST.hset(redis_key, key, json.dumps(value))
@@ -212,7 +212,7 @@ class User():
     def set_chat_time(uid):
         # 设置发言时间,服务器时间和本地时间有误差,所以用服务器时间
         msg_time = Common.get_linux_time()
-        REDIS_INST.set('hm_chat_{}'.format(uid), msg_time)
+        REDIS_INST.set(f'hm_chat_{uid}', msg_time)
 
     # 获取经验值
     @staticmethod
@@ -239,7 +239,7 @@ class User():
     # 设置贵族有效期
     @staticmethod
     def set_noble_expire(uid, day=40):
-        key = 'hm_noble:cache:{}'.format(uid)
+        key = f'hm_noble:cache:{uid}'
         ret = REDIS_INST.get(key)
         data = json.loads(ret)
         start_time = data['start_time'] - day * 24 * 60 * 60

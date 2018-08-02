@@ -53,7 +53,7 @@ def create(**kw):
     ret = requests.post(ADMIN_URL + '/guessnew/create_save', data=post_data, cookies=ADMIN_COOKIES).text
     try:
         ret = json.loads(ret)
-        logging.info('开盘{},{}'.format(ret['period'], ret))
+        logging.info(f"开盘{ret['period']},{ret}")
         time.sleep(2)
         return ret['period']
     except:
@@ -62,15 +62,15 @@ def create(**kw):
 
 # 后台锁定盘口
 def lock(period):
-    ret = requests.post(ADMIN_URL + '/guessnew/update_status/{}/locking'.format(period), cookies=ADMIN_COOKIES).json()
-    logging.info('锁定结果：{}'.format(ret))
+    ret = requests.post(ADMIN_URL + f'/guessnew/update_status/{period}/locking', cookies=ADMIN_COOKIES).json()
+    logging.info(f'锁定结果：{ret}')
     return ret
 
 
 # 后台封盘blockade
 def blockade(period):
-    ret = requests.post(ADMIN_URL + '/guessnew/update_status/{}/blockade'.format(period), cookies=ADMIN_COOKIES).json()
-    logging.info('封盘结果：{}'.format(ret))
+    ret = requests.post(ADMIN_URL + f'/guessnew/update_status/{period}/blockade', cookies=ADMIN_COOKIES).json()
+    logging.info(f'封盘结果：{ret}')
     return ret
 
 
@@ -85,7 +85,7 @@ def settlement(**kw):
         if key in data:
             data[key] = kw.get(key)
     res = requests.post(ADMIN_URL + '/guessnew/settlement', data=data, cookies=ADMIN_COOKIES)
-    logging.info('结算选项:{}结果:{}'.format(data['win_option'], res.json()))
+    logging.info(f"结算选项:{data['win_option']}结果:{res.json()}")
     # Calculation()
     # time.sleep(20)
 
@@ -94,7 +94,7 @@ def settlement(**kw):
 def update_status(period, status):
     # res = requests.post(ADMIN_URL + '/guessnew/update_status', data=dict(period=period, status=status), cookies=ADMIN_COOKIES)
     res = requests.post(ADMIN_URL + '/guessnew/update_status/' + str(period) + '/' + str(status), cookies=ADMIN_COOKIES)
-    logging.info('{}:{}'.format(status, res.json()))
+    logging.info(f'{status}:{res.json()}')
     # return period
 
 
@@ -124,11 +124,11 @@ def bet(uid, **kw):
         if Common.is_json(ret):
             ret = json.loads(ret)
             if ret['code'] == 0:
-                res_info = '用户{}下注成功：数据{}返回{}'.format(uid, data, ret)
+                res_info = f'用户{uid}下注成功：数据{data}返回{ret}'
                 logging.info(res_info)
                 return ret
             else:
-                res_info = '用户{}下注失败：数据{}返回{}'.format(uid, data, ret)
+                res_info = f'用户{uid}下注失败：数据{data}返回{ret}'
                 logging.info(res_info)
         else:
             logging.error(ret)
@@ -158,7 +158,7 @@ def banker(uid, **kw):
     res = requests.post(URL + '/guessnew/banker?bet_room_number=2&refer=web', data=post_data, cookies=Common.generate_cookies(uid))
     try:
         res = res.json()
-        res_info = '用户{}坐庄数据\n{}返回{}\n'.format(uid, data, res)
+        res_info = f'用户{uid}坐庄数据\n{data}返回{res}\n'
         logging.info(res_info)
         if res['status'] == 'success':
             return res['data']['banker']['order_id']
@@ -176,9 +176,9 @@ def change_banker(uid, period, id, banker_odds='', type_='revoke'):
     }
     res = requests.post(URL + '/guessnew/changeBanker/' + type_, data=data, cookies=Common.generate_cookies(uid))
     if type_ == 'revoke':
-        logging.info('撤庄{}'.format(res.json()))
+        logging.info(f'撤庄{res.json()}')
     else:
-        logging.info('修改庄{}'.format(res.json()))
+        logging.info(f'修改庄{res.json()}')
     return res.json()
 
 
@@ -208,7 +208,7 @@ class TestGuessGamble(unittest.TestCase):
     def test(self, *args):
         name = self._testMethodName
         for res in [1, 2, -1, -2]:
-            logging.info('用例:{}结算选项{}开始'.format(name, res) + '*' * 80)
+            logging.info(f"用例:{name}结算选项{res}开始{'*' * 80}")
             # 开盘
             period = create(guess_type='match', play_type='gamble')
             # 下注
@@ -251,7 +251,7 @@ class TestGuessBanker(unittest.TestCase):
     def test(self, *args):
         name = self._testMethodName
         for res in [1, 2, -1, -2]:  # , 1,2, -1, -2
-            logging.info('用例:{}结算选项{}开始'.format(name, res) + '*' * 80)
+            logging.info(f"用例:{name}结算选项{res}开始{'*' * 80}")
             # 开盘
             period = create(guess_type='match', play_type='banker')
             # 下注
@@ -300,7 +300,7 @@ class TestGuessBanker(unittest.TestCase):
             for uid, xd, md, exp in money_data:
                 self.assertEqual(MoneyClass.get_xd(uid), xd + exp, uid + '仙豆结算错误')
                 self.assertEqual(MoneyClass.get_money(uid)['bean'], md + exp, uid + '猫豆结算错误')
-            logging.info('用例:{}结算选项{}结束'.format(name, res) + '*' * 80)
+            logging.info(f"用例:{name}结算选项{res}结束{'*' * 80}")
 
 
 # 竞猜状态测试

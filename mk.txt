@@ -1,0 +1,16 @@
+# pip install -r mk.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+# https://pypi.doubanio.com/simple/
+# https://www.lfd.uci.edu/~gohlke/pythonlibs/#gevent  pip intall wheel locust gevent lxml
+django
+wheel
+requests
+pymysql
+redis
+cffi
+gevent
+parameterized
+psutil
+xlsxwriter
+openpyxl
+paramiko
+peewee

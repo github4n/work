@@ -19,12 +19,12 @@ class MoneyClass():
     @staticmethod
     def set_xd(uid, xd):
         xd = 0 if not xd else xd
-        return REDIS_INST.set('hm_free_bean_{}'.format(uid), int(xd) if xd else 0)
+        return REDIS_INST.set(f'hm_free_bean_{uid}', int(xd) if xd else 0)
 
     # 获取仙豆
     @staticmethod
     def get_xd(uid):
-        return int(REDIS_INST.get('hm_free_bean_{}'.format(uid)))
+        return int(REDIS_INST.get(f'hm_free_bean_{uid}'))
 
     # 设置用户猫币，猫豆
     @staticmethod
