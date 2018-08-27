@@ -1,4 +1,4 @@
-var test = function(cid) {
+var test = function(cid,uuid) {
     const rawHeaderLen = 16;
     const packetOffset = 0;
     const headerOffset = 4;
@@ -42,7 +42,18 @@ var test = function(cid) {
 //                console.log("receiveHeader: packetLen=" + packetLen, "headerLen=" + headerLen, "ver=" + ver, "op=" + op, "seq=" + seq);
 
                 switch(op) {
-                    case 8:
+                    case 8:                                      // batch message
+                        for (var offset=0; offset<data.byteLength; offset+=packetLen) {
+                            // parse
+                            var packetLen = dataView.getInt32(offset);
+                            var headerLen = dataView.getInt16(offset+headerOffset);
+                            var ver = dataView.getInt16(offset+verOffset);
+                            var msgBody = textDecoder.decode(data.slice(offset+headerLen, offset+packetLen));
+                            console.log(msgBody);
+                            // callback
+                            messageReceived(ver, msgBody);
+                        }
+                        // heartbeat
                         // heartbeat
                         heartbeat();
                         heartbeatInterval = setInterval(heartbeat, 30 * 1000);
@@ -96,7 +107,7 @@ var test = function(cid) {
 			const seqOffset = 12;
 	
             function auth() {
-                var tokenBody = {"Uid":0,"Rid":parseInt(cid)};
+                var tokenBody = {"Uid":parseInt(uuid),"Rid":parseInt(cid)};
                 var token = JSON.stringify(tokenBody);
                 var headerBuf = new ArrayBuffer(rawHeaderLen);
                 var headerView = new DataView(headerBuf, 0);
@@ -160,6 +171,19 @@ var test = function(cid) {
 
 };
 
+
+function isJsonString(str) {
+        try {
+            if (typeof JSON.parse(str) == "object") {
+                return true;
+            }
+        } catch(e) {
+        }
+        return false;
+    }
+
+
+
 function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         var r = window.location.search.substr(1).match(reg);
@@ -168,17 +192,22 @@ function getQueryString(name) {
     }
 
 cid = getQueryString('cid');
+uuid = getQueryString('uid');
 console.log('连接cid:',cid);
-test(cid);
+console.log('连接uid:',uuid);
+test(cid,uuid);
 
 var html = '';
 var client = new MyClient({
 
     notify: function(data) {
+        if(isJsonString(data)){
         data = JSON.parse(data);
         html += '<pre style="margin:10px;font-size: 12px;max-height:50px;max-width:1200px;" class="pre-scrollable">'+ JSON.stringify(data,null,4) +'</pre>';
         console.log(data);
-        $(".test").html(html);
+        $(".test").html(html);}else{
+            console.log(data);
+        }
     }
 
 });

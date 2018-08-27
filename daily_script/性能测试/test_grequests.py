@@ -8,7 +8,7 @@ import time
 
 url = 'http://qa.new.huomaotv.com.cn/'
 t1 = time.time()
-total_rqs = 1000
+total_rqs = 10
 
 rs = [grequests.get(url) for i in range(total_rqs)]
 rets = grequests.map(rs, size=None)

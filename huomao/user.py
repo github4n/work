@@ -241,6 +241,7 @@ class User():
     def set_noble_expire(uid, day=40):
         key = f'hm_noble:cache:{uid}'
         ret = REDIS_INST.get(key)
+        logger_huomao.info(ret)
         data = json.loads(ret)
         start_time = data['start_time'] - day * 24 * 60 * 60
         end_time = data['end_time'] - day * 24 * 60 * 60

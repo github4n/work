@@ -117,18 +117,20 @@ users = [
     'liuyilin',
     'yuhan',
 ]
-
-for i in users:
-    try:
-        name = 'hm_' + str(i) +'1'
-        uid = User.find_uid(name)['msg']
-        print(uid)
-        REDIS_INST.delete(f'hm_{uid}')
-    except  Exception as e:
-        print(e)
+#
+# for i in users:
+#     try:
+#         name = 'hm_' + str(i) +'1'
+#         uid = User.find_uid(name)['msg']
+#         print(uid)
+#         REDIS_INST.delete(f'hm_{uid}')
+#     except  Exception as e:
+#         print(e)
 
 # [26342,26449]
-# u = User()
-# uid = u.reg('test')
-# u.bd_sj(uid)
-# MoneyClass.set_money(uid, 150000)
+for i in range(100):
+    u = User()
+    uid = u.reg('testling')
+    u.bd_sj(uid)
+    MoneyClass.set_money(uid, 1000000)
+    print(uid)

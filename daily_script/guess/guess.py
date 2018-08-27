@@ -45,7 +45,7 @@ def create(**kw):
             2: '选项2'
         },
         'expire': str(int(time.time())),  # 竞猜封盘时间
-        'note': '',  # ??
+        'note': f'{time.time()}',  # ??
     }
     for key, value in kw.items():
         data[key] = value
@@ -119,7 +119,7 @@ def bet(uid, **kw):
     post_data = Common.form_single_dict(data)
     requests.post(URL + '/guessnew/betMore?bet_room_number=1&refer=web', data=post_data, cookies=Common.generate_cookies(uid))
     # 轮询
-    for i in range(30):
+    for i in range(10):
         ret = requests.get(URL + '/guessnew/bettingRes', cookies=Common.generate_cookies(uid)).text
         if Common.is_json(ret):
             ret = json.loads(ret)
@@ -394,8 +394,8 @@ if __name__ == '__main__':
     #     create(opt_type='{}0200008'.format(i), title='第{}局：若主队回合让分[+{}],谁能获得胜利'.format(i, i), note='+{}'.format(i))
     #     create(opt_type='{}0200009'.format(i), title='第{}局：若总回合数大于或小于[{}]'.format(i, i), note='{}'.format(i))
 
-    banker(1522, period=20180720303, opt_type=200001, coin_type='free_bean', banker_odds=3.4, chose=1, amount=500000)
-    banker(1522, period=20180720303, opt_type=200001, coin_type='free_bean', banker_odds=3.4, chose=2, amount=10000)
+    # banker(1522, period=20180720303, opt_type=200001, coin_type='free_bean', banker_odds=3.4, chose=1, amount=500000)
+    # banker(1522, period=20180720303, opt_type=200001, coin_type='free_bean', banker_odds=3.4, chose=2, amount=10000)
     # bet(1522, period=20180720305, opt_type=200001, coin_type='free_bean', punter='buyer',
     #     chose={  # 下注选项
     #         0: {'chose': 1, 'amount': 3000, 'now_odds': 3.47},
@@ -405,12 +405,12 @@ if __name__ == '__main__':
     # 执行文件下所有用例
     # unittest.main()
     # 执行指定类下的所有用例
-    # suite = unittest.TestSuite(unittest.makeSuite(TestGuessBanker))
+    suite = unittest.TestSuite(unittest.makeSuite(TestGuessBanker))
     # 执行单个用例
     # suite = unittest.TestSuite()
     # suite.addTest(TestGuessBanker('test_1'))
-    # runner = unittest.TextTestRunner()
-    # runner.run(suite)
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
 
     # test_dir = './'
     # discover = unittest.defaultTestLoader.discover(test_dir, pattern='guess.py')

@@ -150,10 +150,13 @@ class Common():
     def add_mobile_yzm(mobile, yzm=123456):
         REDIS_INST.set(f'hm_plugs_mobile_post_{mobile}', yzm, 1800)
 
+
+    # 移动端活动删除缓存
     @staticmethod
     def init_active():
-        for key in REDIS_INST.keys('*mobile_active_*'):
-            REDIS_INST.delete(key)
+        for key_value in ['*mobile_active_*','*mobile_active_newlist_*','*mobile_in_active_*']:
+            for key in REDIS_INST.keys(key_value):
+                REDIS_INST.delete(key)
 
 
     @staticmethod

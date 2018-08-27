@@ -9,12 +9,19 @@ import struct
 import threading
 import requests
 from huomao.common import Common
+import random
 import multiprocessing
 
-# ws_url = "ws://gate-65.huomao.com:8090/sub"
-# url = 'https://www.huomao.com/'
-ws_url = 'ws://gate.huomaotv.com.cn:8090/sub'
-url = 'http://qa.new.huomaotv.com.cn'
+ip_pool = ['219.141.153.41:80']
+
+ws_url = "ws://gate-65.huomao.com:8090/sub"
+url = 'http://www.huomao.com/'
+uid = 357855
+proxies = False
+# ws_url = 'ws://gate.huomaotv.com.cn:8090/sub'
+# url = 'http://qa.new.huomaotv.com.cn'
+# uid = 1522
+# proxies = False
 
 ws = create_connection(ws_url)
 rawHeaderLen = 16
@@ -54,7 +61,8 @@ def connect(uid, cid):
             t = threading.Thread(target=heartbeat)
             t.start()
         elif op == 3:
-            print("receive: heartbeat")
+            # print("receive: heartbeat")
+            pass
         elif op == 5:
             msg = (result[headerLen:packetLen]).decode()
             t2 = threading.Thread(target=bx, args=(msg,))
@@ -69,24 +77,46 @@ def connect(uid, cid):
 
 
 def bx(data):
-    data = json.loads(data)
-    if data.get('code') == '300002':
-        cid = data['gift']['channel']['rid']
-        print(cid,'有宝箱')
-        ret = requests.get(f'{url}/channels/isHaveTreasure?cid={cid}').json()
-        for key, value in ret.items():
-            if key != 'count':
-                treasure_key = value['key']
-                countdown = int(value['countdown'])
-                t = threading.Thread(target=get_bx, args=(countdown, cid, treasure_key))
+    try:
+        data = json.loads(data)
+        if data.get('code') == '32':
+            cid = data['gift']['channel']['cid']
+            print(cid, '有普通宝箱')
+            ret = requests.get(f'{url}/channels/isHaveTreasure?cid={cid}', proxies=proxies).json()
+            for key, value in ret.items():
+                if key != 'count':
+                    treasure_key = value['key']
+                    countdown = int(value['countdown'])
+                    t = threading.Thread(target=get_bx, args=(countdown, cid, treasure_key))
+                    t.start()
+        elif data.get('code') == '888888':
+            cid = data['allStation']['bannerWords']['targetUrl']
+            print(cid, '有赛事宝箱')
+            ret = requests.get(f'{url}/eventBox/isHaveEventTreasure?cid={cid}',
+                               cookies=Common.generate_cookies(uid),
+                               proxies=proxies).json()
+            if ret['status']:
+                treasure_id = ret['data']['id']
+                open_time = int(ret['data']['open_time'])
+                t = threading.Thread(target=get_ssbx, args=(open_time, cid, treasure_id))
                 t.start()
+    except Exception as e:
+        print(e)
 
+
+def get_ssbx(open_time, cid, treasure_id):
+    time.sleep(open_time)
+    ret = requests.get(f'{url}/EventBox/getEventTreasure?treasure_id={treasure_id}&cid={cid}',
+                       cookies=Common.generate_cookies(uid),
+                       proxies=proxies)
+    print(ret.json())
 
 
 def get_bx(countdown, cid, treasure_key):
     time.sleep(countdown)
     ret = requests.get(f'{url}/chatnew/getTreasure?cid={cid}&treasure_key={treasure_key}',
-                       cookies=Common.generate_cookies(1522))
+                       cookies=Common.generate_cookies(uid),
+                       proxies=proxies)
     print(ret.json())
 
 

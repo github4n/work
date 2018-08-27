@@ -44,3 +44,19 @@ run_all()
 # suite.addTest(TestGift('test_gift_20'))
 # runner = unittest.TextTestRunner()
 # runner.run(suite)
+
+# public
+# function
+# openGameSign()
+# {
+# $now = date('Y-m-d H:i');
+# $time = strtotime($now);
+# $str = 'is_adult0puidtestserverid1time';
+# $key = '628E59D7C0CE6A1AA821';
+# $sign = strtoupper(md5($key.$str.$time));
+# $arr['time'] = $time;
+# $arr['sign'] = $sign;
+# return $arr;
+# }
+#
+# http://ft.fcdemo.gametrees.com/fairytail/api/?c=huomao&m=login&is_adult=0&puid=test&serverid=1&time='.$gameSign['time'].'&sign='.$gameSign['sign']
