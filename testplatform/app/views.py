@@ -5,6 +5,7 @@ from huomao.user import User
 from huomao.channel import Channel
 from huomao.money import MoneyClass
 from huomao.test import test
+import logging
 import json
 
 user = User()
@@ -21,6 +22,11 @@ def chatroom(request):
 
 
 def new_web(request, method=''):
+    if request.META.get('HTTP_X_FORWARDED_FOR'):
+        ip = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip = request.META['REMOTE_ADDR']
+    print(ip)
     if method == '':
         return render(request, 'index.html')
     else:

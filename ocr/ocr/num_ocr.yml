@@ -1,0 +1,29 @@
+# 注意：yaml配置严格
+version: 1
+disable_existing_loggers: False
+formatters:
+    fmt:
+        format: "%(asctime)s | %(levelname)s | %(message)s"
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: INFO
+        formatter: fmt
+    date_file_handler:
+        class: logging.handlers.TimedRotatingFileHandler
+        #level: DEBUG
+        level: INFO
+        formatter: fmt
+        filename: /share/ocr/num_orc.log
+        when: D
+        encoding: "utf8"
+
+loggers:
+    OCRLog:
+        level: INFO
+        handlers: [console, date_file_handler]
+        propagate: no
+roots:
+    level: INFO
+    handlers: [console]
+    propagate: true

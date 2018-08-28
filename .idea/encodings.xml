@@ -2,8 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/huomao/huomao.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/test_api/test_api.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/test_api/test_api.log" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ocr/ocr/num.traineddata" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test_api/test_api.log" charset="GBK" />
   </component>
 </project>

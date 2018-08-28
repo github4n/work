@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from django.utils.log import DEFAULT_LOGGING
+
+LOGGING = DEFAULT_LOGGING
+LOGGING['formatters']={
+        'django.server': {
+            '()': 'django.utils.log.ServerFormatter',
+            'format': '[{name}] [{levelname}] [{server_time}] {message} 线程ID:{thread} ',
+            'style': '{',
+        }
+    }
+
 
 # Build paths inside the testplatform like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -111,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -124,3 +135,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
