@@ -24,7 +24,7 @@ class OcrThread (threading.Thread):
         # 下载(ffmpeg截图)
         pic = self.GetPic()
         # 裁剪
-        print(len(pic), os.path.isfile(pic))
+        print(len(pic), os.path,os.path.isfile(pic))
         if len(pic) > 0 and os.path.isfile(pic): # 如果文件存在
             img = self.ClipPicture(pic)
             if img is not None:
@@ -90,7 +90,8 @@ class OcrThread (threading.Thread):
         #         OCRLoger.warn("%s.GetPic %s  is not exist (download failed)", self.name, pic_name)
         # except:
         #     OCRLoger.error("%s.GetPic exception:type: %s,msg:%s",self.name, sys.exc_info()[0],sys.exc_info()[1])
-        return r'‪Z:\share\ocr\ocr\pics\ocrpics\1532510911_room130957.jpg'
+        # return r'Z:/share/ocr/ocr/pics/ocrpics/12345.jpg'
+        return r'Z:\share\ocr\ocr\pics\ocrpics\1532511101_room130957.jpg'
 
     # 裁剪指定图片
     def ClipPicture(self,fname):
