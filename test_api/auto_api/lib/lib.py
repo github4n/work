@@ -69,7 +69,7 @@ def req(self):
             real_res = json.loads(res.text[1:-1])
         except Exception:
             real_res = res.text
-
+    logger_test_api.info(f'返回{real_res}')
     # 判断请求结果是否包含预期结果
     result = assert_dict_in(self.exp_res, real_res) and res.status_code == 200
 

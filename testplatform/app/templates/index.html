@@ -33,7 +33,8 @@
                 <li><a href="http://10.10.2.89/" target="_blank"><u>安卓包地址</u></a></li>
                 <li><a href="http://redmine.marstv.com:3000/projects/test/issues" target="_blank"><u>redmine地址</u></a></li>
                 <li><a href="https://www.yunpian.com/component/login" target="_blank"><u>云片网</u></a></li>
-                <li><a href="/chatroom?cid=2&uid=1522" target="_blank"><u>接收聊天消息测试 </u><span class="label label-danger">NEW!</span></a></li>
+                <li><a href="/chatroom?cid=2&uid=1522&url=ws://gate.huomaotv.com.cn:8090/sub" target="_blank"><u>接收聊天消息测试(线下) </u><span class="label label-danger">NEW!</span></a></li>
+                <li><a href="/chatroom?cid=1&uid=357855&url=ws://gate-61.huomao.com:8090/sub" target="_blank"><u>接收聊天消息测试(线上) </u><span class="label label-danger">NEW!</span></a></li>
                 <li><a href="ftp://10.10.23.14/" target="_blank"><u>FTP </u>账号ftp_test/密码test<span class="label label-danger">NEW!</span></a></li>
                 <li><a href="javascript:void(0);" id="user_uid"></a></li>
             </ul>
@@ -41,6 +42,10 @@
         </div>
     </nav>
 
+    <div id="myAlert" class="alert alert-success hidden">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>成功！</strong>
+    </div>
     <div id="content">
         <div id='row1'>
             <div class="panel panel-primary">
@@ -232,13 +237,13 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">初始化用户全平台粉丝功能</h3>
+                    <h3 class="panel-title">分表规则查询</h3>
                 </div>
                 <div class="panel-body">
-                    <form id="init_fans_form" role="form">
+                    <form id="find_table" role="form">
                         {% csrf_token %}
-                        <input type="text" name="uid" class="uid form-control" placeholder="UID">
-                        <button type="button" class="btn btn-default" onclick="request('init_fans')">提交</button>
+                        <input type="text" name="uid" class="uid form-control" placeholder="">
+                        <button type="button" class="btn btn-default" onclick="request('find_table')">提交</button>
                     </form>
                 </div>
             </div>
@@ -248,11 +253,11 @@
         <div id='row5'>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">初始化移动端活动</h3>
+                    <h3 class="panel-title">删除移动端活动，TAB缓存，广告缓存</h3>
                 </div>
                 <div class="panel-body">
                     <form id="init_active_form" role="form">
-                        <button type="button" class="btn btn-default" onclick="request('init_active')">TEST</button>
+                        <button type="button" class="btn btn-default" onclick="request('init_active')">提交</button>
                     </form>
                 </div>
             </div>

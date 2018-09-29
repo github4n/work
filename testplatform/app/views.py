@@ -30,7 +30,7 @@ def new_web(request, method=''):
     if method == '':
         return render(request, 'index.html')
     else:
-        # 字符串转函数表达式
+        # 字符串转函数表达式update_stat
         return eval(method)(request)
 
 
@@ -79,7 +79,8 @@ def bd_sj(request):
 def register(request):
     name = request.POST.get('name_zc')
     res = user.register(name)
-    response = HttpResponse(json.dumps(res))
+    # response = HttpResponse(json.dumps(res))
+    response = JsonResponse(res)
     cookies = Common.generate_cookies(res.get('uid', 1522))
     for key, value in cookies.items():
         response.set_cookie(key, value, domain='.huomaotv.com.cn', max_age=86400)
@@ -143,6 +144,12 @@ def update_password(request):
     password = request.POST.get('password')
     res = user.update_password(uid, password)
     return JsonResponse(res)
+
+
+def find_table(request):
+    uid = request.POST.get('uid')
+    res = Common.hash_table(uid)
+    return JsonResponse({'msg': res})
 
 
 def download(request):

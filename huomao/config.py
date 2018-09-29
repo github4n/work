@@ -49,8 +49,8 @@ REDIS_CONFIG = {'host': 'db.huomaotv.com.cn', 'port': 6379}
 REDIS_CONFIG2 = {'host': '10.10.23.12', 'port': 6379}
 
 # 网站url
-URL = 'http://lxy.new.huomaotv.com.cn'
-URL_API = 'http://lxy.new.huomaotv.com.cn'
+URL = 'http://qa.new.huomaotv.com.cn'
+URL_API = 'http://qa.new.huomaotv.com.cn'
 DOMAIN = '.huomaotv.com.cn'
 # 线上地址
 URL_ONLINE = 'https://www.huomao.com'

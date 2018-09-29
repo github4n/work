@@ -16,7 +16,7 @@ from lxml import etree
 from urllib import parse
 
 from .db.contents import HmGag
-from .config import URL, REDIS_CONFIG, REDIS_CONFIG2,ADMIN_COOKIES, ADMIN_COOKIES_ONLINE,logger_huomao
+from .config import URL, REDIS_CONFIG, REDIS_CONFIG2, ADMIN_COOKIES, ADMIN_COOKIES_ONLINE, logger_huomao
 
 # redis连接
 REDIS_INST = redis.Redis(**REDIS_CONFIG, db=0, decode_responses=True)
@@ -54,9 +54,8 @@ class Common():
         value = ''
         for key in sorted(data.keys(), reverse=True):
             value += str(data[key])
-        data['token'] =  Common.md5(value + SECRET_KEY_MOBILE)
+        data['token'] = Common.md5(value + SECRET_KEY_MOBILE)
         return data
-
 
     # md5
     @staticmethod
@@ -69,18 +68,21 @@ class Common():
 
     # 多层字典转单层form
     @staticmethod
-    def form_single_dict(data, key='', ret={}):
-        if isinstance(data, dict):
-            for key1 in sorted(data.keys()):
-                value1 = data.get(key1)
-                key1s = str(key) + '[' + str(key1) + ']' if key else str(key1)
-                if isinstance(value1, dict):
-                    Common.form_single_dict(value1, key1s)
-                else:
-                    ret[key1s] = value1
-            return ret
-        else:
-            return False
+    def form_single_dict(data):
+        ret = {}
+
+        def form_single_dict1(data, key=''):
+            if isinstance(data, dict):
+                for key1 in sorted(data.keys()):
+                    value1 = data.get(key1)
+                    key1s = str(key) + '[' + str(key1) + ']' if key else str(key1)
+                    if isinstance(value1, dict):
+                        form_single_dict1(value1, key1s)
+                    else:
+                        ret[key1s] = value1
+
+        form_single_dict1(data, key='')
+        return ret
 
     # hash分表查询
     @staticmethod
@@ -105,7 +107,7 @@ class Common():
     # 清楚cdn缓存
     @staticmethod
     def clear_cdn_cache(urls):
-        if isinstance(urls,list):
+        if isinstance(urls, list):
             for url in urls:
                 res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': url})
                 res = res.json()
@@ -114,16 +116,16 @@ class Common():
         else:
             res = requests.post('http://bii3c.huomao.com/cachemanage/clearCdnCache', cookies=ADMIN_COOKIES, data={'url': urls})
             res = res.json()
-            print(urls,res)
+            print(urls, res)
             requests.get(urls)
         print('执行完成')
-
 
     @staticmethod
     def clear_all_cdn_cache():
         urls = ['https://www.huomao.com/',
                 'https://www.huomao.com/channel/all',
                 'https://www.huomao.com/1',
+                'https://www.huomao.com/guess',
                 'https://www.huomao.com/zt/lucky']
 
         def get_js_css(urls):
@@ -140,7 +142,7 @@ class Common():
             for ret in set(rets):
                 if ret:
                     if '?v=' in ret:
-                        res.append('https://www.huomao.com'+ret)
+                        res.append('https://www.huomao.com' + ret)
             return res
 
         Common.clear_cdn_cache(get_js_css(urls))
@@ -150,14 +152,12 @@ class Common():
     def add_mobile_yzm(mobile, yzm=123456):
         REDIS_INST.set(f'hm_plugs_mobile_post_{mobile}', yzm, 1800)
 
-
     # 移动端活动删除缓存
     @staticmethod
     def init_active():
-        for key_value in ['*mobile_active_*','*mobile_active_newlist_*','*mobile_in_active_*']:
+        for key_value in ['*mobile_active_*', '*mobile_active_newlist_*', '*mobile_in_active_*', '*hm_advert*']:
             for key in REDIS_INST.keys(key_value):
                 REDIS_INST.delete(key)
-
 
     @staticmethod
     def send_msg(uid, cid):

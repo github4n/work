@@ -10,29 +10,32 @@ function request(method){
             break;
         case 'zc':
             url = '/new_web/register';
-            data = $("#zc_form").serialize()
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: data,
-                async: false,
-                success: function(result) {
-                    result = JSON.parse(result);
-                    if(result.code == 100){
-                         $('.btn-primary').addClass('hidden');
-                         $('.modal-footer a').removeClass('hidden');
-                    }else{
-                        $('.btn-primary').removeClass('hidden');
-                        $('.modal-footer a').addClass('hidden');
-                    }
-                    $('.modal-body').text(result.msg);
-                    $('#myModal').modal('show');
-                    if (result.uid != undefined){
-                        $('.uid').val(result.uid);
-                    };
-                    }
-            });
-            return;
+            data = $("#zc_form").serialize();
+            break;
+//            $.ajax({
+//                type: "POST",
+//                url: url,
+//                data: data,
+//                async: false,
+//                success: function(result) {
+//                    result = JSON.parse(result);
+//                     $("#myAlert").removeClass('hidden');
+//                      $('#myAlert').text(result.msg);
+//                    if(result.code == 100){
+//                         $('.btn-primary').addClass('hidden');
+//                         $('.modal-footer a').removeClass('hidden');
+//                    }else{
+//                        $('.btn-primary').removeClass('hidden');
+//                        $('.modal-footer a').addClass('hidden');
+//                    }
+//                    $('.modal-body').text(result.msg);
+//                    $('#myModal').modal('show');
+//                    if (result.uid != undefined){
+//                        $('.uid').val(result.uid);
+//                    };
+//                    }
+//            });
+//            return;
         case 'sq_zb':
             url = '/new_web/sq_zb';
             data = $("#sq_zb_form").serialize()
@@ -53,9 +56,9 @@ function request(method){
             url = '/new_web/find_uid';
             data = $("#find_uid_form").serialize();
             break;
-        case 'init_fans':
-            url = '/new_web/init_fans';
-            data = $("#init_fans_form").serialize();
+        case 'find_table':
+            url = '/new_web/find_table';
+            data = $("#find_table").serialize();
             break;
         case 'update_password':
             url = '/new_web/update_password';
@@ -97,14 +100,19 @@ function request(method){
         data: data,
         async: false,
         success: function(result) {
-            $('.btn-primary').removeClass('hidden');
-            $('.modal-footer a').addClass('hidden');
-            $('.modal-body').text(result.msg);
-            $('#myModal').modal('show');
+            $("#myAlert").removeClass('hidden');
+            console.log(result);
+//            $(".close").click(function(){
+//                $("#myAlert").alert();
+//            });
+//            $('.btn-primary').removeClass('hidden');
+//            $('.modal-footer a').addClass('hidden');
+            $('#myAlert').text(result.msg);
+//            $('#myModal').modal('show');
             if (result.uid != undefined){
                 $('.uid').val(result.uid);
             };
-//            setTimeout(function(){$("#myModal").modal("hide")},20000);
+            setTimeout(function(){$("#myAlert").addClass('hidden')},2000);
         }
     });
 

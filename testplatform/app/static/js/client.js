@@ -1,4 +1,4 @@
-var test = function(cid,uuid) {
+var test = function(url,cid,uuid) {
     const rawHeaderLen = 16;
     const packetOffset = 0;
     const headerOffset = 4;
@@ -24,7 +24,7 @@ var test = function(cid,uuid) {
         var textEncoder = new TextEncoder();
         var heartbeatInterval;
         function connect() {
-            var ws = new WebSocket('ws://gate.huomaotv.com.cn:8090/sub');  //new WebSocket('ws://192.168.23.13:8090/sub');
+            var ws = new WebSocket(url);  //new WebSocket('ws://192.168.23.13:8090/sub');
             ws.binaryType = 'arraybuffer';
             ws.onopen = function() {
                 auth();
@@ -191,11 +191,14 @@ function getQueryString(name) {
         return 2;
     }
 
+
+url = getQueryString('url'); //'ws://gate.huomaotv.com.cn:8090/sub'
 cid = getQueryString('cid');
 uuid = getQueryString('uid');
+console.log('连接url:',url);
 console.log('连接cid:',cid);
 console.log('连接uid:',uuid);
-test(cid,uuid);
+test(url,cid,uuid);
 
 var html = '';
 var client = new MyClient({

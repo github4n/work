@@ -6,11 +6,11 @@
 from huomao.common import Common
 from time import time
 import requests
-from huomao.bag import Bag
-uid = 3092301
+from huomao.user import User
 
-Bag.add_bag(uid)
-Bag.get_dmk(uid)
+
+User.add_noble_card(1522, 2, 2, 2)
+
 # STREAM_REFRESH_API_EXPIRE = 10
 
 # a = Common.hash_table(30183)

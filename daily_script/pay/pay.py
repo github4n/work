@@ -41,9 +41,9 @@ def wxpay(trade_id, money):
         'type': 'weixin',
         'out_trade_no': trade_id,  # 商户订单号
         'transaction_id': '2',  # 微信交易号
-        'total_fee': money,  # 交易金额  注意类型
+        'total_fee': money*100,  # 交易金额  注意类型
         'sign': '',  # 通知校验ID
-        'tranTime': '',  # 通知的发送时间
+        'time_end': '',  # 通知的发送时间
         'openid': '',  # 买家支付宝帐号
     }
     res = requests.post(url, data=data)
@@ -152,4 +152,4 @@ def tmallpay(trade_id, money):
 
 
 # wxpay(2018050209463215229773399, 2800)
-alipay(20180828172536328078284236, 520)
+wxpay(20180928192623354996498011, 100)

@@ -24,6 +24,7 @@ class Channel():
                     HmChannel.update(is_live=stat).where(HmChannel.room_number == cid).execute()
                     uid = channel.uid
                     key = f'hm_channel_views:{uid}'
+                    REDIS_INST2.hset(key, 'is_live', stat)
                     REDIS_INST.hset(f'hm_channel_anchor_{uid}', 'is_live', json.dumps(stat))
             return {'code': 100, 'status': True, 'msg': '修改成功'}
         else:

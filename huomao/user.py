@@ -9,12 +9,13 @@ import os
 import time
 import requests
 from lxml import etree
-from .db.user import Userbase, Userinfo, Mobile, UserName, Uid,MemberBadge
+from .db.user import Userbase, Userinfo, Mobile, UserName, Uid, MemberBadge
 from .common import REDIS_INST, Common
-from .config import URL, ADMIN_URL, ADMIN_COOKIES,logger_huomao
+from .config import URL, ADMIN_URL, ADMIN_COOKIES, logger_huomao
 from .db.contents import HmChannel
-from .db.noble import HmNobleRecord, HmNobleUser, HmNobleInfo
+from .db.noble import HmNobleRecord, HmNobleUser, HmNobleInfo, HmNobleCard
 from .db.contents import HmGag, HmLoveliness
+from .bag import Bag
 
 
 class User():
@@ -23,7 +24,7 @@ class User():
     def find_uid(username):
         u = Userbase.select(Userbase.uid).where(Userbase.name == username).first()
         if u:
-            return {'code': 100, 'status': True, 'msg': str(u.uid)}
+            return {'code': 100, 'status': True, 'msg': f'成功，UID:{u.uid}', 'uid': str(u.uid)}
         else:
             return {'code': 101, 'status': False, 'msg': '没找到'}
 
@@ -66,7 +67,7 @@ class User():
             data[key] = json.dumps(value)
         REDIS_INST.hmset(f'hm_userbaseinfo_{uid}', data)
         logger_huomao.info(f'注册UID:{uid}')
-        return {'code': 100, 'status': True, 'msg': f'成功\tuid:{uid}密码:1', 'uid': str(uid)}
+        return {'code': 100, 'status': True, 'msg': f'成功\tuid:{uid}密码:1,已自动登录', 'uid': str(uid)}
 
     # 按序注册用户返回uid
     @staticmethod
@@ -186,7 +187,7 @@ class User():
     @staticmethod
     def set_badge(uid, bid=1):
         # 创建徽章
-        MemberBadge.create(uid=uid,bid=bid, currentstat=3, expiretime=0, gettime=1, owntime=-1)
+        MemberBadge.create(uid=uid, bid=bid, currentstat=3, expiretime=0, gettime=1, owntime=-1)
         redis_key = f'hm_member_adorn_badge:{uid}'
         key = 'bid:' + str(bid)
         value = {'bid': bid, 'gettime': str(int(time.time())), 'owntime': '-1', 'currentstat': 3}
@@ -199,7 +200,10 @@ class User():
             res = HmLoveliness.select().where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).first()
             res = res.score if res else 0
         elif type == 'set':
-            res = HmLoveliness.update(score=score).where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).execute()
+            if HmLoveliness.select().where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).first():
+                res = HmLoveliness.update(score=score).where((HmLoveliness.uid == uid) & (HmLoveliness.cid == cid)).execute()
+            else:
+                res = HmLoveliness.create(uid=uid, cid=cid, score=score, type=1, settime=int(time.time()), other_uid=1522)
         elif type == 'del':
             res = HmLoveliness.delete().where(HmLoveliness.uid == uid).execute()
             print(res)
@@ -234,7 +238,7 @@ class User():
     @staticmethod
     def find_noble_anchor_profit(uid, pay_money):
         u = HmNobleRecord.select().where((HmNobleRecord.uid == uid) & (HmNobleRecord.pay_money == pay_money) & (HmNobleRecord.open_type == 1)).first()
-        return u and u.anchor_profit or 0
+        return u and float(u.anchor_profit) or 0
 
     # 设置贵族有效期
     @staticmethod
@@ -243,9 +247,9 @@ class User():
         ret = REDIS_INST.get(key)
         logger_huomao.info(ret)
         data = json.loads(ret)
-        start_time = data['start_time'] - day * 24 * 60 * 60
-        end_time = data['end_time'] - day * 24 * 60 * 60
-        update_time = data['update_time'] - day * 24 * 60 * 60
+        start_time = int(data['start_time']) - day * 24 * 60 * 60
+        end_time = int(data['end_time']) - day * 24 * 60 * 60
+        update_time = int(data['update_time']) - day * 24 * 60 * 60
 
         data['start_time'] = start_time
         data['end_time'] = end_time
@@ -254,3 +258,25 @@ class User():
         HmNobleUser.update(start_time=start_time, end_time=end_time, add_time=start_time, returned_time=start_time).where(
             HmNobleUser.uid == uid).execute()
         HmNobleInfo.update(start_time=start_time, end_time=end_time, update_time=update_time).where(HmNobleInfo.uid == uid).execute()
+
+    # 添加贵族自定义打折卡
+    @staticmethod
+    def add_noble_card(uid, use_level, discount, open_month):
+        now_time = int(time.time())
+        id = HmNobleCard.create(prop_name=f'{use_level}级{open_month}个月{discount}折打折卡',
+                                use_level=use_level,
+                                discount=discount,
+                                addtime=now_time,
+                                updatetime=now_time,
+                                expire=24,
+                                open_month=open_month,
+                                img='/upload/web/images/noble/20180913111130kgcreufR.png',
+                                introduce='说明_测试',
+                                use_condition='使用条件_测试',
+                                action=3,
+                                type=6,
+                                opusername='测试脚本', ).id
+        url = f'http://lxy.new.huomaotv.com.cn/mobile/getNobleDiscountInfo?use_level={use_level}&open_month={open_month}&bag_id={id}&targetType=5&h5Height=1000&h5Width=800'
+        HmNobleCard.update(url=url).where(HmNobleInfo.id == id).execute()
+        Bag.add_bag(uid, bag=id)
+        return id

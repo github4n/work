@@ -12,11 +12,11 @@ from auto_api.lib.lib import report_data
 
 # from auto_api.test_case.web_noble import TestNoble
 # from auto_api.test_case.web_gift import TestGift
-from auto_api.test_case.web_msg import TestMsg
+# from auto_api.test_case.web_msg import TestMsg
 # from auto_api.test_case.web import TestWeb
-from auto_api.test_case.web import TestAdmin
+# from auto_api.test_case.web import TestAdmin
 # from auto_api.test_case.web import TestApi
-# from auto_api.test_case.web_noble import TestNoble
+from auto_api.test_case.web_noble import TestNoble
 
 
 def run_all():
@@ -41,7 +41,11 @@ def run_all():
 
 # for i in range(1,165):
 #     suite.addTest(TestNoble('test_{}'.format(i)))
-suite = unittest.TestSuite()
-suite.addTest(TestMsg('test_13'))
+# suite = unittest.TestSuite()
+# for i in range(1,11):
+#     suite.addTest(TestNoble(f'test_{i}'))
+# suite.addTest(TestNoble('test_1'))
+#
+suite = unittest.makeSuite(TestNoble)
 runner = unittest.TextTestRunner()
 runner.run(suite)

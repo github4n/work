@@ -53,7 +53,7 @@ class MoneyClass():
     @staticmethod
     def get_money(uid):
         money = Money.select().where(Money.uid == uid).first()
-        ret = {'coin': money.coin, 'bean': money.bean}
+        ret = {'coin': float(money.coin), 'bean': float(money.bean)}
         logger_huomao.info(ret)
         return ret
 
@@ -61,7 +61,7 @@ class MoneyClass():
     @staticmethod
     def get_noble_coin(uid):
         noble = NobleCoin.select().where(NobleCoin.uid == uid).first()
-        return noble.coin if noble else 0
+        return float(noble.coin) if noble else 0
 
     # 获取用户猫币，贵族猫币
     @staticmethod

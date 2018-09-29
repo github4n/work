@@ -108,8 +108,8 @@ def bet(uid, **kw):
                 'coin_type': 'free_bean',  # 货币类型仙豆free_bean,猫豆cat_bean
                 'punter': 'bet',  # bet:普通下注,'banker':坐庄, 'buyer':买庄
                 'chose': {  # 下注选项
-                    0: {'chose': 1, 'amount': 100, 'now_odds': 0},
-                    1: {'chose': 1, 'amount': 100, 'now_odds': 0},
+                    # 0: {'chose': 1, 'amount': 100, 'now_odds': 0},
+                    # 1: {'chose': 1, 'amount': 100, 'now_odds': 0},
                 },
             },
         }
@@ -155,7 +155,7 @@ def banker(uid, **kw):
     for key, value in kw.items():
         data[key] = value
     post_data = Common.form_single_dict(data)
-    res = requests.post(URL + '/guessnew/banker?bet_room_number=2&refer=web', data=post_data, cookies=Common.generate_cookies(uid))
+    res = requests.post(URL + '/guessnew/banker?bet_room_number=1&refer=web', data=post_data, cookies=Common.generate_cookies(uid))
     try:
         res = res.json()
         res_info = f'用户{uid}坐庄数据\n{data}返回{res}\n'

@@ -61,3 +61,22 @@ class HmNobleUser(BaseModel):
     class Meta:
         db_table = 'hm_noble_user'
 
+
+class HmNobleCard(BaseModel):
+    prop_name = CharField()
+    use_level = IntegerField()
+    discount = DecimalField()
+    addtime = IntegerField()
+    updatetime = IntegerField()
+    expire = IntegerField()
+    open_month = IntegerField()
+    img = CharField()
+    introduce = CharField()
+    use_condition = CharField()
+    action = IntegerField()
+    type = IntegerField()
+    opusername = CharField()
+    url = CharField()
+
+    class Meta:
+        db_table = 'hm_noble_card'
